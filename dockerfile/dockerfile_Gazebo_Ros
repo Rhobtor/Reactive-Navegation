@@ -8,8 +8,12 @@ RUN apt-get update && \
     apt-get install -y ros-humble-gazebo-ros-pkgs \
                        ros-humble-ros-ign-gazebo \
                        ros-humble-gazebo-ros2-control \
-                       sudo apt install ros-humble-xacro \
+                       ros-humble-xacro \
                        ros-humble-joint-state-publisher \
+                       ros-humble-joint-state-publisher-gui \
+                       ros-humble-pcl-ros \
+                       ros-humble-sensor-msgs \
+                       ros-humble-laser-geometry \
                        ros-humble-ros2-controllers
 
 # # Instalación de NVIDIA Container Toolkit y configuración de la GPU
