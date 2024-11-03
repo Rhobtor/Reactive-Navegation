@@ -1,0 +1,31 @@
+# Usa una imagen base de ROS 2 Humble
+FROM osrf/ros:humble-desktop
+
+WORKDIR /home/workspace
+
+# Instala Gazebo e Ignition Gazebo
+RUN apt-get update && \
+    apt-get install -y ros-humble-gazebo-ros-pkgs \
+                       ros-humble-ros-ign-gazebo \
+                       ros-humble-gazebo-ros2-control \
+                       sudo apt install ros-humble-xacro \
+                       ros-humble-joint-state-publisher \
+                       ros-humble-ros2-controllers
+
+# # Instalación de NVIDIA Container Toolkit y configuración de la GPU
+# RUN apt-get install -y nvidia-container-runtime
+
+# Configuración de display para exportar la interfaz gráfica
+ENV DISPLAY=:0
+RUN apt-get install -y x11-apps
+
+COPY ../workspace /home/workspace
+
+
+RUN /bin/bash -c "source /opt/ros/humble/setup.bash; colcon build"
+RUN echo 'alias source_ros2="source /opt/ros/humble/setup.bash && source install/setup.bash"' >> .bashrc
+
+
+
+# Ajuste del sistema para la conexión entre el contenedor y la pantalla
+CMD ["bash"]
