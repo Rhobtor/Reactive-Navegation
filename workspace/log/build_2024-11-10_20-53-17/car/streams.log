@@ -1,0 +1,55 @@
+[1.347s] Invoking command in '/home/workspace/workspace/src/car': PYTHONPATH=/home/workspace/workspace/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/workspace/workspace/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /home/workspace/workspace/build/car/build install --record /home/workspace/workspace/build/car/install.log --install-scripts $base/lib/car --single-version-externally-managed install_data
+[1.856s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[1.857s]   warnings.warn(
+[1.871s] running egg_info
+[1.873s] creating ../../build/car/car.egg-info
+[1.875s] writing ../../build/car/car.egg-info/PKG-INFO
+[1.879s] writing dependency_links to ../../build/car/car.egg-info/dependency_links.txt
+[1.897s] writing entry points to ../../build/car/car.egg-info/entry_points.txt
+[1.902s] writing requirements to ../../build/car/car.egg-info/requires.txt
+[1.906s] writing top-level names to ../../build/car/car.egg-info/top_level.txt
+[1.916s] writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[1.998s] reading manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[2.053s] writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[2.058s] running build
+[2.060s] running build_py
+[2.071s] creating /home/workspace/workspace/build/car/build
+[2.072s] creating /home/workspace/workspace/build/car/build/lib
+[2.073s] creating /home/workspace/workspace/build/car/build/lib/car
+[2.077s] copying car/__init__.py -> /home/workspace/workspace/build/car/build/lib/car
+[2.085s] running install
+[2.086s] running install_lib
+[2.095s] creating /home/workspace/workspace/install/car/lib/python3.10/site-packages/car
+[2.103s] copying /home/workspace/workspace/build/car/build/lib/car/__init__.py -> /home/workspace/workspace/install/car/lib/python3.10/site-packages/car
+[2.120s] byte-compiling /home/workspace/workspace/install/car/lib/python3.10/site-packages/car/__init__.py to __init__.cpython-310.pyc
+[2.150s] running install_data
+[2.172s] creating /home/workspace/workspace/install/car/share/ament_index
+[2.174s] creating /home/workspace/workspace/install/car/share/ament_index/resource_index
+[2.178s] creating /home/workspace/workspace/install/car/share/ament_index/resource_index/packages
+[2.185s] copying resource/car -> /home/workspace/workspace/install/car/share/ament_index/resource_index/packages
+[2.196s] copying package.xml -> /home/workspace/workspace/install/car/share/car
+[2.205s] creating /home/workspace/workspace/install/car/share/car/launch
+[2.210s] copying launch/display.launch.py -> /home/workspace/workspace/install/car/share/car/launch
+[2.221s] copying launch/gazebo.launch.py -> /home/workspace/workspace/install/car/share/car/launch
+[2.231s] creating /home/workspace/workspace/install/car/share/car/urdf
+[2.234s] copying urdf/car.gazebo -> /home/workspace/workspace/install/car/share/car/urdf
+[2.248s] copying urdf/car.plugin.xacro -> /home/workspace/workspace/install/car/share/car/urdf
+[2.277s] copying urdf/car.trans -> /home/workspace/workspace/install/car/share/car/urdf
+[2.293s] copying urdf/car.xacro -> /home/workspace/workspace/install/car/share/car/urdf
+[2.304s] copying urdf/materials.xacro -> /home/workspace/workspace/install/car/share/car/urdf
+[2.313s] creating /home/workspace/workspace/install/car/share/car/meshes
+[2.317s] copying meshes/base_link.stl -> /home/workspace/workspace/install/car/share/car/meshes
+[2.328s] copying meshes/Laser_1.stl -> /home/workspace/workspace/install/car/share/car/meshes
+[2.359s] copying meshes/Wheel_back_left_1.stl -> /home/workspace/workspace/install/car/share/car/meshes
+[2.377s] copying meshes/Wheel_back_right_1.stl -> /home/workspace/workspace/install/car/share/car/meshes
+[2.400s] copying meshes/Wheel_front_left_1.stl -> /home/workspace/workspace/install/car/share/car/meshes
+[2.417s] copying meshes/Wheel_front_right_1.stl -> /home/workspace/workspace/install/car/share/car/meshes
+[2.431s] creating /home/workspace/workspace/install/car/share/car/config
+[2.438s] copying config/display.rviz -> /home/workspace/workspace/install/car/share/car/config
+[2.451s] creating /home/workspace/workspace/install/car/lib/car
+[2.453s] running install_egg_info
+[2.465s] Copying ../../build/car/car.egg-info to /home/workspace/workspace/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info
+[2.694s] running install_scripts
+[2.765s] Installing keyboard script to /home/workspace/workspace/install/car/lib/car
+[2.772s] writing list of installed files to '/home/workspace/workspace/build/car/install.log'
+[2.792s] Invoked command in '/home/workspace/workspace/src/car' returned '0': PYTHONPATH=/home/workspace/workspace/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/workspace/workspace/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /home/workspace/workspace/build/car/build install --record /home/workspace/workspace/build/car/install.log --install-scripts $base/lib/car --single-version-externally-managed install_data

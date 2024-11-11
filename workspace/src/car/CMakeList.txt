@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.8)
+project(mi_paquete_teleop)
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
+add_executable(teleop_keyboard src/teleop_keyboard.cpp)  # Reemplaza con tu archivo
+target_link_libraries(teleop_keyboard rclcpp::rclcpp geometry_msgs::geometry_msgs)
+
+install(TARGETS
+  teleop_keyboard
+  DESTINATION lib/${PROJECT_NAME})
+
+ament_package()

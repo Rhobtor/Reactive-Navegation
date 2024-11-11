@@ -13,6 +13,7 @@ RUN apt-get update && \
                        ros-humble-joint-state-publisher-gui \
                        ros-humble-pcl-ros \
                        ros-humble-sensor-msgs \
+                       ros-humble-teleop-twist-keyboard \
                        ros-humble-laser-geometry \
                        ros-humble-ros2-controllers
 
@@ -22,7 +23,7 @@ RUN apt-get update && \
 # Configuración de display para exportar la interfaz gráfica
 ENV DISPLAY=:0
 RUN apt-get install -y x11-apps
-
+RUN export GAZEBO_AUDIO_DEVICE=null
 COPY ../workspace /home/workspace
 
 

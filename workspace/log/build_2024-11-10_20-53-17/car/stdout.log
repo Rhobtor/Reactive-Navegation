@@ -1,0 +1,51 @@
+running egg_info
+creating ../../build/car/car.egg-info
+writing ../../build/car/car.egg-info/PKG-INFO
+writing dependency_links to ../../build/car/car.egg-info/dependency_links.txt
+writing entry points to ../../build/car/car.egg-info/entry_points.txt
+writing requirements to ../../build/car/car.egg-info/requires.txt
+writing top-level names to ../../build/car/car.egg-info/top_level.txt
+writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+reading manifest file '../../build/car/car.egg-info/SOURCES.txt'
+writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/workspace/workspace/build/car/build
+creating /home/workspace/workspace/build/car/build/lib
+creating /home/workspace/workspace/build/car/build/lib/car
+copying car/__init__.py -> /home/workspace/workspace/build/car/build/lib/car
+running install
+running install_lib
+creating /home/workspace/workspace/install/car/lib/python3.10/site-packages/car
+copying /home/workspace/workspace/build/car/build/lib/car/__init__.py -> /home/workspace/workspace/install/car/lib/python3.10/site-packages/car
+byte-compiling /home/workspace/workspace/install/car/lib/python3.10/site-packages/car/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/workspace/workspace/install/car/share/ament_index
+creating /home/workspace/workspace/install/car/share/ament_index/resource_index
+creating /home/workspace/workspace/install/car/share/ament_index/resource_index/packages
+copying resource/car -> /home/workspace/workspace/install/car/share/ament_index/resource_index/packages
+copying package.xml -> /home/workspace/workspace/install/car/share/car
+creating /home/workspace/workspace/install/car/share/car/launch
+copying launch/display.launch.py -> /home/workspace/workspace/install/car/share/car/launch
+copying launch/gazebo.launch.py -> /home/workspace/workspace/install/car/share/car/launch
+creating /home/workspace/workspace/install/car/share/car/urdf
+copying urdf/car.gazebo -> /home/workspace/workspace/install/car/share/car/urdf
+copying urdf/car.plugin.xacro -> /home/workspace/workspace/install/car/share/car/urdf
+copying urdf/car.trans -> /home/workspace/workspace/install/car/share/car/urdf
+copying urdf/car.xacro -> /home/workspace/workspace/install/car/share/car/urdf
+copying urdf/materials.xacro -> /home/workspace/workspace/install/car/share/car/urdf
+creating /home/workspace/workspace/install/car/share/car/meshes
+copying meshes/base_link.stl -> /home/workspace/workspace/install/car/share/car/meshes
+copying meshes/Laser_1.stl -> /home/workspace/workspace/install/car/share/car/meshes
+copying meshes/Wheel_back_left_1.stl -> /home/workspace/workspace/install/car/share/car/meshes
+copying meshes/Wheel_back_right_1.stl -> /home/workspace/workspace/install/car/share/car/meshes
+copying meshes/Wheel_front_left_1.stl -> /home/workspace/workspace/install/car/share/car/meshes
+copying meshes/Wheel_front_right_1.stl -> /home/workspace/workspace/install/car/share/car/meshes
+creating /home/workspace/workspace/install/car/share/car/config
+copying config/display.rviz -> /home/workspace/workspace/install/car/share/car/config
+creating /home/workspace/workspace/install/car/lib/car
+running install_egg_info
+Copying ../../build/car/car.egg-info to /home/workspace/workspace/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info
+running install_scripts
+Installing keyboard script to /home/workspace/workspace/install/car/lib/car
+writing list of installed files to '/home/workspace/workspace/build/car/install.log'
