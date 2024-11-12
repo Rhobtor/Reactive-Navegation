@@ -1,0 +1,57 @@
+# Use Ubuntu 22.04 as base image
+FROM ubuntu:22.04
+
+# Set environment variables to avoid interaction during installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y \
+    wget \
+    lsb-release \
+    gnupg \
+    cmake \
+    pkg-config \
+    git \
+    libglew-dev \
+    libfreeimage-dev \
+    freeglut3-dev \
+    libxmu-dev \
+    libxi-dev
+
+# Set up OSRF packages repository for Ignition libraries (Jammy)
+RUN sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list' && \
+    wget http://packages.osrfoundation.org/gazebo.key -O - | apt-key add - && \
+    apt-get update
+
+# Install compatible Gazebo/Ignition libraries
+RUN apt-get install -y \
+    libignition-cmake2-dev \
+    libignition-math6-dev \
+    libignition-common4-dev \
+    libignition-plugin-dev \
+    libignition-rendering6-dev
+
+# Install OGRE and OGRE-Next
+RUN apt-get install -y \
+    libogre-1.9-dev \
+    libogre-next-dev
+
+# Optional: Install CUDA and OptiX (requires NVIDIA drivers and setup)
+# Uncomment below lines if CUDA and OptiX are needed
+ENV LD_LIBRARY_PATH=/opt/optix/NVIDIA-OptiX-SDK-7.2.0-linux64/lib64:$LD_LIBRARY_PATH
+ENV OPTIX_INSTALL_DIR=/opt/optix/NVIDIA-OptiX-SDK-7.2.0-linux64
+
+# Optional: Set up any custom paths if required (e.g., for plugins)
+ENV CMAKE_PREFIX_PATH="/usr/local"
+
+# Cleanup unnecessary files
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Verify installation (optional)
+RUN ldconfig && \
+    echo "Gazebo/Ignition Rendering installation complete."
+
+# Specify a working directory for your project files if needed
+WORKDIR /workspace
