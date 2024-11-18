@@ -75,9 +75,20 @@ RUN apt-get update && \
                        ros-humble-joint-state-publisher \
                        ros-humble-joint-state-publisher-gui \
                        ros-humble-pcl-ros \
+                       ros-humble-image-transport-plugins \
+                       ros-humble-gazebo-plugins \
+                       ros-humble-camera-info-manager \
                        ros-humble-sensor-msgs \
                        ros-humble-teleop-twist-keyboard \
                        ros-humble-laser-geometry \
+                       ros-humble-rqt \
+                       ros-humble-rqt-image-view \
+                       ros-humble-cv-bridge \
+                       ros-humble-image-tools \
+                       ros-humble-image-transport \
+                       ros-humble-image-pipeline \
+                       ros-humble-gazebo-ros-pkgs \
+                       ros-humble-rviz2 \
                        ros-humble-ros2-controllers
 
 

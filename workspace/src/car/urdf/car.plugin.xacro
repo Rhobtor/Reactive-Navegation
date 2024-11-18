@@ -4,7 +4,7 @@
   <gazebo reference="Laser_1">
     <sensor type="gpu_ray" name="laser_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
+      <visualize>false</visualize>
       <update_rate>30.0</update_rate>
       
       <ray>
@@ -36,11 +36,9 @@
       </ray>
 
       <plugin name="gazebo_ros_laser" filename="libgazebo_ros_ray_sensor.so">
-        <topicName>/scan</topicName>
-        <frameName>Laser_1</frameName>
+        <frame_name>base_link</frame_name>
         <!-- <output_type>sensor_msgs/PointCloud2</output_type> -->
       </plugin>
     </sensor>
   </gazebo>
-
 </robot>
