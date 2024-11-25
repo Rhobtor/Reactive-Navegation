@@ -12,7 +12,7 @@ from sklearn.metrics import mean_squared_error as mse
 class PatrollingGraphRoutingProblem:
 
 	def __init__(self, navigation_map: np.ndarray, 
-			  	high_map:np.darray,
+			  	high_map:np.ndarray,
                 importance_map:np.ndarray,
 				scale: int, 
 				n_agents: int, 
@@ -33,7 +33,7 @@ class PatrollingGraphRoutingProblem:
 		# max_importance_map = tuple([np.sum(item) for item in importance_map])
 		self.rho_next = {} #recompensas de actuacion siguiente del modelo en step
 		self.rho_act = {} # recompensas de actuacion actual del modelo en step
-
+		self.coverage_radius = 10
 		# Create the graph
 		self.G = create_graph_from_map(self.navigation_map, self.scale,self.information_map,self.high_map)
 
@@ -112,7 +112,16 @@ class PatrollingGraphRoutingProblem:
 		return mask.astype(bool)
 
 	def step(self, new_positions: np.ndarray):
-
+		"""
+		Realiza un paso en el entorno: mueve los agentes, calcula las distancias
+		y actualiza la recompensa según las restricciones de altura e inclinación.
+		
+		Args:
+			new_positions (np.ndarray): Nuevas posiciones de los agentes.
+		
+		Returns:
+			tuple: Recompensas y estado de finalización (done).
+		"""
 		# Check if the new positions are neighbors of the current positions of the agents
 		for i in range(self.n_agents):
 
@@ -123,88 +132,59 @@ class PatrollingGraphRoutingProblem:
 				raise ValueError('The new positions are not neighbors of the current positions of the agents')
 
 			# Compute the distance traveled by the agents using the edge weight
-			self.agent_distances[i] += self.G[self.agent_positions[i]][new_positions[i]]['weight'] # peso relacioando con la bateria
-			self.G.nodes[self.agent_positions[i]]['values']=0,1
+			self.agent_distances[i] += self.G[self.agent_positions[i]][new_positions[i]]['weight']  # Peso relacionado con la batería
 
 		# Update the positions of the agents
-		
 		self.agent_positions = new_positions.copy()
 
-        #esto era para la exploracion y llegar al objetivos, ya que habia dos problemas a resolver, aqui no tenemos modo explorativo por ahora.
-		#Posible a futuro la exploracion
-		
-        #Esto es la recompensa: 
-        #1º navegacion hacia el punto
+		# Recompensa: verificación de obstáculos y caminos transitables
+		rewards = np.zeros(self.n_agents)
 
 		for i in range(self.n_agents):
-			# Procesamos el reward #
-			self.rho_next[i] = self.G.nodes.get(self.agent_positions[i], {'value': 0.0})['value'] 
-			self.rho_act[i] = self.G.nodes.get(self.agent_pos_ant[i], {'value': 0.0})['value']
+			current_position = self.agent_positions[i]
 
-			# Check if the node exists in the graph before accessing its attributes	
-			node_id = self.agent_positions[i]
-			if node_id in self.G.nodes:
-				self.G.nodes[node_id]['rh_reward'] = self.rho_next[i] - self.rho_act[i]
+			if current_position == -1:
+				continue
 
+			# Verificar si el agente puede cruzar el obstáculo
+			neighbors = list(self.G.neighbors(current_position))
+			reward = 0
 
-		
-		reward = np.array([0]*len(self.G.nodes[1]['importance']), dtype = float)
-		idle = [self.G.nodes[node]['rh_reward'] for node in self.agent_positions if node in self.G.nodes]
-		imp = [self.G.nodes[node]['importance'] for node in self.agent_positions if node in self.G.nodes]
+			for neighbor in neighbors:
+				current_height = self.G.nodes[current_position]['height']
+				neighbor_height = self.G.nodes[neighbor]['height']
+				
+				# Calcular la diferencia de altura (inclinación)
+				height_diff = abs(current_height - neighbor_height)
 
-		for imp_index in range(len(self.G.nodes[1]['importance'])):
-			for ship_index in range(len(idle)):
-				if imp_index < len(imp[ship_index]) and ship_index < len(idle):
-					reward[imp_index] += np.array(idle[ship_index]) * np.array(imp[ship_index][imp_index])
+				if height_diff > 1:  # Si la inclinación es mayor a 1m, no puede pasar
+					reward -= 1  # Penalización por no poder cruzar el obstáculo
+				elif height_diff <= 1:  # Si la inclinación es aceptable
+					reward += 1  # Recompensa por cruzar el obstáculo
 
+			rewards[i] = reward
 
-		for node in range(1, len(self.G)):
-			if node in self.agent_positions:
-				self.G.nodes[node]['importance'] = list(np.array(self.G.nodes[node]['importance']) - 0.2*np.array(self.G.nodes[node]['importance']))
-				for index in range(len(self.G.nodes[node]['importance'])):
-					if self.G.nodes[node]['importance'][index] < 0:
-						self.G.nodes[node]['importance'][index] = 0
-		
-		
-		self.rewards = reward
-
-		
-		for node_index in self.G.nodes:
-			current_value = self.G.nodes[node_index]['value']  # Obtén el valor actual del atributo 'value'
-			new_value = min([current_value + 0.05, 1]) # Calcula el nuevo valor
-			
-			self.G.nodes[node_index]['value'] = new_value  # Act
-
-		for i in range(self.n_agents):
-			if self.agent_positions[i] in self.L.nodes:
-				self.G.nodes[self.agent_positions[i]]['value'] = 0.1
-		
-		
-		
-		
-		
-		self.agent_pos_ant= self.agent_positions 
-
-
-		# Update the waypoints
+		# Actualizar los waypoints de los agentes
 		for agent_id, new_position in enumerate(new_positions):
 			if new_position != -1:
-				# Append the position from the node
+				# Añadir la posición del nodo al waypoint
 				self.waypoints[agent_id].append(list(self.G.nodes[new_position]['position']))
 
-		# Update the idleness and information maps with the rewards
+		# Actualización de los mapas y otras variables
 		self.update_maps()
 
+		# Comprobar si todos los agentes han superado la distancia máxima
 		done = np.asarray([agent_distance > self.max_distance for agent_distance in self.agent_distances.values()]).all()
 
+		# También verificar si algún agente ha llegado a una posición no válida (-1)
 		done = done or np.asarray([agent_position == -1 for agent_position in self.agent_positions]).all()
-		
-		# Return the rewards
-		return self.rewards, done
 
-	def evaluate_path(self, multiagent_path: dict, render = False) -> dict:
-		""" Evaluate a path """
-		
+		# Retornar las recompensas y el estado de finalización (done)
+		return rewards, done
+
+	def evaluate_path(self, multiagent_path: dict, render=False) -> dict:
+		""" Evaluate a path considering the new terrain passability conditions """
+
 		self.reset()
 
 		if render:
@@ -213,61 +193,64 @@ class PatrollingGraphRoutingProblem:
 		done = False
 		t = 0
 
-		final_rewards = np.array([0]*len(self.G.nodes[1]['importance']), dtype = float)
+		# Initialize rewards based on node importance
+		final_rewards = np.array([0] * len(self.G.nodes), dtype=float)
+		
 		while not done:
 			next_positions = np.zeros_like(self.agent_positions)
-			
+
 			for i in range(self.n_agents):
 				if t < len(multiagent_path[i]):
-					
 					next_positions[i] = multiagent_path[i][t]
 				else:
 					next_positions[i] = -1
 
 			new_rewards, done = self.step(next_positions)
 
-			
-			final_rewards+=new_rewards
+			# Update the final rewards for all agents
+			final_rewards += new_rewards
 
 			if render:
 				self.render()
-			
+
 			t += 1
+
 		return final_rewards
 
+
 	def render(self):
-
 		if self.fig is None:
-
 			self.fig, self.ax = plt.subplots(1, 2, figsize=(10, 10))
 
+			# Display the information map and ground truth (if available)
 			self.d1 = self.ax[0].imshow(self.information_map, cmap='gray', vmin=0, vmax=1)
 			self.d2 = self.ax[1].imshow(self.ground_truth.read(), cmap='gray', vmin=0, vmax=1)
 
+			# Initialize agent render positions
 			self.agents_render_pos = []
 			for i in range(self.n_agents):
-				
-				# Obtain the agent position from node to position
+				# Obtain the agent position from the graph node to actual coordinates
 				agent_position_coords = self.G.nodes[self.agent_positions[i]]['position']
 				self.agents_render_pos.append(self.ax[0].plot(agent_position_coords[0], agent_position_coords[1], color=self.colors[i], marker=self.markers[i], markersize=10, alpha=0.35)[0])
 
 		else:
-
+			# Update agent trajectories in the render
 			for i in range(self.n_agents):
-				
 				traj = np.asarray(self.waypoints[i])
 				# Plot the trajectory of the agent
-				self.agents_render_pos[i].set_data(traj[:,0], traj[:,1])
+				self.agents_render_pos[i].set_data(traj[:, 0], traj[:, 1])
 
+			# Update the maps being shown
 			self.d1.set_data(self.information_map)
 			self.d2.set_data(self.ground_truth.read())
-
-			
+		
+		# Redraw the canvas
 		self.fig.canvas.draw()
 		plt.pause(0.01)
 
-def create_graph_from_map(navigation_map: np.ndarray, resolution: int,importance_map: np.ndarray):
-	""" Create a graph from a navigation map """
+
+def create_graph_from_map(navigation_map: np.ndarray, resolution: int, importance_map: np.ndarray, height_map: np.ndarray):
+	""" Create a graph from a navigation map, considering obstacles' height and slope passability """
 
 	# Obtain the scaled navigation map
 	scaled_navigation_map = navigation_map[::resolution, ::resolution]
@@ -280,26 +263,52 @@ def create_graph_from_map(navigation_map: np.ndarray, resolution: int,importance
 
 	# Add the nodes
 	for i, position in enumerate(visitable_positions):
+		# Store the position in original resolution
 		G.add_node(i, position=position[::-1]*resolution, coords=position*resolution)
+		
+		# Set default node attributes
 		nx.set_node_attributes(G, {i: 1}, 'value')
+		
+		# Get the importance values for this position
 		x_index, y_index = position * resolution
 		importance_values = [item[x_index, y_index] for item in importance_map]
-		nx.set_node_attributes(G, {i:importance_values},'importance')
+		nx.set_node_attributes(G, {i: importance_values}, 'importance')
+		
+		# Set default reward
 		nx.set_node_attributes(G, {i: 0}, 'rh_reward')
-	
-	# for i, position in enumerate(visitable_positions):
-	# 	G.add_node(i, position=position[::-1]*resolution, coords=position*resolution)
-	# 	nx.set_node_attributes(G, {i: 1}, 'value')
-	# 	x_index, y_index = position // resolution
-	# 	importance_values = [item[x_index, y_index] for item in importance_map]
-	# 	nx.set_node_attributes(G, importance_values,'importance')
-	
-	# Add the edges
+		
+		# Get the height value for this position
+		height_value = height_map[x_index, y_index]
+		nx.set_node_attributes(G, {i: height_value}, 'height')
+
+	# Add the edges, considering passability based on obstacle height and slope
 	for i, position in enumerate(visitable_positions):
 		for j, other_position in enumerate(visitable_positions):
 			if i != j:
-				if np.linalg.norm(position - other_position) <= np.sqrt(2):
-					G.add_edge(i, j, weight=np.linalg.norm(position - other_position)*resolution)
+				# Calculate the distance between the positions
+				distance = np.linalg.norm(position - other_position)
+				
+				# Check if the terrain between these positions is passable
+				x1, y1 = position * resolution
+				x2, y2 = other_position * resolution
+				
+				height_1 = height_map[x1, y1]
+				height_2 = height_map[x2, y2]
+				
+				# Check height difference for slope passability
+				height_diff = abs(height_1 - height_2)
+				
+				# If the height difference is too large (more than 1 meter), the slope is not passable
+				if height_diff > 1:
+					continue
+				
+				# If the obstacle height is greater than 3 meters, it is impassable
+				if height_1 > 3 or height_2 > 3:
+					continue
+				
+				# Add edge with weight proportional to the distance
+				if distance <= np.sqrt(2):
+					G.add_edge(i, j, weight=distance * resolution)
 
 	return G
 
