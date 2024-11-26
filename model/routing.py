@@ -2,28 +2,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
 import matplotlib
-from AlgaeBloomGroundTruth import algae_bloom
+# from AlgaeBloomGroundTruth import algae_bloom
 from ShekelGroundTruth import shekel
 from itertools import cycle
 from GaussianProcessModel import GaussianProcessModel
 from sklearn.metrics import mean_squared_error as mse
+import pandas as pd
 
 
 class PatrollingGraphRoutingProblem:
 
 	def __init__(self, navigation_map: np.ndarray, 
 			  	high_map:np.ndarray,
-                importance_map:np.ndarray,
 				scale: int, 
 				n_agents: int, 
 				max_distance: float, 
 				initial_positions: np.ndarray,
-				ground_truth: str,
-				final_positions: np.ndarray = None):
+				ground_truth: str ,
+				final_positions: np.ndarray = None
+				 ):
 
 		self.navigation_map = navigation_map
 		self.high_map= high_map
-		self.information_map= importance_map
 		self.scale = scale
 		self.n_agents = n_agents # for now only 1
 		self.max_distance = max_distance # depend the baterry
@@ -35,12 +35,12 @@ class PatrollingGraphRoutingProblem:
 		self.rho_act = {} # recompensas de actuacion actual del modelo en step
 		self.coverage_radius = 10
 		# Create the graph
-		self.G = create_graph_from_map(self.navigation_map, self.scale,self.information_map,self.high_map)
-
+		self.G = create_graph_from_map(self.navigation_map, self.scale,self.high_map)
+		benchmark = ground_truth
 		# Create the grund truth #
 		# """ Create the benchmark """
-		# if benchmark == 'shekel':
-		# 	self.ground_truth = shekel(self.navigation_map, max_number_of_peaks=6, seed = 0, dt=0.05)
+		if benchmark == 'shekel':
+			self.ground_truth = shekel(self.navigation_map, max_number_of_peaks=6, seed = 0, dt=0.05)
 		# elif benchmark == 'algae_bloom':
 		# 	self.ground_truth = algae_bloom(self.navigation_map, dt=0.5, seed=0)
 		# else:
@@ -249,7 +249,7 @@ class PatrollingGraphRoutingProblem:
 		plt.pause(0.01)
 
 
-def create_graph_from_map(navigation_map: np.ndarray, resolution: int, importance_map: np.ndarray, height_map: np.ndarray):
+def create_graph_from_map(navigation_map: np.ndarray, resolution: int, height_map: np.ndarray):
 	""" Create a graph from a navigation map, considering obstacles' height and slope passability """
 
 	# Obtain the scaled navigation map
@@ -271,8 +271,6 @@ def create_graph_from_map(navigation_map: np.ndarray, resolution: int, importanc
 		
 		# Get the importance values for this position
 		x_index, y_index = position * resolution
-		importance_values = [item[x_index, y_index] for item in importance_map]
-		nx.set_node_attributes(G, {i: importance_values}, 'importance')
 		
 		# Set default reward
 		nx.set_node_attributes(G, {i: 0}, 'rh_reward')
@@ -280,7 +278,11 @@ def create_graph_from_map(navigation_map: np.ndarray, resolution: int, importanc
 		# Get the height value for this position
 		height_value = height_map[x_index, y_index]
 		nx.set_node_attributes(G, {i: height_value}, 'height')
-
+	# for i, position in enumerate(visitable_positions):
+	# 	for j, other_position in enumerate(visitable_positions):
+	# 		if i != j:
+	# 			if np.linalg.norm(position - other_position) <= np.sqrt(2):
+	# 				G.add_edge(i, j, weight=np.linalg.norm(position - other_position)*resolution)
 	# Add the edges, considering passability based on obstacle height and slope
 	for i, position in enumerate(visitable_positions):
 		for j, other_position in enumerate(visitable_positions):
@@ -396,87 +398,38 @@ def create_multiagent_random_paths_from_nodes(G, initial_positions, distance, fi
 		#print(multiagent_path)
 		return multiagent_path
 
-def cross_operation_between_paths(G: nx.Graph, path1, path2):
-	""" Perform a cross operation between two paths. """
 
-	# Transform the paths into numpy arrays
-	path1 = np.asarray(path1)
-	path2 = np.asarray(path2)
-
-	# Obtain the split points
-	i = np.random.randint(0, len(path1), size=2)
-	i.sort()
-
-	j = np.random.randint(0, len(path2), size=2)
-	j.sort()
-
-	
-	resulting_path_1 = np.concatenate((path1[:i[0]], 
-										nx.shortest_path(G, path1[i[0]], path2[j[0]])[:-1],
-										path2[j[0]:j[1]],
-										nx.shortest_path(G, path2[j[1]], path1[i[1]])[:-1],
-										path1[i[1]:]
-										))
-
-	resulting_path_2 = np.concatenate((path2[:j[0]], 
-										nx.shortest_path(G, path2[j[0]], path1[i[0]])[:-1],
-										path1[i[0]:i[1]],
-										nx.shortest_path(G, path1[i[1]], path2[j[1]])[:-1],
-										path2[j[1]:]
-										))		
-
-	return resulting_path_1.tolist(), resulting_path_2.tolist()
-
-def mutation_operation(G: nx.Graph, path, mut_prob=0.1):
-	""" Alter a random node to its closest neighbor. """
-
-	new_path = path.copy()
-
-	# Select a random node
-	for i in range(1, len(new_path)-1):
-
-		if np.random.rand() < mut_prob:
-
-			# Obtain the common neighbors between the node i and the next node
-			common_neighbors_1 = list(nx.neighbors(G, new_path[i-1]))
-			common_neighbors_2 = list(nx.neighbors(G, new_path[i+1]))
-			common_neighbors = [node for node in common_neighbors_1 if node in common_neighbors_2 and node != new_path[i]]
-
-			# Select a random neighbor
-			if len(common_neighbors) > 0:
-				new_path[i] = np.random.choice(common_neighbors)
-
-	return new_path
 
 
 if __name__ == '__main__':
 
 	np.random.seed(0)
 
-	navigation_map = np.genfromtxt('map.txt', delimiter=' ')
-	importance_map= importance_map = [ np.genfromtxt('map_interested1.txt', delimiter=' '), 
-                   np.genfromtxt('map_interested2.txt', delimiter=' ')]
-	N_agents = 4
+	navigation_map = np.genfromtxt('../maps/output/heightmap_traversability.txt', delimiter=' ')
+	high_map= np.genfromtxt('../maps/output/heightmap_z_values.txt', delimiter=' ')
+	N_agents = 1
 	initial_positions = np.array([10,20,30,40])[:N_agents]
-	final_positions = np.array([10,10,30,40])[:N_agents]
-	scale = 3
+	#final_positions = np.genfromtxt('../maps/output/interest_points.txt', delimiter=' ')
+	final_positions = np.array([40,20,30,40])[:N_agents]
+
+	scale = 40
 
 	environment = PatrollingGraphRoutingProblem(navigation_map = navigation_map,
-											 	importance_map=importance_map,
+											 	high_map=high_map,
 												n_agents=N_agents, 
 												initial_positions=initial_positions,
-												# final_positions=final_positions,
+												final_positions=final_positions,
 												scale=scale,
 												max_distance=350.0,
-												ground_truth='shekel',
+												ground_truth='shekel'
+												
 
 	)
 
 
 	# path = create_multiagent_random_paths_from_nodes(environment.G, initial_positions, 150, final_positions)
-	path = create_multiagent_random_paths_from_nodes(environment.G, initial_positions, 150)
-	path_1, path_2 = cross_operation_between_paths(environment.G, path[0], path[1])
-	path_crossed = {0: path_1, 1: path_2,2: path_1}
+	path = create_multiagent_random_paths_from_nodes(environment.G, initial_positions, 150,final_positions)
+
 
 	#environment.evaluate_path(path, render=True)
 	
@@ -495,7 +448,7 @@ if __name__ == '__main__':
 	fig, axs = plt.subplots(2, 2, figsize=(10, 5))
 	plot_graph(environment.G, path=path[0], draw_nodes=True, ax=axs[0,0])
 	plot_graph(environment.G, path=path[1], draw_nodes=True, ax=axs[0,1], cmap_str='Greens')
-	plot_graph(environment.G, path=path[2], draw_nodes=True, ax=axs[1,0], cmap_str='Blues')
+	# plot_graph(environment.G, path=path[2], draw_nodes=True, ax=axs[1,0], cmap_str='Blues')
 	# plot_graph(environment.G, path=path_crossed[0], draw_nodes=True, ax=axs[1,0])
 	# plot_graph(environment.G, path=path_crossed[1], draw_nodes=True, ax=axs[1,1], cmap_str='Greens')
 	plt.show()

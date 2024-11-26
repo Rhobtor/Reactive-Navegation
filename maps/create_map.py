@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from PIL import Image
+import random
 
 def load_heightmap(image_path):
     """
@@ -47,6 +48,66 @@ def generate_maps(heightmap):
     
     return traversability_map, z_map
 
+
+def generate_interest_points(heightmap, num_points=1):
+    """
+    Genera puntos de interés en el mapa basados en alturas máximas, mínimas, o aleatorias.
+    
+    Args:
+        heightmap (np.ndarray): Matriz del heightmap.
+        num_points (int): Número de puntos de interés a generar.
+    
+    Returns:
+        list: Lista de puntos de interés como tuplas (x, y, altura).
+    """
+    points = []
+
+    # Encontrar alturas máxima y mínima
+    max_height = np.max(heightmap)
+    min_height = np.min(heightmap)
+
+    # Puntos aleatorios dentro del rango del mapa
+    for _ in range(num_points):
+        x = random.randint(0, heightmap.shape[1] - 1)  # Columna
+        y = random.randint(0, heightmap.shape[0] - 1)  # Fila
+        z = heightmap[y, x]  # Altura en ese punto
+        points.append((x, y, z))
+
+    print(f"Puntos de interés generados: {points}")
+    return points
+
+def save_interest_points(points, output_file):
+    """
+    Guarda los puntos de interés en un archivo CSV.
+    
+    Args:
+        points (list): Lista de puntos de interés como tuplas (x, y, altura).
+        output_file (str): Ruta del archivo de salida.
+    """
+    points_df = pd.DataFrame(points, columns=["X", "Y", "Altura"])
+    points_df.to_csv(output_file, index=False,header=False,sep= ' ')
+    print(f"Puntos de interés guardados en {output_file}")
+
+def visualize_interest_points(heightmap, points):
+    """
+    Visualiza el mapa con los puntos de interés marcados.
+    
+    Args:
+        heightmap (np.ndarray): Matriz del heightmap.
+        points (list): Lista de puntos de interés como tuplas (x, y, altura).
+    """
+    plt.figure(figsize=(8, 8))
+    plt.title("Puntos de Interés en el Mapa")
+    plt.imshow(heightmap, cmap="viridis", interpolation="nearest")
+    plt.colorbar(label="Altura (m)")
+
+    # Marcar puntos de interés
+    for (x, y, z) in points:
+        plt.scatter(x, y, color="red", label=f"({x}, {y}, {z:.2f})")
+    plt.axis("off")
+    plt.show()
+
+
 def save_maps_to_csv(traversability_map, z_map, output_prefix):
     """
     Guarda los mapas de transitabilidad y alturas como archivos CSV.
@@ -58,12 +119,12 @@ def save_maps_to_csv(traversability_map, z_map, output_prefix):
     """
     # Guardar mapa de transitabilidad
     traversability_df = pd.DataFrame(traversability_map)
-    traversability_df.to_csv(f"{output_prefix}_traversability.csv", index=False, header=False)
+    traversability_df.to_csv(f"{output_prefix}_traversability.txt", index=False, header=False,sep= ' ')
     
     # Guardar mapa de alturas
     z_map_df = pd.DataFrame(z_map)
-    z_map_df.to_csv(f"{output_prefix}_z_values.csv", index=False, header=False)
-
+    z_map_df.to_csv(f"{output_prefix}_z_values.txt", index=False, header=False,sep=' ')
+            
     print("Mapas guardados exitosamente como CSV.")
 
 import matplotlib.pyplot as plt
@@ -121,3 +182,15 @@ if __name__ == "__main__":
 
     # Visualizar los mapas generados
     visualize_maps(traversability_map, z_map)
+
+     # Ruta del archivo de salida para puntos de interés
+    points_output_file = "output/interest_points.txt"
+
+    # Generar puntos de interés
+    interest_points = generate_interest_points(heightmap_adjusted, num_points=1)
+
+    # Guardar puntos de interés en un archivo CSV
+    save_interest_points(interest_points, points_output_file)
+
+    # Visualizar el mapa con puntos de interés
+    visualize_interest_points(heightmap_adjusted, interest_points)
