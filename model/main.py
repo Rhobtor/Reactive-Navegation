@@ -2,6 +2,7 @@
 import numpy as np
 from test import PatrollingGraphRoutingProblem
 
+
 def generate_sample_maps(size, resolution):
     """
     Genera mapas de navegación, altura e importancia de ejemplo.
@@ -51,6 +52,18 @@ def main():
     max_distance = 100  # Distancia máxima (batería)
     initial_positions = np.array([0])  # Nodo inicial
     final_positions = np.array([500])  # Nodo final hipotético
+    # Inicialización anterior...
+    agent_states = {
+        agent_id: {
+            "position": initial_positions[agent_id],
+            "distance_traveled": 0,
+            "inclination": 0,
+            "orientation": 0,  # Inicialmente sin giro
+            "perception": {}  # Información observable
+        }
+        for agent_id in range(n_agents)
+    }
+
 
     # navigation_map = np.genfromtxt('../maps/output/heightmap_traversability.txt', delimiter=' ')
     # high_map= np.genfromtxt('../maps/output/heightmap_z_values.txt', delimiter=' ')
@@ -82,7 +95,7 @@ def main():
     test_path = create_test_path(problem.G, initial_positions[0], steps=15)
 
     # Evaluar la ruta
-    rewards = problem.evaluate_path(test_path, render=True)
+    rewards = problem.evaluate_path(test_path, agent_states,render=True)
 
     # Mostrar resultados
     print("Recompensas obtenidas:", rewards)
