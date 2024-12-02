@@ -65,28 +65,44 @@ class PatrollingGraphRoutingProblem:
 
 
 
-
     def create_graph_from_map(self):
         """
         Crea un grafo a partir del mapa de navegación y alturas, considerando restricciones de pendiente.
+        Los vecinos se generan basándose en la proximidad en coordenadas.
         """
         G = nx.Graph()
+        
+        # Escalado del mapa
         scaled_map = self.navigation_map[::self.scale, ::self.scale]
-        visitable_positions = np.column_stack(np.where(scaled_map == 1))
-
+        
+        # Encuentra las posiciones visitables
+        visitable_positions = np.column_stack(np.where(scaled_map == 1))  # Posiciones donde el mapa es '1' (visitables)
+        
+        # Añadir nodos al grafo con sus coordenadas y altura
         for i, position in enumerate(visitable_positions):
             pos_x, pos_y = position * self.scale
             G.add_node(i, position=(pos_x, pos_y), height=self.high_map[pos_x, pos_y])
         
+        # Crear conexiones entre los nodos basadas en proximidad (distancia) y pendiente
         for i, node_a in enumerate(visitable_positions):
             for j, node_b in enumerate(visitable_positions):
                 if i >= j:
                     continue
-                distance = np.linalg.norm(node_a - node_b)
+
+                # Calculamos las coordenadas reales (en píxeles o unidades escaladas)
+                pos_a = node_a * self.scale
+                pos_b = node_b * self.scale
+                
+                # Calculamos la distancia euclidiana entre las posiciones de los nodos
+                distance = np.linalg.norm(pos_a - pos_b)
+                
+                # Calculamos la diferencia de altura (pendiente)
                 slope = abs(G.nodes[i]['height'] - G.nodes[j]['height'])
-                if distance <= self.coverage_radius and slope <= 1:  # Restricción de pendiente
+
+                # Solo añadir la arista si la distancia y la pendiente cumplen las restricciones
+                if distance <= self.coverage_radius and slope <= 1:
                     G.add_edge(i, j, weight=distance)
-        
+
         return G
 
 
@@ -95,32 +111,49 @@ class PatrollingGraphRoutingProblem:
 
     def calculate_observation(self, agent_id):
         """
-        Simula la observación de un agente como si usara una cámara.
+        Simula la observación de un agente con una cámara, limitada a dos nodos en la dirección seleccionada.
 
         Args:
             agent_id (int): ID del agente que observa.
 
         Returns:
-            dict: Información del entorno observable desde el agente.
+            dict: Información de los nodos observables desde el agente.
         """
         current_position = self.agent_states[agent_id]["position"]
-        observable_nodes = [
-            node for node in self.G.nodes
-            if np.linalg.norm(np.array(self.G.nodes[node]['position']) - np.array(current_position)) <= self.coverage_radius
-        ]
-
         observations = {}
-        for node in observable_nodes:
-            position = self.G.nodes[node]['position']
-            height = self.G.nodes[node]['height']
-            for neighbor in self.G.neighbors(node):
-                neighbor_height = self.G.nodes[neighbor]['height']
-                inclination = np.arctan2(abs(height - neighbor_height), self.G[node][neighbor]['weight'])
-                observations[node] = {
-                    "position": position,
-                    "height": height,
-                    "inclination": inclination,
-                }
+        direction = None
+
+        # Verificar el nodo hacia el cual se mueve el agente
+        if "last_movement" in self.agent_states[agent_id]:
+            last_move = self.agent_states[agent_id]["last_movement"]
+            direction = (
+                np.array(self.G.nodes[last_move]["position"]) -
+                np.array(self.G.nodes[current_position]["position"])
+            )
+            direction = direction / np.linalg.norm(direction)  # Normalizar vector
+
+        # Explorar nodos vecinos
+        for neighbor in self.G.neighbors(current_position):
+            neighbor_pos = self.G.nodes[neighbor]['position']
+            vector_to_neighbor = np.array(neighbor_pos) - np.array(self.G.nodes[current_position]['position'])
+            distance = np.linalg.norm(vector_to_neighbor)
+            if direction is None or np.dot(vector_to_neighbor, direction) > 0:  # Misma dirección
+                if distance <= self.coverage_radius:  # En el radio de percepción
+                    observations[neighbor] = {
+                        "position": neighbor_pos,
+                        "height": self.G.nodes[neighbor]['height'],
+                        "distance": distance
+                    }
+                    # Explorar el siguiente nodo conectado
+                    for next_neighbor in self.G.neighbors(neighbor):
+                        if next_neighbor != current_position:
+                            observations[next_neighbor] = {
+                                "position": self.G.nodes[next_neighbor]['position'],
+                                "height": self.G.nodes[next_neighbor]['height'],
+                                "distance": np.linalg.norm(
+                                    np.array(self.G.nodes[next_neighbor]['position']) - np.array(neighbor_pos)
+                                )
+                            }
         return observations
 
     def step(self, new_positions):
@@ -146,6 +179,8 @@ class PatrollingGraphRoutingProblem:
             if new_pos == -1 or not self.G.has_edge(current_pos, new_pos):
                 continue
 
+            # Registrar movimiento
+            self.agent_states[i]["last_movement"] = new_pos
             # Actualizar distancia y posición
             edge_data = self.G.get_edge_data(current_pos, new_pos)
             self.agent_states[i]["distance_traveled"] += edge_data['weight']
@@ -188,17 +223,19 @@ class PatrollingGraphRoutingProblem:
         self.ax.set_title("Simulación de navegación reactiva")
 
         for agent_id, state in self.agent_states.items():
-            x, y = state["position"]
+            node_id = state["position"]  # Este es el nodo que tienes, como 0, 1, etc.
+            if node_id in self.G.nodes:
+                x, y = self.G.nodes[node_id]['position']
             self.ax.plot(x, y, 'bo', label=f'Agente {agent_id} (Inclinación: {state["inclination"]:.2f})')
 
         self.ax.legend()
         plt.pause(0.5)
+        plt.show()
 
 
 
 
-
-    def evaluate_path(self,path, graph, agent_states,render=False):
+    def evaluate_path(self,path, agent_states,render=False):
         """
         Evalúa un camino dado en el grafo considerando la distancia, inclinación y percepción.
 
@@ -219,24 +256,33 @@ class PatrollingGraphRoutingProblem:
             next_node = path[i + 1]
 
             # Distancia entre nodos
-            if graph.has_edge(current_node, next_node):
-                edge_data = graph.get_edge_data(current_node, next_node)
+            if self.G.get_edge_data(current_node, next_node):
+                edge_data = self.G.get_edge_data(current_node, next_node)
                 total_distance += edge_data['weight']
             else:
                 continue  # Si no hay conexión, ignorar
 
             # Inclinación entre nodos
-            current_height = graph.nodes[current_node]['height']
-            next_height = graph.nodes[next_node]['height']
+            current_height = self.G.nodes[current_node]['height']
+            next_height = self.G.nodes[next_node]['height']
             total_inclination += abs(current_height - next_height)
 
         # Evaluar percepción en el último nodo del camino
-        last_node = path[-1]
+        
+        # Iterar sobre cada agente en agent_states
         for agent_id, state in agent_states.items():
-            if np.linalg.norm(
-                np.array(graph.nodes[last_node]['position']) - np.array(state["position"])
-            ) <= state["perception"].get('radius', 10):  # Ejemplo de radio de percepción
-                total_perception += 1
+            # Asegurarse de que agent_id esté en el diccionario path y que el valor sea una lista
+            if agent_id in path and isinstance(path[agent_id], list) and path[agent_id]:
+                last_node = path[agent_id][-1]  # Obtener el último nodo para este agente
+                
+                # Evaluar percepción en el último nodo
+                if np.linalg.norm(
+                    np.array(self.G.nodes[last_node]['position']) - np.array(state["position"])
+                ) <= state["perception"].get('radius', 10):  # Ejemplo de radio de percepción
+                    total_perception += 1
+            else:
+                # Manejo de casos donde el agent_id no tiene una lista válida en path
+                print(f"El agent_id {agent_id} no tiene un camino válido en 'path'.")
 
         # Ponderar los criterios de evaluación
         score = -total_distance  # Penalizar distancias más largas

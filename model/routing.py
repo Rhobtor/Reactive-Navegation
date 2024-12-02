@@ -412,7 +412,7 @@ if __name__ == '__main__':
 	#final_positions = np.genfromtxt('../maps/output/interest_points.txt', delimiter=' ')
 	final_positions = np.array([40,20,30,40])[:N_agents]
 
-	scale = 40
+	scale = 50
 
 	environment = PatrollingGraphRoutingProblem(navigation_map = navigation_map,
 											 	high_map=high_map,
