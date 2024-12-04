@@ -50,7 +50,7 @@ class PatrollingGraphRoutingProblem:
         self.colors = ['red', 'blue', 'green', 'yellow', 'orange']
         self.markers = ['o', 'v', '*', 'p', '>']
     
-               # Inicialización anterior...
+        # Inicialización anterior...
         self.agent_states = {
             agent_id: {
                 "position": initial_positions[agent_id],
@@ -80,28 +80,48 @@ class PatrollingGraphRoutingProblem:
         
         # Añadir nodos al grafo con sus coordenadas y altura
         for i, position in enumerate(visitable_positions):
-            pos_x, pos_y = position * self.scale
-            G.add_node(i, position=(pos_x, pos_y), height=self.high_map[pos_x, pos_y])
-        
-        # Crear conexiones entre los nodos basadas en proximidad (distancia) y pendiente
-        for i, node_a in enumerate(visitable_positions):
-            for j, node_b in enumerate(visitable_positions):
-                if i >= j:
-                    continue
+            # pos_x, pos_y = position * self.scale
+            # G.add_node(i, position=(pos_x, pos_y), height=self.high_map[pos_x, pos_y])
+            G.add_node(i,position=position[::-1]*self.scale,coords=position*self.scale)
+            # x_index, y_index = position * self.scale
+            
+            #     # If self.high_map is a 1D array, calculate the corresponding index
+            # map_width = int(len(self.high_map) ** 0.5)  # Assuming square grid
+            # flat_index = x_index * map_width + y_index
+            
+            # if 0 <= flat_index < len(self.high_map):
+            #     high = self.high_map[flat_index]  # Access height value
+            # else:
+            #     high = None  # Handle out-of-bounds case
+            
+            # nx.set_node_attributes(G, {i: high}, 'height')
+            
 
-                # Calculamos las coordenadas reales (en píxeles o unidades escaladas)
-                pos_a = node_a * self.scale
-                pos_b = node_b * self.scale
-                
-                # Calculamos la distancia euclidiana entre las posiciones de los nodos
-                distance = np.linalg.norm(pos_a - pos_b)
-                
-                # Calculamos la diferencia de altura (pendiente)
-                slope = abs(G.nodes[i]['height'] - G.nodes[j]['height'])
+        for i, position in enumerate(visitable_positions):
+            for j, other_position in enumerate(visitable_positions):
+                if i != j:
+                    if np.linalg.norm(position - other_position) <= np.sqrt(2):
+                        G.add_edge(i, j, weight=np.linalg.norm(position - other_position)*self.scale)
+                        
+        # # Crear conexiones entre los nodos basadas en proximidad (distancia) y pendiente
+        # for i, node_a in enumerate(visitable_positions):
+        #     for j, node_b in enumerate(visitable_positions):
+        #         if i >= j:
+        #             continue
 
-                # Solo añadir la arista si la distancia y la pendiente cumplen las restricciones
-                if distance <= self.coverage_radius and slope <= 1:
-                    G.add_edge(i, j, weight=distance)
+        #         # Calculamos las coordenadas reales (en píxeles o unidades escaladas)
+        #         pos_a = node_a * self.scale
+        #         pos_b = node_b * self.scale
+                
+        #         # Calculamos la distancia euclidiana entre las posiciones de los nodos
+        #         distance = np.linalg.norm(pos_a - pos_b)
+                
+        #         # Calculamos la diferencia de altura (pendiente)
+        #         slope = abs(G.nodes[i]['height'] - G.nodes[j]['height'])
+
+        #         # Solo añadir la arista si la distancia y la pendiente cumplen las restricciones
+        #         if distance <= self.coverage_radius and slope <= 1:
+        #             G.add_edge(i, j, weight=distance)
 
         return G
 
@@ -156,59 +176,141 @@ class PatrollingGraphRoutingProblem:
                             }
         return observations
 
-    def step(self, new_positions):
-        """
-        Realiza un paso del entorno, moviendo a los agentes y calculando recompensas.
+    # def step(self, new_positions):
+    #     """
+    #     Realiza un paso del entorno, moviendo a los agentes y calculando recompensas.
 
-        Args:
-            new_positions (dict): Diccionario con los IDs de los agentes como claves y posiciones a las que deben moverse.
+    #     Args:
+    #         new_positions (dict): Diccionario con los IDs de los agentes como claves y posiciones a las que deben moverse.
 
-        Returns:
-            state (dict): Estados actualizados de los agentes.
-            rewards (np.ndarray): Recompensas de los agentes tras el paso.
-            done (bool): True si todos los agentes han terminado.
-        """
-        rewards = np.zeros(self.n_agents)
-        done = False
+    #     Returns:
+    #         state (dict): Estados actualizados de los agentes.
+    #         rewards (np.ndarray): Recompensas de los agentes tras el paso.
+    #         done (bool): True si todos los agentes han terminado.
+    #     """
+    #     rewards = np.zeros(self.n_agents)
+    #     done = False
 
+    #     for i in range(self.n_agents):
+    #         current_pos = self.agent_states[i]["position"]
+    #         new_pos = new_positions.get(i, current_pos)
+
+    #         # Validar movimiento y actualización del grafo
+    #         if new_pos == -1 or not self.G.has_edge(current_pos, new_pos):
+    #             continue
+
+    #         # Registrar movimiento
+    #         self.agent_states[i]["last_movement"] = current_pos
+    #         # Actualizar distancia y posición
+    #         self.agent_distances[i] += self.G[self.agent_positions[i]][new_positions[i]]['weight']
+    #         self.agent_states[i] += edge_data['weight']
+    #         self.agent_states[i]["position"] = new_pos
+
+    #         # Calcular pendiente e inclinación
+    #         current_height = self.G.nodes[current_pos]['height']
+    #         new_height = self.G.nodes[new_pos]['height']
+    #         slope = abs(current_height - new_height)
+    #         self.agent_states[i]["inclination"] = slope
+    #         self.agent_states[i]["orientation"] = np.arctan2(new_height - current_height,new_positions-s['weight'])
+
+    #         # Calcular percepción del entorno
+    #         perception = self.calculate_observation(i)
+    #         self.agent_states[i]["perception"] = perception
+
+    #         # Asignar recompensas basadas en percepción y pendiente
+    #         rewards[i] += len(perception)  # Recompensa por cantidad de nodos observables
+    #         if slope <= 1:
+    #             rewards[i] += 1  # Recompensa por transición válida
+    #         else:
+    #             rewards[i] -= 1  # Penalización por pendiente alta
+
+    #     done = all(
+    #         self.agent_states[i]["distance_traveled"] > self.max_distance
+    #         for i in range(self.n_agents)
+    #     )
+    #     return self.agent_states, rewards, done
+
+
+    def step(self, new_positions: np.ndarray):
+
+        # Check if the new positions are neighbors of the current positions of the agents
         for i in range(self.n_agents):
-            current_pos = self.agent_states[i]["position"]
-            new_pos = new_positions.get(i, current_pos)
 
-            # Validar movimiento y actualización del grafo
-            if new_pos == -1 or not self.G.has_edge(current_pos, new_pos):
+            if new_positions[i] == -1:
                 continue
 
-            # Registrar movimiento
-            self.agent_states[i]["last_movement"] = new_pos
-            # Actualizar distancia y posición
-            edge_data = self.G.get_edge_data(current_pos, new_pos)
-            self.agent_states[i]["distance_traveled"] += edge_data['weight']
-            self.agent_states[i]["position"] = new_pos
+            if new_positions[i] not in list(self.G.neighbors(self.agent_positions[i])):
+                raise ValueError('The new positions are not neighbors of the current positions of the agents')
 
-            # Calcular pendiente e inclinación
-            current_height = self.G.nodes[current_pos]['height']
-            new_height = self.G.nodes[new_pos]['height']
-            slope = abs(current_height - new_height)
-            self.agent_states[i]["inclination"] = slope
-            self.agent_states[i]["orientation"] = np.arctan2(new_height - current_height, edge_data['weight'])
+            # Compute the distance traveled by the agents using the edge weight
+            self.agent_distances[i] += self.G[self.agent_positions[i]][new_positions[i]]['weight']
+            self.G.nodes[self.agent_positions[i]]['values']=0,1
 
-            # Calcular percepción del entorno
-            perception = self.calculate_observation(i)
-            self.agent_states[i]["perception"] = perception
+        # Update the positions of the agents
+        
+        self.agent_positions = new_positions.copy()
+        for i in range(self.n_agents):
+            # Procesamos el reward #
+            self.rho_next[i] = self.G.nodes.get(self.agent_positions[i], {'value': 0.0})['value'] 
+            self.rho_act[i] = self.G.nodes.get(self.agent_pos_ant[i], {'value': 0.0})['value']
+	
+            node_id = self.agent_positions[i]
+            if node_id in self.G.nodes:
+                self.G.nodes[node_id]['rh_reward'] = self.rho_next[i] - self.rho_act[i]
+ 
+        reward = np.array([0]*len(self.G.nodes[1]['importance']), dtype = float)
+        idle = [self.G.nodes[node]['rh_reward'] for node in self.agent_positions if node in self.G.nodes]
+        imp = [self.G.nodes[node]['importance'] for node in self.agent_positions if node in self.G.nodes]
+        #reward = [0.0] * len(imp[0])  # Initialize reward with zeros
+        for imp_index in range(len(self.G.nodes[1]['importance'])):
+            for ship_index in range(len(idle)):
+                if imp_index < len(imp[ship_index]) and ship_index < len(idle):
+                    reward[imp_index] += np.array(idle[ship_index]) * np.array(imp[ship_index][imp_index])
 
-            # Asignar recompensas basadas en percepción y pendiente
-            rewards[i] += len(perception)  # Recompensa por cantidad de nodos observables
-            if slope <= 1:
-                rewards[i] += 1  # Recompensa por transición válida
-            else:
-                rewards[i] -= 1  # Penalización por pendiente alta
+        # print('bbb',reward)
+        for node in range(1, len(self.G)):
+            if node in self.agent_positions:
+                self.G.nodes[node]['importance'] = list(np.array(self.G.nodes[node]['importance']) - 0.2*np.array(self.G.nodes[node]['importance']))
+                for index in range(len(self.G.nodes[node]['importance'])):
+                    if self.G.nodes[node]['importance'][index] < 0:
+                        self.G.nodes[node]['importance'][index] = 0
+        
+        
+        self.rewards = reward
+   
+        for node_index in self.G.nodes:
+            current_value = self.G.nodes[node_index]['value']  # Obtén el valor actual del atributo 'value'
+            new_value = min([current_value + 0.05, 1]) # Calcula el nuevo valor
+            
+            self.G.nodes[node_index]['value'] = new_value  # Act
 
-        done = all(
-            self.agent_states[i]["distance_traveled"] > self.max_distance
-            for i in range(self.n_agents)
-        )
-        return self.agent_states, rewards, done
+        for i in range(self.n_agents):
+            if self.agent_positions[i] in self.L.nodes:
+                self.G.nodes[self.agent_positions[i]]['value'] = 0.1
+        
+        
+        
+        
+        
+        self.agent_pos_ant= self.agent_positions #casi al final
+
+
+        # Update the waypoints
+        for agent_id, new_position in enumerate(new_positions):
+            if new_position != -1:
+                # Append the position from the node
+                self.waypoints[agent_id].append(list(self.G.nodes[new_position]['position']))
+
+        # Update the idleness and information maps with the rewards
+        self.update_maps()
+
+        done = np.asarray([agent_distance > self.max_distance for agent_distance in self.agent_distances.values()]).all()
+
+        done = done or np.asarray([agent_position == -1 for agent_position in self.agent_positions]).all()
+        
+        # Return the rewards
+        return self.rewards, done
+
 
     def render(self):
         """
@@ -235,62 +337,40 @@ class PatrollingGraphRoutingProblem:
 
 
 
-    def evaluate_path(self,path, agent_states,render=False):
-        """
-        Evalúa un camino dado en el grafo considerando la distancia, inclinación y percepción.
-
-        Args:
-            path (list): Lista de nodos que conforman el camino.
-            graph (nx.Graph): Grafo que contiene la información de las rutas.
-            agent_states (dict): Estados actuales de los agentes.
-
-        Returns:
-            float: Puntuación del camino (mayor es mejor).
-        """
-        total_distance = 0
-        total_inclination = 0
-        total_perception = 0
-
-        for i in range(len(path) - 1):
-            current_node = path[i]
-            next_node = path[i + 1]
-
-            # Distancia entre nodos
-            if self.G.get_edge_data(current_node, next_node):
-                edge_data = self.G.get_edge_data(current_node, next_node)
-                total_distance += edge_data['weight']
-            else:
-                continue  # Si no hay conexión, ignorar
-
-            # Inclinación entre nodos
-            current_height = self.G.nodes[current_node]['height']
-            next_height = self.G.nodes[next_node]['height']
-            total_inclination += abs(current_height - next_height)
-
-        # Evaluar percepción en el último nodo del camino
+    def evaluate_path(self,path,render=False):
+        """ Evaluate a path """
         
-        # Iterar sobre cada agente en agent_states
-        for agent_id, state in agent_states.items():
-            # Asegurarse de que agent_id esté en el diccionario path y que el valor sea una lista
-            if agent_id in path and isinstance(path[agent_id], list) and path[agent_id]:
-                last_node = path[agent_id][-1]  # Obtener el último nodo para este agente
-                
-                # Evaluar percepción en el último nodo
-                if np.linalg.norm(
-                    np.array(self.G.nodes[last_node]['position']) - np.array(state["position"])
-                ) <= state["perception"].get('radius', 10):  # Ejemplo de radio de percepción
-                    total_perception += 1
-            else:
-                # Manejo de casos donde el agent_id no tiene una lista válida en path
-                print(f"El agent_id {agent_id} no tiene un camino válido en 'path'.")
-
-        # Ponderar los criterios de evaluación
-        score = -total_distance  # Penalizar distancias más largas
-        score -= total_inclination * 0.5  # Penalizar inclinaciones altas (ajusta el peso según el caso)
-        score += total_perception * 2  # Premiar buena percepción
+        # self.reset()
 
         if render:
             self.render()
+        
+        done = False
+        t = 0
 
-        return score
+        final_rewards = np.array([0]*len(self.G.nodes[1]['importance']), dtype = float)
+        while not done:
+            next_positions = np.zeros_like(self.agent_positions)
+            
+            for i in range(self.n_agents):
+                if t < len(path[i]):
+                    
+                    next_positions[i] = path[i][t]
+                else:
+                    next_positions[i] = -1
+
+            new_rewards, done = self.step(next_positions)
+
+            #print('esto',new_rewards)
+            final_rewards+=new_rewards
+            # print('esttta',final_rewards)
+            # for key in new_rewards.keys():
+            # 	final_rewards[key] += new_rewards[key]
+            # print(new_rewards)
+            if render:
+                self.render()
+            
+            t += 1
+        return final_rewards
+
 
