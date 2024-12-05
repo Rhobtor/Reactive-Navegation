@@ -219,8 +219,7 @@ def create_random_path_from_nodes(G : nx.Graph, start_node: int, distance: float
 
         # Select a random node
         next_node = np.random.choice(G.nodes())
-        print(path_length(G, path))
-        print(G)
+
         # Obtain a random path to reach it
         new_path = random_shorted_path(G, path[-1], next_node)
         path.extend(new_path)
@@ -259,8 +258,21 @@ def main():
     scale = 5  # Resolución del grafo
     n_agents = 1  # Número de agentes
     max_distance = 100  # Distancia máxima (batería)
-    initial_positions = np.array([0])  # Nodo inicial
-    final_positions = np.array([500])  # Nodo final hipotético
+
+
+
+    # navigation_map , high= generate_sample_maps(map_size,scale)
+    navigation_map = np.genfromtxt('../maps/output/heightmap_traversability.txt', delimiter=' ')
+    high_map= np.genfromtxt('../maps/output/heightmap_z_values.txt', delimiter=' ')
+    N_agents = 1
+    initial_positions = np.array([10,20,30,40])[:N_agents]
+    initial_position=10
+	#final_positions = np.genfromtxt('../maps/output/interest_points.txt', delimiter=' ')
+    # final_position = np.array([40,20,30,40])[:N_agents]
+    final_position=3
+    scale = 40
+
+
     # Inicialización anterior...
     agent_states = {
         agent_id: {
@@ -273,45 +285,39 @@ def main():
         for agent_id in range(n_agents)
     }
 
-    # navigation_map , high= generate_sample_maps(map_size,scale)
-    navigation_map = np.genfromtxt('../maps/output/heightmap_traversability.txt', delimiter=' ')
-    high_map= np.genfromtxt('../maps/output/heightmap_z_values.txt', delimiter=' ')
-    N_agents = 1
-    initial_positions = np.array([10,20,30,40])[:N_agents]
-    initial_position=10
-	#final_positions = np.genfromtxt('../maps/output/interest_points.txt', delimiter=' ')
-    final_position = np.array([40,20,30,40])[:N_agents]
-    final_position=600
-    scale = 40
-
     # destination = select_random_node(navigation_map)
     # print (destination)
-    # plt.imshow(navigation_map, cmap='gray', interpolation='nearest')
+    #plt.imshow(navigation_map, cmap='gray', interpolation='nearest')
     # plt.scatter(destination[1], destination[0], color='red', label="Destino")
     # plt.title("Mapa de Navegación con Destino Aleatorio")
     # plt.colorbar()
     # plt.legend()
     # plt.show()
+    # Leer la primera línea y contar las columnas
+    
+    # high_map_reshap = high_map.reshape(1080, 1080)
+
 
     # Inicializar el problema
     problem = PatrollingGraphRoutingProblem(
         navigation_map=navigation_map,
         high_map=high_map,
-        importance_map=final_position,
         scale=scale,
         n_agents=n_agents,
         max_distance=max_distance,
         initial_positions=initial_positions,
-        final_positions=final_positions
+        final_positions=final_position
     )
+    
     #visualize_graph(problem.G)
     # next_node = np.random.choice(problem.G.nodes())
     # print(next_node)
     # random_shorted_path(problem.G,initial_position,next_node)
     path=create_random_path_from_nodes(problem.G,initial_position,150,final_position)
-
-    problem.evaluate_path(path, render=True)
-    plot_graph(problem.G, path=path, draw_nodes=True)
+    #print(problem.G.nodes[final_position])
+    #print(path)
+    problem.evaluate_path(path, render=False)
+    # plot_graph(problem.G, path=path, draw_nodes=True)
 #     # Crear una ruta de prueba
 #     test_path = create_test_path(problem.G, initial_positions[0], steps=10, max_distance=10, max_slope=1)
 #     print(test_path)

@@ -163,7 +163,7 @@ def visualize_maps(traversability_map, z_map):
 # Main function
 if __name__ == "__main__":
     # Ruta del heightmap de entrada
-    heightmap_path = "test_map.png"  # Cambia esta ruta a tu archivo
+    heightmap_path = "test_map3_3.png"  # Cambia esta ruta a tu archivo
     
     # Prefijo para los archivos de salida
     output_prefix = "output/heightmap"  # Carpeta y prefijo para los archivos de salida

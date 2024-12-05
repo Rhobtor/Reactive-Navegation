@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
 from sklearn.metrics import mean_squared_error as mse
+from ShekelGroundTruth import shekel
+from GaussianProcessModel import GaussianProcessModel
 
 class PatrollingGraphRoutingProblem:
     """
@@ -9,7 +11,7 @@ class PatrollingGraphRoutingProblem:
     a partir de un mapa de navegación, alturas y puntos de importancia.
     """
     
-    def __init__(self, navigation_map, high_map, importance_map, scale, n_agents, max_distance, 
+    def __init__(self, navigation_map, high_map, scale, n_agents, max_distance, 
                  initial_positions, final_positions=None):
         """
         Inicializa el problema de patrullaje.
@@ -26,7 +28,6 @@ class PatrollingGraphRoutingProblem:
         """
         self.navigation_map = navigation_map
         self.high_map = high_map
-        self.importance_map = importance_map
         self.scale = scale
         self.n_agents = n_agents
         self.max_distance = max_distance
@@ -37,11 +38,12 @@ class PatrollingGraphRoutingProblem:
         self.agent_positions = initial_positions.copy()
         self.agent_distances = {agent_id: 0 for agent_id in range(n_agents)}
         self.coverage_radius = 10  # Radio de visión de los agentes
-        self.rewards = np.zeros(n_agents)
-        
+        self.rewards = 0
+        self.model = GaussianProcessModel(navigation_map = navigation_map)
+        self.ground_truth = shekel(self.navigation_map, max_number_of_peaks=6, seed = 0, dt=0.05)
         # Crear el grafo a partir del mapa
         self.G = self.create_graph_from_map()
-        print(f"Graph G created: {self.G}")
+
         # Waypoints para seguimiento
         self.waypoints = {agent_id: [self.G.nodes[pos]['position']] for agent_id, pos in enumerate(initial_positions)}
         
@@ -64,7 +66,6 @@ class PatrollingGraphRoutingProblem:
 
 
 
-
     def create_graph_from_map(self):
         """
         Crea un grafo a partir del mapa de navegación y alturas, considerando restricciones de pendiente.
@@ -80,22 +81,13 @@ class PatrollingGraphRoutingProblem:
         
         # Añadir nodos al grafo con sus coordenadas y altura
         for i, position in enumerate(visitable_positions):
-            # pos_x, pos_y = position * self.scale
-            # G.add_node(i, position=(pos_x, pos_y), height=self.high_map[pos_x, pos_y])
+
             G.add_node(i,position=position[::-1]*self.scale,coords=position*self.scale)
-            # x_index, y_index = position * self.scale
-            
-            #     # If self.high_map is a 1D array, calculate the corresponding index
-            # map_width = int(len(self.high_map) ** 0.5)  # Assuming square grid
-            # flat_index = x_index * map_width + y_index
-            
-            # if 0 <= flat_index < len(self.high_map):
-            #     high = self.high_map[flat_index]  # Access height value
-            # else:
-            #     high = None  # Handle out-of-bounds case
-            
-            # nx.set_node_attributes(G, {i: high}, 'height')
-            
+            x_index, y_index = position * self.scale
+            x_index, y_index = position * self.scale
+            height_value = self.high_map[x_index, y_index]
+            nx.set_node_attributes(G, {i:height_value},'high')
+            nx.set_node_attributes(G, {i: 0}, 'distance_reward')
 
         for i, position in enumerate(visitable_positions):
             for j, other_position in enumerate(visitable_positions):
@@ -103,29 +95,49 @@ class PatrollingGraphRoutingProblem:
                     if np.linalg.norm(position - other_position) <= np.sqrt(2):
                         G.add_edge(i, j, weight=np.linalg.norm(position - other_position)*self.scale)
                         
-        # # Crear conexiones entre los nodos basadas en proximidad (distancia) y pendiente
-        # for i, node_a in enumerate(visitable_positions):
-        #     for j, node_b in enumerate(visitable_positions):
-        #         if i >= j:
-        #             continue
-
-        #         # Calculamos las coordenadas reales (en píxeles o unidades escaladas)
-        #         pos_a = node_a * self.scale
-        #         pos_b = node_b * self.scale
-                
-        #         # Calculamos la distancia euclidiana entre las posiciones de los nodos
-        #         distance = np.linalg.norm(pos_a - pos_b)
-                
-        #         # Calculamos la diferencia de altura (pendiente)
-        #         slope = abs(G.nodes[i]['height'] - G.nodes[j]['height'])
-
-        #         # Solo añadir la arista si la distancia y la pendiente cumplen las restricciones
-        #         if distance <= self.coverage_radius and slope <= 1:
-        #             G.add_edge(i, j, weight=distance)
-
         return G
 
+    def reset(self):
+            # Reset all the variables of the scenario #
 
+            self.ground_truth.reset()
+            self.model.reset()
+
+            self.agent_positions = self.initial_positions.copy()
+            self.agent_pos_ant= self.agent_positions
+            
+            # Reset the rewards #
+            self.rewards = {}
+
+
+            self.waypoints = {agent_id: [list(self.G.nodes[initial_position]['position'])] for agent_id, initial_position in zip(range(self.n_agents), self.initial_positions)}
+            self.agent_distances = {agent_id: 0 for agent_id in range(self.n_agents)}
+
+            # Input the initial positions to the model
+            new_position_coordinates = np.array([self.G.nodes[new_position]['position'] for new_position in self.agent_positions])
+            new_samples = self.ground_truth.read(new_position_coordinates)
+
+
+
+
+
+            # Update the model
+            self.model.update(new_position_coordinates, new_samples)
+
+    def update_maps(self):
+        """ Update the idleness and information maps """
+
+        # Input the initial positions to the model
+
+        new_position_coordinates = np.array([self.G.nodes[new_position]['position'] for new_position in self.agent_positions if new_position != -1])
+        
+        # Check if no new positions are available
+        if new_position_coordinates.shape[0] != 0:
+            new_samples = self.ground_truth.read(new_position_coordinates)
+
+            # Update the model
+            self.model.update(new_position_coordinates, new_samples)
+            self.information_map = self.model.predict() # esta es la y , la w en el en paper
 
 
 
@@ -176,60 +188,6 @@ class PatrollingGraphRoutingProblem:
                             }
         return observations
 
-    # def step(self, new_positions):
-    #     """
-    #     Realiza un paso del entorno, moviendo a los agentes y calculando recompensas.
-
-    #     Args:
-    #         new_positions (dict): Diccionario con los IDs de los agentes como claves y posiciones a las que deben moverse.
-
-    #     Returns:
-    #         state (dict): Estados actualizados de los agentes.
-    #         rewards (np.ndarray): Recompensas de los agentes tras el paso.
-    #         done (bool): True si todos los agentes han terminado.
-    #     """
-    #     rewards = np.zeros(self.n_agents)
-    #     done = False
-
-    #     for i in range(self.n_agents):
-    #         current_pos = self.agent_states[i]["position"]
-    #         new_pos = new_positions.get(i, current_pos)
-
-    #         # Validar movimiento y actualización del grafo
-    #         if new_pos == -1 or not self.G.has_edge(current_pos, new_pos):
-    #             continue
-
-    #         # Registrar movimiento
-    #         self.agent_states[i]["last_movement"] = current_pos
-    #         # Actualizar distancia y posición
-    #         self.agent_distances[i] += self.G[self.agent_positions[i]][new_positions[i]]['weight']
-    #         self.agent_states[i] += edge_data['weight']
-    #         self.agent_states[i]["position"] = new_pos
-
-    #         # Calcular pendiente e inclinación
-    #         current_height = self.G.nodes[current_pos]['height']
-    #         new_height = self.G.nodes[new_pos]['height']
-    #         slope = abs(current_height - new_height)
-    #         self.agent_states[i]["inclination"] = slope
-    #         self.agent_states[i]["orientation"] = np.arctan2(new_height - current_height,new_positions-s['weight'])
-
-    #         # Calcular percepción del entorno
-    #         perception = self.calculate_observation(i)
-    #         self.agent_states[i]["perception"] = perception
-
-    #         # Asignar recompensas basadas en percepción y pendiente
-    #         rewards[i] += len(perception)  # Recompensa por cantidad de nodos observables
-    #         if slope <= 1:
-    #             rewards[i] += 1  # Recompensa por transición válida
-    #         else:
-    #             rewards[i] -= 1  # Penalización por pendiente alta
-
-    #     done = all(
-    #         self.agent_states[i]["distance_traveled"] > self.max_distance
-    #         for i in range(self.n_agents)
-    #     )
-    #     return self.agent_states, rewards, done
-
 
     def step(self, new_positions: np.ndarray):
 
@@ -242,66 +200,47 @@ class PatrollingGraphRoutingProblem:
             if new_positions[i] not in list(self.G.neighbors(self.agent_positions[i])):
                 raise ValueError('The new positions are not neighbors of the current positions of the agents')
 
-            # Compute the distance traveled by the agents using the edge weight
-            self.agent_distances[i] += self.G[self.agent_positions[i]][new_positions[i]]['weight']
-            self.G.nodes[self.agent_positions[i]]['values']=0,1
-
+        reward=0
         # Update the positions of the agents
-        
-        self.agent_positions = new_positions.copy()
         for i in range(self.n_agents):
-            # Procesamos el reward #
-            self.rho_next[i] = self.G.nodes.get(self.agent_positions[i], {'value': 0.0})['value'] 
-            self.rho_act[i] = self.G.nodes.get(self.agent_pos_ant[i], {'value': 0.0})['value']
-	
+
+            node_id = self.agent_positions[i]
+            
+            if node_id in self.G.nodes:
+
+                pos1 = np.array(self.G.nodes[self.agent_positions[i]]['coords'])               
+                pos2 = np.array(self.G.nodes[self.final_positions]['coords'])    
+                self.distance = np.linalg.norm(pos1 - pos2)
+
+
+
+        self.agent_positions = new_positions.copy()
+
+        
+            
+        for i in range(self.n_agents):
+
             node_id = self.agent_positions[i]
             if node_id in self.G.nodes:
-                self.G.nodes[node_id]['rh_reward'] = self.rho_next[i] - self.rho_act[i]
- 
-        reward = np.array([0]*len(self.G.nodes[1]['importance']), dtype = float)
-        idle = [self.G.nodes[node]['rh_reward'] for node in self.agent_positions if node in self.G.nodes]
-        imp = [self.G.nodes[node]['importance'] for node in self.agent_positions if node in self.G.nodes]
-        #reward = [0.0] * len(imp[0])  # Initialize reward with zeros
-        for imp_index in range(len(self.G.nodes[1]['importance'])):
-            for ship_index in range(len(idle)):
-                if imp_index < len(imp[ship_index]) and ship_index < len(idle):
-                    reward[imp_index] += np.array(idle[ship_index]) * np.array(imp[ship_index][imp_index])
+                pos1 = np.array(self.G.nodes[self.agent_positions[i]]['coords'])         
+                pos2 = np.array(self.G.nodes[self.final_positions]['coords'])    
+                self.distance_new = np.linalg.norm(pos1 - pos2)
+            
+            if self.distance_new < self.distance:
+                reward=reward+1
 
-        # print('bbb',reward)
-        for node in range(1, len(self.G)):
-            if node in self.agent_positions:
-                self.G.nodes[node]['importance'] = list(np.array(self.G.nodes[node]['importance']) - 0.2*np.array(self.G.nodes[node]['importance']))
-                for index in range(len(self.G.nodes[node]['importance'])):
-                    if self.G.nodes[node]['importance'][index] < 0:
-                        self.G.nodes[node]['importance'][index] = 0
-        
+
         
         self.rewards = reward
    
-        for node_index in self.G.nodes:
-            current_value = self.G.nodes[node_index]['value']  # Obtén el valor actual del atributo 'value'
-            new_value = min([current_value + 0.05, 1]) # Calcula el nuevo valor
-            
-            self.G.nodes[node_index]['value'] = new_value  # Act
 
-        for i in range(self.n_agents):
-            if self.agent_positions[i] in self.L.nodes:
-                self.G.nodes[self.agent_positions[i]]['value'] = 0.1
-        
-        
         
         
         
         self.agent_pos_ant= self.agent_positions #casi al final
 
 
-        # Update the waypoints
-        for agent_id, new_position in enumerate(new_positions):
-            if new_position != -1:
-                # Append the position from the node
-                self.waypoints[agent_id].append(list(self.G.nodes[new_position]['position']))
 
-        # Update the idleness and information maps with the rewards
         self.update_maps()
 
         done = np.asarray([agent_distance > self.max_distance for agent_distance in self.agent_distances.values()]).all()
@@ -340,7 +279,7 @@ class PatrollingGraphRoutingProblem:
     def evaluate_path(self,path,render=False):
         """ Evaluate a path """
         
-        # self.reset()
+        self.reset()
 
         if render:
             self.render()
@@ -348,25 +287,20 @@ class PatrollingGraphRoutingProblem:
         done = False
         t = 0
 
-        final_rewards = np.array([0]*len(self.G.nodes[1]['importance']), dtype = float)
+        final_rewards = 0
         while not done:
-            next_positions = np.zeros_like(self.agent_positions)
+            next_positions = [0] * len(path) 
             
-            for i in range(self.n_agents):
-                if t < len(path[i]):
-                    
-                    next_positions[i] = path[i][t]
-                else:
-                    next_positions[i] = -1
-
+            for i in range(len(path)):
+                
+                next_positions[i] = path[i]
+            
+            #print(next_positions)
             new_rewards, done = self.step(next_positions)
 
-            #print('esto',new_rewards)
+
             final_rewards+=new_rewards
-            # print('esttta',final_rewards)
-            # for key in new_rewards.keys():
-            # 	final_rewards[key] += new_rewards[key]
-            # print(new_rewards)
+
             if render:
                 self.render()
             
