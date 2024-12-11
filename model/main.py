@@ -242,21 +242,46 @@ def create_random_path_from_nodes(G : nx.Graph, start_node: int, distance: float
     return path[1:]
 
 def visualize_graph(G):
-    # pos = nx.get_node_attributes(G, 'position')
-    # nx.draw(G, pos, node_size=20, with_labels=False)
-    # plt.show()
-    print(f"El grafo tiene {len(G.nodes)} nodos.")
-    for node in G.nodes(data=True):  # Obtiene nodos con sus atributos
-        node_id = node[0]
-        attributes = node[1]
-        print(f"Nodo {node_id}: {attributes}")
+    pos = nx.get_node_attributes(G, 'position')
+    nx.draw(G, pos, node_size=20, with_labels=False)
+    plt.show()
+    # print(f"El grafo tiene {len(G.nodes)} nodos.")
+    # for node in G.nodes(data=True):  # Obtiene nodos con sus atributos
+    #     node_id = node[0]
+    #     attributes = node[1]
+    #     print(f"Nodo {node_id}: {attributes}")
 
+
+
+def check_path(graph, node_start, node_end):
+    """
+    Comprueba si hay un camino entre dos nodos en un grafo y devuelve el camino si existe.
+    
+    Parameters:
+        graph (nx.Graph): El grafo en el que se buscará el camino.
+        node_start (hashable): Nodo inicial.
+        node_end (hashable): Nodo final.
+
+    Returns:
+        list: Una lista con los nodos que forman el camino si existe, de lo contrario devuelve None.
+    """
+    try:
+        # Usa NetworkX para encontrar el camino más corto (si existe)
+        path = nx.shortest_path(graph, source=node_start, target=node_end)
+        return path
+    except nx.NetworkXNoPath:
+        # No hay camino entre los nodos
+        print(f"No hay camino entre los nodos {node_start} y {node_end}.")
+        return None
+    except nx.NodeNotFound as e:
+        # Alguno de los nodos no está en el grafo
+        print(f"Error: {e}")
+        return None
+    
 
 def main():
     # Parámetros del entorno
-    map_size = (50, 50)  # Tamaño del mapa
-    scale = 5  # Resolución del grafo
-    n_agents = 1  # Número de agentes
+
     max_distance = 100  # Distancia máxima (batería)
 
 
@@ -264,38 +289,26 @@ def main():
     # navigation_map , high= generate_sample_maps(map_size,scale)
     navigation_map = np.genfromtxt('../maps/output/heightmap_traversability.txt', delimiter=' ')
     high_map= np.genfromtxt('../maps/output/heightmap_z_values.txt', delimiter=' ')
-    N_agents = 1
-    initial_positions = np.array([10,20,30,40])[:N_agents]
-    initial_position=10
+    n_agents = 1
+    
+    initial_position=0
 	#final_positions = np.genfromtxt('../maps/output/interest_points.txt', delimiter=' ')
     # final_position = np.array([40,20,30,40])[:N_agents]
-    final_position=3
-    scale = 40
+    final_position=42
+    scale = 1
 
 
     # Inicialización anterior...
     agent_states = {
-        agent_id: {
-            "position": initial_positions[agent_id],
+
+            "position": initial_position,
             "distance_traveled": 0,
             "inclination": 0,
             "orientation": 0,  # Inicialmente sin giro
             "perception": {}  # Información observable
         }
-        for agent_id in range(n_agents)
-    }
 
-    # destination = select_random_node(navigation_map)
-    # print (destination)
-    #plt.imshow(navigation_map, cmap='gray', interpolation='nearest')
-    # plt.scatter(destination[1], destination[0], color='red', label="Destino")
-    # plt.title("Mapa de Navegación con Destino Aleatorio")
-    # plt.colorbar()
-    # plt.legend()
-    # plt.show()
-    # Leer la primera línea y contar las columnas
-    
-    # high_map_reshap = high_map.reshape(1080, 1080)
+
 
 
     # Inicializar el problema
@@ -305,50 +318,22 @@ def main():
         scale=scale,
         n_agents=n_agents,
         max_distance=max_distance,
-        initial_positions=initial_positions,
+        initial_positions=initial_position,
         final_positions=final_position
     )
     
+    path=check_path(problem.G,initial_position,final_position)
+    print(path)
     #visualize_graph(problem.G)
     # next_node = np.random.choice(problem.G.nodes())
     # print(next_node)
     # random_shorted_path(problem.G,initial_position,next_node)
-    path=create_random_path_from_nodes(problem.G,initial_position,150,final_position)
+    #path=create_random_path_from_nodes(problem.G,initial_position,150,final_position)
     #print(problem.G.nodes[final_position])
     #print(path)
-    problem.evaluate_path(path, render=False)
-    # plot_graph(problem.G, path=path, draw_nodes=True)
-#     # Crear una ruta de prueba
-#     test_path = create_test_path(problem.G, initial_positions[0], steps=10, max_distance=10, max_slope=1)
-#     print(test_path)
-#     display_node_properties(problem.G)
-#     # Posiciones para dibujar el grafo
-# # Crear el subgrafo del camino
-#     path_edges = [(test_path[0][i], test_path[0][i + 1]) for i in range(len(test_path[0]) - 1)]
-#     subgraph = problem.G.edge_subgraph(path_edges).copy()
+    problem.evaluate_path(path, render=True)
+    plot_graph(problem.G, path=path, draw_nodes=True)
 
-#     # Visualizar el grafo y el camino
-
-
-#     pos = nx.spring_layout(problem.G)  # Layout del grafo completo
-#     nx.draw(problem.G, pos, with_labels=True, node_size=300, node_color="lightgrey", edge_color="lightgrey")
-#     nx.draw(subgraph, pos, with_labels=True, node_size=500, node_color="lightblue", edge_color="blue")
-#     plt.show()
-    
-
-#     # Evaluar la ruta
-#     rewards = problem.evaluate_path(test_path, agent_states,render=True)
-
-#     # Mostrar resultados
-#     print("Recompensas obtenidas:", rewards)
-#     # print("Camino seguido por el agente:", problem.waypoints[0])
-#     # # print("Contenido del grafo:")
-#     # # for node in problem.G.nodes:
-#     # #     print(f"Nodo {node}: {problem.G.nodes[node]}")
-
-#     # # Renderizar el camino final
-#     # problem.render()
-#     # print("Simulación completada.")
 
 if __name__ == "__main__":
     main()

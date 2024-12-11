@@ -35,7 +35,7 @@ class PatrollingGraphRoutingProblem:
         self.final_positions = final_positions
         self.width = 50   # Ancho del espacio de navegación
         self.height = 50
-        self.agent_positions = initial_positions.copy()
+        self.agent_positions = initial_positions
         self.agent_distances = {agent_id: 0 for agent_id in range(n_agents)}
         self.coverage_radius = 10  # Radio de visión de los agentes
         self.rewards = 0
@@ -45,7 +45,7 @@ class PatrollingGraphRoutingProblem:
         self.G = self.create_graph_from_map()
 
         # Waypoints para seguimiento
-        self.waypoints = {agent_id: [self.G.nodes[pos]['position']] for agent_id, pos in enumerate(initial_positions)}
+        self.waypoints = [self.G.nodes[self.agent_positions]['position']]
         
         # Variables para renderizado
         self.fig = None
@@ -54,17 +54,48 @@ class PatrollingGraphRoutingProblem:
     
         # Inicialización anterior...
         self.agent_states = {
-            agent_id: {
-                "position": initial_positions[agent_id],
+   
+                "position": initial_positions,
                 "distance_traveled": 0,
                 "inclination": 0,
                 "orientation": 0,  # Inicialmente sin giro
                 "perception": {}  # Información observable
             }
-            for agent_id in range(n_agents)
-        }
+            
+        
 
 
+
+    # def create_graph_from_map(self):
+    #     """
+    #     Crea un grafo a partir del mapa de navegación y alturas, considerando restricciones de pendiente.
+    #     Los vecinos se generan basándose en la proximidad en coordenadas.
+    #     """
+    #     G = nx.Graph()
+        
+    #     # Escalado del mapa
+    #     scaled_map = self.navigation_map[::self.scale, ::self.scale]
+        
+    #     # Encuentra las posiciones visitables
+    #     visitable_positions = np.column_stack(np.where(scaled_map == 1))  # Posiciones donde el mapa es '1' (visitables)
+        
+    #     # Añadir nodos al grafo con sus coordenadas y altura
+    #     for i, position in enumerate(visitable_positions):
+
+    #         G.add_node(i,position=position[::-1]*self.scale,coords=position*self.scale)
+    #         x_index, y_index = position * self.scale
+    #         x_index, y_index = position * self.scale
+    #         height_value = self.high_map[x_index, y_index]
+    #         nx.set_node_attributes(G, {i:height_value},'high')
+    #         nx.set_node_attributes(G, {i: 0}, 'distance_reward')
+
+    #     for i, position in enumerate(visitable_positions):
+    #         for j, other_position in enumerate(visitable_positions):
+    #             if i != j:
+    #                 if np.linalg.norm(position - other_position) <= np.sqrt(2):
+    #                     G.add_edge(i, j, weight=np.linalg.norm(position - other_position)*self.scale)
+                        
+    #     return G
 
     def create_graph_from_map(self):
         """
@@ -72,30 +103,39 @@ class PatrollingGraphRoutingProblem:
         Los vecinos se generan basándose en la proximidad en coordenadas.
         """
         G = nx.Graph()
-        
+
         # Escalado del mapa
         scaled_map = self.navigation_map[::self.scale, ::self.scale]
-        
+
         # Encuentra las posiciones visitables
         visitable_positions = np.column_stack(np.where(scaled_map == 1))  # Posiciones donde el mapa es '1' (visitables)
-        
-        # Añadir nodos al grafo con sus coordenadas y altura
-        for i, position in enumerate(visitable_positions):
 
-            G.add_node(i,position=position[::-1]*self.scale,coords=position*self.scale)
-            x_index, y_index = position * self.scale
+        # Altura máxima del mapa (para invertir el eje Y)
+        max_y = scaled_map.shape[0] * self.scale
+
+        # Añadir nodos al grafo con sus coordenadas ajustadas
+        for i, position in enumerate(visitable_positions):
+            # Invertir eje Y
+            adjusted_position = position * self.scale
+            adjusted_position[1] = max_y - adjusted_position[1]  # Ajustar eje Y
+
+            G.add_node(i, position=adjusted_position[::-1], coords=adjusted_position)
             x_index, y_index = position * self.scale
             height_value = self.high_map[x_index, y_index]
-            nx.set_node_attributes(G, {i:height_value},'high')
+            nx.set_node_attributes(G, {i: height_value}, 'high')
             nx.set_node_attributes(G, {i: 0}, 'distance_reward')
 
+        # Añadir las aristas según la proximidad
         for i, position in enumerate(visitable_positions):
             for j, other_position in enumerate(visitable_positions):
                 if i != j:
                     if np.linalg.norm(position - other_position) <= np.sqrt(2):
-                        G.add_edge(i, j, weight=np.linalg.norm(position - other_position)*self.scale)
-                        
+                        G.add_edge(i, j, weight=np.linalg.norm(position - other_position) * self.scale)
+
         return G
+
+
+
 
     def reset(self):
             # Reset all the variables of the scenario #
@@ -103,18 +143,19 @@ class PatrollingGraphRoutingProblem:
             self.ground_truth.reset()
             self.model.reset()
 
-            self.agent_positions = self.initial_positions.copy()
+            self.agent_positions = self.initial_positions
             self.agent_pos_ant= self.agent_positions
             
             # Reset the rewards #
             self.rewards = {}
 
 
-            self.waypoints = {agent_id: [list(self.G.nodes[initial_position]['position'])] for agent_id, initial_position in zip(range(self.n_agents), self.initial_positions)}
+            self.waypoints = (self.G.nodes[self.initial_positions]['position'])
             self.agent_distances = {agent_id: 0 for agent_id in range(self.n_agents)}
 
             # Input the initial positions to the model
-            new_position_coordinates = np.array([self.G.nodes[new_position]['position'] for new_position in self.agent_positions])
+            new_position_coordinates = np.array([self.G.nodes[self.initial_positions]['position']])
+            #print(new_position_coordinates)
             new_samples = self.ground_truth.read(new_position_coordinates)
 
 
@@ -129,7 +170,7 @@ class PatrollingGraphRoutingProblem:
 
         # Input the initial positions to the model
 
-        new_position_coordinates = np.array([self.G.nodes[new_position]['position'] for new_position in self.agent_positions if new_position != -1])
+        new_position_coordinates = np.array([self.G.nodes[self.new_position]['position']])
         
         # Check if no new positions are available
         if new_position_coordinates.shape[0] != 0:
@@ -191,88 +232,152 @@ class PatrollingGraphRoutingProblem:
 
     def step(self, new_positions: np.ndarray):
 
-        # Check if the new positions are neighbors of the current positions of the agents
-        for i in range(self.n_agents):
-
+    # Check if the new positions are neighbors of the current positions of the agents
+        for i in range(len(new_positions)):
             if new_positions[i] == -1:
                 continue
 
-            if new_positions[i] not in list(self.G.neighbors(self.agent_positions[i])):
+            # Convert list with single element to int (in case new_positions[i] is a list)
+            self.new_position = new_positions[i][0] if isinstance(new_positions[i], list) else new_positions[i]
+            
+            # Verifica si la nueva posición es un vecino de la posición actual
+            if self.new_position not in list(self.G.neighbors(self.agent_positions)):
                 raise ValueError('The new positions are not neighbors of the current positions of the agents')
 
         reward=0
-        # Update the positions of the agents
-        for i in range(self.n_agents):
+        # Convert list with single element to int (in case new_positions[i] is a list)
+        self.new_position = new_positions[i][0] if isinstance(new_positions[i], list) else new_positions[i]
+        
+        node_id = self.agent_positions
+       
+        if node_id in self.G.nodes:
 
-            node_id = self.agent_positions[i]
-            
-            if node_id in self.G.nodes:
-
-                pos1 = np.array(self.G.nodes[self.agent_positions[i]]['coords'])               
-                pos2 = np.array(self.G.nodes[self.final_positions]['coords'])    
-                self.distance = np.linalg.norm(pos1 - pos2)
+            pos1 = np.array(self.G.nodes[self.agent_positions]['coords'])               
+            pos2 = np.array(self.G.nodes[self.final_positions]['coords'])    
+            self.distance = np.linalg.norm(pos1 - pos2)
 
 
 
-        self.agent_positions = new_positions.copy()
+        self.agent_positions = self.new_position
 
         
             
-        for i in range(self.n_agents):
-
-            node_id = self.agent_positions[i]
-            if node_id in self.G.nodes:
-                pos1 = np.array(self.G.nodes[self.agent_positions[i]]['coords'])         
-                pos2 = np.array(self.G.nodes[self.final_positions]['coords'])    
-                self.distance_new = np.linalg.norm(pos1 - pos2)
-            
-            if self.distance_new < self.distance:
-                reward=reward+1
+        
+        
+        node_id_new = self.agent_positions
+        
+        if node_id_new in self.G.nodes:
+            pos1 = np.array(self.G.nodes[self.agent_positions]['coords'])         
+            pos2 = np.array(self.G.nodes[self.final_positions]['coords'])    
+            self.distance_new = np.linalg.norm(pos1 - pos2)
+        
+        if self.distance_new < self.distance:
+            reward=reward+1
 
 
         
         self.rewards = reward
-   
 
-        
-        
         
         self.agent_pos_ant= self.agent_positions #casi al final
 
-
-
-        self.update_maps()
+        # Update the waypoints
+        
+        if self.new_position != -1:
+            # Append the position from the node
+            self.waypoints= [self.G.nodes[self.new_position]['position']]
+            self.update_maps()
+        # self.waypoints = [self.G.nodes[self.agent_positions]['position']]
+        
 
         done = np.asarray([agent_distance > self.max_distance for agent_distance in self.agent_distances.values()]).all()
-
-        done = done or np.asarray([agent_position == -1 for agent_position in self.agent_positions]).all()
+        if self.new_position == -1:
+            # Append the position from the node
+            done=True
+        # done = done or np.asarray([self.agent_positions == -1])
         
         # Return the rewards
         return self.rewards, done
 
 
+    # def render(self):
+    #     if self.fig is None:
+
+    #         self.fig, self.ax = plt.subplots(1, 2, figsize=(10, 10))
+
+    #         self.d1 = self.ax[0].imshow(self.navigation_map, cmap='gray', vmin=0, vmax=1)
+    #         # self.d2 = self.ax[1].imshow(self.ground_truth.read(), cmap='gray', vmin=0, vmax=1)
+
+    #         self.agents_render_pos = []
+    #         for i in range(self.n_agents):
+                
+    #             print(f"agent positiontttt: {self.agent_positions}")
+    #             agent_position_coords = np.array(self.G.nodes[self.agent_positions[i]]['coords'])
+    #             print(f"agent position: {agent_position_coords}")
+    #             self.agents_render_pos.append(self.ax[0].plot(agent_position_coords[0], agent_position_coords[1], color=self.colors[i], marker=self.markers[i], markersize=10, alpha=0.35)[0])
+
+    #     else:
+
+    #         for i in range(self.n_agents):
+                
+    #             traj = np.asarray(self.waypoints[i])
+    #             # Plot the trajectory of the agent
+    #             self.agents_render_pos[i].set_data(traj[:,0], traj[:,1])
+
+    #         self.d1.set_data(self.navigation_map)
+    #         # self.d2.set_data(self.ground_truth.read())
+
+            
+    #     self.fig.canvas.draw()
+    #     plt.pause(0.01)
+
     def render(self):
-        """
-        Renderiza el entorno y muestra la posición actual de los agentes.
-        """
-        if not hasattr(self, 'fig') or self.fig is None:
-            self.fig, self.ax = plt.subplots()
+        if self.fig is None:
+            self.fig, self.ax = plt.subplots(1, 2, figsize=(10, 10))
 
-        self.ax.clear()
-        self.ax.set_xlim(0, self.width)
-        self.ax.set_ylim(0, self.height)
-        self.ax.set_title("Simulación de navegación reactiva")
+            # Mostrar el mapa de navegación
+            self.d1 = self.ax[0].imshow(self.navigation_map, cmap='gray', vmin=0, vmax=1)
 
-        for agent_id, state in self.agent_states.items():
-            node_id = state["position"]  # Este es el nodo que tienes, como 0, 1, etc.
-            if node_id in self.G.nodes:
-                x, y = self.G.nodes[node_id]['position']
-            self.ax.plot(x, y, 'bo', label=f'Agente {agent_id} (Inclinación: {state["inclination"]:.2f})')
+            # Invertir el eje Y para alinear el origen en la esquina inferior izquierda
+            self.ax[0].invert_yaxis()
 
-        self.ax.legend()
-        plt.pause(0.5)
-        plt.show()
+            # Configurar límites de los ejes
+            self.ax[0].set_xlim(0, self.navigation_map.shape[1])
+            self.ax[0].set_ylim(0, self.navigation_map.shape[0])
 
+            self.agents_render_pos = []
+            for i in range(self.n_agents):
+                print(f"agent positiontttt: {self.agent_positions}")
+
+                # Ajustar las coordenadas del agente
+                agent_position_coords = self.G.nodes[self.agent_positions]['coords']
+                agent_position_coords[1] = self.navigation_map.shape[0] - agent_position_coords[1]  # Ajustar eje Y
+                print(f"agent position: {agent_position_coords}")
+
+                self.agents_render_pos.append(
+                    self.ax[0].plot(
+                        agent_position_coords[0],
+                        agent_position_coords[1],
+                        color=self.colors[i],
+                        marker=self.markers[i],
+                        markersize=10,
+                        alpha=0.35
+                    )[0]
+                )
+        else:
+            for i in range(self.n_agents):
+                traj = np.asarray(self.waypoints)
+                
+                # # Ajustar las coordenadas de la trayectoria
+                traj[:, 1] = self.navigation_map.shape[0] - traj[:, 1]  # Ajustar eje Y
+                
+                # Actualizar la trayectoria del agente
+                self.agents_render_pos[i].set_data(traj[:, 0], traj[:, 1])
+
+            self.d1.set_data(self.navigation_map)
+
+        self.fig.canvas.draw()
+        plt.pause(0.01)
 
 
 
@@ -281,30 +386,36 @@ class PatrollingGraphRoutingProblem:
         
         self.reset()
 
-        if render:
-            self.render()
+        # if render:
+        #     self.render()
         
         done = False
         t = 0
 
         final_rewards = 0
+        print(path)
         while not done:
-            next_positions = [0] * len(path) 
+            if t+1 < len(path):  # Verificar que t no exceda el tamaño del path
+                next_positions = [path[t+1]]  # Tomar solo la posición actual del path
+            else:
+                next_positions = [-1]  # Usar -1 si t excede el tamaño del path
+
+            print(f"Next position: {next_positions}")  # Mostrar la posición actual
             
-            for i in range(len(path)):
-                
-                next_positions[i] = path[i]
-            
-            #print(next_positions)
+            # Ejecutar la acción con la posición actual
             new_rewards, done = self.step(next_positions)
-
-
-            final_rewards+=new_rewards
-
-            if render:
-                self.render()
             
-            t += 1
+            print(f"Rewards: {new_rewards}, Done: {done}")  # Mostrar los resultados de la acción
+            final_rewards += new_rewards  # Acumular las recompensas
+            
+            t += 1  # Avanzar al siguiente paso
+            print(f"actual position: {self.agent_positions}")
+
+            if render and self.agent_positions!=-1:
+               
+                self.render()
+                
+          
         return final_rewards
 
 

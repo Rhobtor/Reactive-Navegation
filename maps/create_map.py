@@ -129,6 +129,30 @@ def save_maps_to_csv(traversability_map, z_map, output_prefix):
 
 import matplotlib.pyplot as plt
 
+def reduce_resolution(heightmap, factor):
+    """
+    Reduce la resolución del heightmap agrupando bloques de celdas.
+    
+    Args:
+        heightmap (np.ndarray): Matriz del heightmap original.
+        factor (int): Factor de reducción (p.ej., 2 para reducir a la mitad).
+    
+    Returns:
+        np.ndarray: Heightmap reducido en resolución.
+    """
+    if heightmap.shape[0] % factor != 0 or heightmap.shape[1] % factor != 0:
+        raise ValueError("Las dimensiones del mapa deben ser divisibles por el factor de reducción.")
+    
+    # Redimensionar y calcular el promedio de los bloques
+    reduced_heightmap = heightmap.reshape(
+        heightmap.shape[0] // factor, factor,
+        heightmap.shape[1] // factor, factor
+    ).mean(axis=(1, 3))
+    
+    return reduced_heightmap
+
+
+
 def visualize_maps(traversability_map, z_map):
     """
     Representa visualmente los mapas de transitabilidad y alturas.
@@ -159,11 +183,10 @@ def visualize_maps(traversability_map, z_map):
     plt.show()
 
 
-
 # Main function
 if __name__ == "__main__":
     # Ruta del heightmap de entrada
-    heightmap_path = "test_map3_3.png"  # Cambia esta ruta a tu archivo
+    heightmap_path = "test_map.png"  # Cambia esta ruta a tu archivo
     
     # Prefijo para los archivos de salida
     output_prefix = "output/heightmap"  # Carpeta y prefijo para los archivos de salida
@@ -174,8 +197,12 @@ if __name__ == "__main__":
     # Ajustar el heightmap (restar 100 y convertir a metros)
     heightmap_adjusted = adjust_heightmap(heightmap)
     
-    # Generar los mapas
-    traversability_map, z_map = generate_maps(heightmap_adjusted)
+    # Reducir la resolución del heightmap
+    reduction_factor = 12  # Cambia este valor según tus necesidades
+    heightmap_reduced = reduce_resolution(heightmap_adjusted, reduction_factor)
+    
+    # Generar los mapas con el heightmap reducido
+    traversability_map, z_map = generate_maps(heightmap_reduced)
     
     # Guardar los mapas en archivos CSV
     save_maps_to_csv(traversability_map, z_map, output_prefix)
@@ -183,14 +210,14 @@ if __name__ == "__main__":
     # Visualizar los mapas generados
     visualize_maps(traversability_map, z_map)
 
-     # Ruta del archivo de salida para puntos de interés
+    # Ruta del archivo de salida para puntos de interés
     points_output_file = "output/interest_points.txt"
 
     # Generar puntos de interés
-    interest_points = generate_interest_points(heightmap_adjusted, num_points=1)
+    interest_points = generate_interest_points(heightmap_reduced, num_points=1)
 
     # Guardar puntos de interés en un archivo CSV
     save_interest_points(interest_points, points_output_file)
 
     # Visualizar el mapa con puntos de interés
-    visualize_interest_points(heightmap_adjusted, interest_points)
+    visualize_interest_points(heightmap_reduced, interest_points)
