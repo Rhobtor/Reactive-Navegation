@@ -6,6 +6,7 @@
 <xacro:include filename="$(find car)/urdf/car.gazebo" />
 <xacro:include filename="$(find car)/urdf/car.plugin.xacro" />
 <xacro:include filename="$(find car)/urdf/depth.plugin.xacro" />
+<xacro:include filename="$(find car)/urdf/odom.plugin.xacro" />
 <link name="base_link">
   <inertial>
     <origin xyz="0.5000181378162949 0.25000000000000006 0.2517249688727959" rpy="0 0 0"/>
