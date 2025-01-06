@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Incluye tus materiales y otras configuraciones si es necesario -->
+  <xacro:include filename="materials.xacro"/>
+
+  <!-- Base del robot -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="1.0 0.5 0.2"/>
+      </geometry>
+      <material name="Blue"/>
+    </visual>
+  </link>
+
+  <!-- Ruedas delanteras -->
+  <link name="front_left_wheel"/>
+  <link name="front_right_wheel"/>
+
+  <!-- Ruedas traseras -->
+  <link name="rear_left_wheel"/>
+  <link name="rear_right_wheel"/>
+
+  <!-- Juntas -->
+  <joint name="front_left_wheel_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="front_left_wheel"/>
+    <origin xyz="0.5 0.3 0.0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="front_right_wheel_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0.5 -0.3 0.0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="rear_left_wheel_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="rear_left_wheel"/>
+    <origin xyz="-0.5 0.3 0.0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="rear_right_wheel_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="rear_right_wheel"/>
+    <origin xyz="-0.5 -0.3 0.0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- Plugin de Ackermann Drive -->
+  <gazebo>
+    <plugin name="ackermann_drive_plugin" filename="libgazebo_ros_ackermann_drive.so">
+      <rosDebugLevel>Debug</rosDebugLevel>
+
+      <!-- Configuración de las ruedas -->
+      <left_steering_joint>front_left_wheel_joint</left_steering_joint>
+      <right_steering_joint>front_right_wheel_joint</right_steering_joint>
+      <left_wheel_joint>rear_left_wheel_joint</left_wheel_joint>
+      <right_wheel_joint>rear_right_wheel_joint</right_wheel_joint>
+
+      <!-- Dimensiones -->
+      <wheel_separation>0.6</wheel_separation>
+      <steering_limit>0.5</steering_limit> <!-- Máximo ángulo de giro -->
+
+      <!-- Configuración ROS -->
+      <robot_base_frame>base_link</robot_base_frame>
+      <odometry_frame>odom</odometry_frame>
+      <command_topic>/cmd_ackermann</command_topic>
+      <publish_odometry>true</publish_odometry>
+      <publish_odometry_tf>true</publish_odometry_tf>
+    </plugin>
+  </gazebo>
+</robot>

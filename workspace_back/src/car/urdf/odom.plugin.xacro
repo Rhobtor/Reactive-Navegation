@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot>
+  <!-- Plugin de Ackermann Drive -->
+  <gazebo>
+    <plugin name="ackermann_drive_plugin" filename="libgazebo_ros_ackermann_drive.so">
+      <rosDebugLevel>Debug</rosDebugLevel>
+
+      <!-- Configuración de las ruedas -->
+      <left_steering_joint>revolute_left_wheel</left_steering_joint>
+      <right_steering_joint>revolute_right_wheel</right_steering_joint>
+      <left_wheel_joint>revolute_back_left_wheel</left_wheel_joint>
+      <right_wheel_joint>revolute_back_right_wheel</right_wheel_joint>
+
+      <!-- Dimensiones -->
+      <wheel_separation>0.525</wheel_separation>
+      <steering_limit>0.5</steering_limit> <!-- Máximo ángulo de giro -->
+
+      <!-- Configuración ROS -->
+      <robot_base_frame>base_link</robot_base_frame>
+      <odometry_frame>odom</odometry_frame>
+      <command_topic>/cmd_ackermann</command_topic>
+      <publish_odometry>true</publish_odometry>
+      <publish_odometry_tf>true</publish_odometry_tf>
+    </plugin>
+  </gazebo>
+
+</robot>
+

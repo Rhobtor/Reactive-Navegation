@@ -1,0 +1,75 @@
+[1.385s] Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/src/car_python': PYTHONPATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/build install --record /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/install.log --single-version-externally-managed install_data
+[2.202s] running egg_info
+[2.203s] creating ../../build/car/car.egg-info
+[2.205s] writing ../../build/car/car.egg-info/PKG-INFO
+[2.210s] writing dependency_links to ../../build/car/car.egg-info/dependency_links.txt
+[2.213s] writing entry points to ../../build/car/car.egg-info/entry_points.txt
+[2.215s] writing requirements to ../../build/car/car.egg-info/requires.txt
+[2.217s] writing top-level names to ../../build/car/car.egg-info/top_level.txt
+[2.226s] writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[2.356s] reading manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[2.445s] writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[2.449s] running build
+[2.453s] running build_py
+[2.459s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/build
+[2.460s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/build/lib
+[2.461s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/build/lib/car
+[2.467s] copying car/keyboard_control.py -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/build/lib/car
+[2.494s] copying car/__init__.py -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/build/lib/car
+[2.502s] running install
+[2.504s] running install_lib
+[2.530s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/lib/python3.10/site-packages/car
+[2.548s] copying /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/build/lib/car/keyboard_control.py -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/lib/python3.10/site-packages/car
+[2.579s] copying /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/build/lib/car/__init__.py -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/lib/python3.10/site-packages/car
+[2.618s] byte-compiling /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/lib/python3.10/site-packages/car/keyboard_control.py to keyboard_control.cpython-310.pyc
+[2.676s] byte-compiling /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/lib/python3.10/site-packages/car/__init__.py to __init__.cpython-310.pyc
+[2.700s] running install_data
+[2.725s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/ament_index
+[2.726s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/ament_index/resource_index
+[2.728s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/ament_index/resource_index/packages
+[2.738s] copying resource/car -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/ament_index/resource_index/packages
+[2.773s] copying package.xml -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car
+[2.794s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/launch
+[2.804s] copying launch/control.launch.py -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/launch
+[2.848s] copying launch/control_with_gazebo.launch.py -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/launch
+[2.867s] copying launch/display.launch.py -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/launch
+[2.881s] copying launch/gazebo.launch.py -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/launch
+[2.894s] copying launch/gazebo_mountain.launch.py -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/launch
+[2.927s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/urdf
+[2.932s] copying urdf/camera.plugin.xacro -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/urdf
+[2.947s] copying urdf/car.gazebo -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/urdf
+[2.996s] copying urdf/car.trans -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/urdf
+[3.013s] copying urdf/car.xacro -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/urdf
+[3.044s] copying urdf/cinematic.plugin.xacro -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/urdf
+[3.058s] copying urdf/depth.plugin.xacro -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/urdf
+[3.086s] copying urdf/lidar.plugin.xacro -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/urdf
+[3.104s] copying urdf/materials.xacro -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/urdf
+[3.121s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.129s] copying meshes/base_link.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.169s] copying meshes/Chasis_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.187s] copying meshes/direction_back_left_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.211s] copying meshes/direction_back_right_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.236s] copying meshes/direction_front_left_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.269s] copying meshes/direction_front_right_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.287s] copying meshes/pibot_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.322s] copying meshes/rim.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.377s] copying meshes/rim_back_left_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.417s] copying meshes/rim_back_right_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.467s] copying meshes/rim_front_left_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.508s] copying meshes/rim_front_right_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.545s] copying meshes/tire.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.575s] copying meshes/tire_back_left_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.603s] copying meshes/tire_back_right_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.642s] copying meshes/tire_front_left_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.665s] copying meshes/tire_front_right_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.703s] copying meshes/yaw_1.stl -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/meshes
+[3.746s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/config
+[3.773s] copying config/controllers.yaml -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/config
+[3.860s] copying config/display.rviz -> /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/share/car/config
+[3.920s] creating /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/lib/car
+[3.921s] running install_egg_info
+[3.937s] Copying ../../build/car/car.egg-info to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info
+[4.201s] running install_scripts
+[4.254s] Installing keyboard script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/lib/car
+[4.266s] writing list of installed files to '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/install.log'
+[4.286s] Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/src/car_python' returned '0': PYTHONPATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/build install --record /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car/install.log --single-version-externally-managed install_data
