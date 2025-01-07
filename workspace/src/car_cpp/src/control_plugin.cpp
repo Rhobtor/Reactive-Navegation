@@ -75,7 +75,7 @@ private:
     //     RCLCPP_INFO(ros_node_->get_logger(), "ControlPlugin: Joint %s position: %f, force: %f", this->joint_name_.c_str(), position, force);
 
     //     //Aplica una fuerza a la junta
-    //     this->joint_->SetForce(0, 5.0);
+    //     this->joint_->SetForce(0, -1000.0);
     //     RCLCPP_INFO(ros_node_->get_logger(), "Aplicando fuerza a la junta [%s]", this->joint_name_.c_str());
 
     // }
@@ -85,8 +85,12 @@ private:
         //Informacion de debug
         RCLCPP_INFO(ros_node_->get_logger(), "ControlPlugin: Received torque command: linear.x=%f, angular.z=%f", msg->linear.x, msg->angular.z);
 
-        //Aplica la fuerza a la junta
-        this->joint_->SetForce(0, msg->linear.x);
+    double force_left = msg->linear.x - msg->angular.z;
+    double force_right = msg->linear.x + msg->angular.z;
+
+    //Aplicar fuerza a las ruedas izquierda y derecha
+    //this->left_joint_->SetForce(0, force_left);
+    this->joint_->SetForce(0, force_right);
         RCLCPP_INFO(ros_node_->get_logger(), "ControlPlugin: Applied force to joint [%s]", this->joint_name_.c_str());
     }
 
@@ -94,7 +98,7 @@ private:
     gazebo::physics::JointPtr joint_;
     std::string joint_name_;
     std::shared_ptr<gazebo_ros::Node> ros_node_;
-    // rclcpp::TimerBase::SharedPtr timer_;
+    //rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscriber_;
 };
 

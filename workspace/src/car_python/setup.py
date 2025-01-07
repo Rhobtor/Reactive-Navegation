@@ -29,7 +29,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "keyboard=car.keyboard:main",
+            "keyboard_control=car.keyboard_control:main",
+            "joystick_control=car.joystick_control:main",
+            "log_joystick=car.log_joystick:main",
         ],
     },
 )

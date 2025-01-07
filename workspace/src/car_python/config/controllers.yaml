@@ -4,5 +4,5 @@ joint_state_controller:
 
 wheel_controller:
   type: effort_controllers/JointEffortController
-  joint: Revolute_right_front
+  joint: Direction_right_front
   pid: {p: 100.0, i: 0.01, d: 0.1}

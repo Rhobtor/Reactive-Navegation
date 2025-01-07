@@ -1,40 +1,40 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Float64
-from pynput import keyboard
+from geometry_msgs.msg import Twist
 
 class KeyboardControl(Node):
     def __init__(self):
         super().__init__('keyboard_control')
-        self.publisher = self.create_publisher(Float64, '/wheel_torque_command', 10)
-        self.torque = 0.0  
-        self.get_logger().info("Use W/S/D to control the wheel torque")
+        self.publisher = self.create_publisher(Twist, '/wheel_torque_command', 10)
+        self.get_logger().info('Node started. Use W/S for forward/backward, A/D for turning.')
 
-        # Escucha al teclado (requiere pynput)
-        listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release)
-        listener.start()
-    
-    def on_press(self, key):
+    def run(self):
         try:
-            if key.char == 'w':
-                self.torque = 1.0
-                self.get_logger().info("Forward")
-            elif key.char == 's':
-                self.torque = -1.0
-                self.get_logger().info("Backward")
-            elif key.char == 'd':
-                self.torque = 0.0
-                self.get_logger().info("Stop")
-            msg = Float64()
-            msg.data = self.torque
-            self.publisher.publish(msg)
-        except AttributeError:
-            pass
+            while True:
+                key = input("Enter command (W/S/A/D): ").lower()
+                msg = Twist()
+
+                if key == 'w':
+                    msg.linear.x = 9.0  # Avanzar
+                elif key == 's':
+                    msg.linear.x = -9.0  # Retroceder
+                elif key == 'a':
+                    msg.angular.z = 2.0  # Girar a la izquierda
+                elif key == 'd':
+                    msg.angular.z = -2.0  # Girar a la derecha
+                else:
+                    self.get_logger().info("Invalid key. Use W/S/A/D.")
+                    continue
+
+                self.publisher.publish(msg)  # Publica el mensaje
+                self.get_logger().info(f'Published: linear.x={msg.linear.x}, angular.z={msg.angular.z}')
+        except KeyboardInterrupt:
+            self.get_logger().info("Shutting down keyboard control node.")
+
 def main(args=None):
     rclpy.init(args=args)
-    keyboard_control = KeyboardControl()
-    rclpy.spin(keyboard_control)
-    keyboard_control.destroy_node()
+    node = KeyboardControl()
+    node.run()
     rclpy.shutdown()
 
 if __name__ == '__main__':

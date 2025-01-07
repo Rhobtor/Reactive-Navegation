@@ -64,21 +64,9 @@ def generate_launch_description():
         output='screen'
     )
 
-    spawner_joint_state = Node(
-        package='controller_manager',
-        executable='spawner.py',
-        arguments=['joint_state_controller'],
-    )
-
-    spawner_wheel = Node(
-        package='controller_manager',
-        executable='spawner.py',
-        arguments=['wheel_controller'],
-    )
-
     keyboard_control = Node(
-        package='car_python',
-        executable='keyboard_control.py',
+        package='car',
+        executable='keyboard_control',
         output='screen',
     )
 
@@ -89,7 +77,5 @@ def generate_launch_description():
         gazebo_server,
         gazebo_client,
         urdf_spawn_node,
-        spawner_joint_state,
-        spawner_wheel,
         keyboard_control,
     ])
