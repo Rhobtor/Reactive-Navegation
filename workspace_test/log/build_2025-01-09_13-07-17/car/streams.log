@@ -1,0 +1,24 @@
+[2.645s] Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/src/car_python': PYTHONPATH=/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car/build install --record /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car/install.log --single-version-externally-managed install_data
+[3.844s] running egg_info
+[3.850s] writing ../../build/car/car.egg-info/PKG-INFO
+[3.859s] writing dependency_links to ../../build/car/car.egg-info/dependency_links.txt
+[3.866s] writing entry points to ../../build/car/car.egg-info/entry_points.txt
+[3.873s] writing requirements to ../../build/car/car.egg-info/requires.txt
+[3.877s] writing top-level names to ../../build/car/car.egg-info/top_level.txt
+[4.027s] reading manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[4.205s] writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[4.208s] running build
+[4.209s] running build_py
+[4.283s] running install
+[4.284s] running install_lib
+[4.467s] running install_data
+[4.600s] copying urdf/car.xacro -> /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/install/car/share/car/urdf
+[4.908s] running install_egg_info
+[4.925s] removing '/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info' (and everything under it)
+[4.987s] Copying ../../build/car/car.egg-info to /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info
+[5.259s] running install_scripts
+[5.372s] Installing joystick_control script to /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/install/car/lib/car
+[5.385s] Installing keyboard_control script to /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/install/car/lib/car
+[5.398s] Installing log_joystick script to /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/install/car/lib/car
+[5.413s] writing list of installed files to '/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car/install.log'
+[5.446s] Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/src/car_python' returned '0': PYTHONPATH=/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car/build install --record /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car/install.log --single-version-externally-managed install_data
