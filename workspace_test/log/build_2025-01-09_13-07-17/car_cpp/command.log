@@ -1,4 +1,0 @@
-Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car_cpp': /usr/bin/cmake --build /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car_cpp -- -j12 -l12
-Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car_cpp' returned '0': /usr/bin/cmake --build /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car_cpp -- -j12 -l12
-Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car_cpp': /usr/bin/cmake --install /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car_cpp
-Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car_cpp' returned '0': /usr/bin/cmake --install /mnt/c/Users/luism/Documents/Ubuntu/reactive_navegation/workspace_test/build/car_cpp
