@@ -277,27 +277,6 @@
   </collision>
 </link>
 
-<link name="chasis_1">
-  <inertial>
-    <origin xyz="0.09270352913138602 2.798168493578501e-07 0.5332144331317273" rpy="0 0 0"/>
-    <mass value="14246.204737445123"/>
-    <inertia ixx="3776.349491" iyy="5433.367868" izz="8146.852846" ixy="-0.003264" iyz="-0.001252" ixz="-434.117699"/>
-  </inertial>
-  <visual>
-    <origin xyz="-1.25 -0.75 0.4" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find car_description)/meshes/chasis_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-1.25 -0.75 0.4" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find car_description)/meshes/chasis_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
-
 <link name="direction_front_right_1">
   <inertial>
     <origin xyz="0.00201472265142022 0.07474229529205378 5.551115123125783e-17" rpy="0 0 0"/>
@@ -424,6 +403,27 @@
   </collision>
 </link>
 
+<link name="chasis_1">
+  <inertial>
+    <origin xyz="0.09270352913138602 2.798168493578501e-07 0.5332144331317273" rpy="0 0 0"/>
+    <mass value="14246.204737445123"/>
+    <inertia ixx="3776.349491" iyy="5433.367868" izz="8146.852846" ixy="-0.003264" iyz="-0.001252" ixz="-434.117699"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.25 -0.75 0.4" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_description)/meshes/chasis_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.25 -0.75 0.4" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_description)/meshes/chasis_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
 <joint name="Revolute 1" type="revolute">
   <origin xyz="1.925 0.625 -0.45" rpy="0 0 0"/>
   <parent link="base_link"/>
@@ -508,12 +508,6 @@
   <child link="tire_front_left_1"/>
 </joint>
 
-<joint name="Rigid 13" type="fixed">
-  <origin xyz="1.25 0.75 -0.4" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="chasis_1"/>
-</joint>
-
 <joint name="Revolute 14" type="revolute">
   <origin xyz="0.0 0.7125 0.0" rpy="0 0 0"/>
   <parent link="suspension_front_right_1"/>
@@ -556,6 +550,12 @@
   <origin xyz="0.912084 0.0125 0.847483" rpy="0 0 0"/>
   <parent link="chasis_1"/>
   <child link="Camara_1"/>
+</joint>
+
+<joint name="Rigid 20" type="fixed">
+  <origin xyz="1.25 0.75 -0.4" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="chasis_1"/>
 </joint>
 
 </robot>

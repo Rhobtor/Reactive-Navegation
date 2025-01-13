@@ -98,13 +98,6 @@
   <self_collide>true</self_collide>
 </gazebo>
 
-<gazebo reference="chasis_1">
-  <material>${body_color}</material>
-  <mu1>0.2</mu1>
-  <mu2>0.2</mu2>
-  <self_collide>true</self_collide>
-</gazebo>
-
 <gazebo reference="direction_front_right_1">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
@@ -141,6 +134,13 @@
 </gazebo>
 
 <gazebo reference="Camara_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="chasis_1">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
