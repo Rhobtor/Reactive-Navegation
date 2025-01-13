@@ -1,0 +1,147 @@
+[0.325s] Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car_cpp': /usr/bin/cmake /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/src/car_cpp -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp
+[0.729s] -- The C compiler identification is GNU 11.4.0
+[1.327s] -- The CXX compiler identification is GNU 11.4.0
+[1.609s] -- Detecting C compiler ABI info
+[2.272s] -- Detecting C compiler ABI info - done
+[2.294s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.296s] -- Detecting C compile features
+[2.297s] -- Detecting C compile features - done
+[2.349s] -- Detecting CXX compiler ABI info
+[2.942s] -- Detecting CXX compiler ABI info - done
+[2.972s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.973s] -- Detecting CXX compile features
+[2.974s] -- Detecting CXX compile features - done
+[3.036s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.490s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[3.867s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[4.005s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[4.011s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[4.020s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[4.040s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.067s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.170s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[4.174s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[5.330s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[6.078s] -- Found FastRTPS: /opt/ros/humble/include  
+[7.258s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[7.293s] -- Looking for pthread.h
+[7.783s] -- Looking for pthread.h - found
+[7.792s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[8.437s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[8.442s] -- Found Threads: TRUE  
+[8.503s] -- Found gazebo_ros: 3.7.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[8.554s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+[8.554s] -- Checking for module 'bullet>=2.82'
+[8.630s] --   Found bullet, version 3.05
+[9.084s] -- Found fcl: /usr/include (found suitable version "0.7.0", minimum required is "0.5.0") 
+[9.304s] -- Found assimp: /usr/include (found version "5.2.0") 
+[9.327s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[9.357s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[9.561s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[9.567s] -- Looking for ignition-math6 -- found version 6.15.1
+[9.576s] -- Searching for dependencies of ignition-math6
+[9.579s] -- Looking for OGRE...
+[9.579s] -- OGRE_PREFIX_WATCH changed.
+[9.589s] -- Checking for module 'OGRE'
+[9.650s] --   Found OGRE, version 1.9.0
+[9.791s] -- Found Ogre Ghadamon (1.9.0)
+[9.984s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[9.993s] -- Looking for OGRE_Paging...
+[10.172s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[10.172s] -- Looking for OGRE_Terrain...
+[10.371s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[10.372s] -- Looking for OGRE_Property...
+[10.532s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[10.532s] -- Looking for OGRE_RTShaderSystem...
+[10.701s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[10.701s] -- Looking for OGRE_Volume...
+[10.863s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[10.864s] -- Looking for OGRE_Overlay...
+[11.062s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[20.352s] -- Looking for ignition-math6 -- found version 6.15.1
+[20.356s] -- Looking for ignition-transport8 -- found version 8.2.1
+[20.356s] -- Searching for dependencies of ignition-transport8
+[20.860s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[21.329s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[21.338s] -- Checking for module 'libzmq >= 4'
+[21.418s] --   Found libzmq , version 4.3.4
+[21.681s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[21.711s] -- Checking for module 'uuid'
+[21.764s] --   Found uuid, version 2.37.2
+[21.901s] -- Found UUID: TRUE  
+[21.905s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[21.905s] -- Searching for dependencies of ignition-msgs5
+[22.385s] -- Looking for ignition-math6 -- found version 6.15.1
+[22.398s] -- Checking for module 'tinyxml2'
+[22.447s] --   Found tinyxml2, version 9.0.0
+[22.590s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[22.592s] -- Looking for ignition-common3 -- found version 3.14.0
+[22.593s] -- Searching for dependencies of ignition-common3
+[22.608s] -- Looking for dlfcn.h - found
+[22.623s] -- Looking for libdl - found
+[22.623s] -- Found DL: TRUE  
+[22.672s] -- Found tinyobjloader: /usr/lib/x86_64-linux-gnu/cmake/tinyobjloader/tinyobjloader-config.cmake (found version "2.0.0") 
+[22.673s] -- Searching for <ignition-common3> component [graphics]
+[22.675s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[22.676s] -- Searching for dependencies of ignition-common3-graphics
+[22.676s] -- Looking for ignition-math6 -- found version 6.15.1
+[22.679s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[22.680s] -- Searching for dependencies of ignition-fuel_tools4
+[23.475s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.81.0")  
+[23.496s] -- Checking for module 'jsoncpp'
+[23.547s] --   Found jsoncpp, version 1.9.5
+[23.680s] -- Found JSONCPP: TRUE  
+[23.696s] -- Checking for module 'libzip'
+[23.755s] --   Found libzip, version 1.7.3
+[23.911s] -- Found ZIP: TRUE  
+[23.912s] -- Looking for ignition-common3 -- found version 3.14.0
+[23.913s] -- Looking for ignition-math6 -- found version 6.15.1
+[23.913s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[23.925s] -- Gazebo version: 11.10
+[23.926s] -- Checking for module 'tbb'
+[23.980s] --   Found tbb, version 2021.5.0
+[24.129s] -- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)
+[24.667s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[25.135s] -- Configuring done
+[25.383s] -- Generating done
+[25.416s] [33mCMake Warning:
+[25.416s]   Manually-specified variables were not used by the project:
+[25.417s] 
+[25.417s]     CATKIN_INSTALL_INTO_PREFIX_ROOT
+[25.418s] 
+[25.425s] [0m
+[25.583s] -- Build files have been written to: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car_cpp
+[25.596s] Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car_cpp' returned '0': /usr/bin/cmake /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/src/car_cpp -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp
+[25.605s] Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car_cpp': /usr/bin/cmake --build /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car_cpp -- -j20 -l20
+[25.632s] gmake: Warning: File 'Makefile' has modification time 14 s in the future
+[25.709s] gmake[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 14 s in the future
+[25.724s] gmake[2]: Warning: File 'CMakeFiles/control_plugin.dir/flags.make' has modification time 14 s in the future
+[25.753s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[25.767s] gmake[2]: Warning: File 'CMakeFiles/control_plugin.dir/flags.make' has modification time 14 s in the future
+[25.828s] [ 50%] [32mBuilding CXX object CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o[0m
+[42.347s] [100%] [32m[1mLinking CXX shared library libcontrol_plugin.so[0m
+[46.958s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[47.000s] [100%] Built target control_plugin
+[47.001s] gmake[1]: warning:  Clock skew detected.  Your build may be incomplete.
+[47.052s] gmake: warning:  Clock skew detected.  Your build may be incomplete.
+[47.054s] Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car_cpp' returned '0': /usr/bin/cmake --build /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car_cpp -- -j20 -l20
+[47.100s] Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car_cpp': /usr/bin/cmake --install /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car_cpp
+[47.187s] -- Install configuration: ""
+[47.257s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/lib/libcontrol_plugin.so
+[48.649s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/lib/libcontrol_plugin.so" to ""
+[48.675s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/ament_index/resource_index/package_run_dependencies/car_cpp
+[48.795s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/ament_index/resource_index/parent_prefix_path/car_cpp
+[48.873s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/environment/ament_prefix_path.sh
+[48.930s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/environment/ament_prefix_path.dsv
+[48.985s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/environment/path.sh
+[49.038s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/environment/path.dsv
+[49.121s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/local_setup.bash
+[49.212s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/local_setup.sh
+[49.280s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/local_setup.zsh
+[49.381s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/local_setup.dsv
+[49.452s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/package.dsv
+[49.627s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/ament_index/resource_index/packages/car_cpp
+[49.729s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/cmake/car_cppConfig.cmake
+[49.786s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/cmake/car_cppConfig-version.cmake
+[49.901s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/install/car_cpp/share/car_cpp/package.xml
+[49.963s] Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car_cpp' returned '0': /usr/bin/cmake --install /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace/build/car_cpp
