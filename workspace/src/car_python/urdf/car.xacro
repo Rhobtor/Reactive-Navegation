@@ -403,6 +403,27 @@
   </collision>
 </link>
 
+<link name="camara_1">
+  <inertial>
+    <origin xyz="0.004642800215263865 0.0 0.0018567355153457643" rpy="0 0 0"/>
+    <mass value="2.3549999999999622"/>
+    <inertia ixx="0.019357" iyy="0.001982" izz="0.01795" ixy="-0.0" iyz="-0.0" ixz="0.00067"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.175082 -0.75 -0.43922" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car)/meshes/camara_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.175082 -0.75 -0.43922" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car)/meshes/camara_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
 <joint name="Revolute 1" type="revolute">
   <origin xyz="1.925 0.625 -0.45" rpy="0 0 0"/>
   <parent link="base_link"/>
@@ -529,6 +550,12 @@
   <origin xyz="0.6 0.0 1.05" rpy="0 0 0"/>
   <parent link="chasis_1"/>
   <child link="Lidar_1"/>
+</joint>
+
+<joint name="Rigid 25" type="fixed">
+  <origin xyz="0.925082 0.0 0.83922" rpy="0 0 0"/>
+  <parent link="chasis_1"/>
+  <child link="camara_1"/>
 </joint>
 
 </robot>
