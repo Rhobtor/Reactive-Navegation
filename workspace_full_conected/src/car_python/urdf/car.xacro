@@ -382,6 +382,48 @@
   </collision>
 </link>
 
+<link name="Component24_1">
+  <inertial>
+    <origin xyz="-6.661338147750939e-16 1.1102230246251565e-16 0.050000000000000266" rpy="0 0 0"/>
+    <mass value="24.661502330679863"/>
+    <inertia ixx="0.082205" iyy="0.082205" izz="0.123308" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.85 -0.75 -0.65" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_description)/meshes/Component24_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.85 -0.75 -0.65" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_description)/meshes/Component24_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component25_1">
+  <inertial>
+    <origin xyz="0.004642800215263865 0.0 0.0018567355153457643" rpy="0 0 0"/>
+    <mass value="2.3549999999999622"/>
+    <inertia ixx="0.019357" iyy="0.001982" izz="0.01795" ixy="-0.0" iyz="-0.0" ixz="0.00067"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.175082 -0.75 -0.43922" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_description)/meshes/Component25_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.175082 -0.75 -0.43922" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_description)/meshes/Component25_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
 <joint name="Revolute 1" type="revolute">
   <origin xyz="1.925 0.625 -0.45" rpy="0 0 0"/>
   <parent link="base_link"/>
@@ -502,6 +544,18 @@
   <origin xyz="1.25 0.75 -0.4" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="chasis_1"/>
+</joint>
+
+<joint name="Rigid 22" type="fixed">
+  <origin xyz="0.6 0.0 1.05" rpy="0 0 0"/>
+  <parent link="chasis_1"/>
+  <child link="Component24_1"/>
+</joint>
+
+<joint name="Rigid 23" type="fixed">
+  <origin xyz="0.925082 0.0 0.83922" rpy="0 0 0"/>
+  <parent link="chasis_1"/>
+  <child link="Component25_1"/>
 </joint>
 
 </robot>
