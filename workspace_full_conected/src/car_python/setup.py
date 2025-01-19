@@ -32,6 +32,7 @@ setup(
             "keyboard_control=car.keyboard_control:main",
             "joystick_control=car.joystick_control:main",
             "log_joystick=car.log_joystick:main",
+            'octomap_2d_display = car.octomap_2d_display:main',
         ],
     },
 )

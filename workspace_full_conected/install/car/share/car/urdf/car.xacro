@@ -5,7 +5,7 @@
 <xacro:include filename="$(find car)/urdf/car.trans" />
 <xacro:include filename="$(find car)/urdf/car.gazebo" />
 <xacro:include filename="$(find car)/urdf/camara.plugin.xacro" />
-<xacro:include filename="$(find car)/urdf/lidar.plugin.xacro" />
+<!-- <xacro:include filename="$(find car)/urdf/lidar.plugin.xacro" /> -->
 <link name="base_link">
   <inertial>
     <origin xyz="1.2499999999999998 0.75 -0.45" rpy="0 0 0"/>

@@ -210,6 +210,43 @@ control_plugin/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/control_plugin.dir/build.make CMakeFiles/control_plugin.dir/build
 .PHONY : control_plugin/fast
 
+#=============================================================================
+# Target rules for targets named check_map
+
+# Build rule for target.
+check_map: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 check_map
+.PHONY : check_map
+
+# fast build rule for target.
+check_map/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_map.dir/build.make CMakeFiles/check_map.dir/build
+.PHONY : check_map/fast
+
+src/check_map.o: src/check_map.cpp.o
+.PHONY : src/check_map.o
+
+# target to build an object file
+src/check_map.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_map.dir/build.make CMakeFiles/check_map.dir/src/check_map.cpp.o
+.PHONY : src/check_map.cpp.o
+
+src/check_map.i: src/check_map.cpp.i
+.PHONY : src/check_map.i
+
+# target to preprocess a source file
+src/check_map.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_map.dir/build.make CMakeFiles/check_map.dir/src/check_map.cpp.i
+.PHONY : src/check_map.cpp.i
+
+src/check_map.s: src/check_map.cpp.s
+.PHONY : src/check_map.s
+
+# target to generate assembly for a file
+src/check_map.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_map.dir/build.make CMakeFiles/check_map.dir/src/check_map.cpp.s
+.PHONY : src/check_map.cpp.s
+
 src/control_plugin.o: src/control_plugin.cpp.o
 .PHONY : src/control_plugin.o
 
@@ -249,7 +286,11 @@ help:
 	@echo "... test"
 	@echo "... car_cpp_uninstall"
 	@echo "... uninstall"
+	@echo "... check_map"
 	@echo "... control_plugin"
+	@echo "... src/check_map.o"
+	@echo "... src/check_map.i"
+	@echo "... src/check_map.s"
 	@echo "... src/control_plugin.o"
 	@echo "... src/control_plugin.i"
 	@echo "... src/control_plugin.s"

@@ -12,6 +12,7 @@ car/__init__.py
 car/joystick_control.py
 car/keyboard_control.py
 car/log_joystick.py
+car/octomap_2d_display.py
 config/control.yaml
 config/controllers.yaml
 config/display.rviz

@@ -1,0 +1,167 @@
+[0.416s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp
+[0.722s] -- The C compiler identification is GNU 11.4.0
+[1.030s] -- The CXX compiler identification is GNU 11.4.0
+[1.048s] -- Detecting C compiler ABI info
+[1.275s] -- Detecting C compiler ABI info - done
+[1.292s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.294s] -- Detecting C compile features
+[1.296s] -- Detecting C compile features - done
+[1.315s] -- Detecting CXX compiler ABI info
+[1.588s] -- Detecting CXX compiler ABI info - done
+[1.608s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.609s] -- Detecting CXX compile features
+[1.609s] -- Detecting CXX compile features - done
+[1.629s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.164s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.512s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[2.668s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[2.682s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[2.687s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[2.706s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.733s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.789s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[2.793s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.909s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.940s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.991s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.004s] -- Looking for pthread.h
+[3.129s] -- Looking for pthread.h - found
+[3.131s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.293s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[3.293s] -- Found Threads: TRUE  
+[3.396s] -- Found gazebo_ros: 3.7.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[3.416s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+[3.422s] -- Checking for module 'bullet>=2.82'
+[3.474s] --   Found bullet, version 3.05
+[3.793s] -- Found fcl: /usr/include (found suitable version "0.7.0", minimum required is "0.5.0") 
+[3.971s] -- Found assimp: /usr/include (found version "5.2.0") 
+[4.012s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[4.060s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[4.096s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[4.111s] -- Looking for ignition-math6 -- found version 6.15.1
+[4.120s] -- Searching for dependencies of ignition-math6
+[4.126s] -- Looking for OGRE...
+[4.128s] -- OGRE_PREFIX_WATCH changed.
+[4.135s] -- Checking for module 'OGRE'
+[4.155s] --   Found OGRE, version 1.9.0
+[4.243s] -- Found Ogre Ghadamon (1.9.0)
+[4.256s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[4.277s] -- Looking for OGRE_Paging...
+[4.287s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[4.288s] -- Looking for OGRE_Terrain...
+[4.302s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[4.302s] -- Looking for OGRE_Property...
+[4.313s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[4.313s] -- Looking for OGRE_RTShaderSystem...
+[4.325s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[4.325s] -- Looking for OGRE_Volume...
+[4.336s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[4.336s] -- Looking for OGRE_Overlay...
+[4.352s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[4.550s] -- Looking for ignition-math6 -- found version 6.15.1
+[4.560s] -- Looking for ignition-transport8 -- found version 8.2.1
+[4.560s] -- Searching for dependencies of ignition-transport8
+[4.592s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[4.611s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[4.621s] -- Checking for module 'libzmq >= 4'
+[4.667s] --   Found libzmq , version 4.3.4
+[4.785s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[4.801s] -- Checking for module 'uuid'
+[4.820s] --   Found uuid, version 2.37.2
+[4.888s] -- Found UUID: TRUE  
+[4.889s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[4.894s] -- Searching for dependencies of ignition-msgs5
+[4.939s] -- Looking for ignition-math6 -- found version 6.15.1
+[4.949s] -- Checking for module 'tinyxml2'
+[4.989s] --   Found tinyxml2, version 9.0.0
+[5.093s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[5.096s] -- Looking for ignition-common3 -- found version 3.14.0
+[5.099s] -- Searching for dependencies of ignition-common3
+[5.105s] -- Looking for dlfcn.h - found
+[5.106s] -- Looking for libdl - found
+[5.106s] -- Found DL: TRUE  
+[5.131s] -- Found tinyobjloader: /usr/lib/x86_64-linux-gnu/cmake/tinyobjloader/tinyobjloader-config.cmake (found version "2.0.0") 
+[5.135s] -- Searching for <ignition-common3> component [graphics]
+[5.141s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[5.141s] -- Searching for dependencies of ignition-common3-graphics
+[5.143s] -- Looking for ignition-math6 -- found version 6.15.1
+[5.148s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[5.148s] -- Searching for dependencies of ignition-fuel_tools4
+[5.390s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.81.0")  
+[5.412s] -- Checking for module 'jsoncpp'
+[5.447s] --   Found jsoncpp, version 1.9.5
+[5.539s] -- Found JSONCPP: TRUE  
+[5.553s] -- Checking for module 'libzip'
+[5.611s] --   Found libzip, version 1.7.3
+[5.723s] -- Found ZIP: TRUE  
+[5.723s] -- Looking for ignition-common3 -- found version 3.14.0
+[5.723s] -- Looking for ignition-math6 -- found version 6.15.1
+[5.723s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[5.734s] -- Gazebo version: 11.10
+[5.740s] -- Checking for module 'tbb'
+[5.778s] --   Found tbb, version 2021.5.0
+[5.899s] -- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)
+[5.949s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[5.975s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[6.006s] -- Found octomap_msgs: 2.0.1 (/opt/ros/humble/share/octomap_msgs/cmake)
+[6.029s] -- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)
+[6.099s] -- Checking for module 'eigen3'
+[6.130s] --   Found eigen3, version 3.4.0
+[6.211s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[6.211s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[6.245s] -- Checking for module 'flann'
+[6.282s] --   Found flann, version 1.9.1
+[6.412s] -- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  
+[6.412s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[8.857s] -- Checking for module 'libusb-1.0'
+[8.898s] --   Found libusb-1.0, version 1.0.25
+[9.018s] -- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[9.018s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[9.189s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[9.481s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[9.496s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[9.516s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[9.757s] -- Found Qhull version 8.0.2
+[10.001s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[10.261s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[10.266s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[10.266s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[10.271s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[10.271s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[10.271s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[10.271s] -- Found PCL_2D: /usr/include/pcl-1.12  
+[10.271s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.12  
+[10.271s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[10.274s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[10.274s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[10.276s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[10.278s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[10.279s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[10.280s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[10.284s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[10.284s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[10.284s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[10.284s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[10.284s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[10.286s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  
+[10.287s] -- Found PCL_MODELER: /usr/include/pcl-1.12  
+[10.287s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  
+[10.287s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[10.287s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[10.399s] -- Configuring done
+[10.476s] -- Generating done
+[10.493s] -- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp
+[10.535s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp
+[10.537s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j2 -l2
+[10.721s] [ 25%] [32mBuilding CXX object CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o[0m
+[41.133s] [ 50%] [32m[1mLinking CXX shared library libcontrol_plugin.so[0m
+[42.563s] [ 50%] Built target control_plugin
+[42.644s] [ 75%] [32mBuilding CXX object CMakeFiles/check_map.dir/src/check_map.cpp.o[0m
+[43.332s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/check_map.cpp:5:10:[m[K [01;31m[Kfatal error: [m[Kvisualization_msgs/msg/marker_array.hpp: No such file or directory
+[43.333s]     5 | #include [01;31m[K<visualization_msgs/msg/marker_array.hpp>[m[K
+[43.333s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[43.333s] compilation terminated.
+[43.337s] gmake[2]: *** [CMakeFiles/check_map.dir/build.make:76: CMakeFiles/check_map.dir/src/check_map.cpp.o] Error 1
+[43.337s] gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/check_map.dir/all] Error 2
+[43.337s] gmake: *** [Makefile:146: all] Error 2
+[43.349s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j2 -l2
