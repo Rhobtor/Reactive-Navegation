@@ -558,4 +558,19 @@
   <child link="camara_1"/>
 </joint>
 
+
+
+<gazebo>
+    <plugin name="drive_plugin" filename="libDrivePlugin.so">
+      <left_front_wheel_joint>Revolute 16</left_front_wheel_joint>
+      <right_front_wheel_joint>Revolute 17</right_front_wheel_joint>
+      <left_back_wheel_joint>Revolute 5</left_back_wheel_joint>
+      <right_back_wheel_joint>Revolute 6</right_back_wheel_joint>
+      <steering_speed>1.0</steering_speed>
+      <p_value>11.7553507260245</p_value>
+      <i_value>0.473007565420235</i_value>
+      <d_value>788.228671066606</d_value>
+    </plugin>
+  </gazebo>
+
 </robot>
