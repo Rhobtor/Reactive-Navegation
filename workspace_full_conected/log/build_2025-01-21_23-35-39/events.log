@@ -1,0 +1,310 @@
+[0.000000] (-) TimerEvent: {}
+[0.000478] (car) JobQueued: {'identifier': 'car', 'dependencies': OrderedDict()}
+[0.000503] (car_cpp) JobQueued: {'identifier': 'car_cpp', 'dependencies': OrderedDict()}
+[0.000516] (car) JobStarted: {'identifier': 'car'}
+[0.006247] (car_cpp) JobStarted: {'identifier': 'car_cpp'}
+[0.100239] (-) TimerEvent: {}
+[0.180842] (car_cpp) JobProgress: {'identifier': 'car_cpp', 'progress': 'cmake'}
+[0.182544] (car_cpp) JobProgress: {'identifier': 'car_cpp', 'progress': 'build'}
+[0.183249] (car_cpp) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp', '--', '-j2', '-l2'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('OLDPWD', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '1499'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1468,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1468'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/3c79041b_86fb_4c3f_ae0d_1524aeb96481'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.JFKN02'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.324'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble')]), 'shell': False}
+[0.201266] (-) TimerEvent: {}
+[0.236857] (car_cpp) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target car_cpp\x1b[0m\n'}
+[0.277278] (car_cpp) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding CXX object CMakeFiles/car_cpp.dir/src/move_ros.cpp.o\x1b[0m\n'}
+[0.283999] (car_cpp) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/car_cpp.dir/src/path_planner.cpp.o\x1b[0m\n'}
+[0.305978] (-) TimerEvent: {}
+[0.409949] (-) TimerEvent: {}
+[0.512284] (-) TimerEvent: {}
+[0.613518] (-) TimerEvent: {}
+[0.661482] (car) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/car', 'build', '--build-base', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build', 'install', '--record', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US:', 'USER': 'rhobtor', 'LC_TIME': 'es_ES.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/rhobtor', 'OLDPWD': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'es_ES.UTF-8', 'SYSTEMD_EXEC_PID': '1499', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'rhobtor', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'rhobtor', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1468,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1468', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'es_ES.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/3c79041b_86fb_4c3f_ae0d_1524aeb96481', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'es_ES.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.JFKN02', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.324', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'es_ES.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'es_ES.UTF-8', 'LC_IDENTIFICATION': 'es_ES.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'es_ES.UTF-8', 'LC_PAPER': 'es_ES.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[0.713808] (-) TimerEvent: {}
+[0.815268] (-) TimerEvent: {}
+[0.918258] (-) TimerEvent: {}
+[1.019898] (-) TimerEvent: {}
+[1.051338] (car) StdoutLine: {'line': b'running egg_info\n'}
+[1.056237] (car) StdoutLine: {'line': b'writing ../../build/car/car.egg-info/PKG-INFO\n'}
+[1.056378] (car) StdoutLine: {'line': b'writing dependency_links to ../../build/car/car.egg-info/dependency_links.txt\n'}
+[1.061010] (car) StdoutLine: {'line': b'writing entry points to ../../build/car/car.egg-info/entry_points.txt\n'}
+[1.061132] (car) StdoutLine: {'line': b'writing requirements to ../../build/car/car.egg-info/requires.txt\n'}
+[1.061170] (car) StdoutLine: {'line': b'writing top-level names to ../../build/car/car.egg-info/top_level.txt\n'}
+[1.063814] (car) StdoutLine: {'line': b"reading manifest file '../../build/car/car.egg-info/SOURCES.txt'\n"}
+[1.065013] (car) StdoutLine: {'line': b"writing manifest file '../../build/car/car.egg-info/SOURCES.txt'\n"}
+[1.070796] (car) StdoutLine: {'line': b'running build\n'}
+[1.070973] (car) StdoutLine: {'line': b'running build_py\n'}
+[1.071022] (car) StdoutLine: {'line': b'running install\n'}
+[1.071055] (car) StdoutLine: {'line': b'running install_lib\n'}
+[1.071087] (car) StdoutLine: {'line': b'running install_data\n'}
+[1.074254] (car) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.079327] (car) StdoutLine: {'line': b"removing '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[1.079431] (car) StdoutLine: {'line': b'Copying ../../build/car/car.egg-info to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info\n'}
+[1.079471] (car) StdoutLine: {'line': b'running install_scripts\n'}
+[1.119148] (car) StdoutLine: {'line': b'Installing joystick_control script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car\n'}
+[1.119313] (car) StdoutLine: {'line': b'Installing keyboard_control script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car\n'}
+[1.119355] (car) StdoutLine: {'line': b'Installing log_joystick script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car\n'}
+[1.119391] (car) StdoutLine: {'line': b'Installing octomap_2d_display script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car\n'}
+[1.119980] (-) TimerEvent: {}
+[1.120978] (car) StdoutLine: {'line': b"writing list of installed files to '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log'\n"}
+[1.188259] (car) CommandEnded: {'returncode': 0}
+[1.222141] (car) JobEnded: {'identifier': 'car', 'rc': 0}
+[1.223527] (-) TimerEvent: {}
+[1.323824] (-) TimerEvent: {}
+[1.424245] (-) TimerEvent: {}
+[1.524706] (-) TimerEvent: {}
+[1.625875] (-) TimerEvent: {}
+[1.726510] (-) TimerEvent: {}
+[1.826955] (-) TimerEvent: {}
+[1.928612] (-) TimerEvent: {}
+[2.029067] (-) TimerEvent: {}
+[2.129560] (-) TimerEvent: {}
+[2.230005] (-) TimerEvent: {}
+[2.332407] (-) TimerEvent: {}
+[2.432965] (-) TimerEvent: {}
+[2.533775] (-) TimerEvent: {}
+[2.634262] (-) TimerEvent: {}
+[2.734729] (-) TimerEvent: {}
+[2.835179] (-) TimerEvent: {}
+[2.856738] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<octomath::Vector3> PathPlannerNode::findPath(octomap::OcTree&, const point3d&, const point3d&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.856943] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:44:73:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpoint3d_hash\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[Koctomap\x1b[m\x1b[K\xe2\x80\x99; did you mean \xe2\x80\x98\x1b[01m\x1b[Kpoint3d_list\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.856988] (car_cpp) StderrLine: {'line': b'   44 |         std::unordered_map<octomap::point3d, octomap::point3d, octomap::\x1b[01;31m\x1b[Kpoint3d_hash\x1b[m\x1b[K> came_from;\n'}
+[2.857025] (car_cpp) StderrLine: {'line': b'      |                                                                         \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.857059] (car_cpp) StderrLine: {'line': b'      |                                                                         \x1b[32m\x1b[Kpoint3d_list\x1b[m\x1b[K\n'}
+[2.857091] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:44:85:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 3 is invalid\n'}
+[2.857124] (car_cpp) StderrLine: {'line': b'   44 |         std::unordered_map<octomap::point3d, octomap::point3d, octomap::point3d_hash\x1b[01;31m\x1b[K>\x1b[m\x1b[K came_from;\n'}
+[2.857156] (car_cpp) StderrLine: {'line': b'      |                                                                                     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.858472] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:45:63:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpoint3d_hash\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[Koctomap\x1b[m\x1b[K\xe2\x80\x99; did you mean \xe2\x80\x98\x1b[01m\x1b[Kpoint3d_list\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.858585] (car_cpp) StderrLine: {'line': b'   45 |         std::unordered_map<octomap::point3d, double, octomap::\x1b[01;31m\x1b[Kpoint3d_hash\x1b[m\x1b[K> cost_so_far;\n'}
+[2.858624] (car_cpp) StderrLine: {'line': b'      |                                                               \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.858659] (car_cpp) StderrLine: {'line': b'      |                                                               \x1b[32m\x1b[Kpoint3d_list\x1b[m\x1b[K\n'}
+[2.858692] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:45:75:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 3 is invalid\n'}
+[2.858726] (car_cpp) StderrLine: {'line': b'   45 |         std::unordered_map<octomap::point3d, double, octomap::point3d_hash\x1b[01;31m\x1b[K>\x1b[m\x1b[K cost_so_far;\n'}
+[2.858758] (car_cpp) StderrLine: {'line': b'      |                                                                           \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.860279] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:48:20:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno match for \xe2\x80\x98\x1b[01m\x1b[Koperator[]\x1b[m\x1b[K\xe2\x80\x99 (operand types are \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kconst point3d\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kconst octomath::Vector3\x1b[m\x1b[K\xe2\x80\x99})\n'}
+[2.860380] (car_cpp) StderrLine: {'line': b'   48 |         cost_so_far\x1b[01;31m\x1b[K[\x1b[m\x1b[Kstart] = 0.0;\n'}
+[2.860419] (car_cpp) StderrLine: {'line': b'      |                    \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.860453] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:57:46:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno match for \xe2\x80\x98\x1b[01m\x1b[Koperator[]\x1b[m\x1b[K\xe2\x80\x99 (operand types are \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Koctomath::Vector3\x1b[m\x1b[K\xe2\x80\x99)\n'}
+[2.860489] (car_cpp) StderrLine: {'line': b'   57 |                 double new_cost = cost_so_far\x1b[01;31m\x1b[K[\x1b[m\x1b[Kcurrent] + (neighbor - current).norm();\n'}
+[2.860522] (car_cpp) StderrLine: {'line': b'      |                                              \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.860554] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:58:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Krequest for member \xe2\x80\x98\x1b[01m\x1b[Kfind\x1b[m\x1b[K\xe2\x80\x99 in \xe2\x80\x98\x1b[01m\x1b[Kcost_so_far\x1b[m\x1b[K\xe2\x80\x99, which is of non-class type \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.860597] (car_cpp) StderrLine: {'line': b'   58 |                 if (cost_so_far.\x1b[01;31m\x1b[Kfind\x1b[m\x1b[K(neighbor) == cost_so_far.end() || new_cost < cost_so_far[neighbor]) {\n'}
+[2.860631] (car_cpp) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.860663] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:58:63:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Krequest for member \xe2\x80\x98\x1b[01m\x1b[Kend\x1b[m\x1b[K\xe2\x80\x99 in \xe2\x80\x98\x1b[01m\x1b[Kcost_so_far\x1b[m\x1b[K\xe2\x80\x99, which is of non-class type \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.860702] (car_cpp) StderrLine: {'line': b'   58 |                 if (cost_so_far.find(neighbor) == cost_so_far.\x1b[01;31m\x1b[Kend\x1b[m\x1b[K() || new_cost < cost_so_far[neighbor]) {\n'}
+[2.860734] (car_cpp) StderrLine: {'line': b'      |                                                               \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.860767] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:58:94:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno match for \xe2\x80\x98\x1b[01m\x1b[Koperator[]\x1b[m\x1b[K\xe2\x80\x99 (operand types are \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Koctomath::Vector3\x1b[m\x1b[K\xe2\x80\x99)\n'}
+[2.860800] (car_cpp) StderrLine: {'line': b'   58 |                 if (cost_so_far.find(neighbor) == cost_so_far.end() || new_cost < cost_so_far\x1b[01;31m\x1b[K[\x1b[m\x1b[Kneighbor]) {\n'}
+[2.864220] (car_cpp) StderrLine: {'line': b'      |                                                                                              \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.864333] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:59:32:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno match for \xe2\x80\x98\x1b[01m\x1b[Koperator[]\x1b[m\x1b[K\xe2\x80\x99 (operand types are \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Koctomath::Vector3\x1b[m\x1b[K\xe2\x80\x99)\n'}
+[2.864376] (car_cpp) StderrLine: {'line': b'   59 |                     cost_so_far\x1b[01;31m\x1b[K[\x1b[m\x1b[Kneighbor] = new_cost;\n'}
+[2.864410] (car_cpp) StderrLine: {'line': b'      |                                \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.864445] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:61:30:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno match for \xe2\x80\x98\x1b[01m\x1b[Koperator[]\x1b[m\x1b[K\xe2\x80\x99 (operand types are \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Koctomath::Vector3\x1b[m\x1b[K\xe2\x80\x99)\n'}
+[2.864608] (car_cpp) StderrLine: {'line': b'   61 |                     came_from\x1b[01;31m\x1b[K[\x1b[m\x1b[Kneighbor] = current;\n'}
+[2.864660] (car_cpp) StderrLine: {'line': b'      |                              \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.864695] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:68:45:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno match for \xe2\x80\x98\x1b[01m\x1b[Koperator!=\x1b[m\x1b[K\xe2\x80\x99 (operand types are \xe2\x80\x98\x1b[01m\x1b[Koctomap::point3d\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Koctomath::Vector3\x1b[m\x1b[K\xe2\x80\x99} and \xe2\x80\x98\x1b[01m\x1b[Kconst point3d\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kconst octomath::Vector3\x1b[m\x1b[K\xe2\x80\x99})\n'}
+[2.864734] (car_cpp) StderrLine: {'line': b'   68 |         for (octomap::point3d at = goal; \x1b[32m\x1b[Kat\x1b[m\x1b[K \x1b[01;31m\x1b[K!=\x1b[m\x1b[K \x1b[34m\x1b[Kstart\x1b[m\x1b[K; at = came_from[at]) {\n'}
+[2.864767] (car_cpp) StderrLine: {'line': b'      |                                          \x1b[32m\x1b[K~~\x1b[m\x1b[K \x1b[01;31m\x1b[K^~\x1b[m\x1b[K \x1b[34m\x1b[K~~~~~\x1b[m\x1b[K\n'}
+[2.864800] (car_cpp) StderrLine: {'line': b'      |                                          \x1b[32m\x1b[K|\x1b[m\x1b[K     \x1b[34m\x1b[K|\x1b[m\x1b[K\n'}
+[2.864832] (car_cpp) StderrLine: {'line': b'      |                                          \x1b[32m\x1b[K|\x1b[m\x1b[K     \x1b[34m\x1b[Kconst point3d {aka const octomath::Vector3}\x1b[m\x1b[K\n'}
+[2.864866] (car_cpp) StderrLine: {'line': b'      |                                          \x1b[32m\x1b[Koctomap::point3d {aka octomath::Vector3}\x1b[m\x1b[K\n'}
+[2.864906] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/path_planner.cpp:68:69:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno match for \xe2\x80\x98\x1b[01m\x1b[Koperator[]\x1b[m\x1b[K\xe2\x80\x99 (operand types are \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Koctomap::point3d\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Koctomath::Vector3\x1b[m\x1b[K\xe2\x80\x99})\n'}
+[2.864940] (car_cpp) StderrLine: {'line': b'   68 |         for (octomap::point3d at = goal; at != start; at = came_from\x1b[01;31m\x1b[K[\x1b[m\x1b[Kat]) {\n'}
+[2.864971] (car_cpp) StderrLine: {'line': b'      |                                                                     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.906302] (car_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:1\x1b[m\x1b[K:\n'}
+[2.906749] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/move_ros.hpp:35:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav_msgs::msg::Odometry_<std::allocator<void> >::ConstPtr\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.907047] (car_cpp) StderrLine: {'line': b'   35 |     nav_msgs::msg::Odometry::ConstPtr \x1b[01;35m\x1b[Kodometry\x1b[m\x1b[K;\n'}
+[2.907991] (car_cpp) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.908051] (car_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/nav_msgs/nav_msgs/msg/odometry.hpp:7\x1b[m\x1b[K,\n'}
+[2.910427] (car_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/move_ros.hpp:4\x1b[m\x1b[K,\n'}
+[2.910763] (car_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:1\x1b[m\x1b[K:\n'}
+[2.911099] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/odometry__struct.hpp:146:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[2.911391] (car_cpp) StderrLine: {'line': b'  146 |     \x1b[01;36m\x1b[KConstPtr\x1b[m\x1b[K;\n'}
+[2.911657] (car_cpp) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.911923] (car_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:1\x1b[m\x1b[K:\n'}
+[2.911966] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/move_ros.hpp:96:81:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Koctomap_msgs::msg::Octomap_<std::allocator<void> >::ConstPtr\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.912002] (car_cpp) StderrLine: {'line': b'   96 | tomapCallback(const octomap_msgs::msg::Octomap::ConstPtr& octomap_msg\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.912034] (car_cpp) StderrLine: {'line': b'      |                                                                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.912088] (car_cpp) StderrLine: {'line': b'\n'}
+[2.912125] (car_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/octomap.hpp:7\x1b[m\x1b[K,\n'}
+[2.912160] (car_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/move_ros.hpp:5\x1b[m\x1b[K,\n'}
+[2.913546] (car_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:1\x1b[m\x1b[K:\n'}
+[2.913594] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__struct.hpp:151:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[2.913628] (car_cpp) StderrLine: {'line': b'  151 |     \x1b[01;36m\x1b[KConstPtr\x1b[m\x1b[K;\n'}
+[2.913661] (car_cpp) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.913693] (car_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:1\x1b[m\x1b[K:\n'}
+[2.913724] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/move_ros.hpp:97:77:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav_msgs::msg::Odometry_<std::allocator<void> >::ConstPtr\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.913758] (car_cpp) StderrLine: {'line': b'   97 | d odometryCallback(const nav_msgs::msg::Odometry::ConstPtr& odometry_\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.913790] (car_cpp) StderrLine: {'line': b'      |                                                                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.913821] (car_cpp) StderrLine: {'line': b'\n'}
+[2.913852] (car_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/nav_msgs/nav_msgs/msg/odometry.hpp:7\x1b[m\x1b[K,\n'}
+[2.913883] (car_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/move_ros.hpp:4\x1b[m\x1b[K,\n'}
+[2.913913] (car_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:1\x1b[m\x1b[K:\n'}
+[2.913943] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/odometry__struct.hpp:146:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[2.913974] (car_cpp) StderrLine: {'line': b'  146 |     \x1b[01;36m\x1b[KConstPtr\x1b[m\x1b[K;\n'}
+[2.914004] (car_cpp) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.928331] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:42:87:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Koctomap_msgs::msg::Octomap_<std::allocator<void> >::ConstPtr\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.930480] (car_cpp) StderrLine: {'line': b'   42 | ctomapCallback(const octomap_msgs::msg::Octomap::ConstPtr& octomap_msg\x1b[01;35m\x1b[K)\x1b[m\x1b[K\n'}
+[2.930537] (car_cpp) StderrLine: {'line': b'      |                                                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.930576] (car_cpp) StderrLine: {'line': b'\n'}
+[2.930609] (car_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/octomap.hpp:7\x1b[m\x1b[K,\n'}
+[2.930643] (car_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/move_ros.hpp:5\x1b[m\x1b[K,\n'}
+[2.930676] (car_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:1\x1b[m\x1b[K:\n'}
+[2.930711] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__struct.hpp:151:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[2.930743] (car_cpp) StderrLine: {'line': b'  151 |     \x1b[01;36m\x1b[KConstPtr\x1b[m\x1b[K;\n'}
+[2.930776] (car_cpp) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.932760] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:50:76:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knav_msgs::msg::Odometry_<std::allocator<void> >::ConstPtr\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.932962] (car_cpp) StderrLine: {'line': b'   50 | move_ros::odometryCallback(nav_msgs::msg::Odometry::ConstPtr odometry_\x1b[01;35m\x1b[K)\x1b[m\x1b[K\n'}
+[2.933002] (car_cpp) StderrLine: {'line': b'      |                                                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.933036] (car_cpp) StderrLine: {'line': b'\n'}
+[2.933068] (car_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/nav_msgs/nav_msgs/msg/odometry.hpp:7\x1b[m\x1b[K,\n'}
+[2.933101] (car_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/move_ros.hpp:4\x1b[m\x1b[K,\n'}
+[2.933134] (car_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:1\x1b[m\x1b[K:\n'}
+[2.933165] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/odometry__struct.hpp:146:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[2.934235] (car_cpp) StderrLine: {'line': b'  146 |     \x1b[01;36m\x1b[KConstPtr\x1b[m\x1b[K;\n'}
+[2.934296] (car_cpp) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.936868] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:50:6:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno declaration matches \xe2\x80\x98\x1b[01m\x1b[Kvoid move_ros::odometryCallback(nav_msgs::msg::Odometry_<std::allocator<void> >::ConstPtr)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.936940] (-) TimerEvent: {}
+[2.937018] (car_cpp) StderrLine: {'line': b'   50 | void \x1b[01;31m\x1b[Kmove_ros\x1b[m\x1b[K::odometryCallback(nav_msgs::msg::Odometry::ConstPtr odometry_)\n'}
+[2.937059] (car_cpp) StderrLine: {'line': b'      |      \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.937092] (car_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:1\x1b[m\x1b[K:\n'}
+[2.937126] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/move_ros.hpp:97:10:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate is: \xe2\x80\x98\x1b[01m\x1b[Kvoid move_ros::odometryCallback(const ConstPtr&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.937269] (car_cpp) StderrLine: {'line': b'   97 |     void \x1b[01;36m\x1b[KodometryCallback\x1b[m\x1b[K(const nav_msgs::msg::Odometry::ConstPtr& odometry_);\n'}
+[2.937384] (car_cpp) StderrLine: {'line': b'      |          \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.937425] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/move_ros.hpp:16:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kclass move_ros\x1b[m\x1b[K\xe2\x80\x99 defined here\n'}
+[2.937467] (car_cpp) StderrLine: {'line': b'   16 | class \x1b[01;36m\x1b[Kmove_ros\x1b[m\x1b[K : public rclcpp::Node {\n'}
+[2.937499] (car_cpp) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.937530] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid move_ros::run()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.937664] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:57:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[2.937703] (car_cpp) StderrLine: {'line': b'   57 |     \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::Rate rate(10);\n'}
+[2.937737] (car_cpp) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.937781] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:59:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[2.937827] (car_cpp) StderrLine: {'line': b'   59 |     while(\x1b[01;31m\x1b[Kros\x1b[m\x1b[K::ok())\n'}
+[2.937863] (car_cpp) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.937896] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:61:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[2.937929] (car_cpp) StderrLine: {'line': b'   61 |         \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::spinOnce();\n'}
+[2.937962] (car_cpp) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.947930] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:62:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krate\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.948422] (car_cpp) StderrLine: {'line': b'   62 |         \x1b[01;31m\x1b[Krate\x1b[m\x1b[K.sleep();\n'}
+[2.948479] (car_cpp) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.950217] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:79:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K((move_ros*)this)->move_ros::pos_fin_x\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.950480] (car_cpp) StderrLine: {'line': b'   79 |             PuntoFIN3d = {\x1b[01;35m\x1b[Kpos_fin_x\x1b[m\x1b[K, pos_fin_y, pos_fin_z};  //Punto de destino\n'}
+[2.950525] (car_cpp) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[2.950562] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:79:38:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K((move_ros*)this)->move_ros::pos_fin_y\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.950609] (car_cpp) StderrLine: {'line': b'   79 |             PuntoFIN3d = {pos_fin_x, \x1b[01;35m\x1b[Kpos_fin_y\x1b[m\x1b[K, pos_fin_z};  //Punto de destino\n'}
+[2.950645] (car_cpp) StderrLine: {'line': b'      |                                      \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[2.950678] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:79:49:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K((move_ros*)this)->move_ros::pos_fin_z\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.950712] (car_cpp) StderrLine: {'line': b'   79 |             PuntoFIN3d = {pos_fin_x, pos_fin_y, \x1b[01;35m\x1b[Kpos_fin_z\x1b[m\x1b[K};  //Punto de destino\n'}
+[2.950744] (car_cpp) StderrLine: {'line': b'      |                                                 \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[2.950777] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:87:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[2.950810] (car_cpp) StderrLine: {'line': b'   87 |                     \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::spinOnce();\n'}
+[2.950841] (car_cpp) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.957218] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:90:34:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kodometria_p\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kodometry_p\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.957417] (car_cpp) StderrLine: {'line': b'   90 |                     bool_odom =  \x1b[01;31m\x1b[Kodometria_p\x1b[m\x1b[K.set_puntoOdom(odometry,pos_actual,orientacion_actual_q);\n'}
+[2.957471] (car_cpp) StderrLine: {'line': b'      |                                  \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.957505] (car_cpp) StderrLine: {'line': b'      |                                  \x1b[32m\x1b[Kodometry_p\x1b[m\x1b[K\n'}
+[2.963762] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:91:35:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kutilities_p\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kutilities\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.963960] (car_cpp) StderrLine: {'line': b'   91 |                     pos_actual3d= \x1b[01;31m\x1b[Kutilities_p\x1b[m\x1b[K.VectorToPoint3d(pos_actual);\n'}
+[2.964004] (car_cpp) StderrLine: {'line': b'      |                                   \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.964039] (car_cpp) StderrLine: {'line': b'      |                                   \x1b[32m\x1b[Kutilities\x1b[m\x1b[K\n'}
+[2.969838] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:99:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kvel_pub\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kvel_pub_\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.970301] (car_cpp) StderrLine: {'line': b'   99 |                     \x1b[01;31m\x1b[Kvel_pub\x1b[m\x1b[K.publish(Comando_velocidad);\n'}
+[2.971804] (car_cpp) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[2.972467] (car_cpp) StderrLine: {'line': b'      |                     \x1b[32m\x1b[Kvel_pub_\x1b[m\x1b[K\n'}
+[2.972548] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:100:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[2.972594] (car_cpp) StderrLine: {'line': b'  100 |                     \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::Duration(0.05).sleep();\n'}
+[2.972627] (car_cpp) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.977738] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:108:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kvisualization_pub\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kvisualization_pub_\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.978135] (car_cpp) StderrLine: {'line': b'  108 |         \x1b[01;31m\x1b[Kvisualization_pub\x1b[m\x1b[K.publish(punto_visualizacion);\n'}
+[2.978451] (car_cpp) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.978967] (car_cpp) StderrLine: {'line': b'      |         \x1b[32m\x1b[Kvisualization_pub_\x1b[m\x1b[K\n'}
+[2.979251] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:111:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[2.980404] (car_cpp) StderrLine: {'line': b'  111 |         \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::spinOnce();\n'}
+[2.980466] (car_cpp) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.984796] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:112:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kodometria_p\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kodometry_p\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.985798] (car_cpp) StderrLine: {'line': b'  112 |         bool_odom = \x1b[01;31m\x1b[Kodometria_p\x1b[m\x1b[K.set_puntoOdom(odometry,pos_actual,orientacion_actual_q);\n'}
+[2.986076] (car_cpp) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.986349] (car_cpp) StderrLine: {'line': b'      |                     \x1b[32m\x1b[Kodometry_p\x1b[m\x1b[K\n'}
+[2.992399] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:113:23:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kutilities_p\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kutilities\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.992606] (car_cpp) StderrLine: {'line': b'  113 |         pos_actual3d= \x1b[01;31m\x1b[Kutilities_p\x1b[m\x1b[K.VectorToPoint3d(pos_actual);\n'}
+[2.992650] (car_cpp) StderrLine: {'line': b'      |                       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.992684] (car_cpp) StderrLine: {'line': b'      |                       \x1b[32m\x1b[Kutilities\x1b[m\x1b[K\n'}
+[2.999618] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:125:47:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KnumPuntos_circunferecnia\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KnumPuntos_circunferencia\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.999990] (car_cpp) StderrLine: {'line': b'  125 |             vector_circunferencePoints.resize(\x1b[01;31m\x1b[KnumPuntos_circunferecnia\x1b[m\x1b[K);\n'}
+[3.000036] (car_cpp) StderrLine: {'line': b'      |                                               \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.000070] (car_cpp) StderrLine: {'line': b'      |                                               \x1b[32m\x1b[KnumPuntos_circunferencia\x1b[m\x1b[K\n'}
+[3.000804] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:224:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[3.000882] (car_cpp) StderrLine: {'line': b'  224 |             \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::Duration(0.0001).sleep();\n'}
+[3.000916] (car_cpp) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[3.002478] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:255:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[3.002857] (car_cpp) StderrLine: {'line': b'  255 |                     \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::spinOnce();\n'}
+[3.003127] (car_cpp) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[3.007177] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:262:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kvel_pub\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kvel_pub_\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.008154] (car_cpp) StderrLine: {'line': b'  262 |                     \x1b[01;31m\x1b[Kvel_pub\x1b[m\x1b[K.publish(Comando_velocidad);\n'}
+[3.008245] (car_cpp) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[3.008282] (car_cpp) StderrLine: {'line': b'      |                     \x1b[32m\x1b[Kvel_pub_\x1b[m\x1b[K\n'}
+[3.009091] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:263:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[3.009179] (car_cpp) StderrLine: {'line': b'  263 |                     \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::Duration(0.05).sleep();\n'}
+[3.009228] (car_cpp) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[3.013214] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:297:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[3.013639] (car_cpp) StderrLine: {'line': b'  297 |                 \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::spinOnce();\n'}
+[3.013807] (car_cpp) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[3.017498] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:327:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kvel_pub\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kvel_pub_\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.017917] (car_cpp) StderrLine: {'line': b'  327 |                 \x1b[01;31m\x1b[Kvel_pub\x1b[m\x1b[K.publish(Comando_velocidad);\n'}
+[3.018132] (car_cpp) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[3.018178] (car_cpp) StderrLine: {'line': b'      |                 \x1b[32m\x1b[Kvel_pub_\x1b[m\x1b[K\n'}
+[3.018830] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:330:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[3.018900] (car_cpp) StderrLine: {'line': b'  330 |                 \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::Duration(0.05).sleep();\n'}
+[3.018935] (car_cpp) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[3.021214] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:391:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[3.021575] (car_cpp) StderrLine: {'line': b'  391 |                 \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::spinOnce();\n'}
+[3.021848] (car_cpp) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[3.027607] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:426:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kvel_pub\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kvel_pub_\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.027989] (car_cpp) StderrLine: {'line': b'  426 |                 \x1b[01;31m\x1b[Kvel_pub\x1b[m\x1b[K.publish(Comando_velocidad);\n'}
+[3.028275] (car_cpp) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[3.028492] (car_cpp) StderrLine: {'line': b'      |                 \x1b[32m\x1b[Kvel_pub_\x1b[m\x1b[K\n'}
+[3.028531] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:427:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kros\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[3.028567] (car_cpp) StderrLine: {'line': b'  427 |                 \x1b[01;31m\x1b[Kros\x1b[m\x1b[K::Duration(0.05).sleep();\n'}
+[3.028599] (car_cpp) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[3.032681] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:442:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kvel_pub\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kvel_pub_\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.032787] (car_cpp) StderrLine: {'line': b'  442 |             \x1b[01;31m\x1b[Kvel_pub\x1b[m\x1b[K.publish(Comando_velocidad);\n'}
+[3.032825] (car_cpp) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[3.032859] (car_cpp) StderrLine: {'line': b'      |             \x1b[32m\x1b[Kvel_pub_\x1b[m\x1b[K\n'}
+[3.034758] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_ros.cpp:269:22:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Klabel \xe2\x80\x98\x1b[01m\x1b[Kinicio\x1b[m\x1b[K\xe2\x80\x99 used but not defined\n'}
+[3.034915] (car_cpp) StderrLine: {'line': b'  269 |                 goto \x1b[01;31m\x1b[Kinicio\x1b[m\x1b[K;\n'}
+[3.034956] (car_cpp) StderrLine: {'line': b'      |                      \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[3.037060] (-) TimerEvent: {}
+[3.138372] (-) TimerEvent: {}
+[3.238795] (-) TimerEvent: {}
+[3.339389] (-) TimerEvent: {}
+[3.442146] (-) TimerEvent: {}
+[3.542925] (-) TimerEvent: {}
+[3.643718] (-) TimerEvent: {}
+[3.744382] (-) TimerEvent: {}
+[3.844751] (-) TimerEvent: {}
+[3.946369] (-) TimerEvent: {}
+[4.046747] (-) TimerEvent: {}
+[4.151253] (-) TimerEvent: {}
+[4.251554] (-) TimerEvent: {}
+[4.356263] (-) TimerEvent: {}
+[4.458259] (-) TimerEvent: {}
+[4.558571] (-) TimerEvent: {}
+[4.658918] (-) TimerEvent: {}
+[4.759394] (-) TimerEvent: {}
+[4.859753] (-) TimerEvent: {}
+[4.960897] (-) TimerEvent: {}
+[5.061393] (-) TimerEvent: {}
+[5.164481] (-) TimerEvent: {}
+[5.260824] (car_cpp) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/car_cpp.dir/build.make:188: CMakeFiles/car_cpp.dir/src/path_planner.cpp.o] Error 1\n'}
+[5.263079] (car_cpp) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[5.264566] (-) TimerEvent: {}
+[5.365296] (-) TimerEvent: {}
+[5.466033] (-) TimerEvent: {}
+[5.566368] (-) TimerEvent: {}
+[5.666696] (-) TimerEvent: {}
+[5.767017] (-) TimerEvent: {}
+[5.869252] (-) TimerEvent: {}
+[5.969546] (-) TimerEvent: {}
+[6.067605] (car_cpp) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/car_cpp.dir/build.make:146: CMakeFiles/car_cpp.dir/src/move_ros.cpp.o] Error 1\n'}
+[6.068045] (car_cpp) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/car_cpp.dir/all] Error 2\n'}
+[6.068101] (car_cpp) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[6.069742] (-) TimerEvent: {}
+[6.070545] (car_cpp) CommandEnded: {'returncode': 2}
+[6.076274] (car_cpp) JobEnded: {'identifier': 'car_cpp', 'rc': 2}
+[6.087202] (-) EventReactorShutdown: {}

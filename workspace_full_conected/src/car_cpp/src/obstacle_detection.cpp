@@ -1,18 +1,18 @@
-#include "evita_obstaculos/detecta_obstaculo.hpp" 
+#include "obstacle_detection.hpp" 
  
-detecta_obstaculo::detecta_obstaculo() 
+obstacle_detection::obstacle_detection() 
 { 
     octomap_recibido = false;  //si hemos recibido mensaje de octomap 
 } 
  
-void detecta_obstaculo::set_mapa (octomap::OcTree *Octree_) 
+void obstacle_detection::set_mapa (octomap::OcTree *Octree_) 
 { 
     octomap_recibido = true; 
     Octree = Octree_; 
 } 
  
 // VERIFICAR SI HAY UN OBTÁCULO EN UN PUNTO ESPECÍFICO (tipo octomap point3d) 
-bool detecta_obstaculo::obstaculo_cerca(const octomap::point3d location)  
+bool obstacle_detection::obstaculo_cerca(const octomap::point3d location)  
 { 
      
     if (!Octree)  
@@ -35,8 +35,8 @@ bool detecta_obstaculo::obstaculo_cerca(const octomap::point3d location)
     } 
 } 
  
-detecta_obstaculo::~detecta_obstaculo(){} 
+obstacle_detection::~obstacle_detection(){} 
  
-octomap::OcTree* detecta_obstaculo::get_map(){ 
+octomap::OcTree* obstacle_detection::get_map(){ 
     return Octree; 
 }

@@ -1,1 +1,1 @@
-rclcpp;std_msgs;geometry_msgs;sensor_msgs;octomap;octomap_msgs;pcl_conversions;pcl_msgs;ament_lint_auto;ament_lint_common
+rclcpp;std_msgs;geometry_msgs;sensor_msgs;octomap;octomap_msgs;octomap_ros;pcl_conversions;pcl_msgs;visualization_msgs;nav_msgs;ament_lint_auto;ament_lint_common

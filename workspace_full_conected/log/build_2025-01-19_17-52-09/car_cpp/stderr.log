@@ -1,7 +1,0 @@
-[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/check_map.cpp:5:10:[m[K [01;31m[Kfatal error: [m[Kvisualization_msgs/msg/marker_array.hpp: No such file or directory
-    5 | #include [01;31m[K<visualization_msgs/msg/marker_array.hpp>[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-gmake[2]: *** [CMakeFiles/check_map.dir/build.make:76: CMakeFiles/check_map.dir/src/check_map.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/check_map.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

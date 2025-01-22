@@ -3,7 +3,7 @@
 #include "cstdlib" 
 #include "ctime" 
 #include "vector" 
-#include "octomap_msgs/Octomap.h" 
+#include "octomap_msgs/msg/octomap.h" 
 #include "octomap_msgs/conversions.h" 
 #include "octomap/OcTree.h" 
  
