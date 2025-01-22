@@ -1,0 +1,15 @@
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/ament_index/resource_index/package_run_dependencies/clearpath_description
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/ament_index/resource_index/parent_prefix_path/clearpath_description
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/environment/ament_prefix_path.sh
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/environment/ament_prefix_path.dsv
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/environment/path.sh
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/environment/path.dsv
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/local_setup.bash
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/local_setup.sh
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/local_setup.zsh
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/local_setup.dsv
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/package.dsv
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/ament_index/resource_index/packages/clearpath_description
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/cmake/clearpath_descriptionConfig.cmake
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/cmake/clearpath_descriptionConfig-version.cmake
+/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_description/share/clearpath_description/package.xml

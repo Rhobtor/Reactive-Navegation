@@ -1,2 +1,2 @@
 # CMAKE generated file: DO NOT EDIT!
-# Timestamp file for compiler generated dependencies management for car_cpp.
+# Timestamp file for custom commands dependencies management for car_cpp.

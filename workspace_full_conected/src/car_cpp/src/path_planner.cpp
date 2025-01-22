@@ -15,6 +15,22 @@ public:
     }
 
 private:
+    struct Point3DHash {
+        std::size_t operator()(const octomap::point3d& p) const {
+            // Combina las coordenadas x, y, z en un hash único
+            std::size_t hx = std::hash<float>()(p.x());
+            std::size_t hy = std::hash<float>()(p.y());
+            std::size_t hz = std::hash<float>()(p.z());
+            return hx ^ (hy << 1) ^ (hz << 2);
+        }
+    };
+
+    struct Point3DEqual {
+        bool operator()(const octomap::point3d& p1, const octomap::point3d& p2) const {
+            return p1 == p2;
+        }
+    };
+
     void octomapCallback(const octomap_msgs::msg::Octomap::SharedPtr msg) {
         octomap::AbstractOcTree* tree = octomap_msgs::msgToMap(*msg);
         auto octree = dynamic_cast<octomap::OcTree*>(tree);
@@ -41,8 +57,8 @@ private:
         auto cmp = [](const Node& a, const Node& b) { return a.totalCost() > b.totalCost(); };
         std::priority_queue<Node, std::vector<Node>, decltype(cmp)> open_set(cmp);
 
-        std::unordered_map<octomap::point3d, octomap::point3d, octomap::point3d_hash> came_from;
-        std::unordered_map<octomap::point3d, double, octomap::point3d_hash> cost_so_far;
+        std::unordered_map<octomap::point3d, octomap::point3d, Point3DHash, Point3DEqual> came_from;
+        std::unordered_map<octomap::point3d, double, Point3DHash, Point3DEqual> cost_so_far;
 
         open_set.push({start, 0.0, (goal - start).norm()});
         cost_so_far[start] = 0.0;
@@ -65,11 +81,11 @@ private:
 
         // Reconstruir el camino
         std::vector<octomap::point3d> path;
-        for (octomap::point3d at = goal; at != start; at = came_from[at]) {
+        for (octomap::point3d at = goal; !(at == start); at = came_from[at]) {
             path.push_back(at);
         }
-        path.push_back(start);
-        std::reverse(path.begin(), path.end());
+        path.push_back(start); // Agregar el punto inicial al camino
+        std::reverse(path.begin(), path.end()); // Invertir para obtener el camino en el orden correcto
         return path;
     }
 

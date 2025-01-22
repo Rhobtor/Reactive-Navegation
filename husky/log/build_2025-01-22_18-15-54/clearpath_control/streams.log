@@ -1,0 +1,99 @@
+[0.021s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/husky/src/clearpath_common/clearpath_control -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control
+[0.140s] -- The C compiler identification is GNU 11.4.0
+[0.194s] -- The CXX compiler identification is GNU 11.4.0
+[0.206s] -- Detecting C compiler ABI info
+[0.308s] -- Detecting C compiler ABI info - done
+[0.322s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.327s] -- Detecting C compile features
+[0.327s] -- Detecting C compile features - done
+[0.330s] -- Detecting CXX compiler ABI info
+[0.414s] -- Detecting CXX compiler ABI info - done
+[0.419s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.420s] -- Detecting CXX compile features
+[0.420s] -- Detecting CXX compile features - done
+[0.421s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.549s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.688s] -- Configuring done
+[0.690s] -- Generating done
+[0.692s] -- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_control
+[0.696s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/husky/src/clearpath_common/clearpath_control -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control
+[0.697s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_control -- -j2 -l2
+[0.746s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_control -- -j2 -l2
+[0.752s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_control
+[0.757s] -- Install configuration: ""
+[0.757s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config
+[0.758s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd150
+[0.758s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd150/control.yaml
+[0.758s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd150/teleop_logitech.yaml
+[0.758s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd150/teleop_interactive_markers.yaml
+[0.758s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd150/teleop_ps4.yaml
+[0.758s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd150/localization.yaml
+[0.758s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/generic
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/generic/teleop_logitech.yaml
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/generic/teleop_interactive_markers.yaml
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/generic/teleop_ps4.yaml
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/generic/localization.yaml
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/w200
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/w200/control.yaml
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/w200/teleop_logitech.yaml
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/w200/teleop_interactive_markers.yaml
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/w200/teleop_ps4.yaml
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/w200/localization.yaml
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd100
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd100/control.yaml
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd100/teleop_logitech.yaml
+[0.760s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd100/teleop_interactive_markers.yaml
+[0.760s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd100/teleop_ps4.yaml
+[0.760s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/dd100/localization.yaml
+[0.760s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do150
+[0.760s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do150/control.yaml
+[0.760s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do150/teleop_logitech.yaml
+[0.760s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do150/teleop_interactive_markers.yaml
+[0.760s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do150/teleop_ps4.yaml
+[0.760s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do150/localization.yaml
+[0.761s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/r100
+[0.761s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/r100/control.yaml
+[0.761s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/r100/teleop_logitech.yaml
+[0.761s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/r100/teleop_interactive_markers.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/r100/teleop_ps4.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/r100/localization.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/twist_mux.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do100
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do100/control.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do100/teleop_logitech.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do100/teleop_interactive_markers.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do100/teleop_ps4.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/do100/localization.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/a200
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/a200/control.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/a200/teleop_logitech.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/a200/teleop_interactive_markers.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/a200/teleop_ps4.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/a200/localization.yaml
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/j100
+[0.763s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/j100/control.yaml
+[0.763s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/j100/teleop_logitech.yaml
+[0.763s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/j100/teleop_interactive_markers.yaml
+[0.763s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/j100/teleop_ps4.yaml
+[0.764s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/config/j100/localization.yaml
+[0.764s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/launch
+[0.764s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/launch/localization.launch.py
+[0.765s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/launch/teleop_joy.launch.py
+[0.765s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/launch/control.launch.py
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/launch/teleop_base.launch.py
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/ament_index/resource_index/package_run_dependencies/clearpath_control
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/ament_index/resource_index/parent_prefix_path/clearpath_control
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/environment/ament_prefix_path.sh
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/environment/ament_prefix_path.dsv
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/environment/path.sh
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/environment/path.dsv
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/local_setup.bash
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/local_setup.sh
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/local_setup.zsh
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/local_setup.dsv
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/package.dsv
+[0.767s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/ament_index/resource_index/packages/clearpath_control
+[0.767s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/cmake/clearpath_controlConfig.cmake
+[0.767s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/cmake/clearpath_controlConfig-version.cmake
+[0.767s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_control/share/clearpath_control/package.xml
+[0.768s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_control

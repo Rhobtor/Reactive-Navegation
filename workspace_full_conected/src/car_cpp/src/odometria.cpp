@@ -8,8 +8,9 @@ odometria::odometria()
       qx_odom(0), qy_odom(0), qz_odom(0), qw_odom(0),
       linear(0), angular(0) {}
 
-bool odometria::set_puntoOdom(const std::shared_ptr<nav_msgs::msg::Odometry>& odometry,
-                               std::vector<double>& posicion, std::vector<double>& orientacion) 
+bool odometria::set_puntoOdom(const std::shared_ptr<const nav_msgs::msg::Odometry>& odometry,
+                               std::vector<double>& posicion,
+                               std::vector<double>& orientacion)
 {
 
     if (odometry) {

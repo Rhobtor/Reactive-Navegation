@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "car_cpp__py",
+		"source" : "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/car_cpp__py"
+	}
+}

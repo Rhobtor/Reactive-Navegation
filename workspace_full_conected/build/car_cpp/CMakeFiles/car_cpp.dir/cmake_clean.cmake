@@ -1,29 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/car_cpp.dir/src/check_map.cpp.o"
-  "CMakeFiles/car_cpp.dir/src/check_map.cpp.o.d"
-  "CMakeFiles/car_cpp.dir/src/control_plugin.cpp.o"
-  "CMakeFiles/car_cpp.dir/src/control_plugin.cpp.o.d"
-  "CMakeFiles/car_cpp.dir/src/motion.cpp.o"
-  "CMakeFiles/car_cpp.dir/src/motion.cpp.o.d"
-  "CMakeFiles/car_cpp.dir/src/move.cpp.o"
-  "CMakeFiles/car_cpp.dir/src/move.cpp.o.d"
-  "CMakeFiles/car_cpp.dir/src/move_ros.cpp.o"
-  "CMakeFiles/car_cpp.dir/src/move_ros.cpp.o.d"
-  "CMakeFiles/car_cpp.dir/src/obstacle_detection.cpp.o"
-  "CMakeFiles/car_cpp.dir/src/obstacle_detection.cpp.o.d"
-  "CMakeFiles/car_cpp.dir/src/odometria.cpp.o"
-  "CMakeFiles/car_cpp.dir/src/odometria.cpp.o.d"
-  "CMakeFiles/car_cpp.dir/src/path_planner.cpp.o"
-  "CMakeFiles/car_cpp.dir/src/path_planner.cpp.o.d"
-  "CMakeFiles/car_cpp.dir/src/utilities.cpp.o"
-  "CMakeFiles/car_cpp.dir/src/utilities.cpp.o.d"
-  "CMakeFiles/car_cpp.dir/src/visualization.cpp.o"
-  "CMakeFiles/car_cpp.dir/src/visualization.cpp.o.d"
-  "car_cpp"
-  "car_cpp.pdb"
+  "CMakeFiles/car_cpp"
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
+foreach(lang )
   include(CMakeFiles/car_cpp.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

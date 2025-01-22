@@ -16,13 +16,20 @@ find_package(pcl_conversions REQUIRED)
 find_package(pcl_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
+find_package(geographic_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(rmw_implementation_cmake REQUIRED)
+
+
+
 
 # Agregar directorios de encabezados
 include_directories(include) 
 
 # Archivos fuente
 set(SOURCES
-  src/check_map.cpp
   src/visualization.cpp
   src/motion.cpp
   src/control_plugin.cpp
@@ -30,70 +37,95 @@ set(SOURCES
   src/move_ros.cpp
   src/obstacle_detection.cpp
   src/odometria.cpp
-  src/path_planner.cpp
   src/utilities.cpp
-
 )
 
+set(LIBS
+    gazebo_ros
+    geographic_msgs 
+    geometry_msgs
+    sensor_msgs
+    rclcpp
+    std_msgs
+    std_srvs
+    tf2
+)
 
-add_executable(car_cpp ${SOURCES})
-ament_target_dependencies(car_cpp rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs)
+## Generate messages
+rosidl_generate_interfaces(${PROJECT_NAME}
+  srv/SetBias.srv
+  srv/SetReferenceGeoPose.srv
+  DEPENDENCIES geographic_msgs geometry_msgs
+)
+
+# add_executable(car_cpp ${SOURCES})
+# ament_target_dependencies(car_cpp rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs)
+
+# install(TARGETS
+#   car_cpp
+#   DESTINATION lib/${PROJECT_NAME}
+# )
+
+
+#check_map
+add_executable(check_map src/check_map.cpp)
+ament_target_dependencies(check_map rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs)
 
 install(TARGETS
-  car_cpp
+  check_map
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+#path planner
+add_executable(path_planner_node src/path_planner.cpp)
+ament_target_dependencies(path_planner_node rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs)
+
+install(TARGETS
+path_planner_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
 
-
-# # Library for control plugin
-# add_library(control_plugin SHARED src/control_plugin.cpp)
-# target_include_directories(control_plugin PUBLIC include)
-# ament_target_dependencies(control_plugin rclcpp gazebo_ros std_msgs geometry_msgs)
-
-# # Library for control plugin
-# add_executable(check_map src/check_map.cpp)
-# target_include_directories(check_map PUBLIC include)
-# ament_target_dependencies(check_map rclcpp octomap octomap_msgs visualization_msgs)
+# Library for control plugin
+add_library(control_plugin SHARED src/control_plugin.cpp)
+target_include_directories(control_plugin PUBLIC include)
+ament_target_dependencies(control_plugin rclcpp gazebo_ros std_msgs geometry_msgs)
 
 
-# # Executable for OctoMap Node
-# add_executable(octree_node src/octree_node.cpp)
-# target_include_directories(octree_node PUBLIC include)
-# ament_target_dependencies(octree_node
-#   rclcpp
-#   sensor_msgs
-#   octomap
-#   octomap_msgs
-#   pcl_conversions
-#   pcl_msgs
-# )
-# target_link_libraries(octree_node
-#   ${octomap_LIBRARIES}
-# )
+# Plugin IMU
+add_library(hector_gazebo_ros_imu SHARED src/gazebo_ros_imu.cpp)
+target_link_libraries(hector_gazebo_ros_imu ${GAZEBO_LIBRARIES})
+ament_target_dependencies(hector_gazebo_ros_imu ${LIBS})
 
-# install(
-#   TARGETS control_plugin 
-#   LIBRARY DESTINATION lib
-# )
+# Plugin GPS
+add_library(hector_gazebo_ros_gps SHARED src/gazebo_ros_gps.cpp)
+target_link_libraries(hector_gazebo_ros_gps ${GAZEBO_LIBRARIES})
+ament_target_dependencies(hector_gazebo_ros_gps ${LIBS})
 
-# install(
-#   TARGETS check_map
-#   RUNTIME DESTINATION lib/${PROJECT_NAME}
-# )
 
-# target_link_libraries(check_map
-#   ${octomap_LIBRARIES}
-# )
+
+install(
+  TARGETS control_plugin 
+  LIBRARY DESTINATION lib
+)
+
 
 # Instalar archivos de encabezados
 install(DIRECTORY include/
   DESTINATION include/
 )
 
-# install(
-#   TARGETS octree_node
-#   RUNTIME DESTINATION lib/${PROJECT_NAME}
-# )
+
+# Instalar plugins
+install(TARGETS
+  hector_gazebo_ros_imu
+  hector_gazebo_ros_gps
+  LIBRARY DESTINATION lib
+)
+
+# Instalar encabezados
+install(DIRECTORY include/
+  DESTINATION include/
+)
 
 ament_package()

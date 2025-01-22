@@ -24,11 +24,8 @@ orientacion, double radio_ext, double radio_int){
     min_theta = orientacion - (1*M_PI/3); 
     max_theta = orientacion + (1*M_PI/3); 
  
-    theta = min_theta + (static_cast<double>(rand()) / RAND_MAX) * (max_theta - 
-min_theta); //modifico para que solo sean los 180º frontales 
-    distance = sqrt(static_cast<double>(rand()) / RAND_MAX) * (radio_ext
-radio_int)+radio_int;  //modifico para que excluya el circulo unidad central que es 
-el propio robot 
+    theta = min_theta + (static_cast<double>(rand()) / RAND_MAX) * (max_theta - min_theta); //modifico para que solo sean los 180º frontales 
+    distance = sqrt(static_cast<double>(rand()) / RAND_MAX) * (radio_ext-radio_int)+radio_int;  //modifico para que excluya el circulo unidad central que es el propio robot 
  
     x_centro = centro[0] + distance * cos(theta); 
     y_centro = centro[1] + distance * sin(theta); 
@@ -62,8 +59,7 @@ octomap::point3d puntoFin3d, double incremento){
     for(int i = 0; i<=cantidadPuntos; i++) 
     { 
         double t = static_cast<double>(i)/cantidadPuntos; 
-        intermediatePoint3d(0)= (puntoInicio3d(0)+ t*(puntoFin3d(0)
-puntoInicio3d(0)))+0.5; 
+        intermediatePoint3d(0)= (puntoInicio3d(0)+ t*(puntoFin3d(0)-puntoInicio3d(0)))+0.5; 
         intermediatePoint3d(1)= puntoInicio3d(1)+ t*(puntoFin3d(1)-puntoInicio3d(1)); 
         intermediateVectorPoints3d.push_back(intermediatePoint3d); 
  
@@ -80,8 +76,7 @@ puntoInicio3d(0)))+0.5;
     for(int i = 0; i<=cantidadPuntos; i++) 
     { 
         double t = static_cast<double>(i)/cantidadPuntos; 
-        intermediatePoint3d(0)= (puntoInicio3d(0)+ t*(puntoFin3d(0)
-puntoInicio3d(0)))-0.5; 
+        intermediatePoint3d(0)= (puntoInicio3d(0)+ t*(puntoFin3d(0)-puntoInicio3d(0)))-0.5; 
         intermediatePoint3d(1)= puntoInicio3d(1)+ t*(puntoFin3d(1)-puntoInicio3d(1)); 
         intermediateVectorPoints3d.push_back(intermediatePoint3d); 
  
@@ -125,8 +120,7 @@ int utilities::minimumValueIndex(std::vector<double> vectorDistances){
         } 
     } 
      
-    // si una vez buscado el primer valor no nulo el valor de mínima distancia sigue 
-siendo 0 es porque no hay ningun punto válido 
+    // si una vez buscado el primer valor no nulo el valor de mínima distancia sigue siendo 0 es porque no hay ningun punto válido 
     if (minimumDistance == 0) 
     { 
         return -1; 
@@ -146,8 +140,8 @@ siendo 0 es porque no hay ningun punto válido
 } 
  
 // CALCULO DEL ANGULO AL PUNTO FINAL (para comandar velocidad) 
-double utilities::calculateAngle (octomap::point3d StartPoint3d, octomap::point3d 
-FinalPoint3d){ 
+double utilities::calculateAngle (octomap::point3d StartPoint3d, octomap::point3d FinalPoint3d)
+{ 
     deltaX = (FinalPoint3d(0)-StartPoint3d(0)); 
     deltaY = (FinalPoint3d(1)-StartPoint3d(1)); 
     angle = atan2(deltaY,deltaX); 
@@ -156,8 +150,8 @@ FinalPoint3d){
 } 
  
 // PASAR DE CUATERNIO A ANGULO DE EULER 
-double utilities::CuaternionToEulerAngles (std::vector<double> 
-cuaternion_orientation){ 
+double utilities::CuaternionToEulerAngles (std::vector<double> cuaternion_orientation)
+{ 
     qx = cuaternion_orientation[0]; 
     qy = cuaternion_orientation[1]; 
     qz = cuaternion_orientation[2]; 

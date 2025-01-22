@@ -1,0 +1,553 @@
+[0.000000] (-) TimerEvent: {}
+[0.000545] (car) JobQueued: {'identifier': 'car', 'dependencies': OrderedDict()}
+[0.000993] (car_cpp) JobQueued: {'identifier': 'car_cpp', 'dependencies': OrderedDict()}
+[0.001029] (car) JobStarted: {'identifier': 'car'}
+[0.007400] (car_cpp) JobStarted: {'identifier': 'car_cpp'}
+[0.100573] (-) TimerEvent: {}
+[0.186958] (car_cpp) JobProgress: {'identifier': 'car_cpp', 'progress': 'cmake'}
+[0.187243] (car_cpp) Command: {'cmd': ['/usr/bin/cmake', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp', '-DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '2685'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1390,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1390'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fd66dd20_a785_49db_9618_4eb47c3ee8ee'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.90Q202'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.120'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble')]), 'shell': False}
+[0.201318] (-) TimerEvent: {}
+[0.236812] (car_cpp) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.282510] (car_cpp) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.288614] (car_cpp) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.301417] (-) TimerEvent: {}
+[0.354377] (car_cpp) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.361369] (car_cpp) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.361498] (car_cpp) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.361536] (car_cpp) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.362538] (car_cpp) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.401647] (-) TimerEvent: {}
+[0.447400] (car_cpp) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.454670] (car_cpp) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.454813] (car_cpp) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.456892] (car_cpp) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.461807] (car_cpp) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.487108] (car) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/car', 'build', '--build-base', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build', 'install', '--record', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US:', 'USER': 'rhobtor', 'LC_TIME': 'es_ES.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/rhobtor', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'es_ES.UTF-8', 'SYSTEMD_EXEC_PID': '2685', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'rhobtor', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'rhobtor', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1390,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1390', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'es_ES.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/fd66dd20_a785_49db_9618_4eb47c3ee8ee', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'es_ES.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.90Q202', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.120', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'es_ES.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'es_ES.UTF-8', 'LC_IDENTIFICATION': 'es_ES.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'es_ES.UTF-8', 'LC_PAPER': 'es_ES.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp'}, 'shell': False}
+[0.501736] (-) TimerEvent: {}
+[0.575447] (car_cpp) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.601839] (-) TimerEvent: {}
+[0.641234] (car_cpp) StdoutLine: {'line': b'-- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.680874] (car) StdoutLine: {'line': b'running egg_info\n'}
+[0.681432] (car) StdoutLine: {'line': b'creating ../../build/car/car.egg-info\n'}
+[0.681481] (car) StdoutLine: {'line': b'writing ../../build/car/car.egg-info/PKG-INFO\n'}
+[0.681516] (car) StdoutLine: {'line': b'writing dependency_links to ../../build/car/car.egg-info/dependency_links.txt\n'}
+[0.681550] (car) StdoutLine: {'line': b'writing entry points to ../../build/car/car.egg-info/entry_points.txt\n'}
+[0.681582] (car) StdoutLine: {'line': b'writing requirements to ../../build/car/car.egg-info/requires.txt\n'}
+[0.683599] (car) StdoutLine: {'line': b'writing top-level names to ../../build/car/car.egg-info/top_level.txt\n'}
+[0.683903] (car) StdoutLine: {'line': b"writing manifest file '../../build/car/car.egg-info/SOURCES.txt'\n"}
+[0.684592] (car) StdoutLine: {'line': b"reading manifest file '../../build/car/car.egg-info/SOURCES.txt'\n"}
+[0.684753] (car) StdoutLine: {'line': b"writing manifest file '../../build/car/car.egg-info/SOURCES.txt'\n"}
+[0.684793] (car) StdoutLine: {'line': b'running build\n'}
+[0.684827] (car) StdoutLine: {'line': b'running build_py\n'}
+[0.684858] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build\n'}
+[0.684891] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib\n'}
+[0.684921] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car\n'}
+[0.684953] (car) StdoutLine: {'line': b'copying car/octomap_2d_display.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car\n'}
+[0.684984] (car) StdoutLine: {'line': b'copying car/keyboard_control.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car\n'}
+[0.685015] (car) StdoutLine: {'line': b'copying car/__init__.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car\n'}
+[0.685046] (car) StdoutLine: {'line': b'copying car/log_joystick.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car\n'}
+[0.685076] (car) StdoutLine: {'line': b'copying car/joystick_control.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car\n'}
+[0.687910] (car) StdoutLine: {'line': b'running install\n'}
+[0.687979] (car) StdoutLine: {'line': b'running install_lib\n'}
+[0.688039] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car\n'}
+[0.688077] (car) StdoutLine: {'line': b'copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/octomap_2d_display.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car\n'}
+[0.688112] (car) StdoutLine: {'line': b'copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/keyboard_control.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car\n'}
+[0.688145] (car) StdoutLine: {'line': b'copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/__init__.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car\n'}
+[0.688178] (car) StdoutLine: {'line': b'copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/log_joystick.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car\n'}
+[0.688209] (car) StdoutLine: {'line': b'copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/joystick_control.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car\n'}
+[0.688245] (car) StdoutLine: {'line': b'byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/octomap_2d_display.py to octomap_2d_display.cpython-310.pyc\n'}
+[0.688300] (car) StdoutLine: {'line': b'byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/keyboard_control.py to keyboard_control.cpython-310.pyc\n'}
+[0.688333] (car_cpp) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.688374] (car) StdoutLine: {'line': b'byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__init__.py to __init__.cpython-310.pyc\n'}
+[0.688406] (car) StdoutLine: {'line': b'byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/log_joystick.py to log_joystick.cpython-310.pyc\n'}
+[0.688436] (car) StdoutLine: {'line': b'byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/joystick_control.py to joystick_control.cpython-310.pyc\n'}
+[0.688467] (car) StdoutLine: {'line': b'running install_data\n'}
+[0.688498] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/ament_index\n'}
+[0.688530] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/ament_index/resource_index\n'}
+[0.688561] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/ament_index/resource_index/packages\n'}
+[0.688597] (car) StdoutLine: {'line': b'copying resource/car -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/ament_index/resource_index/packages\n'}
+[0.688629] (car) StdoutLine: {'line': b'copying package.xml -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car\n'}
+[0.688660] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch\n'}
+[0.688691] (car) StdoutLine: {'line': b'copying launch/gazebo.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch\n'}
+[0.691392] (car) StdoutLine: {'line': b'copying launch/display.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch\n'}
+[0.691473] (car) StdoutLine: {'line': b'copying launch/gazebo_mountain.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch\n'}
+[0.691511] (car) StdoutLine: {'line': b'copying launch/control.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch\n'}
+[0.691544] (car) StdoutLine: {'line': b'copying launch/control_with_gazebo.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch\n'}
+[0.691576] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf\n'}
+[0.691608] (car) StdoutLine: {'line': b'copying urdf/lidar.plugin.xacro -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf\n'}
+[0.691639] (car) StdoutLine: {'line': b'copying urdf/materials.xacro -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf\n'}
+[0.691670] (car) StdoutLine: {'line': b'copying urdf/car.gazebo -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf\n'}
+[0.691901] (car) StdoutLine: {'line': b'copying urdf/car.trans -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf\n'}
+[0.692174] (car) StdoutLine: {'line': b'copying urdf/car.xacro -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf\n'}
+[0.692596] (car) StdoutLine: {'line': b'copying urdf/camara.plugin.xacro -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf\n'}
+[0.692659] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.692694] (car) StdoutLine: {'line': b'copying meshes/rim_back_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.694441] (car) StdoutLine: {'line': b'copying meshes/rim_back_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.695505] (car) StdoutLine: {'line': b'copying meshes/suspension_back_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.695881] (car_cpp) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.696873] (car) StdoutLine: {'line': b'copying meshes/Component24_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.697676] (car) StdoutLine: {'line': b'copying meshes/rim_front_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.698473] (car) StdoutLine: {'line': b'copying meshes/direction_front_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.698775] (car) StdoutLine: {'line': b'copying meshes/direction_front_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.698965] (car) StdoutLine: {'line': b'copying meshes/chasis_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.699533] (car) StdoutLine: {'line': b'copying meshes/direction_back_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.699703] (car) StdoutLine: {'line': b'copying meshes/rim.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.700950] (car) StdoutLine: {'line': b'copying meshes/direction_back_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.701306] (car) StdoutLine: {'line': b'copying meshes/Component25_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.701733] (car) StdoutLine: {'line': b'copying meshes/base_link.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.702016] (car) StdoutLine: {'line': b'copying meshes/suspension_front_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.702087] (-) TimerEvent: {}
+[0.702945] (car) StdoutLine: {'line': b'copying meshes/tire.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.703132] (car_cpp) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.705316] (car) StdoutLine: {'line': b'copying meshes/rim_front_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.705852] (car) StdoutLine: {'line': b'copying meshes/tire_back_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.705947] (car) StdoutLine: {'line': b'copying meshes/tire_front_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.706314] (car) StdoutLine: {'line': b'copying meshes/tire_back_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.707083] (car) StdoutLine: {'line': b'copying meshes/suspension_front_left__1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.707713] (car) StdoutLine: {'line': b'copying meshes/tire_front_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.707806] (car) StdoutLine: {'line': b'copying meshes/suspension_back_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes\n'}
+[0.707968] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config\n'}
+[0.708803] (car) StdoutLine: {'line': b'copying config/control.yaml -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config\n'}
+[0.708886] (car) StdoutLine: {'line': b'copying config/display.rviz -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config\n'}
+[0.708924] (car) StdoutLine: {'line': b'copying config/controllers.yaml -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config\n'}
+[0.708957] (car) StdoutLine: {'line': b'creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car\n'}
+[0.708990] (car) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.711373] (car) StdoutLine: {'line': b'Copying ../../build/car/car.egg-info to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info\n'}
+[0.711484] (car) StdoutLine: {'line': b'running install_scripts\n'}
+[0.716320] (car_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.726687] (car) StdoutLine: {'line': b'Installing joystick_control script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car\n'}
+[0.728335] (car) StdoutLine: {'line': b'Installing keyboard_control script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car\n'}
+[0.728440] (car) StdoutLine: {'line': b'Installing log_joystick script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car\n'}
+[0.728481] (car) StdoutLine: {'line': b'Installing octomap_2d_display script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car\n'}
+[0.728514] (car) StdoutLine: {'line': b"writing list of installed files to '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log'\n"}
+[0.730713] (car_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.751173] (car) CommandEnded: {'returncode': 0}
+[0.757158] (car) JobEnded: {'identifier': 'car', 'rc': 0}
+[0.767795] (car_cpp) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.769339] (car_cpp) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.802214] (-) TimerEvent: {}
+[0.832920] (car_cpp) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.850726] (car_cpp) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.877107] (car_cpp) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.884858] (car_cpp) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.902361] (-) TimerEvent: {}
+[0.947941] (car_cpp) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.948086] (car_cpp) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[1.002711] (-) TimerEvent: {}
+[1.008811] (car_cpp) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[1.009224] (car_cpp) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.043330] (car_cpp) StdoutLine: {'line': b'-- Found gazebo_ros: 3.7.0 (/opt/ros/humble/share/gazebo_ros/cmake)\n'}
+[1.050780] (car_cpp) StdoutLine: {'line': b'-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") \n'}
+[1.051600] (car_cpp) StdoutLine: {'line': b"-- Checking for module 'bullet>=2.82'\n"}
+[1.062839] (car_cpp) StdoutLine: {'line': b'--   Found bullet, version 3.05\n'}
+[1.102847] (-) TimerEvent: {}
+[1.142417] (car_cpp) StdoutLine: {'line': b'-- Found fcl: /usr/include (found suitable version "0.7.0", minimum required is "0.5.0") \n'}
+[1.188421] (car_cpp) StdoutLine: {'line': b'-- Found assimp: /usr/include (found version "5.2.0") \n'}
+[1.199670] (car_cpp) StdoutLine: {'line': b'-- Found DART: /usr/include (Required is at least version "6.6") found components: dart \n'}
+[1.203333] (-) TimerEvent: {}
+[1.219370] (car_cpp) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time \n'}
+[1.231354] (car_cpp) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") \n'}
+[1.234344] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[1.238018] (car_cpp) StdoutLine: {'line': b'-- Searching for dependencies of ignition-math6\n'}
+[1.239102] (car_cpp) StdoutLine: {'line': b'-- Looking for OGRE...\n'}
+[1.239442] (car_cpp) StdoutLine: {'line': b'-- OGRE_PREFIX_WATCH changed.\n'}
+[1.244855] (car_cpp) StdoutLine: {'line': b"-- Checking for module 'OGRE'\n"}
+[1.257035] (car_cpp) StdoutLine: {'line': b'--   Found OGRE, version 1.9.0\n'}
+[1.284361] (car_cpp) StdoutLine: {'line': b'-- Found Ogre Ghadamon (1.9.0)\n'}
+[1.288695] (car_cpp) StdoutLine: {'line': b'-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so\n'}
+[1.296256] (car_cpp) StdoutLine: {'line': b'-- Looking for OGRE_Paging...\n'}
+[1.299972] (car_cpp) StdoutLine: {'line': b'-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so\n'}
+[1.300168] (car_cpp) StdoutLine: {'line': b'-- Looking for OGRE_Terrain...\n'}
+[1.303619] (car_cpp) StdoutLine: {'line': b'-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so\n'}
+[1.304082] (-) TimerEvent: {}
+[1.304717] (car_cpp) StdoutLine: {'line': b'-- Looking for OGRE_Property...\n'}
+[1.307636] (car_cpp) StdoutLine: {'line': b'-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so\n'}
+[1.307826] (car_cpp) StdoutLine: {'line': b'-- Looking for OGRE_RTShaderSystem...\n'}
+[1.311430] (car_cpp) StdoutLine: {'line': b'-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so\n'}
+[1.311680] (car_cpp) StdoutLine: {'line': b'-- Looking for OGRE_Volume...\n'}
+[1.314246] (car_cpp) StdoutLine: {'line': b'-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so\n'}
+[1.314444] (car_cpp) StdoutLine: {'line': b'-- Looking for OGRE_Overlay...\n'}
+[1.317768] (car_cpp) StdoutLine: {'line': b'-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so\n'}
+[1.389494] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[1.390700] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-transport8 -- found version 8.2.1\n'}
+[1.391121] (car_cpp) StdoutLine: {'line': b'-- Searching for dependencies of ignition-transport8\n'}
+[1.404225] (-) TimerEvent: {}
+[1.404900] (car_cpp) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") \n'}
+[1.411182] (car_cpp) StdoutLine: {'line': b'-- Config-file not installed for ZeroMQ -- checking for pkg-config\n'}
+[1.416389] (car_cpp) StdoutLine: {'line': b"-- Checking for module 'libzmq >= 4'\n"}
+[1.430810] (car_cpp) StdoutLine: {'line': b'--   Found libzmq , version 4.3.4\n'}
+[1.480059] (car_cpp) StdoutLine: {'line': b'-- Found ZeroMQ: TRUE (Required is at least version "4") \n'}
+[1.487207] (car_cpp) StdoutLine: {'line': b"-- Checking for module 'uuid'\n"}
+[1.502838] (car_cpp) StdoutLine: {'line': b'--   Found uuid, version 2.37.2\n'}
+[1.504378] (-) TimerEvent: {}
+[1.542381] (car_cpp) StdoutLine: {'line': b'-- Found UUID: TRUE  \n'}
+[1.543365] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.8.1\n'}
+[1.544057] (car_cpp) StdoutLine: {'line': b'-- Searching for dependencies of ignition-msgs5\n'}
+[1.558833] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[1.563692] (car_cpp) StdoutLine: {'line': b"-- Checking for module 'tinyxml2'\n"}
+[1.576432] (car_cpp) StdoutLine: {'line': b'--   Found tinyxml2, version 9.0.0\n'}
+[1.604753] (-) TimerEvent: {}
+[1.609890] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.8.1\n'}
+[1.611130] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.14.0\n'}
+[1.611512] (car_cpp) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3\n'}
+[1.611961] (car_cpp) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[1.612522] (car_cpp) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[1.613677] (car_cpp) StdoutLine: {'line': b'-- Found DL: TRUE  \n'}
+[1.622379] (car_cpp) StdoutLine: {'line': b'-- Found tinyobjloader: /usr/lib/x86_64-linux-gnu/cmake/tinyobjloader/tinyobjloader-config.cmake (found version "2.0.0") \n'}
+[1.622827] (car_cpp) StdoutLine: {'line': b'-- Searching for <ignition-common3> component [graphics]\n'}
+[1.624048] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-common3-graphics -- found version 3.14.0\n'}
+[1.624673] (car_cpp) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3-graphics\n'}
+[1.624899] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[1.626571] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-fuel_tools4 -- found version 4.4.0\n'}
+[1.626935] (car_cpp) StdoutLine: {'line': b'-- Searching for dependencies of ignition-fuel_tools4\n'}
+[1.703913] (car_cpp) StdoutLine: {'line': b'-- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.81.0")  \n'}
+[1.704839] (-) TimerEvent: {}
+[1.711971] (car_cpp) StdoutLine: {'line': b"-- Checking for module 'jsoncpp'\n"}
+[1.725492] (car_cpp) StdoutLine: {'line': b'--   Found jsoncpp, version 1.9.5\n'}
+[1.761626] (car_cpp) StdoutLine: {'line': b'-- Found JSONCPP: TRUE  \n'}
+[1.766781] (car_cpp) StdoutLine: {'line': b"-- Checking for module 'libzip'\n"}
+[1.781980] (car_cpp) StdoutLine: {'line': b'--   Found libzip, version 1.7.3\n'}
+[1.804976] (-) TimerEvent: {}
+[1.815621] (car_cpp) StdoutLine: {'line': b'-- Found ZIP: TRUE  \n'}
+[1.815876] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.14.0\n'}
+[1.815917] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[1.815952] (car_cpp) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.8.1\n'}
+[1.818393] (car_cpp) StdoutLine: {'line': b'-- Gazebo version: 11.10\n'}
+[1.818897] (car_cpp) StdoutLine: {'line': b"-- Checking for module 'tbb'\n"}
+[1.834813] (car_cpp) StdoutLine: {'line': b'--   Found tbb, version 2021.5.0\n'}
+[1.871517] (car_cpp) StdoutLine: {'line': b'-- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)\n'}
+[1.892427] (car_cpp) StdoutLine: {'line': b'-- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[1.900199] (car_cpp) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[1.905128] (-) TimerEvent: {}
+[1.915837] (car_cpp) StdoutLine: {'line': b'-- Found octomap_msgs: 2.0.1 (/opt/ros/humble/share/octomap_msgs/cmake)\n'}
+[1.928132] (car_cpp) StdoutLine: {'line': b'-- Found octomap_ros: 0.4.4 (/opt/ros/humble/share/octomap_ros/cmake)\n'}
+[1.937517] (car_cpp) StdoutLine: {'line': b'-- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)\n'}
+[1.970673] (car_cpp) StdoutLine: {'line': b"-- Checking for module 'eigen3'\n"}
+[1.984407] (car_cpp) StdoutLine: {'line': b'--   Found eigen3, version 3.4.0\n'}
+[2.005359] (-) TimerEvent: {}
+[2.015130] (car_cpp) StdoutLine: {'line': b'-- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") \n'}
+[2.015435] (car_cpp) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[2.036031] (car_cpp) StdoutLine: {'line': b"-- Checking for module 'flann'\n"}
+[2.047926] (car_cpp) StdoutLine: {'line': b'--   Found flann, version 1.9.1\n'}
+[2.081363] (car_cpp) StdoutLine: {'line': b'-- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  \n'}
+[2.081844] (car_cpp) StdoutLine: {'line': b'-- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)\n'}
+[2.105505] (-) TimerEvent: {}
+[2.205967] (-) TimerEvent: {}
+[2.306386] (-) TimerEvent: {}
+[2.407107] (-) TimerEvent: {}
+[2.508361] (-) TimerEvent: {}
+[2.610332] (-) TimerEvent: {}
+[2.710761] (-) TimerEvent: {}
+[2.811243] (-) TimerEvent: {}
+[2.896534] (car_cpp) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[2.911358] (car_cpp) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.25\n'}
+[2.911532] (-) TimerEvent: {}
+[2.950374] (car_cpp) StdoutLine: {'line': b'-- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  \n'}
+[2.951161] (car_cpp) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[3.000964] (car_cpp) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[3.011754] (-) TimerEvent: {}
+[3.112344] (-) TimerEvent: {}
+[3.113497] (car_cpp) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[3.119095] (car_cpp) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[3.124831] (car_cpp) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[3.212489] (-) TimerEvent: {}
+[3.230380] (car_cpp) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[3.312606] (-) TimerEvent: {}
+[3.348413] (car_cpp) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[3.412730] (-) TimerEvent: {}
+[3.462429] (car_cpp) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  \n'}
+[3.462594] (car_cpp) StdoutLine: {'line': b'-- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  \n'}
+[3.463218] (car_cpp) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  \n'}
+[3.463582] (car_cpp) StdoutLine: {'line': b'-- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  \n'}
+[3.464183] (car_cpp) StdoutLine: {'line': b'-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  \n'}
+[3.464778] (car_cpp) StdoutLine: {'line': b'-- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  \n'}
+[3.465093] (car_cpp) StdoutLine: {'line': b'-- Found PCL_2D: /usr/include/pcl-1.12  \n'}
+[3.465399] (car_cpp) StdoutLine: {'line': b'-- Found PCL_GEOMETRY: /usr/include/pcl-1.12  \n'}
+[3.465975] (car_cpp) StdoutLine: {'line': b'-- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  \n'}
+[3.466770] (car_cpp) StdoutLine: {'line': b'-- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  \n'}
+[3.467394] (car_cpp) StdoutLine: {'line': b'-- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  \n'}
+[3.468090] (car_cpp) StdoutLine: {'line': b'-- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  \n'}
+[3.468765] (car_cpp) StdoutLine: {'line': b'-- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  \n'}
+[3.469407] (car_cpp) StdoutLine: {'line': b'-- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  \n'}
+[3.470068] (car_cpp) StdoutLine: {'line': b'-- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  \n'}
+[3.470868] (car_cpp) StdoutLine: {'line': b'-- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  \n'}
+[3.471621] (car_cpp) StdoutLine: {'line': b'-- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  \n'}
+[3.472325] (car_cpp) StdoutLine: {'line': b'-- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  \n'}
+[3.473133] (car_cpp) StdoutLine: {'line': b'-- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  \n'}
+[3.474366] (car_cpp) StdoutLine: {'line': b'-- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  \n'}
+[3.474687] (car_cpp) StdoutLine: {'line': b'-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  \n'}
+[3.474949] (car_cpp) StdoutLine: {'line': b'-- Found PCL_MODELER: /usr/include/pcl-1.12  \n'}
+[3.475196] (car_cpp) StdoutLine: {'line': b'-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  \n'}
+[3.475728] (car_cpp) StdoutLine: {'line': b'-- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  \n'}
+[3.476590] (car_cpp) StdoutLine: {'line': b'-- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  \n'}
+[3.479447] (car_cpp) StdoutLine: {'line': b'-- Found visualization_msgs: 4.2.4 (/opt/ros/humble/share/visualization_msgs/cmake)\n'}
+[3.492425] (car_cpp) StdoutLine: {'line': b'-- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[3.504287] (car_cpp) StdoutLine: {'line': b'-- Found std_srvs: 4.2.4 (/opt/ros/humble/share/std_srvs/cmake)\n'}
+[3.511457] (car_cpp) StdoutLine: {'line': b'-- Found geographic_msgs: 1.0.6 (/opt/ros/humble/share/geographic_msgs/cmake)\n'}
+[3.512804] (-) TimerEvent: {}
+[3.535142] (car_cpp) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[3.612909] (-) TimerEvent: {}
+[3.715356] (-) TimerEvent: {}
+[3.768178] (car_cpp) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[3.815467] (-) TimerEvent: {}
+[3.916324] (-) TimerEvent: {}
+[4.016625] (-) TimerEvent: {}
+[4.112168] (car_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.116709] (-) TimerEvent: {}
+[4.216938] (-) TimerEvent: {}
+[4.250428] (car_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[4.270351] (car_cpp) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[4.271970] (car_cpp) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[4.292181] (car_cpp) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[4.293348] (car_cpp) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[4.293700] (car_cpp) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[4.294027] (car_cpp) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[4.310360] (car_cpp) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[4.317019] (-) TimerEvent: {}
+[4.400704] (car_cpp) StdoutLine: {'line': b'-- Configuring done\n'}
+[4.417240] (-) TimerEvent: {}
+[4.519532] (-) TimerEvent: {}
+[4.559929] (car_cpp) StdoutLine: {'line': b'-- Generating done\n'}
+[4.590348] (car_cpp) StdoutLine: {'line': b'-- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp\n'}
+[4.608849] (car_cpp) CommandEnded: {'returncode': 0}
+[4.609649] (car_cpp) JobProgress: {'identifier': 'car_cpp', 'progress': 'build'}
+[4.611153] (car_cpp) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp', '--', '-j2', '-l2'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '2685'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1390,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1390'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fd66dd20_a785_49db_9618_4eb47c3ee8ee'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.90Q202'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.120'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble')]), 'shell': False}
+[4.619632] (-) TimerEvent: {}
+[4.650976] (car_cpp) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[4.662837] (car_cpp) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[4.720325] (-) TimerEvent: {}
+[4.822441] (-) TimerEvent: {}
+[4.923201] (-) TimerEvent: {}
+[5.024590] (-) TimerEvent: {}
+[5.045186] (car_cpp) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/car_cpp__rosidl_generator_c.dir/rosidl_generator_c/car_cpp/srv/detail/set_bias__functions.c.o\x1b[0m\n'}
+[5.108472] (car_cpp) StdoutLine: {'line': b'[  6%] Built target car_cpp__cpp\n'}
+[5.127806] (-) TimerEvent: {}
+[5.133361] (car_cpp) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/car_cpp__rosidl_generator_c.dir/rosidl_generator_c/car_cpp/srv/detail/set_reference_geo_pose__functions.c.o\x1b[0m\n'}
+[5.174338] (car_cpp) StdoutLine: {'line': b'[  8%] Built target ament_cmake_python_copy_car_cpp\n'}
+[5.201410] (car_cpp) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/check_map.dir/src/check_map.cpp.o\x1b[0m\n'}
+[5.204999] (car_cpp) StdoutLine: {'line': b'[ 12%] \x1b[32m\x1b[1mLinking C shared library libcar_cpp__rosidl_generator_c.so\x1b[0m\n'}
+[5.228165] (-) TimerEvent: {}
+[5.237170] (car_cpp) StdoutLine: {'line': b'[ 12%] Built target car_cpp__rosidl_generator_c\n'}
+[5.261159] (car_cpp) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object CMakeFiles/path_planner_node.dir/src/path_planner.cpp.o\x1b[0m\n'}
+[5.328279] (-) TimerEvent: {}
+[5.428712] (-) TimerEvent: {}
+[5.529096] (-) TimerEvent: {}
+[5.629511] (-) TimerEvent: {}
+[5.730617] (-) TimerEvent: {}
+[5.831046] (-) TimerEvent: {}
+[5.933506] (-) TimerEvent: {}
+[6.033878] (-) TimerEvent: {}
+[6.134243] (-) TimerEvent: {}
+[6.234665] (-) TimerEvent: {}
+[6.335067] (-) TimerEvent: {}
+[6.435502] (-) TimerEvent: {}
+[6.535937] (-) TimerEvent: {}
+[6.637581] (-) TimerEvent: {}
+[6.737991] (-) TimerEvent: {}
+[6.838489] (-) TimerEvent: {}
+[6.938888] (-) TimerEvent: {}
+[7.041541] (-) TimerEvent: {}
+[7.141939] (-) TimerEvent: {}
+[7.242364] (-) TimerEvent: {}
+[7.342936] (-) TimerEvent: {}
+[7.443327] (-) TimerEvent: {}
+[7.543752] (-) TimerEvent: {}
+[7.644136] (-) TimerEvent: {}
+[7.745536] (-) TimerEvent: {}
+[7.846224] (-) TimerEvent: {}
+[7.946613] (-) TimerEvent: {}
+[8.047512] (-) TimerEvent: {}
+[8.149512] (-) TimerEvent: {}
+[8.249879] (-) TimerEvent: {}
+[8.350274] (-) TimerEvent: {}
+[8.450691] (-) TimerEvent: {}
+[8.551058] (-) TimerEvent: {}
+[8.651536] (-) TimerEvent: {}
+[8.752506] (-) TimerEvent: {}
+[8.852903] (-) TimerEvent: {}
+[8.954518] (-) TimerEvent: {}
+[9.054892] (-) TimerEvent: {}
+[9.155296] (-) TimerEvent: {}
+[9.257075] (-) TimerEvent: {}
+[9.367093] (-) TimerEvent: {}
+[9.467625] (-) TimerEvent: {}
+[9.569625] (-) TimerEvent: {}
+[9.670244] (-) TimerEvent: {}
+[9.770831] (-) TimerEvent: {}
+[9.871336] (-) TimerEvent: {}
+[9.973541] (-) TimerEvent: {}
+[10.073991] (-) TimerEvent: {}
+[10.174536] (-) TimerEvent: {}
+[10.275088] (-) TimerEvent: {}
+[10.375713] (-) TimerEvent: {}
+[10.478506] (-) TimerEvent: {}
+[10.578985] (-) TimerEvent: {}
+[10.679443] (-) TimerEvent: {}
+[10.779910] (-) TimerEvent: {}
+[10.880382] (-) TimerEvent: {}
+[10.980971] (-) TimerEvent: {}
+[11.081444] (-) TimerEvent: {}
+[11.181951] (-) TimerEvent: {}
+[11.284608] (-) TimerEvent: {}
+[11.385213] (-) TimerEvent: {}
+[11.485712] (-) TimerEvent: {}
+[11.586308] (-) TimerEvent: {}
+[11.686738] (-) TimerEvent: {}
+[11.787118] (-) TimerEvent: {}
+[11.887507] (-) TimerEvent: {}
+[11.987938] (-) TimerEvent: {}
+[12.072440] (car_cpp) StdoutLine: {'line': b'[ 18%] \x1b[32m\x1b[1mLinking CXX executable path_planner_node\x1b[0m\n'}
+[12.073036] (car_cpp) StdoutLine: {'line': b'[ 18%] \x1b[32m\x1b[1mLinking CXX executable check_map\x1b[0m\n'}
+[12.088054] (-) TimerEvent: {}
+[12.188581] (-) TimerEvent: {}
+[12.292457] (-) TimerEvent: {}
+[12.394480] (-) TimerEvent: {}
+[12.495347] (-) TimerEvent: {}
+[12.597050] (-) TimerEvent: {}
+[12.698653] (-) TimerEvent: {}
+[12.800563] (-) TimerEvent: {}
+[12.903982] (-) TimerEvent: {}
+[13.008337] (-) TimerEvent: {}
+[13.109548] (-) TimerEvent: {}
+[13.209859] (-) TimerEvent: {}
+[13.312205] (-) TimerEvent: {}
+[13.355379] (car_cpp) StdoutLine: {'line': b'[ 18%] Built target path_planner_node\n'}
+[13.370591] (car_cpp) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o\x1b[0m\n'}
+[13.412479] (-) TimerEvent: {}
+[13.434669] (car_cpp) StdoutLine: {'line': b'[ 20%] Built target check_map\n'}
+[13.453989] (car_cpp) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_ros_imu.dir/src/gazebo_ros_imu.cpp.o\x1b[0m\n'}
+[13.512585] (-) TimerEvent: {}
+[13.612969] (-) TimerEvent: {}
+[13.713510] (-) TimerEvent: {}
+[13.814542] (-) TimerEvent: {}
+[13.915069] (-) TimerEvent: {}
+[14.016457] (-) TimerEvent: {}
+[14.116847] (-) TimerEvent: {}
+[14.217244] (-) TimerEvent: {}
+[14.318557] (-) TimerEvent: {}
+[14.405348] (car_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/gazebo_ros_imu.cpp:29\x1b[m\x1b[K:\n'}
+[14.405791] (car_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/hector_gazebo_plugins/gazebo_ros_imu.h:46:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Khector_gazebo_plugins/srv/set_bias.hpp: No such file or directory\n'}
+[14.406070] (car_cpp) StderrLine: {'line': b'   46 | #include \x1b[01;31m\x1b[K<hector_gazebo_plugins/srv/set_bias.hpp>\x1b[m\x1b[K\n'}
+[14.406572] (car_cpp) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[14.408658] (car_cpp) StderrLine: {'line': b'compilation terminated.\n'}
+[14.414685] (car_cpp) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/hector_gazebo_ros_imu.dir/build.make:76: CMakeFiles/hector_gazebo_ros_imu.dir/src/gazebo_ros_imu.cpp.o] Error 1\n'}
+[14.415330] (car_cpp) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:678: CMakeFiles/hector_gazebo_ros_imu.dir/all] Error 2\n'}
+[14.415663] (car_cpp) StderrLine: {'line': b'gmake[1]: *** Waiting for unfinished jobs....\n'}
+[14.418647] (-) TimerEvent: {}
+[14.518983] (-) TimerEvent: {}
+[14.619504] (-) TimerEvent: {}
+[14.720055] (-) TimerEvent: {}
+[14.820373] (-) TimerEvent: {}
+[14.920695] (-) TimerEvent: {}
+[15.021011] (-) TimerEvent: {}
+[15.121531] (-) TimerEvent: {}
+[15.222036] (-) TimerEvent: {}
+[15.323033] (-) TimerEvent: {}
+[15.423357] (-) TimerEvent: {}
+[15.523951] (-) TimerEvent: {}
+[15.624638] (-) TimerEvent: {}
+[15.725088] (-) TimerEvent: {}
+[15.825661] (-) TimerEvent: {}
+[15.925960] (-) TimerEvent: {}
+[16.026258] (-) TimerEvent: {}
+[16.126611] (-) TimerEvent: {}
+[16.227046] (-) TimerEvent: {}
+[16.327576] (-) TimerEvent: {}
+[16.427917] (-) TimerEvent: {}
+[16.528239] (-) TimerEvent: {}
+[16.628641] (-) TimerEvent: {}
+[16.730341] (-) TimerEvent: {}
+[16.830700] (-) TimerEvent: {}
+[16.931276] (-) TimerEvent: {}
+[17.031979] (-) TimerEvent: {}
+[17.132480] (-) TimerEvent: {}
+[17.232805] (-) TimerEvent: {}
+[17.333122] (-) TimerEvent: {}
+[17.433464] (-) TimerEvent: {}
+[17.533779] (-) TimerEvent: {}
+[17.634160] (-) TimerEvent: {}
+[17.734510] (-) TimerEvent: {}
+[17.834800] (-) TimerEvent: {}
+[17.935107] (-) TimerEvent: {}
+[18.035473] (-) TimerEvent: {}
+[18.135777] (-) TimerEvent: {}
+[18.236080] (-) TimerEvent: {}
+[18.336336] (-) TimerEvent: {}
+[18.436615] (-) TimerEvent: {}
+[18.537192] (-) TimerEvent: {}
+[18.637533] (-) TimerEvent: {}
+[18.738357] (-) TimerEvent: {}
+[18.838629] (-) TimerEvent: {}
+[18.939077] (-) TimerEvent: {}
+[19.040579] (-) TimerEvent: {}
+[19.141187] (-) TimerEvent: {}
+[19.241634] (-) TimerEvent: {}
+[19.342063] (-) TimerEvent: {}
+[19.444682] (-) TimerEvent: {}
+[19.545210] (-) TimerEvent: {}
+[19.645640] (-) TimerEvent: {}
+[19.746008] (-) TimerEvent: {}
+[19.846426] (-) TimerEvent: {}
+[19.946800] (-) TimerEvent: {}
+[20.047153] (-) TimerEvent: {}
+[20.147563] (-) TimerEvent: {}
+[20.248109] (-) TimerEvent: {}
+[20.348636] (-) TimerEvent: {}
+[20.449189] (-) TimerEvent: {}
+[20.550022] (-) TimerEvent: {}
+[20.650581] (-) TimerEvent: {}
+[20.751292] (-) TimerEvent: {}
+[20.851987] (-) TimerEvent: {}
+[20.952505] (-) TimerEvent: {}
+[21.052885] (-) TimerEvent: {}
+[21.153236] (-) TimerEvent: {}
+[21.253629] (-) TimerEvent: {}
+[21.354177] (-) TimerEvent: {}
+[21.454601] (-) TimerEvent: {}
+[21.555185] (-) TimerEvent: {}
+[21.655628] (-) TimerEvent: {}
+[21.756161] (-) TimerEvent: {}
+[21.856605] (-) TimerEvent: {}
+[21.956955] (-) TimerEvent: {}
+[22.057432] (-) TimerEvent: {}
+[22.157829] (-) TimerEvent: {}
+[22.258161] (-) TimerEvent: {}
+[22.358534] (-) TimerEvent: {}
+[22.458847] (-) TimerEvent: {}
+[22.559202] (-) TimerEvent: {}
+[22.659576] (-) TimerEvent: {}
+[22.760072] (-) TimerEvent: {}
+[22.860362] (-) TimerEvent: {}
+[22.960664] (-) TimerEvent: {}
+[23.060943] (-) TimerEvent: {}
+[23.161244] (-) TimerEvent: {}
+[23.261688] (-) TimerEvent: {}
+[23.362090] (-) TimerEvent: {}
+[23.462396] (-) TimerEvent: {}
+[23.562696] (-) TimerEvent: {}
+[23.663008] (-) TimerEvent: {}
+[23.763339] (-) TimerEvent: {}
+[23.863689] (-) TimerEvent: {}
+[23.964000] (-) TimerEvent: {}
+[24.064300] (-) TimerEvent: {}
+[24.165181] (-) TimerEvent: {}
+[24.266111] (-) TimerEvent: {}
+[24.366455] (-) TimerEvent: {}
+[24.466769] (-) TimerEvent: {}
+[24.567083] (-) TimerEvent: {}
+[24.667385] (-) TimerEvent: {}
+[24.767768] (-) TimerEvent: {}
+[24.868086] (-) TimerEvent: {}
+[24.968399] (-) TimerEvent: {}
+[25.068703] (-) TimerEvent: {}
+[25.122650] (car_cpp) StdoutLine: {'line': b'[ 24%] \x1b[32m\x1b[1mLinking CXX shared library libcontrol_plugin.so\x1b[0m\n'}
+[25.169352] (-) TimerEvent: {}
+[25.269790] (-) TimerEvent: {}
+[25.370201] (-) TimerEvent: {}
+[25.471189] (-) TimerEvent: {}
+[25.571607] (-) TimerEvent: {}
+[25.588109] (car_cpp) StdoutLine: {'line': b'[ 24%] Built target control_plugin\n'}
+[25.589158] (car_cpp) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[25.592515] (car_cpp) CommandEnded: {'returncode': 2}
+[25.597725] (car_cpp) JobEnded: {'identifier': 'car_cpp', 'rc': 2}
+[25.608341] (-) EventReactorShutdown: {}

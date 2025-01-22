@@ -36,6 +36,7 @@ move_ros::move_ros() : Node("move_ros")
     octomap_sub_ = this->create_subscription<octomap_msgs::msg::Octomap>("octomap_topic", 10, std::bind(&move_ros::octomapCallback, this, std::placeholders::_1));
     odometry_sub_ = this->create_subscription<nav_msgs::msg::Odometry>("odometry_topic", 10, std::bind(&move_ros::odometryCallback, this, std::placeholders::_1));
     vel_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
+    // rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr visualization_pub_;
     visualization_pub_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/visualization_marker", 1);
 
 } 
@@ -47,24 +48,24 @@ void move_ros::octomapCallback(const octomap_msgs::msg::Octomap::ConstPtr& octom
     obstacle_detected_p.set_mapa(octree);
 }
 
-void move_ros::odometryCallback(nav_msgs::msg::Odometry::ConstPtr odometry_)
-{
-    odometry = odometry_;
+void move_ros::odometryCallback(const nav_msgs::msg::Odometry::ConstSharedPtr& odometry_) {
+    odometry = odometry_; // Suponiendo que `odometry` es un miembro de la clase
 }
  
 void move_ros::run () 
-{ 
-    ros::Rate rate(10); 
- 
-    while(ros::ok()) 
-    { 
-        ros::spinOnce(); 
-        rate.sleep(); 
+{     // Crear un ejecutor para manejar callbacks
+    auto executor = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
+    executor->add_node(this->shared_from_this());
+    rclcpp::Rate rate(10.0);
+    while (rclcpp::ok()) 
+    {
+        executor->spin_some(); // Procesar callbacks disponibles
+        rate.sleep();          // Mantener la frecuencia
  
         std::cout << "INICIO"<< std::endl; 
         interaciones_ejecucion_totales = interaciones_ejecucion_totales+1; 
  
-        
+        inicio:
         // introducir punto destino 
         if(PuntoFIN3d.x()==0 && PuntoFIN3d.y()==0 && PuntoFIN3d.z()==0) 
         { 
@@ -84,10 +85,10 @@ void move_ros::run ()
             do 
                 {  
                     std::cout << "P: " << std::endl; 
-                    ros::spinOnce(); 
+                    executor->spin_some();
 
  
-                    bool_odom =  odometria_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
+                    bool_odom =  odometry_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
                     pos_actual3d= utilities_p.VectorToPoint3d(pos_actual); 
                     orientacion_actual_E = utilities_p.CuaternionToEulerAngles(orientacion_actual_q); 
                     distancia_punto_destino= utilities_p.calculateDistance(pos_actual3d, PuntoFIN3d); 
@@ -96,20 +97,29 @@ void move_ros::run ()
                     while(dif_angular>M_PI) { dif_angular = dif_angular - 2*M_PI;} 
                     while(dif_angular<-M_PI) { dif_angular = dif_angular + 2*M_PI;} 
                     Comando_velocidad = motion_p.motionControlAngle(distancia_punto_destino,dif_angular); 
-                    vel_pub.publish(Comando_velocidad);  
-                    ros::Duration(0.05).sleep(); 
+                    vel_pub_->publish(Comando_velocidad); 
+                    rclcpp::sleep_for(std::chrono::milliseconds(50));
                 }while (dif_angular < -tolerancia_angular || dif_angular > tolerancia_angular); 
                 punto_nuevo=0; 
                 no_punto_valido=0; 
         } 
-         
+         // Crear el MarkerArray
+        visualization_msgs::msg::MarkerArray marker_array;
+        visualization_msgs::msg::Marker punto_visualizacion;
         //visualización punto destino 
         punto_visualizacion= visualization_p.PointColor(PuntoFIN3d,1000, 0.54, 0.17, 0.86); 
-        visualization_pub.publish(punto_visualizacion); 
+
+
+        // Add the single Marker to the MarkerArray
+        marker_array.markers.push_back(punto_visualizacion);
+
+        // Publish the MarkerArray
+        visualization_pub_->publish(marker_array);
+        
  
 // 1. COGER EL PUNTO DE LA UBICACIÓN ACTUAL DEL ROBOT 
-        ros::spinOnce(); 
-        bool_odom = odometria_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
+        executor->spin_some();  
+        bool_odom = odometry_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
         pos_actual3d= utilities_p.VectorToPoint3d(pos_actual); 
         orientacion_actual_E= utilities_p.CuaternionToEulerAngles(orientacion_actual_q); 
      
@@ -122,7 +132,7 @@ void move_ros::run ()
             vector_circunferencePoints.clear(); 
             Vector_puntos_aleatorios.resize(num_puntos); 
             Vector_distancias_pto_final.resize(num_puntos); 
-            vector_circunferencePoints.resize(numPuntos_circunferecnia); 
+            vector_circunferencePoints.resize(numPuntos_circunferencia); 
  
             for (int iter=0; iter<num_puntos; iter++) 
             { 
@@ -143,7 +153,7 @@ void move_ros::run ()
                 if (occupation==false) 
                 { 
                     vector_circunferencePoints.clear(); 
-                    vector_circunferencePoints = utilities_p.createCircunferencePoints3d(RandomPoint3d,radio_circunferencia,numPuntos_circunferecnia); 
+                    vector_circunferencePoints = utilities_p.createCircunferencePoints3d(RandomPoint3d,radio_circunferencia,numPuntos_circunferencia); 
                     for (int v1=0; v1<vector_circunferencePoints.size(); v1++) 
                     { 
                         //std::cout << "t4" << std::endl; 
@@ -153,8 +163,13 @@ void move_ros::run ()
                             std::cout << "Punto ocupado en la circunferencia cercana" << std::endl; 
  
                             //visualizacion de puntos (rojo) 
-                            punto_visualizacion= visualization_p.PointColor(RandomPoint3d,iter,1,0,0); 
-                            visualization_pub.publish(punto_visualizacion); 
+                            punto_visualizacion= visualization_p.PointColor(RandomPoint3d,iter,1,0,0);
+                            // Add the single Marker to the MarkerArray
+                            marker_array.markers.push_back(punto_visualizacion);
+
+                            // Publish the MarkerArray
+                            visualization_pub_->publish(marker_array); 
+                        
  
                             Vector_puntos_aleatorios[iter] = {}; 
                             evaluar_recta=0; 
@@ -181,7 +196,12 @@ void move_ros::run ()
                             { 
                                 //visualizacion de puntos (rojo) 
                                 punto_visualizacion= visualization_p.PointColor(RandomPoint3d,iter,1,0,0); 
-                                visualization_pub.publish(punto_visualizacion); 
+                                // Add the single Marker to the MarkerArray
+                                marker_array.markers.push_back(punto_visualizacion);
+
+                                // Publish the MarkerArray
+                                visualization_pub_->publish(marker_array);
+                                
  
                                 Vector_puntos_aleatorios[iter] = {}; 
                                 break; 
@@ -189,8 +209,13 @@ void move_ros::run ()
                             else 
                             { 
                                 //visualizacion de puntos (celeste) 
-                                punto_visualizacion= visualization_p.PointColor(RandomPoint3d,iter,0.70,0.70,0.70); 
-                                visualization_pub.publish(punto_visualizacion); 
+                                punto_visualizacion= visualization_p.PointColor(RandomPoint3d,iter,0.70,0.70,0.70);
+                                // Add the single Marker to the MarkerArray
+                                marker_array.markers.push_back(punto_visualizacion);
+
+                                // Publish the MarkerArray
+                                visualization_pub_->publish(marker_array); 
+                                
  
                                 Vector_puntos_aleatorios[iter] = RandomPoint3d; 
                             } 
@@ -203,10 +228,15 @@ void move_ros::run ()
                     Vector_distancias_pto_final[iter] = {}; 
                      
                     //visualizacion de puntos (cambio a rojo) 
-                    punto_visualizacion= visualization_p.PointColor(RandomPoint3d,iter,1,0,0); 
+                    punto_visualizacion= visualization_p.PointColor(RandomPoint3d,iter,1,0,0);
+                    // Add the single Marker to the MarkerArray
+                    marker_array.markers.push_back(punto_visualizacion);
+
+                    // Publish the MarkerArray
+                    visualization_pub_->publish(marker_array); 
 
  
-                    visualization_pub.publish(punto_visualizacion); 
+                    
                 } 
  
 // 4. SI EL PUNTO ALEATORIO ES VÁLIDO CALCULAR LA DISTANCIA DESDE EL PUNTO ALEATORIO AL FINAL 
@@ -221,7 +251,7 @@ void move_ros::run ()
                 { 
                     Vector_distancias_pto_final[iter] = {}; 
                 } 
-            ros::Duration(0.0001).sleep(); 
+            rclcpp::sleep_for(std::chrono::milliseconds(50)); 
             } 
             std::cout << "vector creado "<< std::endl; 
                         for (int t5=0;  t5<Vector_puntos_aleatorios.size(); t5++) 
@@ -236,31 +266,40 @@ void move_ros::run ()
             std::cout << "indice distancia mínima "<< indice_min_distancia << std::endl; 
              
             //visualizacion de puntos (verde) 
-            punto_visualizacion= visualization_p.PointColor(Vector_puntos_aleatorios[indice_min_distancia],indice_min_distancia,0,1,0); 
-            visualization_pub.publish(punto_visualizacion); 
+            punto_visualizacion= visualization_p.PointColor(Vector_puntos_aleatorios[indice_min_distancia],indice_min_distancia,0,1,0);
+            // Add the single Marker to the MarkerArray
+            marker_array.markers.push_back(punto_visualizacion);
+
+            // Publish the MarkerArray
+            visualization_pub_->publish(marker_array); 
+            
  
             linea_visualizacion = visualization_p.createLineMarker(pos_actual3d,Vector_puntos_aleatorios[indice_min_distancia],interaciones_ejecucion_totales); 
-            visualization_pub.publish(linea_visualizacion); 
+            // Add the Marker to the MarkerArray
+            marker_array.markers.push_back(linea_visualizacion);
+
+            // Publish the MarkerArray
+            visualization_pub_->publish(marker_array);
 
  
              
             if (indice_min_distancia == -1) 
             { 
                 std::cout << "NO HAY NINGÚN PUNTO VÁLIDO" << std::endl; 
-                bool_odom = odometria_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
+                bool_odom = odometry_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
                 orientacion_actual_E = utilities_p.CuaternionToEulerAngles(orientacion_actual_q); 
                 orientacion_prueba = orientacion_actual_E + 1.5; 
                 do 
                 {  
-                    ros::spinOnce(); 
-                    bool_odom = odometria_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
+                    executor->spin_some();
+                    bool_odom = odometry_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
                     orientacion_actual_E = utilities_p.CuaternionToEulerAngles(orientacion_actual_q); 
                     dif_angular = orientacion_prueba - orientacion_actual_E; 
                     while(dif_angular>M_PI) { dif_angular = dif_angular - 2*M_PI;} 
                     while(dif_angular<-M_PI) { dif_angular = dif_angular + 2*M_PI;} 
                     Comando_velocidad = motion_p.motionControlAngle(distancia_punto_destino,dif_angular); 
-                    vel_pub.publish(Comando_velocidad);  
-                    ros::Duration(0.05).sleep(); 
+                    vel_pub_->publish(Comando_velocidad);  
+                    rclcpp::sleep_for(std::chrono::milliseconds(50));
                 }while (dif_angular < -tolerancia_angular || dif_angular > tolerancia_angular); 
                 punto_nuevo=0; 
                 no_punto_valido=0; 
@@ -275,7 +314,7 @@ void move_ros::run ()
             pos_destino3d = Vector_puntos_aleatorios[indice_min_distancia]; 
             std::cout << "(" << pos_destino3d.x() << ", " << pos_destino3d.y() << ", " << pos_destino3d.z() << ")" << std::endl; 
              
-            bool_odom = odometria_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
+            bool_odom = odometry_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
             pos_actual3d= utilities_p.VectorToPoint3d(pos_actual); 
             orientacion_actual_E = utilities_p.CuaternionToEulerAngles(orientacion_actual_q); 
              
@@ -294,10 +333,10 @@ void move_ros::run ()
             { 
                 std::cout << "dif_angular " << dif_angular << std::endl; 
                 //LEER DEL TOPIC Y CONVERTIR EL CUATERNIO A EULER 
-                ros::spinOnce(); 
+                executor->spin_some();
                 std::cout << "MOVIMIENTO ANGULO"; 
                 std::cout << "(" << pos_destino3d.x() << ", " << pos_destino3d.y() << ", " << pos_destino3d.z() << ")" << std::endl; 
-                bool_odom = odometria_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
+                bool_odom = odometry_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
                 pos_actual3d= utilities_p.VectorToPoint3d(pos_actual); 
                 orientacion_actual_E = utilities_p.CuaternionToEulerAngles(orientacion_actual_q); 
                 std::cout << "Orientacion actual Euler: " << orientacion_actual_E << std::endl; 
@@ -324,10 +363,10 @@ void move_ros::run ()
                 archivo_csv << " giro: "<< Comando_velocidad.angular.z << std::endl; 
  
                 // COMANDAR LA VELOCIDAD ANGULAR 
-                vel_pub.publish(Comando_velocidad);  
+                vel_pub_->publish(Comando_velocidad);  
  
-                //visualization_pub.publish(punto_visualizacion);  
-                ros::Duration(0.05).sleep(); 
+                //visualization_pub_.publish(punto_visualizacion);  
+                rclcpp::sleep_for(std::chrono::milliseconds(50));
             } 
  
             std::cout << "Distancia punto destino: " << distancia_punto_destino << "  no_avanzar: " <<  no_avanzar <<std::endl; 
@@ -346,7 +385,7 @@ void move_ros::run ()
                 {    
                     //RESETEAMOS Y CREAMOS LA CIRCUNFERENCIA DE ALREDEDOR DEL PUNTO 
                     vector_circunferencePoints.clear(); 
-                    vector_circunferencePoints = utilities_p.createCircunferencePoints3d(RandomPoint3d,radio_circunferencia,numPuntos_circunferecnia); 
+                    vector_circunferencePoints = utilities_p.createCircunferencePoints3d(RandomPoint3d,radio_circunferencia,numPuntos_circunferencia); 
  
                     for (int v1=0; v1<vector_circunferencePoints.size(); v1++) 
                     { 
@@ -388,10 +427,10 @@ void move_ros::run ()
                 } 
  
                 //LEER DEL TOPIC Y CONVERTIR EL PUNTO A PUNTO3D (OCTOMAP) 
-                ros::spinOnce(); 
+                executor->spin_some();
                 std::cout << "MOVIMIENTO DISTANCIA"; 
                 std::cout << "(" << pos_destino3d.x() << ", " << pos_destino3d.y() << ", " << pos_destino3d.z() << ")" << std::endl; 
-                bool_odom = odometria_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
+                bool_odom = odometry_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
                 pos_actual3d= utilities_p.VectorToPoint3d(pos_actual); 
                 orientacion_actual_E = utilities_p.CuaternionToEulerAngles(orientacion_actual_q); 
                 std::cout << "Posición actual:  "<< pos_actual3d(0) << " " << pos_actual3d(1) << " " << pos_actual3d(2) << " " << std::endl; 
@@ -423,15 +462,15 @@ void move_ros::run ()
                 // archivo_csv << " avance: "<< Comando_velocidad.linear.x<< std::endl; 
                  
                 // COMANDAR LA VELOCIDAD LINEAL 
-                vel_pub.publish(Comando_velocidad);  
-                ros::Duration(0.05).sleep(); 
+                vel_pub_->publish(Comando_velocidad);  
+                rclcpp::sleep_for(std::chrono::milliseconds(50));
                 //std::cout << "wait " << std::endl; 
             } 
              
             stop: 
             //delete points  
             borrar_puntos = visualization_p.deleteAllPoints(); 
-            //visualization_pub.publish(borrar_puntos); 
+            //visualization_pub_.publish(borrar_puntos); 
  
             Comando_velocidad = motion_p.motionControlSTOP(); 
  
@@ -439,7 +478,7 @@ void move_ros::run ()
             // archivo_csv.open("/home/violeta/catkin_ws/velocidad.csv", std::ofstream::out | std::ofstream::app); 
             // archivo_csv << " STOP "<< std::endl; 
  
-            vel_pub.publish(Comando_velocidad); 
+            vel_pub_->publish(Comando_velocidad); 
             std::cout << "STOP " << std::endl; 
             std::cout << " ------------------------------------------------- "<< std::endl; 
             //ros::Duration(20.0).sleep(); 

@@ -22,7 +22,7 @@ public:
     odometria(); 
     ~ odometria(); 
  
-    bool set_puntoOdom(const std::shared_ptr<nav_msgs::msg::Odometry>& odometry,
+    bool set_puntoOdom(const std::shared_ptr<const nav_msgs::msg::Odometry>& odometry,
                    std::vector<double>& posicion,
                    std::vector<double>& orientacion);
     void set_velOdom(const std::shared_ptr<nav_msgs::msg::Odometry>& odometry,

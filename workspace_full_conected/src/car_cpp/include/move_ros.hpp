@@ -20,6 +20,7 @@ private:
     odometria odometry_p;
     motion motion_p;
     visualization visualization_p;
+    utilities utilities_p;
 
     // Subscripciones y publicadores
     rclcpp::Subscription<octomap_msgs::msg::Octomap>::SharedPtr octomap_sub_;

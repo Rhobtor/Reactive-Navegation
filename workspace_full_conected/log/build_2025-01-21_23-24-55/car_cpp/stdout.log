@@ -1,4 +1,0 @@
-[35m[1mConsolidate compiler generated dependencies of target car_cpp[0m
-[  9%] [32mBuilding CXX object CMakeFiles/car_cpp.dir/src/move_ros.cpp.o[0m
-[ 18%] [32mBuilding CXX object CMakeFiles/car_cpp.dir/src/obstacle_detection.cpp.o[0m
-[ 27%] [32mBuilding CXX object CMakeFiles/car_cpp.dir/src/odometria.cpp.o[0m

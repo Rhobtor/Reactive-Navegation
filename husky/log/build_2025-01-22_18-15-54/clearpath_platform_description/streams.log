@@ -1,0 +1,198 @@
+[0.009s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_platform_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/husky/src/clearpath_common/clearpath_platform_description -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description
+[0.053s] -- The C compiler identification is GNU 11.4.0
+[0.094s] -- The CXX compiler identification is GNU 11.4.0
+[0.101s] -- Detecting C compiler ABI info
+[0.179s] -- Detecting C compiler ABI info - done
+[0.184s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.186s] -- Detecting C compile features
+[0.186s] -- Detecting C compile features - done
+[0.192s] -- Detecting CXX compiler ABI info
+[0.272s] -- Detecting CXX compiler ABI info - done
+[0.278s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.278s] -- Detecting CXX compile features
+[0.279s] -- Detecting CXX compile features - done
+[0.281s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.470s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.690s] -- Configuring done
+[0.692s] -- Generating done
+[0.692s] -- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_platform_description
+[0.696s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_platform_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/husky/src/clearpath_common/clearpath_platform_description -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description
+[0.697s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_platform_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_platform_description -- -j2 -l2
+[0.730s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_platform_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_platform_description -- -j2 -l2
+[0.732s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_platform_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_platform_description
+[0.737s] -- Install configuration: ""
+[0.737s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/launch
+[0.737s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/launch/description.launch.py
+[0.737s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes
+[0.738s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200
+[0.738s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/rocker.stl
+[0.738s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/generator.stl
+[0.738s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/chassis.stl
+[0.738s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/e-stop.stl
+[0.738s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/tracks_collision.stl
+[0.738s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/fenders.stl
+[0.738s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/susp-link.stl
+[0.738s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/wheel.stl
+[0.739s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/light.stl
+[0.741s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/tracks.dae
+[0.741s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/bulkhead.stl
+[0.741s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/bulkhead-collision.stl
+[0.741s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/arm-mount-plate.stl
+[0.741s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/diff-link.stl
+[0.741s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/w200/chassis-collision.stl
+[0.741s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/dd100
+[0.741s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/dd100/attachments
+[0.741s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/dd100/attachments/pacs_top_plate.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/dd100/chassis_collision.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/dd100/wheel.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/dd100/chassis.dae
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/rocker.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/end-cover.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/body-collision.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/axle.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/attachments
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/attachments/tower_shoulder.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/attachments/hams_mount.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/attachments/tower_body_collision.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/attachments/tower_body.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/attachments/leg.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/attachments/hams_top.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/attachments/tower_shoulder_collision.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/lights.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/body.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/top.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/wheel.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/r100/side-cover.stl
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/do100
+[0.743s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/do100/old_mecanum_wheel.dae
+[0.759s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/do100/omni_chassis.dae
+[0.760s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/do100/omni_chassis_collision.stl
+[0.762s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/do100/mecanum_wheel.dae
+[0.778s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200
+[0.778s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/top_chassis.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/bumper.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/large_top_plate.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/user_rail.stl
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/large_top_plate_collision.stl
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/300_mm_sensor_arch.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/bumper_extension.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/510_mm_sensor_arch.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/300_mm_sensor_arch.stl
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/bumper2.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/top_plate.stl
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/510_mm_sensor_arch.stl
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/user_rail.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/pacs_top_plate.stl
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/bumper3.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/attachments/top_plate.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/accessories
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/accessories/lidar_mount.stl
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/accessories/lms1xx_mount.stl
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/accessories/lms1xx_mount.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/base_link.dae
+[0.783s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/top_chassis.stl
+[0.787s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/wheel.stl
+[0.787s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/wheel.dae
+[0.793s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/a200/base_link.stl
+[0.794s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100
+[0.794s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/kinect_mount.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/camera_beam.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/attachments
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/attachments/ark_enclosure.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/attachments/sensor_fender.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/attachments/default_fender.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/wibotic_bumper.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/stereo_camera_beam.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/stereo_camera_bracket.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/camera_bracket.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/velodyne_tower.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/j100_wheel.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/sick_lms1xx_inverted_bracket.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/sick_lms1xx_upright_bracket.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/j100_base.stl
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/meshes/j100/bridge_plate.stl
+[0.801s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf
+[0.801s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd150
+[0.801s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd150/wheels
+[0.801s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd150/wheels/wheel.urdf.xacro
+[0.801s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd150/dd150.urdf.xacro
+[0.801s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd150/attachments
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd150/attachments/top_plate.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/generic
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/generic/gazebo.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/w200
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/w200/wheels
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/w200/wheels/wheel.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/w200/wheels/track.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/w200/attachments
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/w200/attachments/generator.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/w200/attachments/bulkhead.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/w200/attachments/arm_plate.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/w200/w200.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/w200/diff_unit.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd100
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd100/wheels
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd100/wheels/wheel.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd100/attachments
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd100/attachments/top_plate.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/dd100/dd100.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/do150
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/do150/attachments
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/do150/attachments/top_plate.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/do150/do150.urdf.xacro
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/r100
+[0.805s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/r100/r100.urdf.xacro
+[0.805s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/r100/wheels
+[0.807s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/r100/wheels/wheel.urdf.xacro
+[0.807s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/r100/attachments
+[0.807s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/r100/attachments/tower.urdf.xacro
+[0.807s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/r100/attachments/legs.urdf.xacro
+[0.807s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/r100/attachments/fams.urdf.xacro
+[0.807s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/r100/attachments/hams.urdf.xacro
+[0.807s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/r100/rocker.urdf.xacro
+[0.807s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/do100
+[0.809s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/do100/wheels
+[0.809s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/do100/wheels/wheel.urdf.xacro
+[0.809s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/do100/attachments
+[0.809s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/do100/attachments/top_plate.urdf.xacro
+[0.809s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/do100/do100.urdf.xacro
+[0.809s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/a200
+[0.813s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/a200/wheels
+[0.813s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/a200/wheels/wheel.urdf.xacro
+[0.813s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/a200/attachments
+[0.813s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/a200/attachments/bumper.urdf.xacro
+[0.813s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/a200/attachments/sensor_arch.urdf.xacro
+[0.813s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/a200/attachments/top_plate.urdf.xacro
+[0.813s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/a200/a200.urdf.xacro
+[0.813s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/j100
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/j100/wheels
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/j100/wheels/wheel.urdf.xacro
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/j100/attachments
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/j100/attachments/top_plate.urdf.xacro
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/j100/attachments/fender.urdf.xacro
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/j100/j100.urdf.xacro
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/common.urdf.xacro
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/links
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/links/frame.urdf.xacro
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/links/sphere.urdf.xacro
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/links/mesh.urdf.xacro
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/links/cylinder.urdf.xacro
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/urdf/links/box.urdf.xacro
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/ament_index/resource_index/package_run_dependencies/clearpath_platform_description
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/ament_index/resource_index/parent_prefix_path/clearpath_platform_description
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/environment/ament_prefix_path.sh
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/environment/ament_prefix_path.dsv
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/environment/path.sh
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/environment/path.dsv
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/local_setup.bash
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/local_setup.sh
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/local_setup.zsh
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/local_setup.dsv
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/package.dsv
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/ament_index/resource_index/packages/clearpath_platform_description
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/cmake/clearpath_platform_descriptionConfig.cmake
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/cmake/clearpath_platform_descriptionConfig-version.cmake
+[0.815s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/husky/install/clearpath_platform_description/share/clearpath_platform_description/package.xml
+[0.818s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_platform_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/husky/build/clearpath_platform_description
