@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from hector_gazebo_plugins/srv/SetBias.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Vector3.idl"
+
+module hector_gazebo_plugins {
+  module srv {
+    struct SetBias_Request {
+      geometry_msgs::msg::Vector3 bias;
+    };
+    struct SetBias_Response {
+      uint8 structure_needs_at_least_one_member;
+    };
+  };
+};

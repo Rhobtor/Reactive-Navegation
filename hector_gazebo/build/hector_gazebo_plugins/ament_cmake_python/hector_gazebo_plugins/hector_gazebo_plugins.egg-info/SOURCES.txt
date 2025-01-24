@@ -1,0 +1,6 @@
+setup.py
+hector_gazebo_plugins/__init__.py
+hector_gazebo_plugins.egg-info/PKG-INFO
+hector_gazebo_plugins.egg-info/SOURCES.txt
+hector_gazebo_plugins.egg-info/dependency_links.txt
+hector_gazebo_plugins.egg-info/top_level.txt

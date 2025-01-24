@@ -1,0 +1,97 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-d62984baf3df5bd66bf8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.2"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "car_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "car_cpp_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-car_cpp_uninstall-025c49d488bc2d7ffa01.json",
+					"name" : "car_cpp_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "check_map::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-check_map-a70425ba2b449c44a4e7.json",
+					"name" : "check_map",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "control_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-control_plugin-11b944998a69ba1a0831.json",
+					"name" : "control_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "path_planner_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-path_planner_node-9bae6d9163f9dd31b411.json",
+					"name" : "path_planner_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-9bdae4ada331aa4563a6.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp",
+		"source" : "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "hector_gazebo_plugins__py",
+		"source" : "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins/hector_gazebo_plugins__py"
+	}
+}

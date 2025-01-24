@@ -1,9 +1,0 @@
-In file included from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/gazebo_ros_imu.cpp:29[m[K:
-[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/include/hector_gazebo_plugins/gazebo_ros_imu.h:46:10:[m[K [01;31m[Kfatal error: [m[Khector_gazebo_plugins/srv/set_bias.hpp: No such file or directory
-   46 | #include [01;31m[K<hector_gazebo_plugins/srv/set_bias.hpp>[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-gmake[2]: *** [CMakeFiles/hector_gazebo_ros_imu.dir/build.make:76: CMakeFiles/hector_gazebo_ros_imu.dir/src/gazebo_ros_imu.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:678: CMakeFiles/hector_gazebo_ros_imu.dir/all] Error 2
-gmake[1]: *** Waiting for unfinished jobs....
-gmake: *** [Makefile:146: all] Error 2

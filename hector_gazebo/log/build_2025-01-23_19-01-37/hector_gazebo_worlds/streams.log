@@ -1,0 +1,108 @@
+[0.012s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds': AMENT_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src/hector_gazebo/hector_gazebo_worlds -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds
+[0.093s] -- The C compiler identification is GNU 11.4.0
+[0.159s] -- The CXX compiler identification is GNU 11.4.0
+[0.170s] -- Detecting C compiler ABI info
+[0.258s] -- Detecting C compiler ABI info - done
+[0.266s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.266s] -- Detecting C compile features
+[0.267s] -- Detecting C compile features - done
+[0.270s] -- Detecting CXX compiler ABI info
+[0.347s] -- Detecting CXX compiler ABI info - done
+[0.351s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.351s] -- Detecting CXX compile features
+[0.352s] -- Detecting CXX compile features - done
+[0.364s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.506s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.702s] -- Configuring done
+[0.702s] -- Generating done
+[0.704s] -- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds
+[0.711s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds' returned '0': AMENT_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src/hector_gazebo/hector_gazebo_worlds -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds
+[0.711s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds': AMENT_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds -- -j2 -l2
+[0.753s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds' returned '0': AMENT_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds -- -j2 -l2
+[0.754s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds': AMENT_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds
+[0.766s] -- Install configuration: ""
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/rolling_landscape_120m.launch
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/small_indoor_scenario.launch
+[0.766s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/sick_robot_day_2012_20m.launch
+[0.767s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/start.launch
+[0.767s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/drc_final_qual_4_step_block.launch
+[0.767s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/willow_garage.launch
+[0.767s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/sick_robot_day_2014.launch
+[0.767s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/maps
+[0.767s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/maps/small_indoor_scenario_edited_map_hector_mapping.pgm
+[0.769s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/maps/small_indoor_scenario_edited_map_hector_mapping.yaml
+[0.769s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media
+[0.770s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models
+[0.770s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_2.dae
+[0.770s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_9.dae
+[0.771s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_9.dae
+[0.771s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_7.dae
+[0.771s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_4.png
+[0.771s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_8.png
+[0.772s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/120m_landscape_smooth_tri.jpg
+[0.774s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/drc_qual4_block.stl
+[0.774s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_3.dae
+[0.774s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_inner_block.stl
+[0.775s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_inner_block.dae
+[0.775s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_4.dae
+[0.775s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel.stl
+[0.776s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_8.dae
+[0.776s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_9.png
+[0.776s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_8.dae
+[0.777s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_6.png
+[0.777s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_5.png
+[0.778s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_5.dae
+[0.778s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_7.png
+[0.778s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_0.dae
+[0.779s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_3.dae
+[0.779s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_6.dae
+[0.780s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_with_stations.dae
+[0.780s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_0.png
+[0.781s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_1.dae
+[0.781s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_ring.dae
+[0.781s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/120m_landscape_smooth_tri.dae
+[0.789s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_3.png
+[0.790s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target.dae
+[0.790s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014.dae
+[0.790s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_2.dae
+[0.791s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/small_indoor_scenario.dae
+[0.791s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_target.png
+[0.792s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target.stl
+[0.792s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_0.dae
+[0.793s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_ring.stl
+[0.793s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_7.dae
+[0.793s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_inner_block_with_stations.dae
+[0.794s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2012_20m.dae
+[0.795s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_4.dae
+[0.795s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_1.dae
+[0.795s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_6.dae
+[0.795s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_1.png
+[0.796s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_5.dae
+[0.796s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_2.png
+[0.797s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/materials
+[0.797s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/materials/scripts
+[0.797s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/materials/scripts/hector_materials.material
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/small_indoor_scenario.world
+[0.798s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/willow_garage.world
+[0.799s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/drc_final_qual_4_step_block.world
+[0.799s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/rolling_landscape_120m.world
+[0.799s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/sick_robot_day_2012_20m.world
+[0.799s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/sick_robot_day_2014.world
+[0.800s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/ament_index/resource_index/package_run_dependencies/hector_gazebo_worlds
+[0.800s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/ament_index/resource_index/parent_prefix_path/hector_gazebo_worlds
+[0.800s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/environment/ament_prefix_path.sh
+[0.801s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/environment/ament_prefix_path.dsv
+[0.801s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/environment/path.sh
+[0.801s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/environment/path.dsv
+[0.801s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/local_setup.bash
+[0.802s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/local_setup.sh
+[0.802s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/local_setup.zsh
+[0.802s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/local_setup.dsv
+[0.803s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/package.dsv
+[0.803s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/ament_index/resource_index/packages/hector_gazebo_worlds
+[0.803s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/cmake/hector_gazebo_worldsConfig.cmake
+[0.803s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/cmake/hector_gazebo_worldsConfig-version.cmake
+[0.804s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/package.xml
+[0.806s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds' returned '0': AMENT_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds

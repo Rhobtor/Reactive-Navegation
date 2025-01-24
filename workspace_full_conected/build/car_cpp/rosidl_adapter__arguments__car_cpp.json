@@ -1,7 +1,0 @@
-{
-  "package_name": "car_cpp",
-  "non_idl_tuples": [
-    "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp:srv/SetBias.srv",
-    "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp:srv/SetReferenceGeoPose.srv"
-  ]
-}

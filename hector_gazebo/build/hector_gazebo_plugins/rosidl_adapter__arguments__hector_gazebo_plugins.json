@@ -1,0 +1,7 @@
+{
+  "package_name": "hector_gazebo_plugins",
+  "non_idl_tuples": [
+    "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src/hector_gazebo/hector_gazebo_plugins:srv/SetBias.srv",
+    "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src/hector_gazebo/hector_gazebo_plugins:srv/SetReferenceGeoPose.srv"
+  ]
+}

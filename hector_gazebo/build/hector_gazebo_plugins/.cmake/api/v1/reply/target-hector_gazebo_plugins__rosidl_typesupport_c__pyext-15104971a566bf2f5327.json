@@ -1,0 +1,1004 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "rosidl_generator_py/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so"
+		}
+	],
+	"backtrace" : 5,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"include",
+			"ament_execute_extensions",
+			"rosidl_generate_interfaces",
+			"install",
+			"link_directories",
+			"target_link_libraries",
+			"ament_target_dependencies",
+			"add_dependencies",
+			"set_target_properties",
+			"set_properties",
+			"add_definitions",
+			"dart_traverse_components",
+			"dart_package_init",
+			"find_package",
+			"include_directories",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"/opt/ros/humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake",
+			"/opt/ros/humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake",
+			"/opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake",
+			"CMakeLists.txt",
+			"/opt/ros/humble/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake",
+			"/usr/share/dart/cmake/DARTFindBoost.cmake",
+			"/usr/share/dart/cmake/dart_dartComponent.cmake",
+			"/usr/share/dart/cmake/DARTConfig.cmake",
+			"/usr/lib/x86_64-linux-gnu/cmake/gazebo/gazebo-config.cmake",
+			"/opt/ros/humble/share/gazebo_dev/cmake/gazebo_dev-extras.cmake",
+			"/opt/ros/humble/share/gazebo_dev/cmake/gazebo_devConfig.cmake",
+			"/opt/ros/humble/share/gazebo_ros/cmake/ament_cmake_export_dependencies-extras.cmake",
+			"/opt/ros/humble/share/gazebo_ros/cmake/gazebo_rosConfig.cmake",
+			"/opt/ros/humble/share/ament_cmake_ros/cmake/ament_cmake_ros-extras.cmake",
+			"/opt/ros/humble/share/ament_cmake_ros/cmake/ament_cmake_rosConfig.cmake",
+			"/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/cmake/rosidl_typesupport_fastrtps_c_generate_interfaces.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 69,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 286,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 48,
+				"parent" : 2
+			},
+			{
+				"file" : 0,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 226,
+				"parent" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 282,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 3,
+				"line" : 39,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 246,
+				"parent" : 4
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 268,
+				"parent" : 4
+			},
+			{
+				"command" : 6,
+				"file" : 4,
+				"line" : 145,
+				"parent" : 9
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 268,
+				"parent" : 4
+			},
+			{
+				"command" : 6,
+				"file" : 4,
+				"line" : 145,
+				"parent" : 11
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 268,
+				"parent" : 4
+			},
+			{
+				"command" : 6,
+				"file" : 4,
+				"line" : 145,
+				"parent" : 13
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 268,
+				"parent" : 4
+			},
+			{
+				"command" : 6,
+				"file" : 4,
+				"line" : 145,
+				"parent" : 15
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 268,
+				"parent" : 4
+			},
+			{
+				"command" : 6,
+				"file" : 4,
+				"line" : 145,
+				"parent" : 17
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 276,
+				"parent" : 4
+			},
+			{
+				"command" : 6,
+				"file" : 4,
+				"line" : 151,
+				"parent" : 19
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 262,
+				"parent" : 4
+			},
+			{
+				"command" : 6,
+				"file" : 4,
+				"line" : 145,
+				"parent" : 21
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 229,
+				"parent" : 4
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 239,
+				"parent" : 4
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 146,
+				"parent" : 24
+			},
+			{
+				"command" : 14,
+				"file" : 3,
+				"line" : 23,
+				"parent" : 0
+			},
+			{
+				"file" : 12,
+				"parent" : 26
+			},
+			{
+				"command" : 1,
+				"file" : 12,
+				"line" : 41,
+				"parent" : 27
+			},
+			{
+				"file" : 11,
+				"parent" : 28
+			},
+			{
+				"command" : 14,
+				"file" : 11,
+				"line" : 21,
+				"parent" : 29
+			},
+			{
+				"file" : 10,
+				"parent" : 30
+			},
+			{
+				"command" : 1,
+				"file" : 10,
+				"line" : 41,
+				"parent" : 31
+			},
+			{
+				"file" : 9,
+				"parent" : 32
+			},
+			{
+				"command" : 14,
+				"file" : 9,
+				"line" : 3,
+				"parent" : 33
+			},
+			{
+				"file" : 8,
+				"parent" : 34
+			},
+			{
+				"command" : 14,
+				"file" : 8,
+				"line" : 166,
+				"parent" : 35
+			},
+			{
+				"file" : 7,
+				"parent" : 36
+			},
+			{
+				"command" : 13,
+				"file" : 7,
+				"line" : 181,
+				"parent" : 37
+			},
+			{
+				"command" : 12,
+				"file" : 7,
+				"line" : 133,
+				"parent" : 38
+			},
+			{
+				"command" : 1,
+				"file" : 7,
+				"line" : 73,
+				"parent" : 39
+			},
+			{
+				"file" : 6,
+				"parent" : 40
+			},
+			{
+				"command" : 1,
+				"file" : 6,
+				"line" : 6,
+				"parent" : 41
+			},
+			{
+				"file" : 5,
+				"parent" : 42
+			},
+			{
+				"command" : 11,
+				"file" : 5,
+				"line" : 13,
+				"parent" : 43
+			},
+			{
+				"command" : 11,
+				"file" : 8,
+				"line" : 142,
+				"parent" : 35
+			},
+			{
+				"command" : 11,
+				"file" : 8,
+				"line" : 148,
+				"parent" : 35
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 48,
+				"parent" : 2
+			},
+			{
+				"file" : 15,
+				"parent" : 47
+			},
+			{
+				"command" : 14,
+				"file" : 15,
+				"line" : 21,
+				"parent" : 48
+			},
+			{
+				"file" : 14,
+				"parent" : 49
+			},
+			{
+				"command" : 1,
+				"file" : 14,
+				"line" : 41,
+				"parent" : 50
+			},
+			{
+				"file" : 13,
+				"parent" : 51
+			},
+			{
+				"command" : 11,
+				"file" : 13,
+				"line" : 25,
+				"parent" : 52
+			},
+			{
+				"command" : 15,
+				"file" : 3,
+				"line" : 38,
+				"parent" : 0
+			},
+			{
+				"command" : 15,
+				"file" : 3,
+				"line" : 51,
+				"parent" : 0
+			},
+			{
+				"command" : 16,
+				"file" : 0,
+				"line" : 253,
+				"parent" : 4
+			},
+			{
+				"command" : 16,
+				"file" : 4,
+				"line" : 141,
+				"parent" : 9
+			},
+			{
+				"command" : 16,
+				"file" : 4,
+				"line" : 141,
+				"parent" : 11
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-fPIC"
+				},
+				{
+					"backtrace" : 25,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 25,
+					"fragment" : "-Wextra"
+				},
+				{
+					"fragment" : "-std=gnu99"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 44,
+					"define" : "BOOST_TEST_DYN_LINK"
+				},
+				{
+					"backtrace" : 45,
+					"define" : "LIBBULLET_VERSION=3.05"
+				},
+				{
+					"backtrace" : 46,
+					"define" : "LIBBULLET_VERSION_GT_282"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "RCUTILS_ENABLE_FAULT_INJECTION"
+				},
+				{
+					"backtrace" : 53,
+					"define" : "ROS_PACKAGE_NAME=\"hector_gazebo_plugins\""
+				},
+				{
+					"define" : "hector_gazebo_plugins__rosidl_typesupport_c__pyext_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/gazebo-11"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/bullet"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/simbody"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/sdformat-9.7"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/ignition/math6"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/OGRE"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/OGRE/Terrain"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/OGRE/Paging"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/ignition/transport8"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/ignition/msgs5"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/ignition/common3"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "/usr/include/ignition/fuel_tools4"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src/hector_gazebo/hector_gazebo_plugins/include"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/opt/ros/humble/include/rosidl_typesupport_cpp"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/opt/ros/humble/include/rcpputils"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/opt/ros/humble/include/sensor_msgs"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/opt/ros/humble/include/rclcpp"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/opt/ros/humble/include/ament_index_cpp"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/opt/ros/humble/include/libstatistics_collector"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/opt/ros/humble/include/rcl"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/opt/ros/humble/include/rosgraph_msgs"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/opt/ros/humble/include/rcl_yaml_param_parser"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/opt/ros/humble/include/statistics_msgs"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/opt/ros/humble/include/tracetools"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins/srv"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins/rosidl_generator_c"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins/rosidl_generator_py"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "/usr/include/python3.10"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/builtin_interfaces"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/geometry_msgs"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/std_msgs"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rosidl_runtime_c"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rosidl_typesupport_interface"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rcutils"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rosidl_runtime_cpp"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rosidl_typesupport_fastrtps_c"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rosidl_typesupport_fastrtps_cpp"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rmw"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rosidl_typesupport_c"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rosidl_typesupport_introspection_c"
+				},
+				{
+					"backtrace" : 55,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rosidl_typesupport_introspection_cpp"
+				},
+				{
+					"backtrace" : 57,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/geographic_msgs"
+				},
+				{
+					"backtrace" : 57,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include"
+				},
+				{
+					"backtrace" : 58,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/unique_identifier_msgs"
+				},
+				{
+					"backtrace" : 10,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/fastcdr"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					5
+				],
+				"standard" : "99"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 8,
+			"id" : "hector_gazebo_plugins__rosidl_generator_c::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 23,
+			"id" : "hector_gazebo_plugins__rosidl_typesupport_c::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "hector_gazebo_plugins__rosidl_generator_py::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 23,
+			"id" : "hector_gazebo_plugins__py::@27b3d9ac483afd8be563"
+		}
+	],
+	"id" : "hector_gazebo_plugins__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 6,
+				"path" : "local/lib/python3.10/dist-packages/hector_gazebo_plugins"
+			},
+			{
+				"backtrace" : 6,
+				"path" : "local/lib/python3.10/dist-packages/hector_gazebo_plugins"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "-L/usr/lib/x86_64-linux-gnu/gazebo-11/plugins",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins/rosidl_generator_py/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins:/opt/ros/humble/lib:",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "rosidl_generator_py/hector_gazebo_plugins/libhector_gazebo_plugins__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libpython3.10.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "libhector_gazebo_plugins__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "/opt/ros/humble/lib/libgeographic_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "/opt/ros/humble/lib/libgeographic_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "/opt/ros/humble/lib/libgeographic_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "/opt/ros/humble/lib/libgeographic_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "/opt/ros/humble/lib/libgeographic_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/opt/ros/humble/lib/libunique_identifier_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 14,
+				"fragment" : "/opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 14,
+				"fragment" : "/opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 14,
+				"fragment" : "/opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 14,
+				"fragment" : "/opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 14,
+				"fragment" : "/opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 16,
+				"fragment" : "/opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 16,
+				"fragment" : "/opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 16,
+				"fragment" : "/opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 16,
+				"fragment" : "/opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 16,
+				"fragment" : "/opt/ros/humble/lib/libstd_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "/opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "/opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "/opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "/opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "/opt/ros/humble/lib/libbuiltin_interfaces__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 20,
+				"fragment" : "/opt/ros/humble/lib/librmw.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "/opt/ros/humble/lib/libgeographic_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 14,
+				"fragment" : "/opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 16,
+				"fragment" : "/opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libpython3.10.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "/opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "libhector_gazebo_plugins__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libfastcdr.so.1.0.24",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librmw.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "/opt/ros/humble/lib/libgeographic_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/opt/ros/humble/lib/libunique_identifier_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 14,
+				"fragment" : "/opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 16,
+				"fragment" : "/opt/ros/humble/lib/libstd_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "/opt/ros/humble/lib/libbuiltin_interfaces__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "/opt/ros/humble/lib/libgeographic_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "/opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 14,
+				"fragment" : "/opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 16,
+				"fragment" : "/opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "/opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 22,
+				"fragment" : "/opt/ros/humble/lib/librosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 22,
+				"fragment" : "/opt/ros/humble/lib/librosidl_runtime_c.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 20,
+				"fragment" : "/opt/ros/humble/lib/librcutils.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-Wl,-rpath-link,/opt/ros/humble/lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "hector_gazebo_plugins__rosidl_typesupport_c__pyext",
+	"nameOnDisk" : "hector_gazebo_plugins_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins/rosidl_generator_py/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_c.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}

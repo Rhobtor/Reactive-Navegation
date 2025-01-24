@@ -1,0 +1,913 @@
+[0.000000] (-) TimerEvent: {}
+[0.000528] (hector_gazebo_plugins) JobQueued: {'identifier': 'hector_gazebo_plugins', 'dependencies': OrderedDict()}
+[0.000564] (hector_gazebo_worlds) JobQueued: {'identifier': 'hector_gazebo_worlds', 'dependencies': OrderedDict([('hector_gazebo_plugins', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins')])}
+[0.000590] (hector_gazebo) JobQueued: {'identifier': 'hector_gazebo', 'dependencies': OrderedDict([('hector_gazebo_plugins', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins'), ('hector_gazebo_worlds', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds')])}
+[0.000615] (hector_gazebo_plugins) JobStarted: {'identifier': 'hector_gazebo_plugins'}
+[0.009900] (hector_gazebo_plugins) JobProgress: {'identifier': 'hector_gazebo_plugins', 'progress': 'cmake'}
+[0.010405] (hector_gazebo_plugins) Command: {'cmd': ['/usr/bin/cmake', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src/hector_gazebo/hector_gazebo_plugins', '-DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('OLDPWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '1450'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1406,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1406'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ced64900_1cf8_4ac8_bfa9_05825c05a732'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.8DB102'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.101'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.084151] (hector_gazebo_plugins) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.099666] (-) TimerEvent: {}
+[0.133774] (hector_gazebo_plugins) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.143665] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199776] (-) TimerEvent: {}
+[0.205170] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.207882] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.208476] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.209026] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.211719] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.280439] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.282638] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.282835] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.283304] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.287903] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.299893] (-) TimerEvent: {}
+[0.400208] (-) TimerEvent: {}
+[0.411718] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.485704] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.500313] (-) TimerEvent: {}
+[0.524493] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.531001] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.539761] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.552701] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.569322] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.600449] (-) TimerEvent: {}
+[0.611720] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.616819] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.693589] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.700571] (-) TimerEvent: {}
+[0.713492] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.739683] (hector_gazebo_plugins) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.749309] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.801352] (-) TimerEvent: {}
+[0.813040] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.813222] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.880127] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.880464] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.902377] (-) TimerEvent: {}
+[0.927877] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found std_srvs: 4.2.4 (/opt/ros/humble/share/std_srvs/cmake)\n'}
+[0.939272] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found gazebo_ros: 3.7.0 (/opt/ros/humble/share/gazebo_ros/cmake)\n'}
+[0.949428] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") \n'}
+[0.949814] (hector_gazebo_plugins) StdoutLine: {'line': b"-- Checking for module 'bullet>=2.82'\n"}
+[0.961648] (hector_gazebo_plugins) StdoutLine: {'line': b'--   Found bullet, version 3.05\n'}
+[1.002629] (-) TimerEvent: {}
+[1.051136] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found fcl: /usr/include (found suitable version "0.7.0", minimum required is "0.5.0") \n'}
+[1.094674] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found assimp: /usr/include (found version "5.2.0") \n'}
+[1.102733] (-) TimerEvent: {}
+[1.110963] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found DART: /usr/include (Required is at least version "6.6") found components: dart \n'}
+[1.135612] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time \n'}
+[1.148027] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") \n'}
+[1.151991] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[1.158494] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Searching for dependencies of ignition-math6\n'}
+[1.160281] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for OGRE...\n'}
+[1.160585] (hector_gazebo_plugins) StdoutLine: {'line': b'-- OGRE_PREFIX_WATCH changed.\n'}
+[1.165354] (hector_gazebo_plugins) StdoutLine: {'line': b"-- Checking for module 'OGRE'\n"}
+[1.176026] (hector_gazebo_plugins) StdoutLine: {'line': b'--   Found OGRE, version 1.9.0\n'}
+[1.202815] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found Ogre Ghadamon (1.9.0)\n'}
+[1.202959] (-) TimerEvent: {}
+[1.208341] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so\n'}
+[1.216407] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for OGRE_Paging...\n'}
+[1.218668] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so\n'}
+[1.218807] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for OGRE_Terrain...\n'}
+[1.222046] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so\n'}
+[1.222175] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for OGRE_Property...\n'}
+[1.225153] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so\n'}
+[1.225568] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for OGRE_RTShaderSystem...\n'}
+[1.229196] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so\n'}
+[1.229339] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for OGRE_Volume...\n'}
+[1.233443] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so\n'}
+[1.233721] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for OGRE_Overlay...\n'}
+[1.236201] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so\n'}
+[1.301627] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[1.303063] (-) TimerEvent: {}
+[1.304174] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-transport8 -- found version 8.2.1\n'}
+[1.304355] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Searching for dependencies of ignition-transport8\n'}
+[1.316517] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") \n'}
+[1.322672] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Config-file not installed for ZeroMQ -- checking for pkg-config\n'}
+[1.326683] (hector_gazebo_plugins) StdoutLine: {'line': b"-- Checking for module 'libzmq >= 4'\n"}
+[1.341324] (hector_gazebo_plugins) StdoutLine: {'line': b'--   Found libzmq , version 4.3.4\n'}
+[1.373894] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found ZeroMQ: TRUE (Required is at least version "4") \n'}
+[1.379354] (hector_gazebo_plugins) StdoutLine: {'line': b"-- Checking for module 'uuid'\n"}
+[1.389297] (hector_gazebo_plugins) StdoutLine: {'line': b'--   Found uuid, version 2.37.2\n'}
+[1.403389] (-) TimerEvent: {}
+[1.418440] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found UUID: TRUE  \n'}
+[1.419223] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.8.1\n'}
+[1.419627] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Searching for dependencies of ignition-msgs5\n'}
+[1.433533] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[1.438261] (hector_gazebo_plugins) StdoutLine: {'line': b"-- Checking for module 'tinyxml2'\n"}
+[1.449820] (hector_gazebo_plugins) StdoutLine: {'line': b'--   Found tinyxml2, version 9.0.0\n'}
+[1.480362] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.8.1\n'}
+[1.482158] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.14.0\n'}
+[1.482774] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3\n'}
+[1.483362] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for dlfcn.h - found\n'}
+[1.484015] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for libdl - found\n'}
+[1.485276] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found DL: TRUE  \n'}
+[1.495860] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found tinyobjloader: /usr/lib/x86_64-linux-gnu/cmake/tinyobjloader/tinyobjloader-config.cmake (found version "2.0.0") \n'}
+[1.496609] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Searching for <ignition-common3> component [graphics]\n'}
+[1.498337] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-common3-graphics -- found version 3.14.0\n'}
+[1.498531] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Searching for dependencies of ignition-common3-graphics\n'}
+[1.498821] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[1.501797] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-fuel_tools4 -- found version 4.4.0\n'}
+[1.501898] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Searching for dependencies of ignition-fuel_tools4\n'}
+[1.504321] (-) TimerEvent: {}
+[1.565453] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.81.0")  \n'}
+[1.574180] (hector_gazebo_plugins) StdoutLine: {'line': b"-- Checking for module 'jsoncpp'\n"}
+[1.584792] (hector_gazebo_plugins) StdoutLine: {'line': b'--   Found jsoncpp, version 1.9.5\n'}
+[1.604502] (-) TimerEvent: {}
+[1.613406] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found JSONCPP: TRUE  \n'}
+[1.619730] (hector_gazebo_plugins) StdoutLine: {'line': b"-- Checking for module 'libzip'\n"}
+[1.629835] (hector_gazebo_plugins) StdoutLine: {'line': b'--   Found libzip, version 1.7.3\n'}
+[1.660436] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found ZIP: TRUE  \n'}
+[1.660708] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-common3 -- found version 3.14.0\n'}
+[1.661268] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-math6 -- found version 6.15.1\n'}
+[1.661473] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Looking for ignition-msgs5 -- found version 5.8.1\n'}
+[1.664885] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Gazebo version: 11.10\n'}
+[1.665150] (hector_gazebo_plugins) StdoutLine: {'line': b"-- Checking for module 'tbb'\n"}
+[1.677449] (hector_gazebo_plugins) StdoutLine: {'line': b'--   Found tbb, version 2021.5.0\n'}
+[1.704606] (-) TimerEvent: {}
+[1.706926] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found geographic_msgs: 1.0.6 (/opt/ros/humble/share/geographic_msgs/cmake)\n'}
+[1.748705] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[1.764774] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[1.780411] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found tf2: 0.25.9 (/opt/ros/humble/share/tf2/cmake)\n'}
+[1.788512] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[1.805360] (-) TimerEvent: {}
+[1.906366] (-) TimerEvent: {}
+[2.006692] (-) TimerEvent: {}
+[2.025188] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[2.106800] (-) TimerEvent: {}
+[2.208348] (-) TimerEvent: {}
+[2.308755] (-) TimerEvent: {}
+[2.370351] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.408891] (-) TimerEvent: {}
+[2.508394] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.508958] (-) TimerEvent: {}
+[2.525758] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[2.527334] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[2.548585] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[2.548776] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.548822] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[2.548857] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[2.565405] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[2.609079] (-) TimerEvent: {}
+[2.619987] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[2.659281] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.709201] (-) TimerEvent: {}
+[2.785390] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Generating done\n'}
+[2.804375] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins\n'}
+[2.809322] (-) TimerEvent: {}
+[2.819207] (hector_gazebo_plugins) CommandEnded: {'returncode': 0}
+[2.819479] (hector_gazebo_plugins) JobProgress: {'identifier': 'hector_gazebo_plugins', 'progress': 'build'}
+[2.819498] (hector_gazebo_plugins) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins', '--', '-j2', '-l2'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('OLDPWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '1450'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1406,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1406'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ced64900_1cf8_4ac8_bfa9_05825c05a732'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.8DB102'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.101'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[2.859087] (hector_gazebo_plugins) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[2.869583] (hector_gazebo_plugins) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[2.909441] (-) TimerEvent: {}
+[3.010338] (-) TimerEvent: {}
+[3.112331] (-) TimerEvent: {}
+[3.217967] (-) TimerEvent: {}
+[3.320470] (-) TimerEvent: {}
+[3.324958] (hector_gazebo_plugins) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_generator_c.dir/rosidl_generator_c/hector_gazebo_plugins/srv/detail/set_bias__functions.c.o\x1b[0m\n'}
+[3.344911] (hector_gazebo_plugins) StdoutLine: {'line': b'[  6%] Built target hector_gazebo_plugins__cpp\n'}
+[3.355193] (hector_gazebo_plugins) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_generator_c.dir/rosidl_generator_c/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__functions.c.o\x1b[0m\n'}
+[3.401342] (hector_gazebo_plugins) StdoutLine: {'line': b'[  8%] Built target ament_cmake_python_copy_hector_gazebo_plugins\n'}
+[3.405110] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 10%] \x1b[32m\x1b[1mLinking C shared library libhector_gazebo_plugins__rosidl_generator_c.so\x1b[0m\n'}
+[3.419448] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_reset_plugin.dir/src/reset_plugin.cpp.o\x1b[0m\n'}
+[3.420591] (-) TimerEvent: {}
+[3.441607] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 12%] Built target hector_gazebo_plugins__rosidl_generator_c\n'}
+[3.465331] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_ros_magnetic.dir/src/gazebo_ros_magnetic.cpp.o\x1b[0m\n'}
+[3.520740] (-) TimerEvent: {}
+[3.621088] (-) TimerEvent: {}
+[3.721456] (-) TimerEvent: {}
+[3.821813] (-) TimerEvent: {}
+[3.922658] (-) TimerEvent: {}
+[4.023453] (-) TimerEvent: {}
+[4.123805] (-) TimerEvent: {}
+[4.226594] (-) TimerEvent: {}
+[4.326997] (-) TimerEvent: {}
+[4.427457] (-) TimerEvent: {}
+[4.527815] (-) TimerEvent: {}
+[4.628200] (-) TimerEvent: {}
+[4.728599] (-) TimerEvent: {}
+[4.830239] (-) TimerEvent: {}
+[4.932563] (-) TimerEvent: {}
+[5.032928] (-) TimerEvent: {}
+[5.133352] (-) TimerEvent: {}
+[5.233739] (-) TimerEvent: {}
+[5.334044] (-) TimerEvent: {}
+[5.434337] (-) TimerEvent: {}
+[5.534661] (-) TimerEvent: {}
+[5.634948] (-) TimerEvent: {}
+[5.736491] (-) TimerEvent: {}
+[5.836822] (-) TimerEvent: {}
+[5.937111] (-) TimerEvent: {}
+[6.037458] (-) TimerEvent: {}
+[6.137766] (-) TimerEvent: {}
+[6.238525] (-) TimerEvent: {}
+[6.339517] (-) TimerEvent: {}
+[6.439807] (-) TimerEvent: {}
+[6.541460] (-) TimerEvent: {}
+[6.641747] (-) TimerEvent: {}
+[6.744358] (-) TimerEvent: {}
+[6.844674] (-) TimerEvent: {}
+[6.947639] (-) TimerEvent: {}
+[7.048091] (-) TimerEvent: {}
+[7.148360] (-) TimerEvent: {}
+[7.249989] (-) TimerEvent: {}
+[7.350289] (-) TimerEvent: {}
+[7.450597] (-) TimerEvent: {}
+[7.550884] (-) TimerEvent: {}
+[7.652477] (-) TimerEvent: {}
+[7.752803] (-) TimerEvent: {}
+[7.853118] (-) TimerEvent: {}
+[7.953462] (-) TimerEvent: {}
+[8.053765] (-) TimerEvent: {}
+[8.155526] (-) TimerEvent: {}
+[8.260001] (-) TimerEvent: {}
+[8.360346] (-) TimerEvent: {}
+[8.460680] (-) TimerEvent: {}
+[8.560987] (-) TimerEvent: {}
+[8.662445] (-) TimerEvent: {}
+[8.762730] (-) TimerEvent: {}
+[8.863019] (-) TimerEvent: {}
+[8.963362] (-) TimerEvent: {}
+[9.064876] (-) TimerEvent: {}
+[9.165164] (-) TimerEvent: {}
+[9.265459] (-) TimerEvent: {}
+[9.367483] (-) TimerEvent: {}
+[9.467767] (-) TimerEvent: {}
+[9.568066] (-) TimerEvent: {}
+[9.668401] (-) TimerEvent: {}
+[9.768689] (-) TimerEvent: {}
+[9.869647] (-) TimerEvent: {}
+[9.969948] (-) TimerEvent: {}
+[10.071544] (-) TimerEvent: {}
+[10.171828] (-) TimerEvent: {}
+[10.272189] (-) TimerEvent: {}
+[10.372574] (-) TimerEvent: {}
+[10.374104] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 16%] \x1b[32m\x1b[1mLinking CXX shared library libhector_gazebo_reset_plugin.so\x1b[0m\n'}
+[10.472677] (-) TimerEvent: {}
+[10.574515] (-) TimerEvent: {}
+[10.674807] (-) TimerEvent: {}
+[10.757600] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 16%] Built target hector_gazebo_reset_plugin\n'}
+[10.774912] (-) TimerEvent: {}
+[10.778907] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_ros_sonar.dir/src/gazebo_ros_sonar.cpp.o\x1b[0m\n'}
+[10.875021] (-) TimerEvent: {}
+[10.975304] (-) TimerEvent: {}
+[11.077575] (-) TimerEvent: {}
+[11.177882] (-) TimerEvent: {}
+[11.278857] (-) TimerEvent: {}
+[11.379339] (-) TimerEvent: {}
+[11.481466] (-) TimerEvent: {}
+[11.581746] (-) TimerEvent: {}
+[11.682028] (-) TimerEvent: {}
+[11.782377] (-) TimerEvent: {}
+[11.882754] (-) TimerEvent: {}
+[11.983103] (-) TimerEvent: {}
+[12.083463] (-) TimerEvent: {}
+[12.185543] (-) TimerEvent: {}
+[12.285913] (-) TimerEvent: {}
+[12.386248] (-) TimerEvent: {}
+[12.486591] (-) TimerEvent: {}
+[12.586919] (-) TimerEvent: {}
+[12.687253] (-) TimerEvent: {}
+[12.787608] (-) TimerEvent: {}
+[12.887981] (-) TimerEvent: {}
+[12.990649] (-) TimerEvent: {}
+[13.091080] (-) TimerEvent: {}
+[13.191489] (-) TimerEvent: {}
+[13.291917] (-) TimerEvent: {}
+[13.392452] (-) TimerEvent: {}
+[13.492977] (-) TimerEvent: {}
+[13.593363] (-) TimerEvent: {}
+[13.694517] (-) TimerEvent: {}
+[13.794916] (-) TimerEvent: {}
+[13.895308] (-) TimerEvent: {}
+[13.996616] (-) TimerEvent: {}
+[14.097110] (-) TimerEvent: {}
+[14.198505] (-) TimerEvent: {}
+[14.279511] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 20%] \x1b[32m\x1b[1mLinking CXX shared library libhector_gazebo_ros_magnetic.so\x1b[0m\n'}
+[14.298616] (-) TimerEvent: {}
+[14.398972] (-) TimerEvent: {}
+[14.500531] (-) TimerEvent: {}
+[14.600931] (-) TimerEvent: {}
+[14.701295] (-) TimerEvent: {}
+[14.745007] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 20%] Built target hector_gazebo_ros_magnetic\n'}
+[14.755345] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 22%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[14.801344] (-) TimerEvent: {}
+[14.903519] (-) TimerEvent: {}
+[14.948548] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hector_gazebo_plugins/srv/set_bias__type_support.cpp.o\x1b[0m\n'}
+[15.003630] (-) TimerEvent: {}
+[15.104050] (-) TimerEvent: {}
+[15.159860] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hector_gazebo_plugins/srv/set_reference_geo_pose__type_support.cpp.o\x1b[0m\n'}
+[15.204195] (-) TimerEvent: {}
+[15.304596] (-) TimerEvent: {}
+[15.351774] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 28%] \x1b[32m\x1b[1mLinking CXX shared library libhector_gazebo_plugins__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[15.388583] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 28%] Built target hector_gazebo_plugins__rosidl_typesupport_cpp\n'}
+[15.398792] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 30%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[15.404691] (-) TimerEvent: {}
+[15.505036] (-) TimerEvent: {}
+[15.605302] (-) TimerEvent: {}
+[15.621451] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hector_gazebo_plugins/srv/detail/set_bias__type_support_c.cpp.o\x1b[0m\n'}
+[15.706352] (-) TimerEvent: {}
+[15.806743] (-) TimerEvent: {}
+[15.881406] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support_c.cpp.o\x1b[0m\n'}
+[15.908351] (-) TimerEvent: {}
+[16.009966] (-) TimerEvent: {}
+[16.110283] (-) TimerEvent: {}
+[16.126358] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 36%] \x1b[32m\x1b[1mLinking CXX shared library libhector_gazebo_plugins__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[16.188615] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 36%] Built target hector_gazebo_plugins__rosidl_typesupport_fastrtps_c\n'}
+[16.198962] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 38%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[16.210346] (-) TimerEvent: {}
+[16.312601] (-) TimerEvent: {}
+[16.412925] (-) TimerEvent: {}
+[16.426773] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hector_gazebo_plugins/srv/detail/dds_fastrtps/set_bias__type_support.cpp.o\x1b[0m\n'}
+[16.513039] (-) TimerEvent: {}
+[16.613323] (-) TimerEvent: {}
+[16.712517] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hector_gazebo_plugins/srv/detail/dds_fastrtps/set_reference_geo_pose__type_support.cpp.o\x1b[0m\n'}
+[16.714783] (-) TimerEvent: {}
+[16.815026] (-) TimerEvent: {}
+[16.915458] (-) TimerEvent: {}
+[17.013401] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 44%] \x1b[32m\x1b[1mLinking CXX shared library libhector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[17.015541] (-) TimerEvent: {}
+[17.080177] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 44%] Built target hector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp\n'}
+[17.090822] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 46%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[17.115641] (-) TimerEvent: {}
+[17.217481] (-) TimerEvent: {}
+[17.311769] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hector_gazebo_plugins/srv/detail/set_bias__type_support.c.o\x1b[0m\n'}
+[17.317578] (-) TimerEvent: {}
+[17.356522] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.c.o\x1b[0m\n'}
+[17.392131] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 53%] \x1b[32m\x1b[1mLinking C shared library libhector_gazebo_plugins__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[17.417724] (-) TimerEvent: {}
+[17.422957] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 53%] Built target hector_gazebo_plugins__rosidl_typesupport_introspection_c\n'}
+[17.434376] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 55%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[17.519341] (-) TimerEvent: {}
+[17.619621] (-) TimerEvent: {}
+[17.621745] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_c.dir/rosidl_typesupport_c/hector_gazebo_plugins/srv/set_bias__type_support.cpp.o\x1b[0m\n'}
+[17.653399] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_c.dir/rosidl_typesupport_c/hector_gazebo_plugins/srv/set_reference_geo_pose__type_support.cpp.o\x1b[0m\n'}
+[17.681989] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking CXX shared library libhector_gazebo_plugins__rosidl_typesupport_c.so\x1b[0m\n'}
+[17.719879] (-) TimerEvent: {}
+[17.720486] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 61%] Built target hector_gazebo_plugins__rosidl_typesupport_c\n'}
+[17.731376] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 63%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[17.819979] (-) TimerEvent: {}
+[17.922486] (-) TimerEvent: {}
+[17.946885] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hector_gazebo_plugins/srv/detail/set_bias__type_support.cpp.o\x1b[0m\n'}
+[18.022599] (-) TimerEvent: {}
+[18.122895] (-) TimerEvent: {}
+[18.223198] (-) TimerEvent: {}
+[18.233525] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.cpp.o\x1b[0m\n'}
+[18.323315] (-) TimerEvent: {}
+[18.423626] (-) TimerEvent: {}
+[18.512997] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 69%] \x1b[32m\x1b[1mLinking CXX shared library libhector_gazebo_plugins__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[18.523740] (-) TimerEvent: {}
+[18.567388] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 69%] Built target hector_gazebo_plugins__rosidl_typesupport_introspection_cpp\n'}
+[18.623956] (-) TimerEvent: {}
+[18.724213] (-) TimerEvent: {}
+[18.824654] (-) TimerEvent: {}
+[18.835460] (hector_gazebo_plugins) StdoutLine: {'line': b'running egg_info\n'}
+[18.840119] (hector_gazebo_plugins) StdoutLine: {'line': b'creating hector_gazebo_plugins.egg-info\n'}
+[18.840301] (hector_gazebo_plugins) StdoutLine: {'line': b'writing hector_gazebo_plugins.egg-info/PKG-INFO\n'}
+[18.840357] (hector_gazebo_plugins) StdoutLine: {'line': b'writing dependency_links to hector_gazebo_plugins.egg-info/dependency_links.txt\n'}
+[18.840394] (hector_gazebo_plugins) StdoutLine: {'line': b'writing top-level names to hector_gazebo_plugins.egg-info/top_level.txt\n'}
+[18.840427] (hector_gazebo_plugins) StdoutLine: {'line': b"writing manifest file 'hector_gazebo_plugins.egg-info/SOURCES.txt'\n"}
+[18.843536] (hector_gazebo_plugins) StdoutLine: {'line': b"reading manifest file 'hector_gazebo_plugins.egg-info/SOURCES.txt'\n"}
+[18.843690] (hector_gazebo_plugins) StdoutLine: {'line': b"writing manifest file 'hector_gazebo_plugins.egg-info/SOURCES.txt'\n"}
+[18.869539] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 69%] Built target ament_cmake_python_build_hector_gazebo_plugins_egg\n'}
+[18.892347] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_ros_imu.dir/src/gazebo_ros_imu.cpp.o\x1b[0m\n'}
+[18.925420] (-) TimerEvent: {}
+[19.025866] (-) TimerEvent: {}
+[19.127822] (-) TimerEvent: {}
+[19.228148] (-) TimerEvent: {}
+[19.328625] (-) TimerEvent: {}
+[19.428939] (-) TimerEvent: {}
+[19.530465] (-) TimerEvent: {}
+[19.630918] (-) TimerEvent: {}
+[19.731269] (-) TimerEvent: {}
+[19.831610] (-) TimerEvent: {}
+[19.933472] (-) TimerEvent: {}
+[20.033777] (-) TimerEvent: {}
+[20.134782] (-) TimerEvent: {}
+[20.235078] (-) TimerEvent: {}
+[20.339118] (-) TimerEvent: {}
+[20.439458] (-) TimerEvent: {}
+[20.539790] (-) TimerEvent: {}
+[20.640113] (-) TimerEvent: {}
+[20.742491] (-) TimerEvent: {}
+[20.842761] (-) TimerEvent: {}
+[20.943072] (-) TimerEvent: {}
+[21.043456] (-) TimerEvent: {}
+[21.143757] (-) TimerEvent: {}
+[21.244136] (-) TimerEvent: {}
+[21.344460] (-) TimerEvent: {}
+[21.445476] (-) TimerEvent: {}
+[21.481785] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 73%] \x1b[32m\x1b[1mLinking CXX shared library libhector_gazebo_ros_sonar.so\x1b[0m\n'}
+[21.545592] (-) TimerEvent: {}
+[21.645923] (-) TimerEvent: {}
+[21.747649] (-) TimerEvent: {}
+[21.847938] (-) TimerEvent: {}
+[21.948214] (-) TimerEvent: {}
+[21.971416] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 73%] Built target hector_gazebo_ros_sonar\n'}
+[21.993690] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/hector_gazebo_ros_gps.dir/src/gazebo_ros_gps.cpp.o\x1b[0m\n'}
+[22.048320] (-) TimerEvent: {}
+[22.148619] (-) TimerEvent: {}
+[22.253205] (-) TimerEvent: {}
+[22.353556] (-) TimerEvent: {}
+[22.455556] (-) TimerEvent: {}
+[22.555873] (-) TimerEvent: {}
+[22.656215] (-) TimerEvent: {}
+[22.756533] (-) TimerEvent: {}
+[22.856843] (-) TimerEvent: {}
+[22.957138] (-) TimerEvent: {}
+[23.059555] (-) TimerEvent: {}
+[23.159955] (-) TimerEvent: {}
+[23.260338] (-) TimerEvent: {}
+[23.360674] (-) TimerEvent: {}
+[23.460967] (-) TimerEvent: {}
+[23.561285] (-) TimerEvent: {}
+[23.663486] (-) TimerEvent: {}
+[23.763786] (-) TimerEvent: {}
+[23.864105] (-) TimerEvent: {}
+[23.964465] (-) TimerEvent: {}
+[24.064761] (-) TimerEvent: {}
+[24.165121] (-) TimerEvent: {}
+[24.265455] (-) TimerEvent: {}
+[24.366468] (-) TimerEvent: {}
+[24.466756] (-) TimerEvent: {}
+[24.567178] (-) TimerEvent: {}
+[24.668491] (-) TimerEvent: {}
+[24.768777] (-) TimerEvent: {}
+[24.869063] (-) TimerEvent: {}
+[24.970464] (-) TimerEvent: {}
+[25.070894] (-) TimerEvent: {}
+[25.171226] (-) TimerEvent: {}
+[25.271538] (-) TimerEvent: {}
+[25.372567] (-) TimerEvent: {}
+[25.472877] (-) TimerEvent: {}
+[25.573356] (-) TimerEvent: {}
+[25.674519] (-) TimerEvent: {}
+[25.774810] (-) TimerEvent: {}
+[25.876517] (-) TimerEvent: {}
+[25.976918] (-) TimerEvent: {}
+[26.077217] (-) TimerEvent: {}
+[26.177536] (-) TimerEvent: {}
+[26.277831] (-) TimerEvent: {}
+[26.378458] (-) TimerEvent: {}
+[26.479360] (-) TimerEvent: {}
+[26.579704] (-) TimerEvent: {}
+[26.680063] (-) TimerEvent: {}
+[26.782562] (-) TimerEvent: {}
+[26.882951] (-) TimerEvent: {}
+[26.983355] (-) TimerEvent: {}
+[27.083704] (-) TimerEvent: {}
+[27.184062] (-) TimerEvent: {}
+[27.284463] (-) TimerEvent: {}
+[27.386434] (-) TimerEvent: {}
+[27.486774] (-) TimerEvent: {}
+[27.588426] (-) TimerEvent: {}
+[27.688778] (-) TimerEvent: {}
+[27.789140] (-) TimerEvent: {}
+[27.892071] (-) TimerEvent: {}
+[27.994360] (-) TimerEvent: {}
+[28.094813] (-) TimerEvent: {}
+[28.197434] (-) TimerEvent: {}
+[28.297854] (-) TimerEvent: {}
+[28.398231] (-) TimerEvent: {}
+[28.498641] (-) TimerEvent: {}
+[28.598994] (-) TimerEvent: {}
+[28.699409] (-) TimerEvent: {}
+[28.799672] (-) TimerEvent: {}
+[28.900027] (-) TimerEvent: {}
+[29.001570] (-) TimerEvent: {}
+[29.102037] (-) TimerEvent: {}
+[29.202461] (-) TimerEvent: {}
+[29.302811] (-) TimerEvent: {}
+[29.408350] (-) TimerEvent: {}
+[29.508708] (-) TimerEvent: {}
+[29.608993] (-) TimerEvent: {}
+[29.709271] (-) TimerEvent: {}
+[29.811566] (-) TimerEvent: {}
+[29.913913] (-) TimerEvent: {}
+[30.018955] (-) TimerEvent: {}
+[30.119442] (-) TimerEvent: {}
+[30.219718] (-) TimerEvent: {}
+[30.321356] (-) TimerEvent: {}
+[30.422858] (-) TimerEvent: {}
+[30.524035] (-) TimerEvent: {}
+[30.626550] (-) TimerEvent: {}
+[30.726904] (-) TimerEvent: {}
+[30.786161] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 77%] \x1b[32m\x1b[1mLinking CXX shared library libhector_gazebo_ros_imu.so\x1b[0m\n'}
+[30.827044] (-) TimerEvent: {}
+[30.927506] (-) TimerEvent: {}
+[31.028617] (-) TimerEvent: {}
+[31.129005] (-) TimerEvent: {}
+[31.230337] (-) TimerEvent: {}
+[31.330715] (-) TimerEvent: {}
+[31.373649] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 77%] Built target hector_gazebo_ros_imu\n'}
+[31.393086] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 77%] Built target hector_gazebo_plugins\n'}
+[31.413407] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 79%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[31.430826] (-) TimerEvent: {}
+[31.531723] (-) TimerEvent: {}
+[31.633476] (-) TimerEvent: {}
+[31.733807] (-) TimerEvent: {}
+[31.760557] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 79%] Built target hector_gazebo_plugins__py\n'}
+[31.784337] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_generator_py.dir/rosidl_generator_py/hector_gazebo_plugins/srv/_set_bias_s.c.o\x1b[0m\n'}
+[31.833933] (-) TimerEvent: {}
+[31.934516] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_generator_py.dir/rosidl_generator_py/hector_gazebo_plugins/srv/_set_reference_geo_pose_s.c.o\x1b[0m\n'}
+[31.934666] (-) TimerEvent: {}
+[32.020104] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 85%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/hector_gazebo_plugins/libhector_gazebo_plugins__rosidl_generator_py.so\x1b[0m\n'}
+[32.035364] (-) TimerEvent: {}
+[32.059372] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 85%] Built target hector_gazebo_plugins__rosidl_generator_py\n'}
+[32.086038] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[32.137358] (-) TimerEvent: {}
+[32.176354] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 89%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[32.218102] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 89%] Built target hector_gazebo_plugins__rosidl_typesupport_fastrtps_c__pyext\n'}
+[32.237484] (-) TimerEvent: {}
+[32.239927] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[32.328354] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[32.337680] (-) TimerEvent: {}
+[32.372084] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 93%] Built target hector_gazebo_plugins__rosidl_typesupport_introspection_c__pyext\n'}
+[32.395330] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 95%] \x1b[32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[32.439347] (-) TimerEvent: {}
+[32.486353] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[32.527206] (hector_gazebo_plugins) StdoutLine: {'line': b'[ 97%] Built target hector_gazebo_plugins__rosidl_typesupport_c__pyext\n'}
+[32.539472] (-) TimerEvent: {}
+[32.639841] (-) TimerEvent: {}
+[32.741365] (-) TimerEvent: {}
+[32.841841] (-) TimerEvent: {}
+[32.942235] (-) TimerEvent: {}
+[33.042608] (-) TimerEvent: {}
+[33.142932] (-) TimerEvent: {}
+[33.244508] (-) TimerEvent: {}
+[33.344830] (-) TimerEvent: {}
+[33.445114] (-) TimerEvent: {}
+[33.545351] (-) TimerEvent: {}
+[33.645829] (-) TimerEvent: {}
+[33.746409] (-) TimerEvent: {}
+[33.828616] (hector_gazebo_plugins) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libhector_gazebo_ros_gps.so\x1b[0m\n'}
+[33.846722] (-) TimerEvent: {}
+[33.947332] (-) TimerEvent: {}
+[34.047765] (-) TimerEvent: {}
+[34.148117] (-) TimerEvent: {}
+[34.248552] (-) TimerEvent: {}
+[34.305504] (hector_gazebo_plugins) StdoutLine: {'line': b'[100%] Built target hector_gazebo_ros_gps\n'}
+[34.315715] (hector_gazebo_plugins) CommandEnded: {'returncode': 0}
+[34.318371] (hector_gazebo_plugins) JobProgress: {'identifier': 'hector_gazebo_plugins', 'progress': 'install'}
+[34.324740] (hector_gazebo_plugins) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('OLDPWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '1450'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1406,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1406'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ced64900_1cf8_4ac8_bfa9_05825c05a732'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.8DB102'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.101'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_plugins'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[34.332135] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[34.332428] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/ament_index/resource_index/rosidl_interfaces/hector_gazebo_plugins\n'}
+[34.332649] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins\n'}
+[34.332798] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv\n'}
+[34.332915] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/set_bias.h\n'}
+[34.332998] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail\n'}
+[34.333196] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__type_support.h\n'}
+[34.333327] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__struct.h\n'}
+[34.333392] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__struct.h\n'}
+[34.333463] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__functions.h\n'}
+[34.333538] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__functions.h\n'}
+[34.333611] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__functions.c\n'}
+[34.333876] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__functions.c\n'}
+[34.334055] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.h\n'}
+[34.334122] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/set_reference_geo_pose.h\n'}
+[34.334185] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg\n'}
+[34.334241] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg/rosidl_generator_c__visibility_control.h\n'}
+[34.334388] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/library_path.sh\n'}
+[34.334745] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/library_path.dsv\n'}
+[34.335033] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_generator_c.so\n'}
+[34.336316] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_generator_c.so" to ""\n'}
+[34.336379] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins\n'}
+[34.336476] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv\n'}
+[34.337544] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail\n'}
+[34.337618] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__rosidl_typesupport_fastrtps_c.h\n'}
+[34.337873] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__rosidl_typesupport_fastrtps_c.h\n'}
+[34.337935] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg\n'}
+[34.337995] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[34.338043] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_fastrtps_c.so\n'}
+[34.339074] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[34.339200] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins\n'}
+[34.339262] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv\n'}
+[34.339323] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail\n'}
+[34.339364] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__struct.hpp\n'}
+[34.339413] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__traits.hpp\n'}
+[34.339708] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__type_support.hpp\n'}
+[34.340471] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.hpp\n'}
+[34.340513] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__traits.hpp\n'}
+[34.340549] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__builder.hpp\n'}
+[34.340582] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__builder.hpp\n'}
+[34.340614] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__struct.hpp\n'}
+[34.340674] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/set_reference_geo_pose.hpp\n'}
+[34.340712] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/set_bias.hpp\n'}
+[34.340745] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg\n'}
+[34.340778] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[34.340811] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins\n'}
+[34.340843] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv\n'}
+[34.340874] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail\n'}
+[34.340907] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/dds_fastrtps\n'}
+[34.340945] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[34.341002] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[34.341043] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg\n'}
+[34.341584] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[34.341639] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp.so\n'}
+[34.341674] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[34.341707] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins\n'}
+[34.342006] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv\n'}
+[34.342140] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail\n'}
+[34.342326] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.c\n'}
+[34.342495] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__type_support.c\n'}
+[34.342554] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__rosidl_typesupport_introspection_c.h\n'}
+[34.342677] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__rosidl_typesupport_introspection_c.h\n'}
+[34.342893] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg\n'}
+[34.343133] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[34.343204] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_introspection_c.so\n'}
+[34.343785] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_introspection_c.so" to ""\n'}
+[34.344204] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_c.so\n'}
+[34.344298] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_c.so" to ""\n'}
+[34.344538] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins\n'}
+[34.344654] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv\n'}
+[34.344772] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail\n'}
+[34.344918] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__type_support.cpp\n'}
+[34.344983] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__rosidl_typesupport_introspection_cpp.hpp\n'}
+[34.345183] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__rosidl_typesupport_introspection_cpp.hpp\n'}
+[34.345240] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.cpp\n'}
+[34.346351] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_introspection_cpp.so\n'}
+[34.346419] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[34.346455] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_cpp.so\n'}
+[34.346489] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_cpp.so" to ""\n'}
+[34.346522] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/pythonpath.sh\n'}
+[34.346709] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/pythonpath.dsv\n'}
+[34.347049] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins-0.5.4-py3.10.egg-info\n'}
+[34.347198] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins-0.5.4-py3.10.egg-info/PKG-INFO\n'}
+[34.347400] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins-0.5.4-py3.10.egg-info/top_level.txt\n'}
+[34.347737] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins-0.5.4-py3.10.egg-info/dependency_links.txt\n'}
+[34.347789] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins-0.5.4-py3.10.egg-info/SOURCES.txt\n'}
+[34.347922] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins\n'}
+[34.347982] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[34.348132] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[34.348368] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[34.348613] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/__init__.py\n'}
+[34.348767] (-) TimerEvent: {}
+[34.349159] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv\n'}
+[34.349211] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_bias_s.c\n'}
+[34.349245] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_reference_geo_pose_s.c\n'}
+[34.349432] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_bias.py\n'}
+[34.349917] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_reference_geo_pose.py\n'}
+[34.349979] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/__init__.py\n'}
+[34.350035] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[34.350187] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_c.c\n'}
+[34.350363] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/libhector_gazebo_plugins__rosidl_generator_py.so\n'}
+[34.350514] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[34.377675] (hector_gazebo_plugins) StdoutLine: {'line': b"Listing '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins'...\n"}
+[34.377897] (hector_gazebo_plugins) StdoutLine: {'line': b"Compiling '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/__init__.py'...\n"}
+[34.377950] (hector_gazebo_plugins) StdoutLine: {'line': b"Listing '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv'...\n"}
+[34.377985] (hector_gazebo_plugins) StdoutLine: {'line': b"Compiling '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/__init__.py'...\n"}
+[34.378018] (hector_gazebo_plugins) StdoutLine: {'line': b"Compiling '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_bias.py'...\n"}
+[34.378050] (hector_gazebo_plugins) StdoutLine: {'line': b"Compiling '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_reference_geo_pose.py'...\n"}
+[34.381644] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[34.382784] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[34.382867] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[34.382929] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[34.383167] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[34.383576] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[34.384088] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_generator_py.so\n'}
+[34.384169] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_generator_py.so" to ""\n'}
+[34.384389] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetBias.idl\n'}
+[34.384568] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetReferenceGeoPose.idl\n'}
+[34.384724] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetBias.srv\n'}
+[34.385402] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetBias_Request.msg\n'}
+[34.385528] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetBias_Response.msg\n'}
+[34.385791] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetReferenceGeoPose.srv\n'}
+[34.386327] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetReferenceGeoPose_Request.msg\n'}
+[34.386614] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetReferenceGeoPose_Response.msg\n'}
+[34.387312] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include\n'}
+[34.387390] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/gazebo_ros_magnetic.h\n'}
+[34.387435] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/diffdrive_plugin_multi_wheel.h\n'}
+[34.387529] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/sensor_model.h\n'}
+[34.388510] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/gazebo_ros_imu.h\n'}
+[34.388596] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/diffdrive_plugin_6w.h\n'}
+[34.388639] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/gazebo_ros_sonar.h\n'}
+[34.388674] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/reset_plugin.h\n'}
+[34.388707] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/gazebo_ros_gps.h\n'}
+[34.388739] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/update_timer.h\n'}
+[34.388775] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/gnss_config.h\n'}
+[34.388806] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/gazebo_ros_force_based_move.h\n'}
+[34.388836] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/include/servo_plugin.h\n'}
+[34.391263] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_reset_plugin.so\n'}
+[34.391525] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_reset_plugin.so" to ""\n'}
+[34.391579] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_imu.so\n'}
+[34.395915] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_imu.so" to ""\n'}
+[34.396059] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_magnetic.so\n'}
+[34.400295] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_magnetic.so" to ""\n'}
+[34.400377] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_gps.so\n'}
+[34.403983] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_gps.so" to ""\n'}
+[34.404350] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_sonar.so\n'}
+[34.407626] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_sonar.so" to ""\n'}
+[34.407909] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/ament_index/resource_index/package_run_dependencies/hector_gazebo_plugins\n'}
+[34.408086] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/ament_index/resource_index/parent_prefix_path/hector_gazebo_plugins\n'}
+[34.408556] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/ament_prefix_path.sh\n'}
+[34.408696] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/ament_prefix_path.dsv\n'}
+[34.408937] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/path.sh\n'}
+[34.409256] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/path.dsv\n'}
+[34.409365] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/local_setup.bash\n'}
+[34.409692] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/local_setup.sh\n'}
+[34.409792] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/local_setup.zsh\n'}
+[34.410014] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/local_setup.dsv\n'}
+[34.410562] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.dsv\n'}
+[34.410793] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/ament_index/resource_index/packages/hector_gazebo_plugins\n'}
+[34.410880] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_generator_cExport.cmake\n'}
+[34.411108] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_generator_cExport-noconfig.cmake\n'}
+[34.411464] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[34.411569] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[34.411814] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_generator_cppExport.cmake\n'}
+[34.412150] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[34.412244] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[34.412500] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_introspection_cExport.cmake\n'}
+[34.412883] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[34.412987] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_cExport.cmake\n'}
+[34.413218] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[34.413500] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[34.413600] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[34.413832] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_cppExport.cmake\n'}
+[34.414143] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[34.414249] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_generator_pyExport.cmake\n'}
+[34.414593] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_generator_pyExport-noconfig.cmake\n'}
+[34.414689] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/rosidl_cmake-extras.cmake\n'}
+[34.414910] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[34.415208] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[34.415319] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[34.415554] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[34.415859] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[34.415948] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[34.416321] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_pluginsConfig.cmake\n'}
+[34.416453] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_pluginsConfig-version.cmake\n'}
+[34.416994] (hector_gazebo_plugins) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.xml\n'}
+[34.418931] (hector_gazebo_plugins) CommandEnded: {'returncode': 0}
+[34.438325] (hector_gazebo_plugins) JobEnded: {'identifier': 'hector_gazebo_plugins', 'rc': 0}
+[34.438650] (hector_gazebo_worlds) JobStarted: {'identifier': 'hector_gazebo_worlds'}
+[34.447729] (hector_gazebo_worlds) JobProgress: {'identifier': 'hector_gazebo_worlds', 'progress': 'cmake'}
+[34.448044] (hector_gazebo_worlds) Command: {'cmd': ['/usr/bin/cmake', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src/hector_gazebo/hector_gazebo_worlds', '-DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('OLDPWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '1450'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1406,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1406'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ced64900_1cf8_4ac8_bfa9_05825c05a732'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.8DB102'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.101'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble')]), 'shell': False}
+[34.451345] (-) TimerEvent: {}
+[34.531705] (hector_gazebo_worlds) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[34.551504] (-) TimerEvent: {}
+[34.597111] (hector_gazebo_worlds) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[34.607886] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[34.652556] (-) TimerEvent: {}
+[34.696445] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[34.704146] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[34.704670] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[34.705196] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[34.708413] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[34.752749] (-) TimerEvent: {}
+[34.785332] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[34.789613] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[34.789750] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[34.790631] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[34.802392] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[34.853032] (-) TimerEvent: {}
+[34.944554] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[34.955800] (-) TimerEvent: {}
+[35.056497] (-) TimerEvent: {}
+[35.140431] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Configuring done\n'}
+[35.140841] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Generating done\n'}
+[35.142267] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds\n'}
+[35.149324] (hector_gazebo_worlds) CommandEnded: {'returncode': 0}
+[35.149728] (hector_gazebo_worlds) JobProgress: {'identifier': 'hector_gazebo_worlds', 'progress': 'build'}
+[35.149751] (hector_gazebo_worlds) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds', '--', '-j2', '-l2'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('OLDPWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '1450'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1406,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1406'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ced64900_1cf8_4ac8_bfa9_05825c05a732'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.8DB102'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.101'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble')]), 'shell': False}
+[35.156587] (-) TimerEvent: {}
+[35.191208] (hector_gazebo_worlds) CommandEnded: {'returncode': 0}
+[35.191907] (hector_gazebo_worlds) JobProgress: {'identifier': 'hector_gazebo_worlds', 'progress': 'install'}
+[35.192065] (hector_gazebo_worlds) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('OLDPWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '1450'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1406,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1406'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ced64900_1cf8_4ac8_bfa9_05825c05a732'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.8DB102'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.101'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo_worlds'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble')]), 'shell': False}
+[35.203919] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[35.204549] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch\n'}
+[35.204608] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/rolling_landscape_120m.launch\n'}
+[35.204644] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/small_indoor_scenario.launch\n'}
+[35.204680] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/sick_robot_day_2012_20m.launch\n'}
+[35.204883] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/start.launch\n'}
+[35.205498] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/drc_final_qual_4_step_block.launch\n'}
+[35.205542] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/willow_garage.launch\n'}
+[35.205945] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/launch/sick_robot_day_2014.launch\n'}
+[35.206058] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/maps\n'}
+[35.206095] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/maps/small_indoor_scenario_edited_map_hector_mapping.pgm\n'}
+[35.207494] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/maps/small_indoor_scenario_edited_map_hector_mapping.yaml\n'}
+[35.207901] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media\n'}
+[35.208185] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models\n'}
+[35.208458] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_2.dae\n'}
+[35.208766] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_9.dae\n'}
+[35.209240] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_9.dae\n'}
+[35.209398] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_7.dae\n'}
+[35.209832] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_4.png\n'}
+[35.210056] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_8.png\n'}
+[35.210728] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/120m_landscape_smooth_tri.jpg\n'}
+[35.212105] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/drc_qual4_block.stl\n'}
+[35.212532] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_3.dae\n'}
+[35.212683] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_inner_block.stl\n'}
+[35.213150] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_inner_block.dae\n'}
+[35.213764] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_4.dae\n'}
+[35.213897] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel.stl\n'}
+[35.214194] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_8.dae\n'}
+[35.214589] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_9.png\n'}
+[35.214974] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_8.dae\n'}
+[35.215434] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_6.png\n'}
+[35.215965] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_5.png\n'}
+[35.216217] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_5.dae\n'}
+[35.216534] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_7.png\n'}
+[35.216819] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_0.dae\n'}
+[35.217212] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_3.dae\n'}
+[35.217649] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_6.dae\n'}
+[35.218185] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_with_stations.dae\n'}
+[35.218911] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_0.png\n'}
+[35.219275] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_1.dae\n'}
+[35.219654] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_ring.dae\n'}
+[35.219912] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/120m_landscape_smooth_tri.dae\n'}
+[35.227895] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_3.png\n'}
+[35.228409] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target.dae\n'}
+[35.228745] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014.dae\n'}
+[35.229038] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_2.dae\n'}
+[35.229471] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/small_indoor_scenario.dae\n'}
+[35.229964] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_target.png\n'}
+[35.230407] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target.stl\n'}
+[35.230713] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_0.dae\n'}
+[35.231213] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_ring.stl\n'}
+[35.231814] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_7.dae\n'}
+[35.232055] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_inner_block_with_stations.dae\n'}
+[35.232566] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2012_20m.dae\n'}
+[35.233207] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_4.dae\n'}
+[35.233490] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_1.dae\n'}
+[35.233633] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_6.dae\n'}
+[35.234035] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_1.png\n'}
+[35.234649] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_day_2014_target_station_complete_5.dae\n'}
+[35.235102] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/models/sick_robot_panel_2.png\n'}
+[35.235259] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/materials\n'}
+[35.235706] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/materials/scripts\n'}
+[35.236097] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/Media/materials/scripts/hector_materials.material\n'}
+[35.236238] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds\n'}
+[35.236565] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/small_indoor_scenario.world\n'}
+[35.237012] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/willow_garage.world\n'}
+[35.237253] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/drc_final_qual_4_step_block.world\n'}
+[35.237429] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/rolling_landscape_120m.world\n'}
+[35.237914] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/sick_robot_day_2012_20m.world\n'}
+[35.238004] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/worlds/sick_robot_day_2014.world\n'}
+[35.238767] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/ament_index/resource_index/package_run_dependencies/hector_gazebo_worlds\n'}
+[35.238858] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/ament_index/resource_index/parent_prefix_path/hector_gazebo_worlds\n'}
+[35.239058] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/environment/ament_prefix_path.sh\n'}
+[35.239476] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/environment/ament_prefix_path.dsv\n'}
+[35.239672] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/environment/path.sh\n'}
+[35.239839] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/environment/path.dsv\n'}
+[35.239996] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/local_setup.bash\n'}
+[35.240152] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/local_setup.sh\n'}
+[35.240324] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/local_setup.zsh\n'}
+[35.240740] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/local_setup.dsv\n'}
+[35.241337] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/package.dsv\n'}
+[35.241436] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/ament_index/resource_index/packages/hector_gazebo_worlds\n'}
+[35.241631] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/cmake/hector_gazebo_worldsConfig.cmake\n'}
+[35.241778] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/cmake/hector_gazebo_worldsConfig-version.cmake\n'}
+[35.242327] (hector_gazebo_worlds) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds/share/hector_gazebo_worlds/package.xml\n'}
+[35.244347] (hector_gazebo_worlds) CommandEnded: {'returncode': 0}
+[35.255382] (hector_gazebo_worlds) JobEnded: {'identifier': 'hector_gazebo_worlds', 'rc': 0}
+[35.255818] (hector_gazebo) JobStarted: {'identifier': 'hector_gazebo'}
+[35.256645] (-) TimerEvent: {}
+[35.268107] (hector_gazebo) JobProgress: {'identifier': 'hector_gazebo', 'progress': 'cmake'}
+[35.268534] (hector_gazebo) Command: {'cmd': ['/usr/bin/cmake', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src/hector_gazebo/hector_gazebo', '-DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('OLDPWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '1450'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1406,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1406'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ced64900_1cf8_4ac8_bfa9_05825c05a732'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.8DB102'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.101'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds:/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds:/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble')]), 'shell': False}
+[35.335498] (hector_gazebo) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[35.358358] (-) TimerEvent: {}
+[35.388996] (hector_gazebo) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[35.395782] (hector_gazebo) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[35.458466] (-) TimerEvent: {}
+[35.463529] (hector_gazebo) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[35.470855] (hector_gazebo) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[35.471680] (hector_gazebo) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[35.471817] (hector_gazebo) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[35.474043] (hector_gazebo) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[35.555613] (hector_gazebo) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[35.559314] (-) TimerEvent: {}
+[35.560990] (hector_gazebo) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[35.561432] (hector_gazebo) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[35.561969] (hector_gazebo) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[35.564372] (hector_gazebo) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[35.661399] (-) TimerEvent: {}
+[35.729486] (hector_gazebo) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[35.761885] (-) TimerEvent: {}
+[35.863864] (hector_gazebo) StdoutLine: {'line': b'-- Configuring done\n'}
+[35.864010] (-) TimerEvent: {}
+[35.869887] (hector_gazebo) StdoutLine: {'line': b'-- Generating done\n'}
+[35.870022] (hector_gazebo) StdoutLine: {'line': b'-- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo\n'}
+[35.875772] (hector_gazebo) CommandEnded: {'returncode': 0}
+[35.879130] (hector_gazebo) JobProgress: {'identifier': 'hector_gazebo', 'progress': 'build'}
+[35.879152] (hector_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo', '--', '-j2', '-l2'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('OLDPWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '1450'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1406,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1406'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ced64900_1cf8_4ac8_bfa9_05825c05a732'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.8DB102'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.101'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds:/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds:/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble')]), 'shell': False}
+[35.916264] (hector_gazebo) CommandEnded: {'returncode': 0}
+[35.920098] (hector_gazebo) JobProgress: {'identifier': 'hector_gazebo', 'progress': 'install'}
+[35.920366] (hector_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo'], 'cwd': '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'rhobtor'), ('LC_TIME', 'es_ES.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rhobtor'), ('OLDPWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_ES.UTF-8'), ('SYSTEMD_EXEC_PID', '1450'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rhobtor'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'rhobtor'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/rhobtor-virtual-machine:@/tmp/.ICE-unix/1406,unix/rhobtor-virtual-machine:/tmp/.ICE-unix/1406'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_ES.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/ced64900_1cf8_4ac8_bfa9_05825c05a732'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_ES.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.8DB102'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.101'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds:/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_ES.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_ES.UTF-8'), ('LC_IDENTIFICATION', 'es_ES.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/build/hector_gazebo'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_ES.UTF-8'), ('LC_PAPER', 'es_ES.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_worlds:/home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo_plugins:/opt/ros/humble')]), 'shell': False}
+[35.926784] (hector_gazebo) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[35.927988] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/ament_index/resource_index/package_run_dependencies/hector_gazebo\n'}
+[35.928103] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/ament_index/resource_index/parent_prefix_path/hector_gazebo\n'}
+[35.928169] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/environment/ament_prefix_path.sh\n'}
+[35.928213] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/environment/ament_prefix_path.dsv\n'}
+[35.928253] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/environment/path.sh\n'}
+[35.928807] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/environment/path.dsv\n'}
+[35.928861] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/local_setup.bash\n'}
+[35.928896] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/local_setup.sh\n'}
+[35.928928] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/local_setup.zsh\n'}
+[35.928959] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/local_setup.dsv\n'}
+[35.928990] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/package.dsv\n'}
+[35.929022] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/ament_index/resource_index/packages/hector_gazebo\n'}
+[35.929060] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/cmake/hector_gazeboConfig.cmake\n'}
+[35.929091] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/cmake/hector_gazeboConfig-version.cmake\n'}
+[35.929122] (hector_gazebo) StdoutLine: {'line': b'-- Installing: /home/rhobtor/reactive/Reactive-Navegation/hector_gazebo/install/hector_gazebo/share/hector_gazebo/package.xml\n'}
+[35.930706] (hector_gazebo) CommandEnded: {'returncode': 0}
+[35.941486] (hector_gazebo) JobEnded: {'identifier': 'hector_gazebo', 'rc': 0}
+[35.943533] (-) EventReactorShutdown: {}

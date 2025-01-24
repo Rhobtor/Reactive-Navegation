@@ -51,12 +51,19 @@ set(LIBS
     tf2
 )
 
-## Generate messages
-rosidl_generate_interfaces(${PROJECT_NAME}
-  srv/SetBias.srv
-  srv/SetReferenceGeoPose.srv
-  DEPENDENCIES geographic_msgs geometry_msgs
-)
+# ## Generate messages
+# rosidl_generate_interfaces(${PROJECT_NAME}
+#   srv/SetBias.srv
+#   srv/SetReferenceGeoPose.srv
+#   DEPENDENCIES geographic_msgs geometry_msgs builtin_interfaces
+# )
+
+# add_library(hector_gazebo_ros_imu SHARED src/gazebo_ros_imu.cpp)
+
+# ament_target_dependencies(hector_gazebo_ros_imu
+#   ${LIBS}
+#   rosidl_runtime_cpp
+# )
 
 # add_executable(car_cpp ${SOURCES})
 # ament_target_dependencies(car_cpp rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs)
@@ -92,15 +99,15 @@ target_include_directories(control_plugin PUBLIC include)
 ament_target_dependencies(control_plugin rclcpp gazebo_ros std_msgs geometry_msgs)
 
 
-# Plugin IMU
-add_library(hector_gazebo_ros_imu SHARED src/gazebo_ros_imu.cpp)
-target_link_libraries(hector_gazebo_ros_imu ${GAZEBO_LIBRARIES})
-ament_target_dependencies(hector_gazebo_ros_imu ${LIBS})
+# # Plugin IMU
+# add_library(hector_gazebo_ros_imu SHARED src/gazebo_ros_imu.cpp)
+# target_link_libraries(hector_gazebo_ros_imu ${GAZEBO_LIBRARIES})
+# ament_target_dependencies(hector_gazebo_ros_imu ${LIBS})
 
-# Plugin GPS
-add_library(hector_gazebo_ros_gps SHARED src/gazebo_ros_gps.cpp)
-target_link_libraries(hector_gazebo_ros_gps ${GAZEBO_LIBRARIES})
-ament_target_dependencies(hector_gazebo_ros_gps ${LIBS})
+# # Plugin GPS
+# add_library(hector_gazebo_ros_gps SHARED src/gazebo_ros_gps.cpp)
+# target_link_libraries(hector_gazebo_ros_gps ${GAZEBO_LIBRARIES})
+# ament_target_dependencies(hector_gazebo_ros_gps ${LIBS})
 
 
 
@@ -116,12 +123,12 @@ install(DIRECTORY include/
 )
 
 
-# Instalar plugins
-install(TARGETS
-  hector_gazebo_ros_imu
-  hector_gazebo_ros_gps
-  LIBRARY DESTINATION lib
-)
+# # Instalar plugins
+# install(TARGETS
+#   hector_gazebo_ros_imu
+#   hector_gazebo_ros_gps
+#   LIBRARY DESTINATION lib
+# )
 
 # Instalar encabezados
 install(DIRECTORY include/
