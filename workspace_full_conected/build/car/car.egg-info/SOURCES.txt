@@ -21,6 +21,7 @@ launch/control_with_gazebo.launch.py
 launch/display.launch.py
 launch/gazebo.launch.py
 launch/gazebo_mountain.launch.py
+launch/gazebo_no_gui.launch.py
 meshes/Component24_1.stl
 meshes/Component25_1.stl
 meshes/base_link.stl
