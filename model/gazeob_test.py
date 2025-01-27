@@ -36,6 +36,11 @@ class GazeboTest:
         self.set_self_state.pose.orientation.w = 1.0
 
 
+        # Inicializa rclpy y el nodo
+        rclpy.init()
+        self.node = rclpy.create_node('gazebo_control')
+
+        # Lanza Gazebo
         self.launch_gazebo(launch_file)
 
     def launch_gazebo(self, launch_file):
@@ -46,3 +51,20 @@ class GazeboTest:
         # Espera para que Gazebo inicie antes de continuar
         logger.info("Gazebo launched!")
         time.sleep(5)  # Ajusta el tiempo según sea necesario
+        self.unpause_simulation()
+
+    def unpause_simulation(self):
+        unpause_client = self.node.create_client(Empty, '/gazebo/unpause_physics')
+        if not unpause_client.wait_for_service(timeout_sec=5.0):
+            logger.error("Service /gazebo/unpause_physics not available")
+            return False
+        
+        request = Empty.Request()
+        future = unpause_client.call_async(request)
+        rclpy.spin_until_future_complete(self.node, future)
+        if future.result() is not None:
+            logger.info("Simulation unpaused successfully!")
+            return True
+        else:
+            logger.error("Failed to unpause the simulation")
+            return False

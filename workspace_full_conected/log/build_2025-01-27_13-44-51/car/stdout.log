@@ -44,6 +44,7 @@ copying launch/display.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/w
 copying launch/gazebo_mountain.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
 copying launch/control.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
 copying launch/control_with_gazebo.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+copying launch/gazebo_empty_world.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
 creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf
 copying urdf/lidar.plugin.xacro -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf
 copying urdf/materials.xacro -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf

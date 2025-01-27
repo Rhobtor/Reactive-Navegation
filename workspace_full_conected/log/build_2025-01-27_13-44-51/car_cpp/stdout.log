@@ -159,10 +159,10 @@
 [ 16%] [32mBuilding CXX object CMakeFiles/check_map.dir/src/check_map.cpp.o[0m
 [ 33%] [32mBuilding CXX object CMakeFiles/path_planner_node.dir/src/path_planner.cpp.o[0m
 [ 50%] [32m[1mLinking CXX executable path_planner_node[0m
-[ 50%] Built target path_planner_node
-[ 66%] [32mBuilding CXX object CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o[0m
-[ 83%] [32m[1mLinking CXX executable check_map[0m
-[ 83%] Built target check_map
+[ 66%] [32m[1mLinking CXX executable check_map[0m
+[ 66%] Built target check_map
+[ 66%] Built target path_planner_node
+[ 83%] [32mBuilding CXX object CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o[0m
 [100%] [32m[1mLinking CXX shared library libcontrol_plugin.so[0m
 [100%] Built target control_plugin
 -- Install configuration: ""
