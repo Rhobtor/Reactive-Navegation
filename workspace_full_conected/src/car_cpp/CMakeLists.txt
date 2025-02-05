@@ -24,6 +24,9 @@ find_package(rmw_implementation_cmake REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_msgs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(ignition-math6 REQUIRED)
+find_package(ignition-common3 REQUIRED)
+
 
 
 
@@ -110,17 +113,16 @@ path_planner_node
 )
 
 
-# Library for control plugin
+#Library for control plugin
 add_library(control_plugin SHARED src/control_plugin.cpp)
 target_include_directories(control_plugin PUBLIC include)
-ament_target_dependencies(control_plugin rclcpp gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
+ament_target_dependencies(control_plugin rclcpp ignition-common3 gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
 
 
 # Library for odometry plugin
 add_library(odometry_plugin SHARED src/odometry.cpp)
 target_include_directories(odometry_plugin PUBLIC include)
 ament_target_dependencies(odometry_plugin rclcpp gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros)
-
 
 # # Plugin IMU
 # add_library(hector_gazebo_ros_imu SHARED src/gazebo_ros_imu.cpp)

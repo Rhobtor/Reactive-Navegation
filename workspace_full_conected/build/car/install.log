@@ -25,6 +25,7 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch/gazebo_empty_world.launch.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch/joystick.launch.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf/lidar.plugin.xacro
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf/control.plugin.xacro
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf/materials.xacro
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf/car.gazebo
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf/car.trans
@@ -59,6 +60,7 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes/suspension_front_left__1.stl
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes/tire_front_left_1.stl
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes/suspension_back_left_1.stl
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config/diff_drive_controller.yaml
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config/mapper_params_online_async.yaml
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config/display.rviz
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config/slam.yaml

@@ -1,1 +1,1 @@
-rclcpp;std_msgs;geometry_msgs;sensor_msgs;octomap;octomap_msgs;octomap_ros;tf2;tf2_ros;tf2_msgs;pcl_conversions;pcl_msgs;visualization_msgs;nav_msgs;rosidl_default_generators;ament_lint_auto;ament_lint_common
+rclcpp;std_msgs;geometry_msgs;sensor_msgs;octomap;octomap_msgs;octomap_ros;tf2;tf2_ros;tf2_msgs;pcl_conversions;pcl_msgs;visualization_msgs;nav_msgs;ignition-math6;rosidl_default_generators;ament_lint_auto;ament_lint_common

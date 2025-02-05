@@ -30,6 +30,8 @@ class OdometryNode(Node):
 
         # Suscripción al tópico joint_states (puedes adaptar si usas otro)
         self.joint_sub = self.create_subscription(LaserScan, '/scan', self.joint_state_callback, 10)
+        self.joint_sub = self.create_subscription(LaserScan, '/', self.joint_state_callback, 10)
+        self.get_logger().info("Nodo de odometría iniciado")
         self.get_logger().info("Nodo de odometría iniciado")
 
     def joint_state_callback(self, msg: LaserScan):

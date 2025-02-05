@@ -16,6 +16,7 @@ car/keyboard_control.py
 car/log_joystick.py
 car/octomap_2d_display.py
 car/odometry.py
+config/diff_drive_controller.yaml
 config/display.rviz
 config/drive_controller.yaml
 config/gaz_ros2_ctl_use_sim.yaml
@@ -59,6 +60,7 @@ urdf/camara.plugin.xacro
 urdf/car.gazebo
 urdf/car.trans
 urdf/car.xacro
+urdf/control.plugin.xacro
 urdf/lidar.plugin.xacro
 urdf/materials.xacro
 worlds/empty.world

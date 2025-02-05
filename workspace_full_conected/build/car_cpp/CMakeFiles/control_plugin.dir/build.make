@@ -253,12 +253,12 @@ libcontrol_plugin.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so.1.9.8
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.74.0
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-transport8.so.8.2.1
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-fuel_tools4.so.4.4.0
-libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-msgs5.so.5.8.1
-libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-math6.so.6.15.1
-libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libprotobuf.so
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-common3.so.3.14.0
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libuuid.so
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libuuid.so
+libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-msgs5.so.5.8.1
+libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-math6.so.6.15.1
+libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libprotobuf.so
 libcontrol_plugin.so: CMakeFiles/control_plugin.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libcontrol_plugin.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/control_plugin.dir/link.txt --verbose=$(VERBOSE)

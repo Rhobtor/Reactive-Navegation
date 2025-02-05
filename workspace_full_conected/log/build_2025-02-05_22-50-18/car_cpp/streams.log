@@ -1,0 +1,124 @@
+[0.017s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j2 -l2
+[0.042s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.147s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[0.172s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.173s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.179s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.192s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.201s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.231s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.234s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.329s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.369s] -- Found gazebo_ros: 3.7.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[0.404s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[0.439s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[0.450s] -- Looking for ignition-math6 -- found version 6.15.1
+[0.454s] -- Searching for dependencies of ignition-math6
+[0.458s] -- Looking for OGRE...
+[0.463s] -- Found Ogre Ghadamon (1.9.0)
+[0.464s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[0.479s] -- Looking for OGRE_Paging...
+[0.479s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[0.480s] -- Looking for OGRE_Terrain...
+[0.480s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[0.480s] -- Looking for OGRE_Property...
+[0.480s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[0.480s] -- Looking for OGRE_RTShaderSystem...
+[0.480s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[0.481s] -- Looking for OGRE_Volume...
+[0.481s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[0.481s] -- Looking for OGRE_Overlay...
+[0.481s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[0.676s] -- Looking for ignition-math6 -- found version 6.15.1
+[0.676s] -- Looking for ignition-transport8 -- found version 8.2.1
+[0.677s] -- Searching for dependencies of ignition-transport8
+[0.707s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[0.715s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[0.721s] -- Checking for module 'libzmq >= 4'
+[0.746s] --   Found libzmq , version 4.3.4
+[0.820s] -- Checking for module 'uuid'
+[0.841s] --   Found uuid, version 2.37.2
+[0.898s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[0.899s] -- Searching for dependencies of ignition-msgs5
+[0.918s] -- Looking for ignition-math6 -- found version 6.15.1
+[0.930s] -- Checking for module 'tinyxml2'
+[0.961s] --   Found tinyxml2, version 9.0.0
+[1.025s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[1.026s] -- Looking for ignition-common3 -- found version 3.14.0
+[1.027s] -- Searching for dependencies of ignition-common3
+[1.027s] -- Looking for dlfcn.h - found
+[1.027s] -- Looking for libdl - found
+[1.045s] -- Searching for <ignition-common3> component [graphics]
+[1.046s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[1.046s] -- Searching for dependencies of ignition-common3-graphics
+[1.046s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.048s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[1.052s] -- Searching for dependencies of ignition-fuel_tools4
+[1.126s] -- Checking for module 'jsoncpp'
+[1.142s] --   Found jsoncpp, version 1.9.5
+[1.197s] -- Checking for module 'libzip'
+[1.213s] --   Found libzip, version 1.7.3
+[1.250s] -- Looking for ignition-common3 -- found version 3.14.0
+[1.251s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.252s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[1.253s] -- Gazebo version: 11.10
+[1.254s] -- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)
+[1.271s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.283s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.295s] -- Found octomap_msgs: 2.0.1 (/opt/ros/humble/share/octomap_msgs/cmake)
+[1.307s] -- Found octomap_ros: 0.4.4 (/opt/ros/humble/share/octomap_ros/cmake)
+[1.309s] -- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)
+[1.339s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[1.367s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[1.630s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.635s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[1.756s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[1.761s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.766s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[1.878s] -- Found Qhull version 8.0.2
+[1.996s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[2.119s] -- Found visualization_msgs: 4.2.4 (/opt/ros/humble/share/visualization_msgs/cmake)
+[2.131s] -- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)
+[2.142s] -- Found std_srvs: 4.2.4 (/opt/ros/humble/share/std_srvs/cmake)
+[2.148s] -- Found geographic_msgs: 1.0.6 (/opt/ros/humble/share/geographic_msgs/cmake)
+[2.167s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[2.173s] -- Found tf2_ros: 0.25.11 (/opt/ros/humble/share/tf2_ros/cmake)
+[2.217s] -- Found tf2_geometry_msgs: 0.25.11 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[2.219s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[2.220s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.222s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.323s] -- Configuring done
+[2.339s] [31mCMake Error at CMakeLists.txt:118 (add_library):
+[2.339s]   Target "control_plugin" links to target "gazebo_ros::gazebo_ros" but the
+[2.339s]   target was not found.  Perhaps a find_package() call is missing for an
+[2.339s]   IMPORTED target, or an ALIAS target is missing?
+[2.339s] 
+[2.339s] [0m
+[2.339s] [31mCMake Error at CMakeLists.txt:118 (add_library):
+[2.339s]   Target "control_plugin" links to target "std_msgs::std_msgs" but the target
+[2.339s]   was not found.  Perhaps a find_package() call is missing for an IMPORTED
+[2.339s]   target, or an ALIAS target is missing?
+[2.339s] 
+[2.339s] [0m
+[2.339s] [31mCMake Error at CMakeLists.txt:118 (add_library):
+[2.339s]   Target "control_plugin" links to target "geometry_msgs::geometry_msgs" but
+[2.339s]   the target was not found.  Perhaps a find_package() call is missing for an
+[2.339s]   IMPORTED target, or an ALIAS target is missing?
+[2.339s] 
+[2.339s] [0m
+[2.339s] [31mCMake Error at CMakeLists.txt:118 (add_library):
+[2.339s]   Target "control_plugin" links to target "nav_msgs::nav_msgs" but the target
+[2.339s]   was not found.  Perhaps a find_package() call is missing for an IMPORTED
+[2.339s]   target, or an ALIAS target is missing?
+[2.339s] 
+[2.339s] [0m
+[2.339s] [31mCMake Error at CMakeLists.txt:118 (add_library):
+[2.339s]   Target "control_plugin" links to target "tf2_msgs::tf2_msgs" but the target
+[2.339s]   was not found.  Perhaps a find_package() call is missing for an IMPORTED
+[2.339s]   target, or an ALIAS target is missing?
+[2.340s] 
+[2.340s] [0m
+[2.490s] -- Generating done
+[2.492s] [0mCMake Generate step failed.  Build files cannot be regenerated correctly.[0m
+[2.510s] gmake: *** [Makefile:637: cmake_check_build_system] Error 1
+[2.513s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j2 -l2

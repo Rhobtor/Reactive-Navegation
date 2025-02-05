@@ -1,0 +1,24 @@
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DrivePlugin::InitJoints(sdf::v9::ElementPtr)[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:77:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Kleft_front_speed_wheel_joint_[m[K’; did you mean ‘[01m[Kleft_front_wheel_joint_[m[K’?
+   77 |       if (!this->[01;31m[Kleft_front_speed_wheel_joint_[m[K || !this->right_front_speed_wheel_joint_)
+      |                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                  [32m[Kleft_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:77:58:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Kright_front_speed_wheel_joint_[m[K’; did you mean ‘[01m[Kright_front_wheel_joint_[m[K’?
+   77 |       if (!this->left_front_speed_wheel_joint_ || !this->[01;31m[Kright_front_speed_wheel_joint_[m[K)
+      |                                                          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                          [32m[Kright_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DrivePlugin::InitJoints(sdf::v9::ElementPtr)[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:77:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Kleft_front_speed_wheel_joint_[m[K’; did you mean ‘[01m[Kleft_front_wheel_joint_[m[K’?
+   77 |       if (!this->[01;31m[Kleft_front_speed_wheel_joint_[m[K || !this->right_front_speed_wheel_joint_)
+      |                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                  [32m[Kleft_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:77:58:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Kright_front_speed_wheel_joint_[m[K’; did you mean ‘[01m[Kright_front_wheel_joint_[m[K’?
+   77 |       if (!this->left_front_speed_wheel_joint_ || !this->[01;31m[Kright_front_speed_wheel_joint_[m[K)
+      |                                                          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                          [32m[Kright_front_wheel_joint_[m[K
+gmake[2]: *** [CMakeFiles/car_cpp.dir/build.make:104: CMakeFiles/car_cpp.dir/src/control_plugin.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:147: CMakeFiles/car_cpp.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/control_plugin.dir/build.make:76: CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:251: CMakeFiles/control_plugin.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

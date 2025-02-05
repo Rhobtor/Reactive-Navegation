@@ -18,7 +18,7 @@ class JoystickControlNode(Node):
 
         # Asignar ejes del joystick a linear.x y angular.z
         twist_msg.linear.x = msg.axes[1] * 20.0  # Eje izquierdo vertical (escala al torque)
-        twist_msg.angular.z = msg.axes[3] * 1.0    # Eje izquierdo horizontal (dirección)
+        twist_msg.angular.z = msg.axes[3] * 20.0    # Eje izquierdo horizontal (dirección)
 
         # Publicar el mensaje Twist
         self.command_publisher.publish(twist_msg)

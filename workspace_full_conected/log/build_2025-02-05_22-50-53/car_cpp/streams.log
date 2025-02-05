@@ -1,0 +1,9 @@
+[0.011s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j2 -l2
+[0.040s] [31mCMake Error at CMakeLists.txt:114:
+[0.041s]   Parse error.  Expected "(", got identifier with text "for".
+[0.041s] 
+[0.041s] [0m
+[0.041s] -- Configuring incomplete, errors occurred!
+[0.041s] See also "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/CMakeOutput.log".
+[0.044s] gmake: *** [Makefile:637: cmake_check_build_system] Error 1
+[0.045s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j2 -l2

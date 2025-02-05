@@ -1,0 +1,105 @@
+[35m[1mConsolidate compiler generated dependencies of target car_cpp[0m
+[ 10%] Built target testo
+[ 15%] [32mBuilding CXX object CMakeFiles/car_cpp.dir/src/control_plugin.cpp.o[0m
+[ 26%] Built target check_map
+[ 36%] Built target path_planner_node
+[35m[1mConsolidate compiler generated dependencies of target control_plugin[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o[0m
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DrivePlugin::InitJoints(sdf::v9::ElementPtr)[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:263:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Kleft_back_wheel_joint_[m[K’; did you mean ‘[01m[Kleft_front_wheel_joint_[m[K’?
+  263 |       this->[01;31m[Kleft_back_wheel_joint_[m[K   = model_->GetJoint("back_left_wheel_joint");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |             [32m[Kleft_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:264:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Kright_back_wheel_joint_[m[K’; did you mean ‘[01m[Kright_front_wheel_joint_[m[K’?
+  264 |       this->[01;31m[Kright_back_wheel_joint_[m[K  = model_->GetJoint("back_right_wheel_joint");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |             [32m[Kright_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:266:12:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_back_wheel_joint_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_front_wheel_joint_[m[K’?
+  266 |       if (![01;31m[Kleft_back_wheel_joint_[m[K || !right_back_wheel_joint_)
+      |            [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |            [32m[Kleft_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:266:39:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_back_wheel_joint_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_front_wheel_joint_[m[K’?
+  266 |       if (!left_back_wheel_joint_ || ![01;31m[Kright_back_wheel_joint_[m[K)
+      |                                       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                       [32m[Kright_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DrivePlugin::InitJoints(sdf::v9::ElementPtr)[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:263:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Kleft_back_wheel_joint_[m[K’; did you mean ‘[01m[Kleft_front_wheel_joint_[m[K’?
+  263 |       this->[01;31m[Kleft_back_wheel_joint_[m[K   = model_->GetJoint("back_left_wheel_joint");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |             [32m[Kleft_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:264:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Kright_back_wheel_joint_[m[K’; did you mean ‘[01m[Kright_front_wheel_joint_[m[K’?
+  264 |       this->[01;31m[Kright_back_wheel_joint_[m[K  = model_->GetJoint("back_right_wheel_joint");
+      |             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |             [32m[Kright_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DrivePlugin::OnUpdate()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:311:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_back_wheel_joint_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_front_wheel_joint_[m[K’?
+  311 |       [01;31m[Kleft_back_wheel_joint_[m[K->SetVelocity(0, left_wheel_omega);
+      |       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |       [32m[Kleft_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:266:12:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_back_wheel_joint_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_front_wheel_joint_[m[K’?
+  266 |       if (![01;31m[Kleft_back_wheel_joint_[m[K || !right_back_wheel_joint_)
+      |            [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |            [32m[Kleft_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:312:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_back_wheel_joint_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_front_wheel_joint_[m[K’?
+  312 |       [01;31m[Kright_back_wheel_joint_[m[K->SetVelocity(0, -right_wheel_omega);
+      |       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |       [32m[Kright_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DrivePlugin::PublishOdometry(double)[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:334:14:[m[K [01;31m[Kerror: [m[Kdeclaration of ‘[01m[Kdouble sim_time_sec[m[K’ shadows a parameter
+  334 |       double [01;31m[Ksim_time_sec[m[K = this->now().seconds();
+      |              [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:331:33:[m[K [01;36m[Knote: [m[K‘[01m[Kdouble sim_time_sec[m[K’ previously declared here
+  331 |     void PublishOdometry([01;36m[Kdouble sim_time_sec[m[K)
+      |                          [01;36m[K~~~~~~~^~~~~~~~~~~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:334:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Know[m[K’
+  334 |       double sim_time_sec = this->[01;31m[Know[m[K().seconds();
+      |                                   [01;31m[K^~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:266:39:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_back_wheel_joint_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_front_wheel_joint_[m[K’?
+  266 |       if (!left_back_wheel_joint_ || ![01;31m[Kright_back_wheel_joint_[m[K)
+      |                                       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                       [32m[Kright_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:337:31:[m[K [01;31m[Kerror: [m[K‘[01m[Krcl_time[m[K’ was not declared in this scope; did you mean ‘[01m[Krcl_take[m[K’?
+  337 |       odom_msg.header.stamp = [01;31m[Krcl_time[m[K.to_msg();
+      |                               [01;31m[K^~~~~~~~[m[K
+      |                               [32m[Krcl_take[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:345:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kq[m[K’ was not declared in this scope
+  345 |         [01;31m[Kq[m[K.setRPY(roll, pitch, yaw);
+      |         [01;31m[K^[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:364:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Know[m[K’
+  364 |       tf_msg.header.stamp = this->[01;31m[Know[m[K();
+      |                                   [01;31m[K^~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DrivePlugin::OnUpdate()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:311:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kleft_back_wheel_joint_[m[K’ was not declared in this scope; did you mean ‘[01m[Kleft_front_wheel_joint_[m[K’?
+  311 |       [01;31m[Kleft_back_wheel_joint_[m[K->SetVelocity(0, left_wheel_omega);
+      |       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |       [32m[Kleft_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:312:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kright_back_wheel_joint_[m[K’ was not declared in this scope; did you mean ‘[01m[Kright_front_wheel_joint_[m[K’?
+  312 |       [01;31m[Kright_back_wheel_joint_[m[K->SetVelocity(0, -right_wheel_omega);
+      |       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |       [32m[Kright_front_wheel_joint_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:[m[K In member function ‘[01m[Kvoid gazebo_plugins::DrivePlugin::PublishOdometry(double)[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:334:14:[m[K [01;31m[Kerror: [m[Kdeclaration of ‘[01m[Kdouble sim_time_sec[m[K’ shadows a parameter
+  334 |       double [01;31m[Ksim_time_sec[m[K = this->now().seconds();
+      |              [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:331:33:[m[K [01;36m[Knote: [m[K‘[01m[Kdouble sim_time_sec[m[K’ previously declared here
+  331 |     void PublishOdometry([01;36m[Kdouble sim_time_sec[m[K)
+      |                          [01;36m[K~~~~~~~^~~~~~~~~~~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:334:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Know[m[K’
+  334 |       double sim_time_sec = this->[01;31m[Know[m[K().seconds();
+      |                                   [01;31m[K^~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:337:31:[m[K [01;31m[Kerror: [m[K‘[01m[Krcl_time[m[K’ was not declared in this scope; did you mean ‘[01m[Krcl_take[m[K’?
+  337 |       odom_msg.header.stamp = [01;31m[Krcl_time[m[K.to_msg();
+      |                               [01;31m[K^~~~~~~~[m[K
+      |                               [32m[Krcl_take[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:345:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kq[m[K’ was not declared in this scope
+  345 |         [01;31m[Kq[m[K.setRPY(roll, pitch, yaw);
+      |         [01;31m[K^[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/control_plugin.cpp:364:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass gazebo_plugins::DrivePlugin[m[K’ has no member named ‘[01m[Know[m[K’
+  364 |       tf_msg.header.stamp = this->[01;31m[Know[m[K();
+      |                                   [01;31m[K^~~[m[K
+gmake[2]: *** [CMakeFiles/control_plugin.dir/build.make:76: CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:251: CMakeFiles/control_plugin.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/car_cpp.dir/build.make:104: CMakeFiles/car_cpp.dir/src/control_plugin.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:147: CMakeFiles/car_cpp.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

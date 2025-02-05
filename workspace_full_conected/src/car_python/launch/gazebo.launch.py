@@ -71,9 +71,26 @@ def generate_launch_description():
         name='odometry_node'
     )
 
+
+
+
+    # diff_drive_spawner = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=['diff_cont', '--controller-manager', '/controller_manager'],
+    #     output='screen'
+    # )
+
+    # joint_broad_spawner = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=["joint_brand"],
+    #     output='screen'
+    # )
+
     return LaunchDescription([
         robot_state_publisher_node,
-        joint_state_publisher_node,
+        # joint_state_publisher_node,
         gazebo_server,
         gazebo_client,
         urdf_spawn_node,

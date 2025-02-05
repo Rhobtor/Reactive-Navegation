@@ -1,0 +1,7 @@
+[35m[1mConsolidate compiler generated dependencies of target car_cpp[0m
+[ 10%] Built target testo
+[ 21%] Built target check_map
+[ 26%] [32mBuilding CXX object CMakeFiles/car_cpp.dir/src/control_plugin.cpp.o[0m
+[ 36%] Built target path_planner_node
+[35m[1mConsolidate compiler generated dependencies of target control_plugin[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o[0m
