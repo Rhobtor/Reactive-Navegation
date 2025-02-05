@@ -15,7 +15,10 @@
   <depend>joint_state_publisher_gui</depend>
   <depend>gazebo_ros</depend>
   <depend>gazebo_plugins</depend>
+  <depend>gazebo_ros_pkgs</depend>
+  <depend>tf2</depend>
   <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>laser_geometry</depend>
   <depend>octomap</depend>
@@ -30,6 +33,8 @@
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
   <test_depend>python3-pytest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
   <export>
     <build_type>ament_python</build_type>

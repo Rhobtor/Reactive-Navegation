@@ -5,7 +5,7 @@
 <xacro:include filename="$(find car)/urdf/car.trans" />
 <xacro:include filename="$(find car)/urdf/car.gazebo" />
 <xacro:include filename="$(find car)/urdf/camara.plugin.xacro" />
-<!-- <xacro:include filename="$(find car)/urdf/lidar.plugin.xacro" /> -->
+<xacro:include filename="$(find car)/urdf/lidar.plugin.xacro" />
 <link name="base_link">
   <inertial>
     <origin xyz="1.2499999999999998 0.75 -0.45" rpy="0 0 0"/>
@@ -567,6 +567,17 @@
   </plugin>
 </gazebo>
 
+<!-- <gazebo>
+  <plugin name="odometryPlugin" filename="libodometry_plugin.so">
+    <left_front_wheel_joint>Revolute 17</left_front_wheel_joint>
+    <right_front_wheel_joint>Revolute 16</right_front_wheel_joint>
+    <left_back_wheel_joint>Revolute 5</left_back_wheel_joint>
+    <right_back_wheel_joint>Revolute 6</right_back_wheel_joint>
+    <left_front_speed_wheel_joint>Revolute 8</left_front_speed_wheel_joint>
+    <right_front_speed_wheel_joint>Revolute 7</right_front_speed_wheel_joint>
+  </plugin>
+</gazebo> -->
+
 <link name="camera_optical_frame">
 </link> 
 
@@ -578,7 +589,18 @@
 </joint>
 
 
-<gazebo>
+<link name="base_footprint">
+</link> 
+
+<joint name="base_footprint" type="fixed">
+  <parent link="base_link"/>
+  <child link="base_footprint"/>
+  <!-- Ajusta rpy para alinear el frame óptico -->
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+
+<!-- <gazebo>
   <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
   <robotNamespace>car</robotNamespace>
   <updateRate>50.0</updateRate>
@@ -607,7 +629,7 @@
   <referenceAltitude>0</referenceAltitude>
   <drift>0.0001 0.0001 0.0001</drift>
   </plugin>
-</gazebo>
+</gazebo> -->
 
 
 

@@ -2210,11 +2210,12 @@ CMakeFiles/hector_gazebo_ros_gps.dir/src/gazebo_ros_gps.cpp.o: \
  /usr/include/gazebo-11/gazebo/physics/UniversalJoint.hh \
  /usr/include/gazebo-11/gazebo/physics/UserCmdManager.hh \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.h \
- /opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.h \
- /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.h \
- /opt/ros/humble/include/tf2/tf2/LinearMath/Scalar.h \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Scalar.hpp \
  /usr/include/c++/11/math.h /usr/include/c++/11/cfloat \
- /opt/ros/humble/include/tf2/tf2/LinearMath/MinMax.h \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/MinMax.hpp \
  /opt/ros/humble/include/tf2/tf2/visibility_control.h \
- /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.h \
- /opt/ros/humble/include/tf2/tf2/LinearMath/QuadWord.h
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/QuadWord.hpp

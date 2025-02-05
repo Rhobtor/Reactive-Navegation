@@ -25,7 +25,7 @@ move_ros::move_ros() : Node("move_ros")
     radio_int = 0.7;    //para la generación de puntos aleatorios, radio interior central que obviamos por ser el robot (físicamente) 
     num_puntos = 20;    //numero de puntos aleatorios que creamos 
     distancia_calculo=0.25;  //intervalo entre un punto y otro de la recta generada entre punto origen y punto final 
-    tolerancia_angular=0.01;  //valor de aproximación al angulo destino 
+    tolerancia_angular=0.1;  //valor de aproximación al angulo destino 
     tolerancia_distancia=0.5;  // valor de aproximación a la distancia destino 
     tolerancia_distancia_final=0.7;  // valor de aproximación a la distancia destino 
     radio_circunferencia=0.5; 
@@ -33,9 +33,11 @@ move_ros::move_ros() : Node("move_ros")
     PuntoFIN3d = {0, 0, 0};  //Punto de destino 
       
     // SUBSCRIBERS AND PUBLISHERS 
-    octomap_sub_ = this->create_subscription<octomap_msgs::msg::Octomap>("octomap_topic", 10, std::bind(&move_ros::octomapCallback, this, std::placeholders::_1));
-    odometry_sub_ = this->create_subscription<nav_msgs::msg::Odometry>("odometry_topic", 10, std::bind(&move_ros::odometryCallback, this, std::placeholders::_1));
-    vel_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
+    octomap_sub_ = this->create_subscription<octomap_msgs::msg::Octomap>("/octomap_binary", 10, std::bind(&move_ros::octomapCallback, this, std::placeholders::_1));
+    odometry_sub_ = this->create_subscription<nav_msgs::msg::Odometry>("/odom", 10, std::bind(&move_ros::odometryCallback, this, std::placeholders::_1));
+    //vel_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
+    vel_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/wheel_torque_command", 10);
+
     // rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr visualization_pub_;
     visualization_pub_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/visualization_marker", 1);
 
@@ -89,14 +91,32 @@ void move_ros::run ()
 
  
                     bool_odom =  odometry_p.set_puntoOdom(odometry,pos_actual,orientacion_actual_q); 
+                    //std::cout << "bool_odom: " << bool_odom << std::endl; 
                     pos_actual3d= utilities_p.VectorToPoint3d(pos_actual); 
-                    orientacion_actual_E = utilities_p.CuaternionToEulerAngles(orientacion_actual_q); 
-                    distancia_punto_destino= utilities_p.calculateDistance(pos_actual3d, PuntoFIN3d); 
-                    angulo_punto_destino = utilities_p.calculateAngle(pos_actual3d,PuntoFIN3d); 
-                    dif_angular = angulo_punto_destino - orientacion_actual_E; 
-                    while(dif_angular>M_PI) { dif_angular = dif_angular - 2*M_PI;} 
-                    while(dif_angular<-M_PI) { dif_angular = dif_angular + 2*M_PI;} 
-                    Comando_velocidad = motion_p.motionControlAngle(distancia_punto_destino,dif_angular); 
+                    //std::cout << "pos_actual3d: " << pos_actual3d << std::endl; 
+                    orientacion_actual_E = utilities_p.CuaternionToEulerAngles(orientacion_actual_q);
+                    //std::cout << "orientacion_actual_E: " << orientacion_actual_E << std::endl;  
+                    distancia_punto_destino= utilities_p.calculateDistance(pos_actual3d, PuntoFIN3d);
+                    //std::cout << "distancia_punto_destino: " << distancia_punto_destino << std::endl;  
+                    angulo_punto_destino = utilities_p.calculateAngle(pos_actual3d,PuntoFIN3d);
+                    //std::cout << "angulo_punto destino: " << angulo_punto_destino << std::endl;  
+                    dif_angular = angulo_punto_destino - orientacion_actual_E;
+                    //std::cout << "dif_angular: " << dif_angular << std::endl;  
+                    //while(dif_angular>M_PI) { dif_angular = dif_angular - 2*M_PI;} 
+                    // while(dif_angular<-M_PI) { dif_angular = dif_angular + 2*M_PI;} 
+                    //std::cout << "dif222_angular: " << dif_angular << std::endl; 
+                    Comando_velocidad = motion_p.motionControlAngle(distancia_punto_destino,dif_angular);
+                    
+                    //Comando_velocidad = motion_p.motionControlAckermann(distancia_punto_destino,dif_angular);
+                    
+        //             std::cout << "Comando_velocidad: " 
+        //   << "linear=(" << Comando_velocidad.linear.x << ", "
+        //   << Comando_velocidad.linear.y << ", "
+        //   << Comando_velocidad.linear.z << "), "
+        //   << "angular=(" << Comando_velocidad.angular.x << ", "
+        //   << Comando_velocidad.angular.y << ", "
+        //   << Comando_velocidad.angular.z << ")" 
+        //   << std::endl;
                     vel_pub_->publish(Comando_velocidad); 
                     rclcpp::sleep_for(std::chrono::milliseconds(50));
                 }while (dif_angular < -tolerancia_angular || dif_angular > tolerancia_angular); 

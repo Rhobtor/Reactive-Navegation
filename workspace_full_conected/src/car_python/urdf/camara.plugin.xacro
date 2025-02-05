@@ -8,8 +8,8 @@
             <camera>
                 <horizontal_fov>2</horizontal_fov>
                 <image>
-                    <width>640</width>
-                    <height>480</height>
+                    <width>1920</width>
+                    <height>1080</height>
                     <format>R8G8B8</format>
                 </image>
                 <clip>
@@ -18,7 +18,8 @@
                 </clip>
             </camera>
             <plugin name="depth_camera_controller" filename="libgazebo_ros_camera.so">
-                <frame_name>camera_optical_frame</frame_name>
+                <frame_name>odom</frame_name>
+            
             </plugin>
         </sensor>
     </gazebo>

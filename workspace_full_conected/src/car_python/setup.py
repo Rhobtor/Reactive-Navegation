@@ -15,7 +15,7 @@ setup(
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*')),
         #(os.path.join('share', package_name, 'models'), glob('models/*')),
-        # (os.path.join('share', package_name, 'worlds'), glob('worlds/*')),
+        (os.path.join('share', package_name, 'worlds'), glob('worlds/*')),
         (os.path.join('share', package_name, 'meshes'), glob('meshes/*')),
         (os.path.join('share', package_name, 'config'), glob('config/*')),
         (os.path.join('lib', package_name), glob('lib/' + package_name + '/*'))
@@ -33,6 +33,9 @@ setup(
             "joystick_control=car.joystick_control:main",
             "log_joystick=car.log_joystick:main",
             'octomap_2d_display = car.octomap_2d_display:main',
+            'ekf_node = car.ekf_node:main',
+            'odometry_node = car.odometry:main',
+            'debug_node = car.debugtf:main'
         ],
     },
 )

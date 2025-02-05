@@ -8,7 +8,6 @@ import os
 import xacro
 from ament_index_python.packages import get_package_share_directory
 
-
 def generate_launch_description():
     share_dir = get_package_share_directory('car')
 
@@ -20,9 +19,8 @@ def generate_launch_description():
         package='robot_state_publisher',
         executable='robot_state_publisher',
         name='robot_state_publisher',
-        parameters=[
-            {'robot_description': robot_urdf}
-        ]
+        parameters=[{'robot_description': robot_urdf,
+                    'use_sim_time': True}]
     )
 
     joint_state_publisher_node = Node(
@@ -39,10 +37,7 @@ def generate_launch_description():
                 'gzserver.launch.py'
             ])
         ]),
-        launch_arguments={
-            'verbose': 'true',
-            'pause': 'true'
-        }.items()
+        launch_arguments={'verbose': 'true', 'pause': 'true'}.items()
     )
 
     gazebo_client = IncludeLaunchDescription(
@@ -53,9 +48,7 @@ def generate_launch_description():
                 'gzclient.launch.py'
             ])
         ]),
-        launch_arguments={
-            'verbose': 'true'
-        }.items()
+        launch_arguments={'verbose': 'true'}.items()
     )
 
     urdf_spawn_node = Node(
@@ -64,15 +57,19 @@ def generate_launch_description():
         arguments=[
             '-entity', 'car',
             '-topic', 'robot_description',
-            '-x', '0.0',  # Posición inicial en X
-            '-y', '0.0',  # Posición inicial en Y
-            '-z', '0.820271'   # Altura inicial en Z (ajústala según necesites)
+            '-x', '0.0',
+            '-y', '0.0',
+            '-z', '0.820271'
         ],
         output='screen'
     )
 
-
-
+    # Agregamos el nodo de odometría
+    odometry_node = Node(
+        package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
+        executable='odometry_node',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='odometry_node'
+    )
 
     return LaunchDescription([
         robot_state_publisher_node,
@@ -80,4 +77,5 @@ def generate_launch_description():
         gazebo_server,
         gazebo_client,
         urdf_spawn_node,
+        odometry_node
     ])

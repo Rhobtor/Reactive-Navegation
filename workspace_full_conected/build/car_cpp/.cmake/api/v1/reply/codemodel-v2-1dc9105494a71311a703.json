@@ -1,0 +1,124 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-af395bb6c4f7f1467030.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.2"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "car_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "car_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-car_cpp-1596eb6d3e023df31076.json",
+					"name" : "car_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "car_cpp_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-car_cpp_uninstall-025c49d488bc2d7ffa01.json",
+					"name" : "car_cpp_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "check_map::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-check_map-d38bf8978f6ec6096840.json",
+					"name" : "check_map",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "control_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-control_plugin-94bc33707e520fa5d226.json",
+					"name" : "control_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "odometry_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-odometry_plugin-fa6e9a5274076952a516.json",
+					"name" : "odometry_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "path_planner_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-path_planner_node-b7314a413dbfffb4db02.json",
+					"name" : "path_planner_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testo-6adf3548ad24ed97a2e3.json",
+					"name" : "testo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-9bdae4ada331aa4563a6.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp",
+		"source" : "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

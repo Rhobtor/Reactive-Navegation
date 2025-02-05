@@ -110,7 +110,7 @@ class GazeboTest:
 ##### Hay una parte del car_cpp que hace esta parte a la hora de seleccionar un nodo transitable
 ##### Se puede usar para la recompnesa usando un A* o Dijkstra, ESTUDIAR ESTO    (solo para cuando es frontorea euristica)
         
-        # Calculate distance to the goal from the robot
+        # Calculate distance to the goal from the robot // por ahora usar esto
         distance = np.linalg.norm(
             [self.odom_x - self.goal_x, self.odom_y - self.goal_y]
         )
@@ -141,8 +141,8 @@ class GazeboTest:
             done = True
 
         robot_state = [distance, theta, action[0], action[1]]
-        state = np.append(laser_state, robot_state)
-        reward = self.get_reward(target, collision, action, min_laser)
+        state = np.append(robot_state)
+        reward = self.get_reward(target, action)
         return state, reward, done, target
 
 
@@ -192,3 +192,89 @@ class GazeboTest:
         else:
             logger.error("Failed to unpause the simulation")
             return False
+
+
+###Reset del mundo y variuables, por ahora solo utilizar 1 mundo, pero se puede cambiar para tener varios mundos
+    def reset(self):
+        # Reset the state of the robot
+        reset_client = self.node.create_client(Empty, '/reset_simulation')
+        if not reset_client.wait_for_service(timeout_sec=5.0):
+            logger.error("Service /reset_simulation not available")
+            
+        
+        request = Empty.Request()
+        future = reset_client.call_async(request)
+        rclpy.spin_until_future_complete(self.node, future)
+        if future.result() is not None:
+            logger.info("Simulation reset successfully!")
+            
+        else: 
+            logger.error("Failed to reset the simulation")
+            
+
+        angle = np.random.uniform(-np.pi, np.pi)
+        quaternion = Quaternion.from_euler(0.0, 0.0, angle)
+        object_state = self.set_self_state
+
+        x = 0
+        y = 0
+        position_ok = False
+        while not position_ok:
+            x = np.random.uniform(-4.5, 4.5)
+            y = np.random.uniform(-4.5, 4.5)
+            # position_ok = check_pos(x, y)
+        object_state.pose.position.x = x
+        object_state.pose.position.y = y
+        # object_state.pose.position.z = 0.
+        object_state.pose.orientation.x = quaternion.x
+        object_state.pose.orientation.y = quaternion.y
+        object_state.pose.orientation.z = quaternion.z
+        object_state.pose.orientation.w = quaternion.w
+        self.set_state.publish(object_state)
+
+        self.odom_x = object_state.pose.position.x
+        self.odom_y = object_state.pose.position.y
+
+        # set a random goal in empty space in environment
+        self.change_goal()
+        # randomly scatter boxes in the environment
+
+        self.unpause_simulation()
+
+        time.sleep(TIME_DELTA)
+
+        self.pause_simulation()
+
+        # v_state = []
+        # v_state[:] = self.velodyne_data[:]
+        # laser_state = [v_state]
+
+        distance = np.linalg.norm(
+            [self.odom_x - self.goal_x, self.odom_y - self.goal_y]
+        )
+
+        skew_x = self.goal_x - self.odom_x
+        skew_y = self.goal_y - self.odom_y
+
+        dot = skew_x * 1 + skew_y * 0
+        mag1 = math.sqrt(math.pow(skew_x, 2) + math.pow(skew_y, 2))
+        mag2 = math.sqrt(math.pow(1, 2) + math.pow(0, 2))
+        beta = math.acos(dot / (mag1 * mag2))
+
+        if skew_y < 0:
+            if skew_x < 0:
+                beta = -beta
+            else:
+                beta = 0 - beta
+        theta = beta - angle
+
+        if theta > np.pi:
+            theta = np.pi - theta
+            theta = -np.pi - theta
+        if theta < -np.pi:
+            theta = -np.pi - theta
+            theta = np.pi - theta
+
+        robot_state = [distance, theta, 0.0, 0.0]
+        state = np.append(robot_state)
+        return state

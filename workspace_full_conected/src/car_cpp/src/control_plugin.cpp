@@ -9,346 +9,200 @@
 #include <memory>
 #include <std_msgs/msg/float64.hpp>
 #include <geometry_msgs/msg/twist.hpp>
+#include <cmath>
 
-#define VehicleLength 3.5932
-#define VehicleWidth 1.966
-#define WheelRadius 0.497
+// Definiciones geométricas y parámetros
+#define VehicleLength 3.5932    // Distancia entre ejes (m)
+#define VehicleWidth 1.966      // Ancho del vehículo (m)
+#define WheelRadius 0.497       // Radio de la rueda (m)
+// Los parámetros PID se mantienen (si los usaras para control de error)
 #define P 11.7553507260245
 #define I 0.473007565420235
 #define D 64.9118618875423
 #define N 788.228671066606
-// #define P 10
-// #define I 0.1
-// #define D 0.5
 
 namespace gazebo_plugins
 {
-class DrivePlugin : public gazebo::ModelPlugin
-{
-public:
-DrivePlugin() : gazebo::ModelPlugin() {}
+  class DrivePlugin : public gazebo::ModelPlugin
+  {
+  public:
+    DrivePlugin() : gazebo::ModelPlugin() {}
 
-
-void Load(gazebo::physics::ModelPtr model, sdf::ElementPtr sdf) override
-{
-    this->model_ = model;
-    this->ros_node_ = gazebo_ros::Node::Get(sdf);
-
-    RCLCPP_INFO(ros_node_->get_logger(), "DrivePlugin: Model name: %s", model->GetName().c_str());
-
-    this->InitJoints(sdf);
-
-    this->subscriber_ = this->ros_node_->create_subscription<geometry_msgs::msg::Twist>(
-        "/wheel_torque_command", 10,
-        std::bind(&DrivePlugin::OnTorqueCommand, this, std::placeholders::_1));
-
-    RCLCPP_INFO(ros_node_->get_logger(), "DrivePlugin: Subscribed to /wheel_torque_command");
-
-    this->update_connection_ = gazebo::event::Events::ConnectWorldUpdateBegin(
-        std::bind(&DrivePlugin::OnUpdate, this));
-}
-
-
-
-private:
-void InitJoints(sdf::ElementPtr sdf)
-{
-    this->left_front_wheel_joint_ = model_->GetJoint("Revolute 17");
-    this->right_front_wheel_joint_ = model_->GetJoint("Revolute 16");
-    this->left_back_wheel_joint_ = model_->GetJoint("Revolute 5");
-    this->right_back_wheel_joint_ = model_->GetJoint("Revolute 6");
-    this->left_front_speed_wheel_joint_ = model_->GetJoint("Revolute 8");
-    this->right_front_speed_wheel_joint_ = model_->GetJoint("Revolute 7");
-
-
-    if (!this->left_back_wheel_joint_ || !this->right_back_wheel_joint_)
+    void Load(gazebo::physics::ModelPtr model, sdf::ElementPtr sdf) override
     {
+      this->model_ = model;
+      this->ros_node_ = gazebo_ros::Node::Get(sdf);
+
+      RCLCPP_INFO(ros_node_->get_logger(), "DrivePlugin: Model name: %s", model->GetName().c_str());
+
+      this->InitJoints(sdf);
+
+      // Suscripción al tópico que recibe la velocidad y ángulo de dirección
+      this->subscriber_ = this->ros_node_->create_subscription<geometry_msgs::msg::Twist>(
+          "/wheel_torque_command", 10,
+          std::bind(&DrivePlugin::OnTorqueCommand, this, std::placeholders::_1));
+
+      RCLCPP_INFO(ros_node_->get_logger(), "DrivePlugin: Subscribed to /wheel_torque_command");
+
+      // Conexión a la actualización del mundo de Gazebo
+      this->update_connection_ = gazebo::event::Events::ConnectWorldUpdateBegin(
+          std::bind(&DrivePlugin::OnUpdate, this));
+
+
+
+      
+    }
+
+  private:
+    // Se obtienen los joints definidos en el modelo
+    void InitJoints(sdf::ElementPtr sdf)
+    {
+      this->left_front_wheel_joint_ = model_->GetJoint("Revolute 17");
+      this->right_front_wheel_joint_ = model_->GetJoint("Revolute 16");
+      this->left_back_wheel_joint_ = model_->GetJoint("Revolute 5");
+      this->right_back_wheel_joint_ = model_->GetJoint("Revolute 6");
+      this->left_front_speed_wheel_joint_ = model_->GetJoint("Revolute 8");
+      this->right_front_speed_wheel_joint_ = model_->GetJoint("Revolute 7");
+
+      if (!this->left_back_wheel_joint_ || !this->right_back_wheel_joint_)
+      {
         RCLCPP_ERROR(ros_node_->get_logger(), "DrivePlugin: Back Wheels joints not found");
         return;
-    }
-
-    if (!this->left_front_wheel_joint_ || !this->right_front_wheel_joint_)
-    {
+      }
+      if (!this->left_front_wheel_joint_ || !this->right_front_wheel_joint_)
+      {
         RCLCPP_ERROR(ros_node_->get_logger(), "DrivePlugin: Front Wheels joints not found");
         return;
-    }
-
-    if (!this->left_front_speed_wheel_joint_ || !this->right_front_speed_wheel_joint_)
-    {
-        RCLCPP_ERROR(ros_node_->get_logger(), "DrivePlugin: Front Wheels joints not found");
+      }
+      if (!this->left_front_speed_wheel_joint_ || !this->right_front_speed_wheel_joint_)
+      {
+        RCLCPP_ERROR(ros_node_->get_logger(), "DrivePlugin: Front Speed Wheels joints not found");
         return;
+      }
     }
-    // this->suspension_joints_ = {
-    //     model_->GetJoint("Revolute 1"),
-    //     model_->GetJoint("Revolute 2"),
-    //     model_->GetJoint("Revolute 3"),
-    //     model_->GetJoint("Revolute 4")};
 
-    // for (const auto &joint : suspension_joints_)
-    // {
-    //     if (!joint)
-    //     {
-    //         RCLCPP_ERROR(ros_node_->get_logger(), "DrivePlugin: Suspension joint not found");
-    //         return;
-    //     }
-    // }
+    // Esta función se llama en cada ciclo de simulación
+    void OnUpdate()
+    {
+      // Variables locales para los comandos
+      double delta = Steering_Request;  // ángulo de dirección solicitado (en radianes)
+      double v_center = desired_speed_;   // velocidad lineal deseada (m/s)
 
-}
+      double left_steer = 0.0;
+      double right_steer = 0.0;
+      double left_v = v_center;
+      double right_v = v_center;
 
-void OnUpdate()
-{   
-    //RCLCPP_INFO(ros_node_->get_logger(), "Current speed: %f, Steering: %f", desired_speed_, Steering_Request);
-    //apply_steering(Steering_Request);
-    // apply_efforts_suspension();
-    //ApplyWheelSpeed(desired_speed_);
-          // Control simple de los joints (es solo un ejemplo, ajusta según la lógica que necesites)
-    left_front_wheel_joint_->SetPosition(0, Steering_Request);
-    right_front_wheel_joint_->SetPosition(0, Steering_Request);
-    left_back_wheel_joint_->SetVelocity(0, desired_speed_);
-    right_back_wheel_joint_->SetVelocity(0, -desired_speed_);
-    left_front_speed_wheel_joint_->SetVelocity(0, desired_speed_);
-    right_front_speed_wheel_joint_->SetVelocity(0, -desired_speed_);
-}
+      // Umbral para considerar que no hay giro
+      const double eps = 1e-3;
 
-// void ApplyWheelSpeed(double desired_speed)
-// {
-//     if (std::abs(desired_speed) < 1e-3) // Velocidad cercana a cero
-//     {
-//         // Asegúrate de que no se aplique ninguna fuerza
-//         left_back_wheel_joint_->SetForce(0, 0.0);
-//         right_back_wheel_joint_->SetForce(0, 0.0);
-//         return;
-//     }
+      if (std::fabs(delta) < eps)
+      {
+        // Sin giro: ambos ángulos son cero y las velocidades son iguales.
+        left_steer = 0.0;
+        right_steer = 0.0;
+      }
+      else
+      {
+        // Calcular el radio de giro (desde el centro del eje trasero)
+        double abs_delta = std::fabs(delta);
+        double R = VehicleLength / std::tan(abs_delta);
 
-//     // Calcula la velocidad de las ruedas izquierda y derecha
-//     double left_target_velocity = desired_speed - (Steering_Request * VehicleWidth / 2.0);
-//     double right_target_velocity = desired_speed + (Steering_Request * VehicleWidth / 2.0);
+        // Calcular ángulos de las ruedas delanteras según la dirección:
+        if (delta > 0)
+        {
+          // Giro a la izquierda: la rueda izquierda es la interna.
+          left_steer = std::atan(VehicleLength / (R - (VehicleWidth / 2.0)));
+          right_steer = std::atan(VehicleLength / (R + (VehicleWidth / 2.0)));
 
-//     // Obtén las velocidades actuales de las ruedas
-//     double left_current_velocity = left_back_wheel_joint_->GetVelocity(0);
-//     double right_current_velocity = right_back_wheel_joint_->GetVelocity(0);
+          // Ajuste de velocidades: la rueda interna recorre menos distancia
+          double inner_speed = v_center * (R - (VehicleWidth / 2.0)) / R;
+          double outer_speed = v_center * (R + (VehicleWidth / 2.0)) / R;
+          left_v = inner_speed;
+          right_v = outer_speed;
+        }
+        else
+        {
+          // Giro a la derecha: la rueda derecha es la interna.
+          // Se calcula con el mismo valor absoluto de delta
+          left_steer = std::atan(VehicleLength / (R + (VehicleWidth / 2.0)));
+          right_steer = std::atan(VehicleLength / (R - (VehicleWidth / 2.0)));
+          // Se asignan signos negativos para indicar giro a la derecha.
+          left_steer = -left_steer;
+          right_steer = -right_steer;
 
-//     // Calcula los esfuerzos con los controladores PID
-//     double left_effort = wheel_pid_.Update(left_target_velocity - left_current_velocity, std::chrono::duration<double>(0.001));
-//     double right_effort = wheel_pid_.Update(right_target_velocity - right_current_velocity, std::chrono::duration<double>(0.001));
+          // Ajuste de velocidades: la interna (derecha) va más despacio
+          double inner_speed = v_center * (R - (VehicleWidth / 2.0)) / R;
+          double outer_speed = v_center * (R + (VehicleWidth / 2.0)) / R;
+          // Para giro a la derecha, la rueda derecha es la interna.
+          left_v = outer_speed;
+          right_v = inner_speed;
+        }
+      }
 
-//     // Aplica los esfuerzos a las juntas de las ruedas
-//     left_back_wheel_joint_->SetForce(0, left_effort);
-//     right_back_wheel_joint_->SetForce(0, right_effort);
-// }
+      // Convertir velocidad lineal de la rueda a velocidad angular (rad/s)
+      double left_wheel_omega = left_v / WheelRadius;
+      double right_wheel_omega = right_v / WheelRadius;
 
-// void apply_efforts_suspension()
-// {
-//     for (auto &joint : suspension_joints_)
-//     {
-//         double position = joint->Position(0);
-//         double target_position = 0.0;
-//         suspension_pid_.Init(10.0, 0.01, 0.1, 0.0, 0.0, 100.0, -100.0); // Ejemplo de valores
-//         double force = suspension_pid_.Update(position - target_position,std::chrono::duration<double>(0.001));
-//         joint->SetForce(0, force);
-//     }
-// }
+      // Aplicar el comando de dirección a los joints de dirección de las ruedas delanteras.
+      // Se asume que left_front_wheel_joint_ y right_front_wheel_joint_ controlan el giro (posición)
+      left_front_wheel_joint_->SetPosition(0, left_steer);
+      right_front_wheel_joint_->SetPosition(0, right_steer);
 
-// void apply_steering(double Steering_Request)
-// {
-//     // if (std::abs(Steering_Request) < 1e-3) // Dirección cercana a cero
-//     // {
-//     //     // Mantén las ruedas delanteras en la posición actual
-//     //     steer_controller(this->left_front_wheel_joint_, 0);
-//     //     steer_controller(this->right_front_wheel_joint_, 0);
-//     //     return;
-//     // }
+      // Aplicar la velocidad a las ruedas motrices.
+      // En el ejemplo original se invertía la velocidad de las ruedas derechas (debido a la orientación en el modelo)
+      left_back_wheel_joint_->SetVelocity(0, left_wheel_omega);
+      right_back_wheel_joint_->SetVelocity(0, -right_wheel_omega);
+      left_front_speed_wheel_joint_->SetVelocity(0, left_wheel_omega);
+      right_front_speed_wheel_joint_->SetVelocity(0, -right_wheel_omega);
 
-//     double ThetaAckerman = 0.0;
+      // Se pueden agregar controles PID o límites adicionales según la dinámica deseada
+    }
 
-//     if (Steering_Request > 0)
-//     {
-//         ThetaAckerman = atan(1 / ((1 / tan(Steering_Request)) + (VehicleWidth / VehicleLength)));
-//         std::cout << "thetha pos " <<  ThetaAckerman << std::endl;
-//         std::cout << "ang pos " <<  Steering_Request << std::endl;
-//         steer_controller(this->left_front_wheel_joint_, Steering_Request);
-//         steer_controller(this->right_front_wheel_joint_, ThetaAckerman);
-//     }
-//     else if (Steering_Request < 0)
-//     {
-//         ThetaAckerman = atan(1 / ((1 / tan(-Steering_Request)) + (VehicleWidth / VehicleLength)));
-//         std::cout << "thetha neg " <<  -ThetaAckerman << std::endl;
-//         std::cout << "ang neg " <<  Steering_Request << std::endl;
-//         steer_controller(this->left_front_wheel_joint_, -ThetaAckerman);
-//         steer_controller(this->right_front_wheel_joint_, Steering_Request);
-//     }
-// }
+    // Callback para recibir el mensaje de velocidad y ángulo
+    void OnTorqueCommand(const geometry_msgs::msg::Twist::SharedPtr msg)
+    {
+      // Se puede visualizar:
+      // RCLCPP_INFO(ros_node_->get_logger(), "Received command: v=%f, delta=%f", msg->linear.x, msg->angular.z);
+      desired_speed_ = msg->linear.x;
+      Steering_Request = msg->angular.z;
+    }
 
-// void steer_controller(gazebo::physics::JointPtr steer_joint, double Angle)
-// {
-//     double currentWheelAngle = steer_joint->Position(0);
-//     double steeringOmega = steer_joint->GetVelocity(0);
+    // Punteros y variables miembro
+    gazebo::physics::ModelPtr model_;
+    gazebo::physics::JointPtr left_front_wheel_joint_;
+    gazebo::physics::JointPtr right_front_wheel_joint_;
+    gazebo::physics::JointPtr left_back_wheel_joint_;
+    gazebo::physics::JointPtr right_back_wheel_joint_;
+    gazebo::physics::JointPtr left_front_speed_wheel_joint_;
+    gazebo::physics::JointPtr right_front_speed_wheel_joint_;
+    std::shared_ptr<gazebo_ros::Node> ros_node_;
+    gazebo::event::ConnectionPtr update_connection_;
+    rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscriber_;
 
-//     if (steer_joint == this->left_front_wheel_joint_)
-//     {
-//         DesiredAngle = DesiredAngle + steeringSpeed * deltaSimTime * (Angle - DesiredAngle);
-//         if (fabs(Angle - DesiredAngle) < 0.01) DesiredAngle = Angle;
-//         IerL += DesiredAngle - currentWheelAngle;
-//         double jointforce = P * (DesiredAngle - currentWheelAngle) + I * IerL - D * steeringOmega;
-//         steer_joint->SetForce(0, jointforce);
-//     }
-//     else
-//     {
-//         DesiredAngleR = DesiredAngleR + steeringSpeed * deltaSimTime * (Angle - DesiredAngleR);
-//         if (fabs(Angle - DesiredAngleR) < 0.01) DesiredAngleR = Angle;
-//         IerR += DesiredAngleR - currentWheelAngle;
-//         double jointforce = P * (DesiredAngleR - currentWheelAngle) + I * IerR - D * steeringOmega;
-//         steer_joint->SetForce(0, jointforce);
-//     }
-// }
-// void steer_controller(gazebo::physics::JointPtr steer_joint, double Angle) {
-//     // Obtener el ángulo actual y velocidad angular del joint
-//     double currentWheelAngle = steer_joint->Position(0);
+    // Variables para almacenar los comandos
+    double Steering_Request = 0.0;
+    double desired_speed_ = 0.0;
     
-//     // Calcular el error actual
-//     double error = Angle - currentWheelAngle;
+    // (Opcional) Parámetros PID para control adicional
+    ignition::math::PID wheel_pid_;
+    ignition::math::PID suspension_pid_;
+    double DesiredAngle = 0.0;
+    double DesiredAngleR = 0.0;
+    double IerL = 0.0;
+    double IerR = 0.0;
+    double steeringSpeed = 1.0;
+    double deltaSimTime = 0.001;
+    double left_velocity_ = 0.0;
+    double right_velocity_ = 0.0;
+    double prevErrorL = 0.0;
+    double prevErrorR = 0.0;
+    double prev_error = 0.0;
+    double integral_error = 0.0;
+  };
 
-//     // Actualizar el error acumulado (integral)
-//     if (steer_joint == this->left_front_wheel_joint_) {
-//         IerL += error * deltaSimTime; // Integral del error (I)
-        
-//         // Derivada del error con filtrado
-//         double errorDerivative = (error - prevErrorL) / deltaSimTime;
-//         double filteredDerivative = (N * errorDerivative) / (1 + N * deltaSimTime);
-        
-//         // Calcular la fuerza usando la fórmula PID
-//         double jointForce = P * error + I * IerL + D * filteredDerivative;
-        
-//         // Aplicar la fuerza al joint
-//         steer_joint->SetForce(0, jointForce);
-        
-//         // Guardar el error previo
-//         prevErrorL = error;
-
-//     } else { // Para la rueda derecha
-//         IerR += error * deltaSimTime;
-        
-//         double errorDerivative = (error - prevErrorR) / deltaSimTime;
-//         double filteredDerivative = (N * errorDerivative) / (1 + N * deltaSimTime);
-        
-//         double jointForce = P * error + I * IerR + D * filteredDerivative;
-        
-//         steer_joint->SetForce(0, jointForce);
-        
-//         prevErrorR = error;
-//     }
-
-//     // Log de depuración
-//     std::cout << "Steering joint: " << (steer_joint == this->left_front_wheel_joint_ ? "Left" : "Right") << std::endl;
-//     std::cout << "Target angle: " << Angle << " Current angle: " << currentWheelAngle << std::endl;
-//     std::cout << "Error: " << error << " Joint force: " << (steer_joint == this->left_front_wheel_joint_ ? IerL : IerR) << std::endl;
-// }
-// void steer_controller(gazebo::physics::JointPtr steer_joint, double target_angle)
-// {
-//     // Obtén el ángulo actual de la rueda y su velocidad angular
-//     double current_angle = steer_joint->Position(0);
-//     double current_angular_velocity = steer_joint->GetVelocity(0);
-
-//     // Determina las variables de estado y control según la junta
-//     double& desired_angle = (steer_joint == this->left_front_wheel_joint_) ? DesiredAngle : DesiredAngleR;
-//     double& integral_error = (steer_joint == this->left_front_wheel_joint_) ? IerL : IerR;
-
-//     // Calcula el ángulo deseado con una velocidad de ajuste
-//     desired_angle += steeringSpeed * deltaSimTime * (target_angle - desired_angle);
-
-//     // Limita el ajuste para evitar oscilaciones pequeñas
-//     if (fabs(target_angle - desired_angle) < 0.01) 
-//     {
-//         desired_angle = target_angle;
-//     }
-
-//     // Calcula el error proporcional y acumula el error integral
-//     double angle_error = desired_angle - current_angle;
-//     integral_error += angle_error;
-
-//     // Aplica la fórmula PID
-//     double joint_force = P * angle_error + I * integral_error - D * current_angular_velocity;
-//     std::cout << " Joint force: " << (steer_joint == this->left_front_wheel_joint_ ? IerL : IerR) << std::endl;
-
-//     // Aplica la fuerza calculada a la junta de dirección
-//     steer_joint->SetForce(0, joint_force);
-// }
-// void steer_controller(gazebo::physics::JointPtr steer_joint, double target_angle)
-// {
-// // Ángulo actual del joint
-//     double current_angle = steer_joint->Position(0);
-    
-//     // Calcular el error
-//     double error = target_angle - current_angle;
-    
-//     // Actualizar el error integral
-//     integral_error += error * deltaSimTime;
-    
-//     // Derivada del error
-//     double error_derivative = (error - prev_error) / deltaSimTime;
-//     double filtered_derivative = error_derivative / (1 + N * deltaSimTime);
-
-//     // Calcular la fuerza total del PID
-//     double pid_force = P * error + I * integral_error + D * filtered_derivative;
-    
-//     // Aplicar la fuerza al joint
-//     steer_joint->SetForce(0, pid_force);
-    
-//     // Guardar el error previo para la siguiente iteración
-//     prev_error = error;
-
-//     // Depuración (si es necesario)
-//     std::cout << "Error: " << error << " Force: " << pid_force << std::endl;
-// }
-
-
-
-
-
-
-
-
-
-
-
-void OnTorqueCommand(const geometry_msgs::msg::Twist::SharedPtr msg)
-{
-    //RCLCPP_INFO(ros_node_->get_logger(), "DrivePlugin: Received torque command: linear.x=%f, angular.z=%f",
-    //            msg->linear.x, msg->angular.z);
-
-    desired_speed_ = msg->linear.x;
-    Steering_Request = msg->angular.z;
-}
-
-gazebo::physics::ModelPtr model_;
-gazebo::physics::JointPtr left_front_wheel_joint_;
-gazebo::physics::JointPtr right_front_wheel_joint_;
-gazebo::physics::JointPtr left_back_wheel_joint_;
-gazebo::physics::JointPtr right_back_wheel_joint_;
-gazebo::physics::JointPtr left_front_speed_wheel_joint_;
-gazebo::physics::JointPtr right_front_speed_wheel_joint_;
-std::vector<gazebo::physics::JointPtr> suspension_joints_;
-std::shared_ptr<gazebo_ros::Node> ros_node_;
-gazebo::event::ConnectionPtr update_connection_;
-rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscriber_;
-
-ignition::math::PID wheel_pid_;
-ignition::math::PID suspension_pid_;
-double Steering_Request = 0.0;
-double DesiredAngle = 0.0;
-double DesiredAngleR = 0.0;
-double IerL = 0.0;
-double IerR = 0.0;
-double steeringSpeed = 1.0;
-double deltaSimTime = 0.001;
-double left_velocity_ = 0.0;
-double right_velocity_ = 0.0;
-double desired_speed_ = 0.0; // Initial desired speed
-double prevErrorL = 0.0;
-double prevErrorR = 0.0;
-double prev_error= 0.0;
-double integral_error= 0.0;
-};
-
-GZ_REGISTER_MODEL_PLUGIN(DrivePlugin)
+  // Registro del plugin
+  GZ_REGISTER_MODEL_PLUGIN(DrivePlugin)
 } // namespace gazebo_plugins
+
+
