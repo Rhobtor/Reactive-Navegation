@@ -5,6 +5,7 @@ from sensor_msgs.msg import JointState
 from sensor_msgs.msg import LaserScan
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import TransformStamped
+from geometry_msgs.msg import Twist
 import tf_transformations
 import tf2_ros
 import math
@@ -30,8 +31,7 @@ class OdometryNode(Node):
 
         # Suscripción al tópico joint_states (puedes adaptar si usas otro)
         self.joint_sub = self.create_subscription(LaserScan, '/scan', self.joint_state_callback, 10)
-        self.joint_sub = self.create_subscription(LaserScan, '/', self.joint_state_callback, 10)
-        self.get_logger().info("Nodo de odometría iniciado")
+        self.joint_sub = self.create_subscription(LaserScan, '/cmd_vel', self.cmd_vel_callback, 10)
         self.get_logger().info("Nodo de odometría iniciado")
 
     def joint_state_callback(self, msg: LaserScan):
@@ -44,16 +44,16 @@ class OdometryNode(Node):
         # Calculamos la duración (dt) en segundos a partir de los timestamps
         dt = (now.sec - self.last_time.sec) + (now.nanosec - self.last_time.nanosec) * 1e-9
 
-        # Aquí deberías extraer de msg o de tus sensores los datos reales de velocidad.
-        # En este ejemplo simplificado se usan valores ficticios (v = 0.5 m/s, w = 0.1 rad/s).
-        # Para un robot de 4 ruedas con dirección deberás adaptar la cinemática (por ejemplo, usando el modelo de bicicleta).
-        v = 0.5  # velocidad lineal [m/s]
-        w = 0.1  # velocidad angular [rad/s]
+        def cmd_vel_callback(self,msg: Twist):
+            self.v= msg.linear.x
+            self.w= msg.angular.z
+            
+
 
         # Integración simple de la odometría (modelo diferencial básico)
-        delta_x = v * math.cos(self.theta) * dt
-        delta_y = v * math.sin(self.theta) * dt
-        delta_theta = w * dt
+        delta_x = self.v * math.cos(self.theta) * dt
+        delta_y = self.v * math.sin(self.theta) * dt
+        delta_theta = self.w * dt
 
         self.x += delta_x
         self.y += delta_y
