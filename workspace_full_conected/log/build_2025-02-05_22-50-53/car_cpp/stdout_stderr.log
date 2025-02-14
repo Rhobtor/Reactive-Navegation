@@ -1,7 +1,0 @@
-[31mCMake Error at CMakeLists.txt:114:
-  Parse error.  Expected "(", got identifier with text "for".
-
-[0m
--- Configuring incomplete, errors occurred!
-See also "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/CMakeOutput.log".
-gmake: *** [Makefile:637: cmake_check_build_system] Error 1

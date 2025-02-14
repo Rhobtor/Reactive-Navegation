@@ -2101,9 +2101,6 @@ CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o: \
  /usr/include/gazebo-11/gazebo/physics/Wind.hh /usr/include/boost/any.hpp \
  /usr/include/gazebo-11/gazebo/physics/Joint.hh \
  /usr/include/gazebo-11/gazebo/physics/JointWrench.hh \
- /usr/include/gazebo-11/gazebo/physics/Link.hh \
- /usr/include/ignition/math6/ignition/math/Matrix3.hh \
- /usr/include/gazebo-11/gazebo/physics/Inertial.hh \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/float64.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float64__struct.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/float64__builder.hpp \

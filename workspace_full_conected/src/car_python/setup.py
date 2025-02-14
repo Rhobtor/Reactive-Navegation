@@ -35,7 +35,10 @@ setup(
             'octomap_2d_display = car.octomap_2d_display:main',
             'ekf_node = car.ekf_node:main',
             'odometry_node = car.odometry:main',
-            'debug_node = car.debugtf:main'
+            'debug_node = car.debugtf:main',
+            'camara_time_node = car.camara_time:main',
+            'map = car.map:main',
+            'scan_to_cloud = car.laser_scan:main',
         ],
     },
 )

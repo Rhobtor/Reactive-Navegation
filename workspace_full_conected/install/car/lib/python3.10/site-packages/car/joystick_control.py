@@ -9,7 +9,7 @@ class JoystickControlNode(Node):
         self.joy_subscriber = self.create_subscription(
             Joy, '/joy', self.joy_callback, 10)
         self.command_publisher = self.create_publisher(
-            Twist, '/wheel_torque_command', 10)
+            Twist, '/cmd_vel', 10)
         self.get_logger().info("Joystick control node started.")
 
     def joy_callback(self, msg: Joy):

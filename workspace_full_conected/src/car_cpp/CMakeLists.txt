@@ -84,6 +84,16 @@ install(TARGETS
 )
 
 
+add_executable(view_nodes src/view_nodes.cpp)
+ament_target_dependencies(view_nodes rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs rosidl_default_generators rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
+
+install(TARGETS
+  view_nodes
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+
+
 add_executable(testo src/testo.cpp)
 ament_target_dependencies(testo rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs rosidl_default_generators rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
 
@@ -119,6 +129,24 @@ target_include_directories(control_plugin PUBLIC include)
 ament_target_dependencies(control_plugin rclcpp ignition-common3 gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
 
 
+#Library for control plugin
+add_library(joints_plugin SHARED src/joints.cpp)
+target_include_directories(joints_plugin PUBLIC include)
+ament_target_dependencies(joints_plugin rclcpp ignition-common3 sensor_msgs gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
+
+#Library for control plugin
+add_library(drive_plugin SHARED src/diffdrive_plugin_multi_wheel.cpp)
+target_include_directories(drive_plugin PUBLIC include)
+ament_target_dependencies(drive_plugin rclcpp ignition-common3 sensor_msgs gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
+
+
+
+#Library for control plugin
+add_library(driver_plugin SHARED src/control_plugin.cpp)
+target_include_directories(driver_plugin PUBLIC include)
+ament_target_dependencies(driver_plugin rclcpp ignition-common3 gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
+
+
 # Library for odometry plugin
 add_library(odometry_plugin SHARED src/odometry.cpp)
 target_include_directories(odometry_plugin PUBLIC include)
@@ -141,6 +169,20 @@ install(
   LIBRARY DESTINATION lib
 )
 
+install(
+  TARGETS drive_plugin 
+  LIBRARY DESTINATION lib
+)
+
+install(
+  TARGETS joints_plugin 
+  LIBRARY DESTINATION lib
+)
+
+install(
+  TARGETS driver_plugin 
+  LIBRARY DESTINATION lib
+)
 
 install(
   TARGETS odometry_plugin 

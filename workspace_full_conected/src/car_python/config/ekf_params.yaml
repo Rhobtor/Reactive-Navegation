@@ -1,0 +1,43 @@
+ekf_filter_node:
+    ros__parameters:
+
+      frequency: 30.0                # Frecuencia a la que se procesa
+      sensor_timeout: 0.1            # Tiempo máximo de espera para cada sensor
+      two_d_mode: false              # Si es 2D, lo puedes poner en true; en este caso, lo dejamos en false.
+      publish_tf: true
+      map_frame: map
+      odom_frame: odom
+      base_link_frame: base_link
+
+      # Odometría proveniente de tu nodo custom (por ejemplo, /odom_custom o /odom)
+      odom0: "/odom"
+      odom0_config: [true, true, true, false, false, false,
+                    false, false, false, false, false, false, false, false, false]
+      odom0_differential: false
+      odom0_relative: false
+      odom0_queue_size: 10
+
+      # Datos del IMU (asegúrate de que tu plugin IMU publique en el tópico indicado)
+      imu0: "/imu/data"
+      # La configuración indica qué componentes de la medición se usan:
+      # En este ejemplo, se usan las velocidades angulares y aceleraciones (los seis parámetros que se usan en la parte de orientación)
+      imu0_config: [false, false, false,   # posición: no se usan
+                    true, true, true,      # orientación (angular velocities)
+                    false, false, false,   # posición lineal: no se usan (o puedes usar si tienes aceleraciones)
+                    false, false, false,   # posición derivada (a veces se usan para aceleraciones)
+                    true, true, true]      # aceleraciones (si las usas)
+      imu0_differential: false
+      imu0_relative: true
+      imu0_queue_size: 10
+
+      # Datos del GPS
+      gps0: "/navsat/fix"
+      # Suponiendo que solo usas la posición del GPS (latitud, longitud, altitud)
+      gps0_config: [true, true, true,  # posición (x, y, z)
+                    false, false, false,  # orientación: no se usa
+                    false, false, false,  # velocidad: no se usa
+                    false, false, false,  # aceleración: no se usa
+                    false, false, false]  # extras
+      gps0_differential: false
+      gps0_relative: false
+      gps0_queue_size: 10

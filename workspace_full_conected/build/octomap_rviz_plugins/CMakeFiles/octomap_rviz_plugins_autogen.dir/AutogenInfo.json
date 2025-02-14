@@ -1964,7 +1964,7 @@
 		"/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/plugin_rviz/include/octomap_rviz_plugins/occupancy_map_display.hpp"
 	],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 2,
+	"PARALLEL" : 4,
 	"PARSE_CACHE_FILE" : "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_rviz_plugins/CMakeFiles/octomap_rviz_plugins_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "",

@@ -1,5 +1,0 @@
-[  5%] [32mBuilding CXX object CMakeFiles/car_cpp.dir/src/control_plugin.cpp.o[0m
-[ 15%] Built target testo
-[ 26%] Built target check_map
-[ 36%] Built target path_planner_node
-[ 42%] [32mBuilding CXX object CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o[0m

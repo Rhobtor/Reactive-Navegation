@@ -211,6 +211,19 @@ car_cpp/fast:
 .PHONY : car_cpp/fast
 
 #=============================================================================
+# Target rules for targets named view_nodes
+
+# Build rule for target.
+view_nodes: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 view_nodes
+.PHONY : view_nodes
+
+# fast build rule for target.
+view_nodes/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/view_nodes.dir/build.make CMakeFiles/view_nodes.dir/build
+.PHONY : view_nodes/fast
+
+#=============================================================================
 # Target rules for targets named testo
 
 # Build rule for target.
@@ -263,6 +276,45 @@ control_plugin/fast:
 .PHONY : control_plugin/fast
 
 #=============================================================================
+# Target rules for targets named joints_plugin
+
+# Build rule for target.
+joints_plugin: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 joints_plugin
+.PHONY : joints_plugin
+
+# fast build rule for target.
+joints_plugin/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joints_plugin.dir/build.make CMakeFiles/joints_plugin.dir/build
+.PHONY : joints_plugin/fast
+
+#=============================================================================
+# Target rules for targets named drive_plugin
+
+# Build rule for target.
+drive_plugin: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drive_plugin
+.PHONY : drive_plugin
+
+# fast build rule for target.
+drive_plugin/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drive_plugin.dir/build.make CMakeFiles/drive_plugin.dir/build
+.PHONY : drive_plugin/fast
+
+#=============================================================================
+# Target rules for targets named driver_plugin
+
+# Build rule for target.
+driver_plugin: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 driver_plugin
+.PHONY : driver_plugin
+
+# fast build rule for target.
+driver_plugin/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/driver_plugin.dir/build.make CMakeFiles/driver_plugin.dir/build
+.PHONY : driver_plugin/fast
+
+#=============================================================================
 # Target rules for targets named odometry_plugin
 
 # Build rule for target.
@@ -306,6 +358,7 @@ src/control_plugin.o: src/control_plugin.cpp.o
 src/control_plugin.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/car_cpp.dir/build.make CMakeFiles/car_cpp.dir/src/control_plugin.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/control_plugin.dir/build.make CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/driver_plugin.dir/build.make CMakeFiles/driver_plugin.dir/src/control_plugin.cpp.o
 .PHONY : src/control_plugin.cpp.o
 
 src/control_plugin.i: src/control_plugin.cpp.i
@@ -315,6 +368,7 @@ src/control_plugin.i: src/control_plugin.cpp.i
 src/control_plugin.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/car_cpp.dir/build.make CMakeFiles/car_cpp.dir/src/control_plugin.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/control_plugin.dir/build.make CMakeFiles/control_plugin.dir/src/control_plugin.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/driver_plugin.dir/build.make CMakeFiles/driver_plugin.dir/src/control_plugin.cpp.i
 .PHONY : src/control_plugin.cpp.i
 
 src/control_plugin.s: src/control_plugin.cpp.s
@@ -324,7 +378,56 @@ src/control_plugin.s: src/control_plugin.cpp.s
 src/control_plugin.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/car_cpp.dir/build.make CMakeFiles/car_cpp.dir/src/control_plugin.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/control_plugin.dir/build.make CMakeFiles/control_plugin.dir/src/control_plugin.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/driver_plugin.dir/build.make CMakeFiles/driver_plugin.dir/src/control_plugin.cpp.s
 .PHONY : src/control_plugin.cpp.s
+
+src/diffdrive_plugin_multi_wheel.o: src/diffdrive_plugin_multi_wheel.cpp.o
+.PHONY : src/diffdrive_plugin_multi_wheel.o
+
+# target to build an object file
+src/diffdrive_plugin_multi_wheel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drive_plugin.dir/build.make CMakeFiles/drive_plugin.dir/src/diffdrive_plugin_multi_wheel.cpp.o
+.PHONY : src/diffdrive_plugin_multi_wheel.cpp.o
+
+src/diffdrive_plugin_multi_wheel.i: src/diffdrive_plugin_multi_wheel.cpp.i
+.PHONY : src/diffdrive_plugin_multi_wheel.i
+
+# target to preprocess a source file
+src/diffdrive_plugin_multi_wheel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drive_plugin.dir/build.make CMakeFiles/drive_plugin.dir/src/diffdrive_plugin_multi_wheel.cpp.i
+.PHONY : src/diffdrive_plugin_multi_wheel.cpp.i
+
+src/diffdrive_plugin_multi_wheel.s: src/diffdrive_plugin_multi_wheel.cpp.s
+.PHONY : src/diffdrive_plugin_multi_wheel.s
+
+# target to generate assembly for a file
+src/diffdrive_plugin_multi_wheel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/drive_plugin.dir/build.make CMakeFiles/drive_plugin.dir/src/diffdrive_plugin_multi_wheel.cpp.s
+.PHONY : src/diffdrive_plugin_multi_wheel.cpp.s
+
+src/joints.o: src/joints.cpp.o
+.PHONY : src/joints.o
+
+# target to build an object file
+src/joints.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joints_plugin.dir/build.make CMakeFiles/joints_plugin.dir/src/joints.cpp.o
+.PHONY : src/joints.cpp.o
+
+src/joints.i: src/joints.cpp.i
+.PHONY : src/joints.i
+
+# target to preprocess a source file
+src/joints.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joints_plugin.dir/build.make CMakeFiles/joints_plugin.dir/src/joints.cpp.i
+.PHONY : src/joints.cpp.i
+
+src/joints.s: src/joints.cpp.s
+.PHONY : src/joints.s
+
+# target to generate assembly for a file
+src/joints.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/joints_plugin.dir/build.make CMakeFiles/joints_plugin.dir/src/joints.cpp.s
+.PHONY : src/joints.cpp.s
 
 src/motion.o: src/motion.cpp.o
 .PHONY : src/motion.o
@@ -542,6 +645,30 @@ src/utilities.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/car_cpp.dir/build.make CMakeFiles/car_cpp.dir/src/utilities.cpp.s
 .PHONY : src/utilities.cpp.s
 
+src/view_nodes.o: src/view_nodes.cpp.o
+.PHONY : src/view_nodes.o
+
+# target to build an object file
+src/view_nodes.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/view_nodes.dir/build.make CMakeFiles/view_nodes.dir/src/view_nodes.cpp.o
+.PHONY : src/view_nodes.cpp.o
+
+src/view_nodes.i: src/view_nodes.cpp.i
+.PHONY : src/view_nodes.i
+
+# target to preprocess a source file
+src/view_nodes.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/view_nodes.dir/build.make CMakeFiles/view_nodes.dir/src/view_nodes.cpp.i
+.PHONY : src/view_nodes.cpp.i
+
+src/view_nodes.s: src/view_nodes.cpp.s
+.PHONY : src/view_nodes.s
+
+# target to generate assembly for a file
+src/view_nodes.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/view_nodes.dir/build.make CMakeFiles/view_nodes.dir/src/view_nodes.cpp.s
+.PHONY : src/view_nodes.cpp.s
+
 src/visualization.o: src/visualization.cpp.o
 .PHONY : src/visualization.o
 
@@ -584,15 +711,25 @@ help:
 	@echo "... car_cpp"
 	@echo "... check_map"
 	@echo "... control_plugin"
+	@echo "... drive_plugin"
+	@echo "... driver_plugin"
+	@echo "... joints_plugin"
 	@echo "... odometry_plugin"
 	@echo "... path_planner_node"
 	@echo "... testo"
+	@echo "... view_nodes"
 	@echo "... src/check_map.o"
 	@echo "... src/check_map.i"
 	@echo "... src/check_map.s"
 	@echo "... src/control_plugin.o"
 	@echo "... src/control_plugin.i"
 	@echo "... src/control_plugin.s"
+	@echo "... src/diffdrive_plugin_multi_wheel.o"
+	@echo "... src/diffdrive_plugin_multi_wheel.i"
+	@echo "... src/diffdrive_plugin_multi_wheel.s"
+	@echo "... src/joints.o"
+	@echo "... src/joints.i"
+	@echo "... src/joints.s"
 	@echo "... src/motion.o"
 	@echo "... src/motion.i"
 	@echo "... src/motion.s"
@@ -620,6 +757,9 @@ help:
 	@echo "... src/utilities.o"
 	@echo "... src/utilities.i"
 	@echo "... src/utilities.s"
+	@echo "... src/view_nodes.o"
+	@echo "... src/view_nodes.i"
+	@echo "... src/view_nodes.s"
 	@echo "... src/visualization.o"
 	@echo "... src/visualization.i"
 	@echo "... src/visualization.s"

@@ -25,6 +25,7 @@ def generate_launch_description():
 
     # Get the car URDF by processing the xacro file
     xacro_file = os.path.join(share_dir, 'urdf', 'car.xacro')
+    config_file = os.path.join(share_dir, 'config', 'ekf_params.yaml')
     robot_description_config = xacro.process_file(xacro_file)
     robot_urdf = robot_description_config.toxml()
 
@@ -92,12 +93,25 @@ def generate_launch_description():
         output='screen'
     )
 
+
+
+        # Agregamos el nodo de odometría
+    odometry_node = Node(
+        package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
+        executable='odometry_node',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='odometry_node'
+    )
+
+
+    
     return LaunchDescription([
         # static_tf,  # Publica la transformación de 'odom' a 'map'
         # static_tf2,
         robot_state_publisher_node,
-        joint_state_publisher_node,
+        # joint_state_publisher_node,
         gazebo_server,
         gazebo_client,
         urdf_spawn_node,
+        #odometry_node
+   
     ])

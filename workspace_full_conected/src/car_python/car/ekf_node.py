@@ -26,7 +26,7 @@ class EKFNode(Node):
         # Suscripción a los tópicos de odometría e IMU
         self.odom_subscriber = self.create_subscription(
             Odometry,
-            '/odometry',
+            '/odom',
             self.odom_callback,
             10
         )
