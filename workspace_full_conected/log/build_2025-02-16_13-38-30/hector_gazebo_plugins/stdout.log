@@ -1,0 +1,27 @@
+[  2%] Built target hector_gazebo_plugins__cpp
+[  6%] Built target hector_gazebo_reset_plugin
+[ 10%] Built target hector_gazebo_ros_magnetic
+[ 14%] Built target hector_gazebo_ros_sonar
+[ 22%] Built target hector_gazebo_plugins__rosidl_typesupport_cpp
+[ 30%] Built target hector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp
+[ 38%] Built target hector_gazebo_plugins__rosidl_typesupport_introspection_cpp
+[ 42%] Built target hector_gazebo_ros_imu
+[ 46%] Built target hector_gazebo_ros_gps
+[ 46%] Built target ament_cmake_python_copy_hector_gazebo_plugins
+[ 55%] Built target hector_gazebo_plugins__rosidl_generator_c
+running egg_info
+writing hector_gazebo_plugins.egg-info/PKG-INFO
+writing dependency_links to hector_gazebo_plugins.egg-info/dependency_links.txt
+writing top-level names to hector_gazebo_plugins.egg-info/top_level.txt
+reading manifest file 'hector_gazebo_plugins.egg-info/SOURCES.txt'
+writing manifest file 'hector_gazebo_plugins.egg-info/SOURCES.txt'
+[ 55%] Built target ament_cmake_python_build_hector_gazebo_plugins_egg
+[ 63%] Built target hector_gazebo_plugins__rosidl_typesupport_c
+[ 71%] Built target hector_gazebo_plugins__rosidl_typesupport_introspection_c
+[ 79%] Built target hector_gazebo_plugins__rosidl_typesupport_fastrtps_c
+[ 79%] Built target hector_gazebo_plugins
+[ 81%] Built target hector_gazebo_plugins__py
+[ 87%] Built target hector_gazebo_plugins__rosidl_generator_py
+[ 91%] Built target hector_gazebo_plugins__rosidl_typesupport_fastrtps_c__pyext
+[ 95%] Built target hector_gazebo_plugins__rosidl_typesupport_c__pyext
+[100%] Built target hector_gazebo_plugins__rosidl_typesupport_introspection_c__pyext

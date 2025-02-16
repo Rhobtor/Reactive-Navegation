@@ -1,0 +1,54 @@
+[0.481s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4
+[0.697s] [ 33%] Built target car_cpp
+[0.792s] [ 40%] Built target check_map
+[0.840s] [ 48%] Built target path_planner_node
+[0.932s] [ 55%] Built target control_plugin
+[1.053s] [ 62%] Built target joints_plugin
+[1.154s] [ 66%] [32mBuilding CXX object CMakeFiles/drive_plugin.dir/src/diffdrive_plugin_multi_wheel.cpp.o[0m
+[21.082s] [ 70%] [32m[1mLinking CXX shared library libdrive_plugin.so[0m
+[21.869s] [ 70%] Built target drive_plugin
+[21.925s] [ 77%] Built target driver_plugin
+[21.972s] [ 85%] Built target odometry_plugin
+[22.014s] [ 92%] Built target testo
+[22.045s] [35m[1mConsolidate compiler generated dependencies of target view_nodes[0m
+[22.065s] [ 96%] [32mBuilding CXX object CMakeFiles/view_nodes.dir/src/view_nodes.cpp.o[0m
+[24.568s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/view_nodes.cpp:[m[K In member function ‘[01m[Kvoid NavigationNode::octomapCallback(octomap_msgs::msg::Octomap_<std::allocator<void> >::SharedPtr)[m[K’:
+[24.568s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/view_nodes.cpp:60:52:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Ktf2_ros::Buffer::lookupTransform(const char [4], const char [10], const TimePoint&, rclcpp::Duration)[m[K’
+[24.568s]    60 |       transformStamped = [01;31m[Ktf_buffer_.lookupTransform("map", "base_link", tf2::TimePointZero, rclcpp::Duration::from_seconds(0.1))[m[K;
+[24.568s]       |                          [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[24.568s] In file included from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/view_nodes.cpp:8[m[K:
+[24.568s] [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:90:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvirtual geometry_msgs::msg::TransformStamped tf2_ros::Buffer::lookupTransform(const string&, const string&, const TimePoint&, tf2::Duration) const[m[K’
+[24.568s]    90 |   [01;36m[KlookupTransform[m[K(
+[24.568s]       |   [01;36m[K^~~~~~~~~~~~~~~[m[K
+[24.568s] [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:92:54:[m[K [01;36m[Knote: [m[K  no known conversion for argument 4 from ‘[01m[Krclcpp::Duration[m[K’ to ‘[01m[Ktf2::Duration[m[K’ {aka ‘[01m[Kstd::chrono::duration<long int, std::ratio<1, 1000000000> >[m[K’}
+[24.568s]    92 |     const tf2::TimePoint & time, [01;36m[Kconst tf2::Duration timeout[m[K) const override;
+[24.568s]       |                                  [01;36m[K~~~~~~~~~~~~~~~~~~~~^~~~~~~[m[K
+[24.568s] [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:100:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kgeometry_msgs::msg::TransformStamped tf2_ros::Buffer::lookupTransform(const string&, const string&, const rclcpp::Time&, rclcpp::Duration) const[m[K’
+[24.568s]   100 |   [01;36m[KlookupTransform[m[K(
+[24.568s]       |   [01;36m[K^~~~~~~~~~~~~~~[m[K
+[24.568s] [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:102:26:[m[K [01;36m[Knote: [m[K  no known conversion for argument 3 from ‘[01m[Kconst TimePoint[m[K’ {aka ‘[01m[Kconst std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio<1, 1000000000> > >[m[K’} to ‘[01m[Kconst rclcpp::Time&[m[K’
+[24.568s]   102 |     [01;36m[Kconst rclcpp::Time & time[m[K,
+[24.568s]       |     [01;36m[K~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[24.568s] [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:122:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvirtual geometry_msgs::msg::TransformStamped tf2_ros::Buffer::lookupTransform(const string&, const TimePoint&, const string&, const TimePoint&, const string&, tf2::Duration) const[m[K’
+[24.568s]   122 |   [01;36m[KlookupTransform[m[K(
+[24.568s]       |   [01;36m[K^~~~~~~~~~~~~~~[m[K
+[24.568s] [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:122:3:[m[K [01;36m[Knote: [m[K  candidate expects 6 arguments, 4 provided
+[24.568s] [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:134:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kgeometry_msgs::msg::TransformStamped tf2_ros::Buffer::lookupTransform(const string&, const rclcpp::Time&, const string&, const rclcpp::Time&, const string&, rclcpp::Duration) const[m[K’
+[24.568s]   134 |   [01;36m[KlookupTransform[m[K(
+[24.568s]       |   [01;36m[K^~~~~~~~~~~~~~~[m[K
+[24.569s] [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:134:3:[m[K [01;36m[Knote: [m[K  candidate expects 6 arguments, 4 provided
+[24.569s] In file included from [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.h:39[m[K,
+[24.569s]                  from [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:41[m[K,
+[24.569s]                  from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/view_nodes.cpp:8[m[K:
+[24.569s] [01m[K/opt/ros/humble/include/tf2/tf2/buffer_core.hpp:156:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvirtual geometry_msgs::msg::TransformStamped tf2::BufferCore::lookupTransform(const string&, const TimePoint&, const string&, const TimePoint&, const string&) const[m[K’
+[24.569s]   156 |   [01;36m[KlookupTransform[m[K(
+[24.570s]       |   [01;36m[K^~~~~~~~~~~~~~~[m[K
+[24.570s] [01m[K/opt/ros/humble/include/tf2/tf2/buffer_core.hpp:156:3:[m[K [01;36m[Knote: [m[K  candidate expects 5 arguments, 4 provided
+[24.570s] [01m[K/opt/ros/humble/include/tf2/tf2/buffer_core.hpp:138:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvirtual geometry_msgs::msg::TransformStamped tf2::BufferCore::lookupTransform(const string&, const string&, const TimePoint&) const[m[K’
+[24.570s]   138 |   [01;36m[KlookupTransform[m[K(
+[24.570s]       |   [01;36m[K^~~~~~~~~~~~~~~[m[K
+[24.570s] [01m[K/opt/ros/humble/include/tf2/tf2/buffer_core.hpp:138:3:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 4 provided
+[27.923s] gmake[2]: *** [CMakeFiles/view_nodes.dir/build.make:76: CMakeFiles/view_nodes.dir/src/view_nodes.cpp.o] Error 1
+[27.923s] gmake[1]: *** [CMakeFiles/Makefile2:181: CMakeFiles/view_nodes.dir/all] Error 2
+[27.923s] gmake: *** [Makefile:146: all] Error 2
+[27.928s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4

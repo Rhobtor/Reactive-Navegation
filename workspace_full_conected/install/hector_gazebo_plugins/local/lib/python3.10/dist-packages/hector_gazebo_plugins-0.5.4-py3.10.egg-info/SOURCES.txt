@@ -4,3 +4,6 @@ hector_gazebo_plugins.egg-info/PKG-INFO
 hector_gazebo_plugins.egg-info/SOURCES.txt
 hector_gazebo_plugins.egg-info/dependency_links.txt
 hector_gazebo_plugins.egg-info/top_level.txt
+hector_gazebo_plugins/srv/__init__.py
+hector_gazebo_plugins/srv/_set_bias.py
+hector_gazebo_plugins/srv/_set_reference_geo_pose.py

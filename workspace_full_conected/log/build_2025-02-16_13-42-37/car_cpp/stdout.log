@@ -1,0 +1,12 @@
+[ 33%] Built target car_cpp
+[ 40%] Built target check_map
+[ 48%] Built target path_planner_node
+[ 55%] Built target control_plugin
+[ 62%] Built target joints_plugin
+[35m[1mConsolidate compiler generated dependencies of target drive_plugin[0m
+[ 70%] Built target drive_plugin
+[ 77%] Built target driver_plugin
+[ 85%] Built target odometry_plugin
+[ 92%] Built target testo
+[35m[1mConsolidate compiler generated dependencies of target view_nodes[0m
+[ 96%] [32mBuilding CXX object CMakeFiles/view_nodes.dir/src/view_nodes.cpp.o[0m

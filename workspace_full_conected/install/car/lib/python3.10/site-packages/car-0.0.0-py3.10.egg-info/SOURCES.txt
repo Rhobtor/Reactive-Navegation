@@ -12,6 +12,7 @@ car/__init__.py
 car/camara_time.py
 car/debugtf.py
 car/ekf_node.py
+car/filter_points_cloud.py
 car/joystick_control.py
 car/keyboard_control.py
 car/laser_scan.py
@@ -19,6 +20,7 @@ car/log_joystick.py
 car/map.py
 car/octomap_2d_display.py
 car/odometry.py
+car/view_point_and_click.py
 config/diff_drive_controller.yaml
 config/display.rviz
 config/drive_controller.yaml

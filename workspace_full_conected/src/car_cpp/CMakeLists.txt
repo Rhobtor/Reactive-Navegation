@@ -92,6 +92,13 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+add_executable(map_measure src/map_measure.cpp)
+ament_target_dependencies(map_measure rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs rosidl_default_generators rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
+
+install(TARGETS
+  map_measure
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 
 add_executable(testo src/testo.cpp)

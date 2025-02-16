@@ -93,17 +93,13 @@ def generate_launch_description():
         output='screen'
     )
 
-
-
         # Agregamos el nodo de odometría
-    odometry_node = Node(
+    filter_points_cloud = Node(
         package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
-        executable='odometry_node',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
-        name='odometry_node'
+        executable='filter_points_cloud',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='filter_points_cloud',  # Nombre del nodo
     )
 
-
-    
     return LaunchDescription([
         # static_tf,  # Publica la transformación de 'odom' a 'map'
         # static_tf2,
@@ -112,6 +108,7 @@ def generate_launch_description():
         gazebo_server,
         gazebo_client,
         urdf_spawn_node,
-        #odometry_node
+        filter_points_cloud
+        
    
     ])

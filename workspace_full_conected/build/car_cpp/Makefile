@@ -224,6 +224,19 @@ view_nodes/fast:
 .PHONY : view_nodes/fast
 
 #=============================================================================
+# Target rules for targets named map_measure
+
+# Build rule for target.
+map_measure: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 map_measure
+.PHONY : map_measure
+
+# fast build rule for target.
+map_measure/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_measure.dir/build.make CMakeFiles/map_measure.dir/build
+.PHONY : map_measure/fast
+
+#=============================================================================
 # Target rules for targets named testo
 
 # Build rule for target.
@@ -428,6 +441,30 @@ src/joints.s: src/joints.cpp.s
 src/joints.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joints_plugin.dir/build.make CMakeFiles/joints_plugin.dir/src/joints.cpp.s
 .PHONY : src/joints.cpp.s
+
+src/map_measure.o: src/map_measure.cpp.o
+.PHONY : src/map_measure.o
+
+# target to build an object file
+src/map_measure.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_measure.dir/build.make CMakeFiles/map_measure.dir/src/map_measure.cpp.o
+.PHONY : src/map_measure.cpp.o
+
+src/map_measure.i: src/map_measure.cpp.i
+.PHONY : src/map_measure.i
+
+# target to preprocess a source file
+src/map_measure.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_measure.dir/build.make CMakeFiles/map_measure.dir/src/map_measure.cpp.i
+.PHONY : src/map_measure.cpp.i
+
+src/map_measure.s: src/map_measure.cpp.s
+.PHONY : src/map_measure.s
+
+# target to generate assembly for a file
+src/map_measure.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_measure.dir/build.make CMakeFiles/map_measure.dir/src/map_measure.cpp.s
+.PHONY : src/map_measure.cpp.s
 
 src/motion.o: src/motion.cpp.o
 .PHONY : src/motion.o
@@ -714,6 +751,7 @@ help:
 	@echo "... drive_plugin"
 	@echo "... driver_plugin"
 	@echo "... joints_plugin"
+	@echo "... map_measure"
 	@echo "... odometry_plugin"
 	@echo "... path_planner_node"
 	@echo "... testo"
@@ -730,6 +768,9 @@ help:
 	@echo "... src/joints.o"
 	@echo "... src/joints.i"
 	@echo "... src/joints.s"
+	@echo "... src/map_measure.o"
+	@echo "... src/map_measure.i"
+	@echo "... src/map_measure.s"
 	@echo "... src/motion.o"
 	@echo "... src/motion.i"
 	@echo "... src/motion.s"

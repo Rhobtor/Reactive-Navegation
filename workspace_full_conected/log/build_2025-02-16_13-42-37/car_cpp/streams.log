@@ -1,0 +1,22 @@
+[0.380s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4
+[0.562s] [ 33%] Built target car_cpp
+[0.622s] [ 40%] Built target check_map
+[0.690s] [ 48%] Built target path_planner_node
+[0.800s] [ 55%] Built target control_plugin
+[0.958s] [ 62%] Built target joints_plugin
+[0.976s] [35m[1mConsolidate compiler generated dependencies of target drive_plugin[0m
+[1.101s] [ 70%] Built target drive_plugin
+[1.206s] [ 77%] Built target driver_plugin
+[1.322s] [ 85%] Built target odometry_plugin
+[1.377s] [ 92%] Built target testo
+[1.427s] [35m[1mConsolidate compiler generated dependencies of target view_nodes[0m
+[1.501s] [ 96%] [32mBuilding CXX object CMakeFiles/view_nodes.dir/src/view_nodes.cpp.o[0m
+[4.895s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/view_nodes.cpp:[m[K In member function ‘[01m[Kvoid NavigationNode::octomapCallback(octomap_msgs::msg::Octomap_<std::allocator<void> >::SharedPtr)[m[K’:
+[4.895s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/view_nodes.cpp:61:7:[m[K [01;31m[Kerror: [m[K‘[01m[KransformStamped[m[K’ was not declared in this scope; did you mean ‘[01m[KtransformStamped[m[K’?
+[4.895s]    61 |       [01;31m[KransformStamped[m[K = tf_buffer_.lookupTransform("map", "base_link", query_time, rclcpp::Duration::from_seconds(0.1));
+[4.896s]       |       [01;31m[K^~~~~~~~~~~~~~~[m[K
+[4.896s]       |       [32m[KtransformStamped[m[K
+[7.855s] gmake[2]: *** [CMakeFiles/view_nodes.dir/build.make:76: CMakeFiles/view_nodes.dir/src/view_nodes.cpp.o] Error 1
+[7.855s] gmake[1]: *** [CMakeFiles/Makefile2:181: CMakeFiles/view_nodes.dir/all] Error 2
+[7.855s] gmake: *** [Makefile:146: all] Error 2
+[7.856s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4

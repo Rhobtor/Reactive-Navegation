@@ -1,0 +1,15 @@
+[0.468s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4
+[0.689s] [ 33%] Built target car_cpp
+[0.758s] [ 40%] Built target check_map
+[0.797s] [ 48%] Built target path_planner_node
+[0.872s] [ 55%] Built target control_plugin
+[0.978s] [ 62%] Built target joints_plugin
+[1.106s] [ 66%] [32mBuilding CXX object CMakeFiles/drive_plugin.dir/src/diffdrive_plugin_multi_wheel.cpp.o[0m
+[1.865s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/diffdrive_plugin_multi_wheel.cpp:2:10:[m[K [01;31m[Kfatal error: [m[Kvisualization_msgs/msg/marker_array.hpp: No such file or directory
+[1.865s]     2 | #include [01;31m[K<visualization_msgs/msg/marker_array.hpp>[m[K
+[1.865s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.865s] compilation terminated.
+[1.870s] gmake[2]: *** [CMakeFiles/drive_plugin.dir/build.make:76: CMakeFiles/drive_plugin.dir/src/diffdrive_plugin_multi_wheel.cpp.o] Error 1
+[1.870s] gmake[1]: *** [CMakeFiles/Makefile2:337: CMakeFiles/drive_plugin.dir/all] Error 2
+[1.870s] gmake: *** [Makefile:146: all] Error 2
+[1.873s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4
