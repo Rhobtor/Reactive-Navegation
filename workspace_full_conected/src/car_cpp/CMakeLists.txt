@@ -84,13 +84,38 @@ install(TARGETS
 )
 
 
-add_executable(view_nodes src/view_nodes.cpp)
-ament_target_dependencies(view_nodes rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs rosidl_default_generators rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
+add_executable(navigation_nodes src/navigation_nodes.cpp)
+ament_target_dependencies(navigation_nodes rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs rosidl_default_generators rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
 
 install(TARGETS
-  view_nodes
+  navigation_nodes
   DESTINATION lib/${PROJECT_NAME}
 )
+
+add_executable(frontier_nodes src/frontier_nodes.cpp)
+ament_target_dependencies(frontier_nodes rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs rosidl_default_generators rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
+
+install(TARGETS
+  frontier_nodes
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+add_executable(ground_remove src/ground_remove.cpp)
+ament_target_dependencies(ground_remove rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs rosidl_default_generators rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
+
+install(TARGETS
+  ground_remove
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+add_executable(camera_filter src/camera_filter.cpp)
+ament_target_dependencies(camera_filter rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs rosidl_default_generators rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
+
+install(TARGETS
+  camera_filter
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 
 add_executable(map_measure src/map_measure.cpp)
 ament_target_dependencies(map_measure rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs rosidl_default_generators rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  

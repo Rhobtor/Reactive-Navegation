@@ -1,0 +1,61 @@
+[0.427s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4
+[0.641s] [ 25%] Built target car_cpp
+[0.719s] [ 31%] Built target ground_remove
+[0.783s] [ 37%] Built target camera_filter
+[0.849s] [ 42%] Built target map_measure
+[0.915s] [ 48%] Built target testo
+[0.970s] [ 54%] Built target check_map
+[1.064s] [ 60%] Built target path_planner_node
+[1.133s] [ 65%] Built target control_plugin
+[1.189s] [ 71%] Built target joints_plugin
+[1.261s] [ 77%] Built target drive_plugin
+[1.353s] [ 82%] Built target driver_plugin
+[1.406s] [ 88%] Built target odometry_plugin
+[1.429s] [35m[1mConsolidate compiler generated dependencies of target frontier_nodes[0m
+[1.498s] [ 91%] [32mBuilding CXX object CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o[0m
+[4.254s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:[m[K In member function ‘[01m[Kvoid FrontierDetectionNode::octomapCallback(octomap_msgs::msg::Octomap_<std::allocator<void> >::SharedPtr)[m[K’:
+[4.254s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:24:35:[m[K [01;31m[Kerror: [m[Ktoo many arguments to function ‘[01m[Koctomap::AbstractOcTree* octomap_msgs::fullMsgToMap(const Octomap&)[m[K’
+[4.254s]    24 |         [01;31m[Koctomap_msgs::fullMsgToMap(*msg, *tree)[m[K;
+[4.254s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[4.254s] In file included from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:4[m[K:
+[4.254s] [01m[K/opt/ros/humble/include/octomap_msgs/octomap_msgs/conversions.h:55:42:[m[K [01;36m[Knote: [m[Kdeclared here
+[4.254s]    55 |   static inline octomap::AbstractOcTree* [01;36m[KfullMsgToMap[m[K(const octomap_msgs::msg::Octomap& msg){
+[4.254s]       |                                          [01;36m[K^~~~~~~~~~~~[m[K
+[4.259s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:57:67:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = class octomap::OcTree[m[K’ {aka ‘[01m[Kclass octomap::OcTree[m[K’} has no member named ‘[01m[KisNodeUnknown[m[K’
+[4.259s]    57 |                       if (neighbor_node == nullptr || tree->[01;31m[KisNodeUnknown[m[K(neighbor_node)) {
+[4.259s]       |                                                             [01;31m[K^~~~~~~~~~~~~[m[K
+[4.259s] 
+[4.259s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:71:38:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Ksensor_msgs::PointCloud2Iterator<float>[m[K’ and ‘[01m[Kdouble[m[K’)
+[4.259s]    71 |                     iter_x = it.getX([01;31m[K)[m[K;
+[4.259s]       |                                      [01;31m[K^[m[K
+[4.259s] In file included from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:6[m[K:
+[4.259s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr sensor_msgs::PointCloud2Iterator<float>& sensor_msgs::PointCloud2Iterator<float>::operator=(const sensor_msgs::PointCloud2Iterator<float>&)[m[K’
+[4.259s]   281 | class [01;36m[KPointCloud2Iterator[m[K
+[4.259s]       |       [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[4.259s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kdouble[m[K’ to ‘[01m[Kconst sensor_msgs::PointCloud2Iterator<float>&[m[K’
+[4.260s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr sensor_msgs::PointCloud2Iterator<float>& sensor_msgs::PointCloud2Iterator<float>::operator=(sensor_msgs::PointCloud2Iterator<float>&&)[m[K’
+[4.260s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kdouble[m[K’ to ‘[01m[Ksensor_msgs::PointCloud2Iterator<float>&&[m[K’
+[4.260s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:72:38:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Ksensor_msgs::PointCloud2Iterator<float>[m[K’ and ‘[01m[Kdouble[m[K’)
+[4.260s]    72 |                     iter_y = it.getY([01;31m[K)[m[K;
+[4.260s]       |                                      [01;31m[K^[m[K
+[4.260s] In file included from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:6[m[K:
+[4.260s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr sensor_msgs::PointCloud2Iterator<float>& sensor_msgs::PointCloud2Iterator<float>::operator=(const sensor_msgs::PointCloud2Iterator<float>&)[m[K’
+[4.260s]   281 | class [01;36m[KPointCloud2Iterator[m[K
+[4.260s]       |       [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[4.260s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kdouble[m[K’ to ‘[01m[Kconst sensor_msgs::PointCloud2Iterator<float>&[m[K’
+[4.260s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr sensor_msgs::PointCloud2Iterator<float>& sensor_msgs::PointCloud2Iterator<float>::operator=(sensor_msgs::PointCloud2Iterator<float>&&)[m[K’
+[4.260s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kdouble[m[K’ to ‘[01m[Ksensor_msgs::PointCloud2Iterator<float>&&[m[K’
+[4.260s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:73:38:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Ksensor_msgs::PointCloud2Iterator<float>[m[K’ and ‘[01m[Kdouble[m[K’)
+[4.260s]    73 |                     iter_z = it.getZ([01;31m[K)[m[K;
+[4.260s]       |                                      [01;31m[K^[m[K
+[4.260s] In file included from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:6[m[K:
+[4.260s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr sensor_msgs::PointCloud2Iterator<float>& sensor_msgs::PointCloud2Iterator<float>::operator=(const sensor_msgs::PointCloud2Iterator<float>&)[m[K’
+[4.260s]   281 | class [01;36m[KPointCloud2Iterator[m[K
+[4.260s]       |       [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[4.260s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kdouble[m[K’ to ‘[01m[Kconst sensor_msgs::PointCloud2Iterator<float>&[m[K’
+[4.260s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr sensor_msgs::PointCloud2Iterator<float>& sensor_msgs::PointCloud2Iterator<float>::operator=(sensor_msgs::PointCloud2Iterator<float>&&)[m[K’
+[4.260s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/point_cloud2_iterator.hpp:281:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kdouble[m[K’ to ‘[01m[Ksensor_msgs::PointCloud2Iterator<float>&&[m[K’
+[6.371s] gmake[2]: *** [CMakeFiles/frontier_nodes.dir/build.make:76: CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o] Error 1
+[6.371s] gmake[1]: *** [CMakeFiles/Makefile2:215: CMakeFiles/frontier_nodes.dir/all] Error 2
+[6.374s] gmake: *** [Makefile:146: all] Error 2
+[6.381s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4

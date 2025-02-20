@@ -1,0 +1,390 @@
+[0.190s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/hector_gazebo -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins
+[0.240s] -- The C compiler identification is GNU 11.4.0
+[0.282s] -- The CXX compiler identification is GNU 11.4.0
+[0.287s] -- Detecting C compiler ABI info
+[0.349s] -- Detecting C compiler ABI info - done
+[0.355s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.355s] -- Detecting C compile features
+[0.355s] -- Detecting C compile features - done
+[0.358s] -- Detecting CXX compiler ABI info
+[0.467s] -- Detecting CXX compiler ABI info - done
+[0.474s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.474s] -- Detecting CXX compile features
+[0.474s] -- Detecting CXX compile features - done
+[0.476s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.609s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.680s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[0.710s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.713s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.719s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.732s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.747s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.773s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.777s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.883s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.906s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.952s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.959s] -- Looking for pthread.h
+[1.078s] -- Looking for pthread.h - found
+[1.078s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.180s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.180s] -- Found Threads: TRUE  
+[1.232s] -- Found std_srvs: 4.2.4 (/opt/ros/humble/share/std_srvs/cmake)
+[1.243s] -- Found gazebo_ros: 3.7.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[1.255s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+[1.256s] -- Checking for module 'bullet>=2.82'
+[1.267s] --   Found bullet, version 3.05
+[1.393s] -- Found fcl: /usr/include (found suitable version "0.7.0", minimum required is "0.5.0") 
+[1.468s] -- Found assimp: /usr/include (found version "5.2.0") 
+[1.495s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[1.524s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[1.540s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[1.546s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.556s] -- Searching for dependencies of ignition-math6
+[1.558s] -- Looking for OGRE...
+[1.560s] -- OGRE_PREFIX_WATCH changed.
+[1.576s] -- Checking for module 'OGRE'
+[1.602s] --   Found OGRE, version 1.9.0
+[1.661s] -- Found Ogre Ghadamon (1.9.0)
+[1.677s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[1.693s] -- Looking for OGRE_Paging...
+[1.709s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[1.709s] -- Looking for OGRE_Terrain...
+[1.718s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[1.718s] -- Looking for OGRE_Property...
+[1.723s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[1.723s] -- Looking for OGRE_RTShaderSystem...
+[1.727s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[1.727s] -- Looking for OGRE_Volume...
+[1.730s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[1.730s] -- Looking for OGRE_Overlay...
+[1.734s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[1.837s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.839s] -- Looking for ignition-transport8 -- found version 8.2.1
+[1.839s] -- Searching for dependencies of ignition-transport8
+[1.852s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[1.859s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[1.868s] -- Checking for module 'libzmq >= 4'
+[1.879s] --   Found libzmq , version 4.3.4
+[1.925s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[1.930s] -- Checking for module 'uuid'
+[1.939s] --   Found uuid, version 2.37.2
+[1.977s] -- Found UUID: TRUE  
+[1.986s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[1.986s] -- Searching for dependencies of ignition-msgs5
+[2.008s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.017s] -- Checking for module 'tinyxml2'
+[2.040s] --   Found tinyxml2, version 9.0.0
+[2.095s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[2.096s] -- Looking for ignition-common3 -- found version 3.14.0
+[2.099s] -- Searching for dependencies of ignition-common3
+[2.100s] -- Looking for dlfcn.h - found
+[2.100s] -- Looking for libdl - found
+[2.106s] -- Found DL: TRUE  
+[2.121s] -- Found tinyobjloader: /usr/lib/x86_64-linux-gnu/cmake/tinyobjloader/tinyobjloader-config.cmake (found version "2.0.0") 
+[2.125s] -- Searching for <ignition-common3> component [graphics]
+[2.128s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[2.131s] -- Searching for dependencies of ignition-common3-graphics
+[2.131s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.137s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[2.137s] -- Searching for dependencies of ignition-fuel_tools4
+[2.241s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.81.0")  
+[2.251s] -- Checking for module 'jsoncpp'
+[2.269s] --   Found jsoncpp, version 1.9.5
+[2.303s] -- Found JSONCPP: TRUE  
+[2.306s] -- Checking for module 'libzip'
+[2.319s] --   Found libzip, version 1.7.3
+[2.353s] -- Found ZIP: TRUE  
+[2.354s] -- Looking for ignition-common3 -- found version 3.14.0
+[2.356s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.356s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[2.359s] -- Gazebo version: 11.10
+[2.359s] -- Checking for module 'tbb'
+[2.378s] --   Found tbb, version 2021.5.0
+[2.410s] -- Found geographic_msgs: 1.0.6 (/opt/ros/humble/share/geographic_msgs/cmake)
+[2.445s] -- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)
+[2.458s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[2.469s] -- Found tf2: 0.25.11 (/opt/ros/humble/share/tf2/cmake)
+[2.477s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[2.699s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[3.074s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.227s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.244s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[3.245s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[3.272s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[3.272s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[3.272s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[3.272s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[3.288s] -- Found PythonExtra: .so  
+[3.353s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[3.377s] -- Configuring done
+[3.616s] -- Generating done
+[3.679s] -- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins
+[3.702s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/hector_gazebo -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins
+[3.704s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins -- -j4 -l4
+[3.830s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[3.898s] [  6%] [32mBuilding CXX object CMakeFiles/hector_gazebo_reset_plugin.dir/src/reset_plugin.cpp.o[0m
+[3.898s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[3.910s] [  6%] Built target ament_cmake_python_copy_hector_gazebo_plugins
+[4.043s] [  8%] [32mBuilding CXX object CMakeFiles/hector_gazebo_ros_magnetic.dir/src/gazebo_ros_magnetic.cpp.o[0m
+[5.143s] [ 10%] [32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_generator_c.dir/rosidl_generator_c/hector_gazebo_plugins/srv/detail/set_bias__functions.c.o[0m
+[5.255s] [ 10%] Built target hector_gazebo_plugins__cpp
+[5.359s] [ 12%] [32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_generator_c.dir/rosidl_generator_c/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__functions.c.o[0m
+[5.419s] [ 14%] [32mBuilding CXX object CMakeFiles/hector_gazebo_ros_sonar.dir/src/gazebo_ros_sonar.cpp.o[0m
+[5.656s] [ 16%] [32m[1mLinking C shared library libhector_gazebo_plugins__rosidl_generator_c.so[0m
+[5.857s] [ 16%] Built target hector_gazebo_plugins__rosidl_generator_c
+[5.881s] [ 18%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[6.423s] [ 20%] [32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hector_gazebo_plugins/srv/set_bias__type_support.cpp.o[0m
+[7.095s] [ 22%] [32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hector_gazebo_plugins/srv/set_reference_geo_pose__type_support.cpp.o[0m
+[7.736s] [ 24%] [32m[1mLinking CXX shared library libhector_gazebo_plugins__rosidl_typesupport_cpp.so[0m
+[7.894s] [ 24%] Built target hector_gazebo_plugins__rosidl_typesupport_cpp
+[7.937s] [ 26%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[8.613s] [ 28%] [32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hector_gazebo_plugins/srv/detail/set_bias__type_support_c.cpp.o[0m
+[9.609s] [ 30%] [32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support_c.cpp.o[0m
+[11.043s] [ 32%] [32m[1mLinking CXX shared library libhector_gazebo_plugins__rosidl_typesupport_fastrtps_c.so[0m
+[11.682s] [ 32%] Built target hector_gazebo_plugins__rosidl_typesupport_fastrtps_c
+[11.721s] [ 34%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[13.164s] [ 36%] [32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hector_gazebo_plugins/srv/detail/dds_fastrtps/set_bias__type_support.cpp.o[0m
+[15.273s] [ 38%] [32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hector_gazebo_plugins/srv/detail/dds_fastrtps/set_reference_geo_pose__type_support.cpp.o[0m
+[16.527s] [ 40%] [32m[1mLinking CXX shared library libhector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp.so[0m
+[17.447s] [ 40%] Built target hector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp
+[17.533s] [ 42%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[19.057s] [ 44%] [32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hector_gazebo_plugins/srv/detail/set_bias__type_support.c.o[0m
+[19.444s] [ 46%] [32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.c.o[0m
+[19.733s] [ 48%] [32m[1mLinking C shared library libhector_gazebo_plugins__rosidl_typesupport_introspection_c.so[0m
+[19.856s] [ 48%] Built target hector_gazebo_plugins__rosidl_typesupport_introspection_c
+[38.179s] [ 51%] [32m[1mLinking CXX shared library libhector_gazebo_reset_plugin.so[0m
+[39.594s] [ 51%] Built target hector_gazebo_reset_plugin
+[46.622s] [ 53%] [32m[1mLinking CXX shared library libhector_gazebo_ros_sonar.so[0m
+[47.219s] [ 53%] Built target hector_gazebo_ros_sonar
+[47.876s] [ 55%] [32m[1mLinking CXX shared library libhector_gazebo_ros_magnetic.so[0m
+[48.721s] [ 55%] Built target hector_gazebo_ros_magnetic
+[49.273s] running egg_info
+[49.273s] creating hector_gazebo_plugins.egg-info
+[49.273s] writing hector_gazebo_plugins.egg-info/PKG-INFO
+[49.274s] writing dependency_links to hector_gazebo_plugins.egg-info/dependency_links.txt
+[49.274s] writing top-level names to hector_gazebo_plugins.egg-info/top_level.txt
+[49.274s] writing manifest file 'hector_gazebo_plugins.egg-info/SOURCES.txt'
+[49.278s] reading manifest file 'hector_gazebo_plugins.egg-info/SOURCES.txt'
+[49.278s] writing manifest file 'hector_gazebo_plugins.egg-info/SOURCES.txt'
+[49.300s] [ 55%] Built target ament_cmake_python_build_hector_gazebo_plugins_egg
+[49.323s] [ 57%] [32mBuilding CXX object CMakeFiles/hector_gazebo_ros_imu.dir/src/gazebo_ros_imu.cpp.o[0m
+[60.935s] [ 59%] [32m[1mLinking CXX shared library libhector_gazebo_ros_imu.so[0m
+[61.454s] [ 59%] Built target hector_gazebo_ros_imu
+[61.474s] [ 61%] [32mBuilding CXX object CMakeFiles/hector_gazebo_ros_gps.dir/src/gazebo_ros_gps.cpp.o[0m
+[72.785s] [ 63%] [32m[1mLinking CXX shared library libhector_gazebo_ros_gps.so[0m
+[73.267s] [ 63%] Built target hector_gazebo_ros_gps
+[73.276s] [ 65%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[73.504s] [ 67%] [32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hector_gazebo_plugins/srv/detail/set_bias__type_support.cpp.o[0m
+[73.764s] [ 69%] [32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.cpp.o[0m
+[74.017s] [ 71%] [32m[1mLinking CXX shared library libhector_gazebo_plugins__rosidl_typesupport_introspection_cpp.so[0m
+[74.067s] [ 71%] Built target hector_gazebo_plugins__rosidl_typesupport_introspection_cpp
+[74.077s] [ 73%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[74.245s] [ 75%] [32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_c.dir/rosidl_typesupport_c/hector_gazebo_plugins/srv/set_bias__type_support.cpp.o[0m
+[74.273s] [ 77%] [32mBuilding CXX object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_c.dir/rosidl_typesupport_c/hector_gazebo_plugins/srv/set_reference_geo_pose__type_support.cpp.o[0m
+[74.300s] [ 79%] [32m[1mLinking CXX shared library libhector_gazebo_plugins__rosidl_typesupport_c.so[0m
+[74.334s] [ 79%] Built target hector_gazebo_plugins__rosidl_typesupport_c
+[74.351s] [ 79%] Built target hector_gazebo_plugins
+[74.368s] [ 81%] [34m[1mGenerating Python code for ROS interfaces[0m
+[74.712s] [ 81%] Built target hector_gazebo_plugins__py
+[74.740s] [ 83%] [32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_generator_py.dir/rosidl_generator_py/hector_gazebo_plugins/srv/_set_bias_s.c.o[0m
+[74.826s] [ 85%] [32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_generator_py.dir/rosidl_generator_py/hector_gazebo_plugins/srv/_set_reference_geo_pose_s.c.o[0m
+[74.911s] [ 87%] [32m[1mLinking C shared library rosidl_generator_py/hector_gazebo_plugins/libhector_gazebo_plugins__rosidl_generator_py.so[0m
+[74.948s] [ 87%] Built target hector_gazebo_plugins__rosidl_generator_py
+[74.967s] [ 89%] [32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[75.055s] [ 91%] [32m[1mLinking C shared library rosidl_generator_py/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[75.094s] [ 91%] Built target hector_gazebo_plugins__rosidl_typesupport_fastrtps_c__pyext
+[75.113s] [ 93%] [32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_c.c.o[0m
+[75.205s] [ 95%] [32m[1mLinking C shared library rosidl_generator_py/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[75.243s] [ 95%] Built target hector_gazebo_plugins__rosidl_typesupport_c__pyext
+[75.263s] [ 97%] [32mBuilding C object CMakeFiles/hector_gazebo_plugins__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[75.359s] [100%] [32m[1mLinking C shared library rosidl_generator_py/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[75.405s] [100%] Built target hector_gazebo_plugins__rosidl_typesupport_introspection_c__pyext
+[75.418s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins -- -j4 -l4
+[75.419s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins
+[75.425s] -- Install configuration: ""
+[75.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/ament_index/resource_index/rosidl_interfaces/hector_gazebo_plugins
+[75.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins
+[75.426s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv
+[75.426s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/set_bias.h
+[75.428s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail
+[75.428s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__type_support.h
+[75.428s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__struct.h
+[75.428s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__struct.h
+[75.429s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__functions.h
+[75.429s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__functions.h
+[75.429s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__functions.c
+[75.429s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__functions.c
+[75.429s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.h
+[75.429s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/set_reference_geo_pose.h
+[75.429s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg
+[75.429s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg/rosidl_generator_c__visibility_control.h
+[75.429s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/library_path.sh
+[75.429s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/library_path.dsv
+[75.429s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_generator_c.so
+[75.431s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_generator_c.so" to ""
+[75.431s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins
+[75.431s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv
+[75.431s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail
+[75.432s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__rosidl_typesupport_fastrtps_c.h
+[75.432s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__rosidl_typesupport_fastrtps_c.h
+[75.432s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg
+[75.432s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[75.433s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_fastrtps_c.so
+[75.434s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_fastrtps_c.so" to ""
+[75.434s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins
+[75.435s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv
+[75.435s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail
+[75.435s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__struct.hpp
+[75.435s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__traits.hpp
+[75.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__type_support.hpp
+[75.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.hpp
+[75.437s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__traits.hpp
+[75.438s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__builder.hpp
+[75.438s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__builder.hpp
+[75.438s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__struct.hpp
+[75.438s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/set_reference_geo_pose.hpp
+[75.438s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/set_bias.hpp
+[75.438s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg
+[75.438s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg/rosidl_generator_cpp__visibility_control.hpp
+[75.438s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins
+[75.438s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv
+[75.438s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail
+[75.438s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/dds_fastrtps
+[75.439s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__rosidl_typesupport_fastrtps_cpp.hpp
+[75.439s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__rosidl_typesupport_fastrtps_cpp.hpp
+[75.439s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg
+[75.439s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[75.439s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp.so
+[75.447s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_fastrtps_cpp.so" to ""
+[75.447s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins
+[75.447s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv
+[75.448s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail
+[75.448s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.c
+[75.448s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__type_support.c
+[75.448s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__rosidl_typesupport_introspection_c.h
+[75.448s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__rosidl_typesupport_introspection_c.h
+[75.448s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg
+[75.448s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[75.448s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_introspection_c.so
+[75.448s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_introspection_c.so" to ""
+[75.448s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_c.so
+[75.448s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_c.so" to ""
+[75.448s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins
+[75.448s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv
+[75.448s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail
+[75.448s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__type_support.cpp
+[75.448s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__rosidl_typesupport_introspection_cpp.hpp
+[75.448s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_bias__rosidl_typesupport_introspection_cpp.hpp
+[75.452s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/hector_gazebo_plugins/hector_gazebo_plugins/srv/detail/set_reference_geo_pose__type_support.cpp
+[75.452s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_introspection_cpp.so
+[75.452s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_introspection_cpp.so" to ""
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_cpp.so
+[75.453s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_typesupport_cpp.so" to ""
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/pythonpath.sh
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/pythonpath.dsv
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins-0.5.4-py3.10.egg-info
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins-0.5.4-py3.10.egg-info/PKG-INFO
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins-0.5.4-py3.10.egg-info/top_level.txt
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins-0.5.4-py3.10.egg-info/dependency_links.txt
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins-0.5.4-py3.10.egg-info/SOURCES.txt
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_fastrtps_c.c
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/__init__.py
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_bias_s.c
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_reference_geo_pose_s.c
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_bias.py
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_reference_geo_pose.py
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/__init__.py
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_introspection_c.c
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/_hector_gazebo_plugins_s.ep.rosidl_typesupport_c.c
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/libhector_gazebo_plugins__rosidl_generator_py.so
+[75.453s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[75.476s] Listing '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins'...
+[75.476s] Compiling '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/__init__.py'...
+[75.476s] Listing '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv'...
+[75.476s] Compiling '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/__init__.py'...
+[75.476s] Compiling '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_bias.py'...
+[75.476s] Compiling '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/srv/_set_reference_geo_pose.py'...
+[75.481s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[75.481s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[75.481s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[75.482s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[75.482s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[75.482s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/local/lib/python3.10/dist-packages/hector_gazebo_plugins/hector_gazebo_plugins_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[75.483s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_generator_py.so
+[75.483s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_plugins__rosidl_generator_py.so" to ""
+[75.483s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetBias.idl
+[75.483s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetReferenceGeoPose.idl
+[75.485s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetBias.srv
+[75.485s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetBias_Request.msg
+[75.485s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetBias_Response.msg
+[75.485s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetReferenceGeoPose.srv
+[75.485s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetReferenceGeoPose_Request.msg
+[75.485s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/srv/SetReferenceGeoPose_Response.msg
+[75.485s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/gazebo_ros_magnetic.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/diffdrive_plugin_multi_wheel.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/sensor_model.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/gazebo_ros_imu.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/diffdrive_plugin_6w.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/gazebo_ros_sonar.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/reset_plugin.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/gazebo_ros_gps.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/update_timer.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/gnss_config.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/gazebo_ros_force_based_move.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/include/servo_plugin.h
+[75.486s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_reset_plugin.so
+[75.489s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_reset_plugin.so" to ""
+[75.489s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_imu.so
+[75.494s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_imu.so" to ""
+[75.494s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_magnetic.so
+[75.500s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_magnetic.so" to ""
+[75.500s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_gps.so
+[75.501s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_gps.so" to ""
+[75.501s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_sonar.so
+[75.505s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/libhector_gazebo_ros_sonar.so" to ""
+[75.505s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/ament_index/resource_index/package_run_dependencies/hector_gazebo_plugins
+[75.505s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/ament_index/resource_index/parent_prefix_path/hector_gazebo_plugins
+[75.505s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/ament_prefix_path.sh
+[75.505s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/ament_prefix_path.dsv
+[75.505s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/path.sh
+[75.505s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/environment/path.dsv
+[75.505s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/local_setup.bash
+[75.505s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/local_setup.sh
+[75.505s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/local_setup.zsh
+[75.505s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/local_setup.dsv
+[75.505s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.dsv
+[75.507s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/ament_index/resource_index/packages/hector_gazebo_plugins
+[75.507s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_generator_cExport.cmake
+[75.507s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_generator_cExport-noconfig.cmake
+[75.507s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_typesupport_fastrtps_cExport.cmake
+[75.507s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[75.507s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_generator_cppExport.cmake
+[75.507s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_typesupport_fastrtps_cppExport.cmake
+[75.507s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[75.507s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_introspection_cExport.cmake
+[75.507s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[75.507s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_cExport.cmake
+[75.508s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_cExport-noconfig.cmake
+[75.508s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_introspection_cppExport.cmake
+[75.508s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[75.508s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_cppExport.cmake
+[75.508s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_plugins__rosidl_typesupport_cppExport-noconfig.cmake
+[75.508s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_generator_pyExport.cmake
+[75.508s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/export_hector_gazebo_plugins__rosidl_generator_pyExport-noconfig.cmake
+[75.508s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/rosidl_cmake-extras.cmake
+[75.510s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/ament_cmake_export_dependencies-extras.cmake
+[75.510s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/ament_cmake_export_include_directories-extras.cmake
+[75.510s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/ament_cmake_export_libraries-extras.cmake
+[75.510s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/ament_cmake_export_targets-extras.cmake
+[75.510s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[75.510s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[75.510s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_pluginsConfig.cmake
+[75.510s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/cmake/hector_gazebo_pluginsConfig-version.cmake
+[75.510s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.xml
+[75.512s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins

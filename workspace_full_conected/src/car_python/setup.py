@@ -41,6 +41,7 @@ setup(
             'scan_to_cloud = car.laser_scan:main',
             'filter_points_cloud = car.filter_points_cloud:main',
             'view_point_and_click = car.view_point_and_click:main',
+            'frontier_view = car.frontier:main',
         ],
     },
 )

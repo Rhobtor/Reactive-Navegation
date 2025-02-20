@@ -1,0 +1,68 @@
+[0.209s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4
+[0.289s] [35m[1mConsolidate compiler generated dependencies of target frontier_nodes[0m
+[0.290s] [  5%] Built target navigation_nodes
+[0.318s] [  8%] [32mBuilding CXX object CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o[0m
+[0.338s] [ 34%] Built target car_cpp
+[0.375s] [ 40%] Built target ground_remove
+[0.408s] [ 45%] Built target camera_filter
+[0.428s] [ 51%] Built target map_measure
+[0.477s] [ 57%] Built target testo
+[0.515s] [ 62%] Built target check_map
+[0.566s] [ 68%] Built target path_planner_node
+[0.614s] [ 74%] Built target control_plugin
+[0.680s] [ 80%] Built target joints_plugin
+[0.767s] [ 85%] Built target drive_plugin
+[0.798s] [ 91%] Built target driver_plugin
+[0.880s] [ 97%] Built target odometry_plugin
+[6.458s] [100%] [32m[1mLinking CXX executable frontier_nodes[0m
+[7.104s] [100%] Built target frontier_nodes
+[7.114s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4
+[7.115s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp
+[7.121s] -- Install configuration: ""
+[7.121s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/car_cpp
+[7.121s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/navigation_nodes
+[7.121s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/frontier_nodes
+[7.125s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/frontier_nodes" to ""
+[7.125s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/ground_remove
+[7.126s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/camera_filter
+[7.126s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/map_measure
+[7.126s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/testo
+[7.126s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/check_map
+[7.127s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/path_planner_node
+[7.127s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libcontrol_plugin.so
+[7.127s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libdrive_plugin.so
+[7.127s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libjoints_plugin.so
+[7.128s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libdriver_plugin.so
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libodometry_plugin.so
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include/
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//visualization.hpp
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//utilities.hpp
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//move_ros.hpp
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//motion.hpp
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//control_plugin.hpp
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//obstacle_detection.hpp
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//odometria.hpp
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include/
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//visualization.hpp
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//utilities.hpp
+[7.129s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//move_ros.hpp
+[7.130s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//motion.hpp
+[7.130s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//control_plugin.hpp
+[7.130s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//obstacle_detection.hpp
+[7.130s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//odometria.hpp
+[7.130s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/ament_index/resource_index/package_run_dependencies/car_cpp
+[7.130s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/ament_index/resource_index/parent_prefix_path/car_cpp
+[7.130s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/ament_prefix_path.sh
+[7.130s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/ament_prefix_path.dsv
+[7.130s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/path.sh
+[7.130s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/path.dsv
+[7.131s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.bash
+[7.131s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.sh
+[7.131s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.zsh
+[7.131s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.dsv
+[7.132s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.dsv
+[7.132s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/ament_index/resource_index/packages/car_cpp
+[7.132s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/cmake/car_cppConfig.cmake
+[7.132s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/cmake/car_cppConfig-version.cmake
+[7.132s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.xml
+[7.132s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp

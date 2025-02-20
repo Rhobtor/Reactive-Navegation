@@ -3,6 +3,7 @@ camara_time_node = car.camara_time:main
 debug_node = car.debugtf:main
 ekf_node = car.ekf_node:main
 filter_points_cloud = car.filter_points_cloud:main
+frontier_view = car.frontier:main
 joystick_control = car.joystick_control:main
 keyboard_control = car.keyboard_control:main
 log_joystick = car.log_joystick:main

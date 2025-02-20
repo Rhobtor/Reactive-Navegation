@@ -1,0 +1,26 @@
+[35m[1mConsolidate compiler generated dependencies of target frontier_nodes[0m
+[35m[1mConsolidate compiler generated dependencies of target ground_remove[0m
+[  5%] Built target ground_remove
+[ 11%] Built target navigation_nodes
+[ 14%] [32mBuilding CXX object CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o[0m
+[ 40%] Built target car_cpp
+[ 45%] Built target map_measure
+[ 51%] Built target testo
+[ 57%] Built target camera_filter
+[ 62%] Built target path_planner_node
+[ 68%] Built target check_map
+[ 74%] Built target joints_plugin
+[ 80%] Built target control_plugin
+[ 85%] Built target drive_plugin
+[ 91%] Built target driver_plugin
+[ 97%] Built target odometry_plugin
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:[m[K In member function ‘[01m[Kvoid FrontierDetectionNode::octomapCallback(octomap_msgs::msg::Octomap_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:43:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kmetric_max[m[K’ was not declared in this scope
+   43 |     int grid_width = std::ceil(([01;31m[Kmetric_max[m[K.x() - metric_min.x()) / grid_res);
+      |                                 [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:43:50:[m[K [01;31m[Kerror: [m[K‘[01m[Kmetric_min[m[K’ was not declared in this scope
+   43 |     int grid_width = std::ceil((metric_max.x() - [01;31m[Kmetric_min[m[K.x()) / grid_res);
+      |                                                  [01;31m[K^~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/frontier_nodes.dir/build.make:76: CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:215: CMakeFiles/frontier_nodes.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

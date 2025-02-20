@@ -6,6 +6,7 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__init__.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/ekf_node.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/map.py
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/frontier.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/log_joystick.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/laser_scan.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/camara_time.py
@@ -19,6 +20,7 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/__init__.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/ekf_node.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/map.cpython-310.pyc
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/frontier.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/log_joystick.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/laser_scan.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/camara_time.cpython-310.pyc
@@ -73,6 +75,8 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes/tire_front_left_1.stl
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes/suspension_back_left_1.stl
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config/ekf_params.yaml
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config/twist_mux.yaml
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config/nav2.yaml
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config/diff_drive_controller.yaml
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config/mapper_params_online_async.yaml
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config/display.rviz
@@ -91,6 +95,7 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/debug_node
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/ekf_node
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/filter_points_cloud
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/frontier_view
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/joystick_control
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/keyboard_control
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/log_joystick

@@ -211,17 +211,56 @@ car_cpp/fast:
 .PHONY : car_cpp/fast
 
 #=============================================================================
-# Target rules for targets named view_nodes
+# Target rules for targets named navigation_nodes
 
 # Build rule for target.
-view_nodes: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 view_nodes
-.PHONY : view_nodes
+navigation_nodes: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 navigation_nodes
+.PHONY : navigation_nodes
 
 # fast build rule for target.
-view_nodes/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/view_nodes.dir/build.make CMakeFiles/view_nodes.dir/build
-.PHONY : view_nodes/fast
+navigation_nodes/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation_nodes.dir/build.make CMakeFiles/navigation_nodes.dir/build
+.PHONY : navigation_nodes/fast
+
+#=============================================================================
+# Target rules for targets named frontier_nodes
+
+# Build rule for target.
+frontier_nodes: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 frontier_nodes
+.PHONY : frontier_nodes
+
+# fast build rule for target.
+frontier_nodes/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_nodes.dir/build.make CMakeFiles/frontier_nodes.dir/build
+.PHONY : frontier_nodes/fast
+
+#=============================================================================
+# Target rules for targets named ground_remove
+
+# Build rule for target.
+ground_remove: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ground_remove
+.PHONY : ground_remove
+
+# fast build rule for target.
+ground_remove/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ground_remove.dir/build.make CMakeFiles/ground_remove.dir/build
+.PHONY : ground_remove/fast
+
+#=============================================================================
+# Target rules for targets named camera_filter
+
+# Build rule for target.
+camera_filter: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 camera_filter
+.PHONY : camera_filter
+
+# fast build rule for target.
+camera_filter/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_filter.dir/build.make CMakeFiles/camera_filter.dir/build
+.PHONY : camera_filter/fast
 
 #=============================================================================
 # Target rules for targets named map_measure
@@ -340,6 +379,30 @@ odometry_plugin/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/odometry_plugin.dir/build.make CMakeFiles/odometry_plugin.dir/build
 .PHONY : odometry_plugin/fast
 
+src/camera_filter.o: src/camera_filter.cpp.o
+.PHONY : src/camera_filter.o
+
+# target to build an object file
+src/camera_filter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_filter.dir/build.make CMakeFiles/camera_filter.dir/src/camera_filter.cpp.o
+.PHONY : src/camera_filter.cpp.o
+
+src/camera_filter.i: src/camera_filter.cpp.i
+.PHONY : src/camera_filter.i
+
+# target to preprocess a source file
+src/camera_filter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_filter.dir/build.make CMakeFiles/camera_filter.dir/src/camera_filter.cpp.i
+.PHONY : src/camera_filter.cpp.i
+
+src/camera_filter.s: src/camera_filter.cpp.s
+.PHONY : src/camera_filter.s
+
+# target to generate assembly for a file
+src/camera_filter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_filter.dir/build.make CMakeFiles/camera_filter.dir/src/camera_filter.cpp.s
+.PHONY : src/camera_filter.cpp.s
+
 src/check_map.o: src/check_map.cpp.o
 .PHONY : src/check_map.o
 
@@ -417,6 +480,54 @@ src/diffdrive_plugin_multi_wheel.s: src/diffdrive_plugin_multi_wheel.cpp.s
 src/diffdrive_plugin_multi_wheel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drive_plugin.dir/build.make CMakeFiles/drive_plugin.dir/src/diffdrive_plugin_multi_wheel.cpp.s
 .PHONY : src/diffdrive_plugin_multi_wheel.cpp.s
+
+src/frontier_nodes.o: src/frontier_nodes.cpp.o
+.PHONY : src/frontier_nodes.o
+
+# target to build an object file
+src/frontier_nodes.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_nodes.dir/build.make CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o
+.PHONY : src/frontier_nodes.cpp.o
+
+src/frontier_nodes.i: src/frontier_nodes.cpp.i
+.PHONY : src/frontier_nodes.i
+
+# target to preprocess a source file
+src/frontier_nodes.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_nodes.dir/build.make CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.i
+.PHONY : src/frontier_nodes.cpp.i
+
+src/frontier_nodes.s: src/frontier_nodes.cpp.s
+.PHONY : src/frontier_nodes.s
+
+# target to generate assembly for a file
+src/frontier_nodes.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_nodes.dir/build.make CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.s
+.PHONY : src/frontier_nodes.cpp.s
+
+src/ground_remove.o: src/ground_remove.cpp.o
+.PHONY : src/ground_remove.o
+
+# target to build an object file
+src/ground_remove.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ground_remove.dir/build.make CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o
+.PHONY : src/ground_remove.cpp.o
+
+src/ground_remove.i: src/ground_remove.cpp.i
+.PHONY : src/ground_remove.i
+
+# target to preprocess a source file
+src/ground_remove.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ground_remove.dir/build.make CMakeFiles/ground_remove.dir/src/ground_remove.cpp.i
+.PHONY : src/ground_remove.cpp.i
+
+src/ground_remove.s: src/ground_remove.cpp.s
+.PHONY : src/ground_remove.s
+
+# target to generate assembly for a file
+src/ground_remove.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ground_remove.dir/build.make CMakeFiles/ground_remove.dir/src/ground_remove.cpp.s
+.PHONY : src/ground_remove.cpp.s
 
 src/joints.o: src/joints.cpp.o
 .PHONY : src/joints.o
@@ -537,6 +648,30 @@ src/move_ros.s: src/move_ros.cpp.s
 src/move_ros.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/car_cpp.dir/build.make CMakeFiles/car_cpp.dir/src/move_ros.cpp.s
 .PHONY : src/move_ros.cpp.s
+
+src/navigation_nodes.o: src/navigation_nodes.cpp.o
+.PHONY : src/navigation_nodes.o
+
+# target to build an object file
+src/navigation_nodes.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation_nodes.dir/build.make CMakeFiles/navigation_nodes.dir/src/navigation_nodes.cpp.o
+.PHONY : src/navigation_nodes.cpp.o
+
+src/navigation_nodes.i: src/navigation_nodes.cpp.i
+.PHONY : src/navigation_nodes.i
+
+# target to preprocess a source file
+src/navigation_nodes.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation_nodes.dir/build.make CMakeFiles/navigation_nodes.dir/src/navigation_nodes.cpp.i
+.PHONY : src/navigation_nodes.cpp.i
+
+src/navigation_nodes.s: src/navigation_nodes.cpp.s
+.PHONY : src/navigation_nodes.s
+
+# target to generate assembly for a file
+src/navigation_nodes.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation_nodes.dir/build.make CMakeFiles/navigation_nodes.dir/src/navigation_nodes.cpp.s
+.PHONY : src/navigation_nodes.cpp.s
 
 src/obstacle_detection.o: src/obstacle_detection.cpp.o
 .PHONY : src/obstacle_detection.o
@@ -682,30 +817,6 @@ src/utilities.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/car_cpp.dir/build.make CMakeFiles/car_cpp.dir/src/utilities.cpp.s
 .PHONY : src/utilities.cpp.s
 
-src/view_nodes.o: src/view_nodes.cpp.o
-.PHONY : src/view_nodes.o
-
-# target to build an object file
-src/view_nodes.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/view_nodes.dir/build.make CMakeFiles/view_nodes.dir/src/view_nodes.cpp.o
-.PHONY : src/view_nodes.cpp.o
-
-src/view_nodes.i: src/view_nodes.cpp.i
-.PHONY : src/view_nodes.i
-
-# target to preprocess a source file
-src/view_nodes.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/view_nodes.dir/build.make CMakeFiles/view_nodes.dir/src/view_nodes.cpp.i
-.PHONY : src/view_nodes.cpp.i
-
-src/view_nodes.s: src/view_nodes.cpp.s
-.PHONY : src/view_nodes.s
-
-# target to generate assembly for a file
-src/view_nodes.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/view_nodes.dir/build.make CMakeFiles/view_nodes.dir/src/view_nodes.cpp.s
-.PHONY : src/view_nodes.cpp.s
-
 src/visualization.o: src/visualization.cpp.o
 .PHONY : src/visualization.o
 
@@ -745,17 +856,23 @@ help:
 	@echo "... test"
 	@echo "... car_cpp_uninstall"
 	@echo "... uninstall"
+	@echo "... camera_filter"
 	@echo "... car_cpp"
 	@echo "... check_map"
 	@echo "... control_plugin"
 	@echo "... drive_plugin"
 	@echo "... driver_plugin"
+	@echo "... frontier_nodes"
+	@echo "... ground_remove"
 	@echo "... joints_plugin"
 	@echo "... map_measure"
+	@echo "... navigation_nodes"
 	@echo "... odometry_plugin"
 	@echo "... path_planner_node"
 	@echo "... testo"
-	@echo "... view_nodes"
+	@echo "... src/camera_filter.o"
+	@echo "... src/camera_filter.i"
+	@echo "... src/camera_filter.s"
 	@echo "... src/check_map.o"
 	@echo "... src/check_map.i"
 	@echo "... src/check_map.s"
@@ -765,6 +882,12 @@ help:
 	@echo "... src/diffdrive_plugin_multi_wheel.o"
 	@echo "... src/diffdrive_plugin_multi_wheel.i"
 	@echo "... src/diffdrive_plugin_multi_wheel.s"
+	@echo "... src/frontier_nodes.o"
+	@echo "... src/frontier_nodes.i"
+	@echo "... src/frontier_nodes.s"
+	@echo "... src/ground_remove.o"
+	@echo "... src/ground_remove.i"
+	@echo "... src/ground_remove.s"
 	@echo "... src/joints.o"
 	@echo "... src/joints.i"
 	@echo "... src/joints.s"
@@ -780,6 +903,9 @@ help:
 	@echo "... src/move_ros.o"
 	@echo "... src/move_ros.i"
 	@echo "... src/move_ros.s"
+	@echo "... src/navigation_nodes.o"
+	@echo "... src/navigation_nodes.i"
+	@echo "... src/navigation_nodes.s"
 	@echo "... src/obstacle_detection.o"
 	@echo "... src/obstacle_detection.i"
 	@echo "... src/obstacle_detection.s"
@@ -798,9 +924,6 @@ help:
 	@echo "... src/utilities.o"
 	@echo "... src/utilities.i"
 	@echo "... src/utilities.s"
-	@echo "... src/view_nodes.o"
-	@echo "... src/view_nodes.i"
-	@echo "... src/view_nodes.s"
 	@echo "... src/visualization.o"
 	@echo "... src/visualization.i"
 	@echo "... src/visualization.s"

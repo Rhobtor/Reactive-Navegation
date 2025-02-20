@@ -1,0 +1,63 @@
+[0.216s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4
+[0.288s] [35m[1mConsolidate compiler generated dependencies of target frontier_nodes[0m
+[0.289s] [35m[1mConsolidate compiler generated dependencies of target ground_remove[0m
+[0.302s] [  5%] Built target navigation_nodes
+[0.312s] [ 31%] Built target car_cpp
+[0.337s] [ 34%] [32mBuilding CXX object CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o[0m
+[0.365s] [ 37%] [32mBuilding CXX object CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o[0m
+[0.379s] [ 42%] Built target camera_filter
+[0.412s] [ 48%] Built target map_measure
+[0.537s] [ 54%] Built target testo
+[0.551s] [ 60%] Built target check_map
+[0.645s] [ 65%] Built target path_planner_node
+[0.700s] [ 71%] Built target control_plugin
+[0.717s] [ 77%] Built target joints_plugin
+[0.812s] [ 82%] Built target drive_plugin
+[0.832s] [ 88%] Built target driver_plugin
+[0.887s] [ 94%] Built target odometry_plugin
+[1.143s] In file included from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/ground_remove.cpp:11[m[K:
+[1.143s] [01m[K/opt/ros/humble/include/tf2_geometry_msgs/tf2_geometry_msgs/tf2_geometry_msgs.h:35:2:[m[K [01;35m[Kwarning: [m[K#warning This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcpp-Wcpp]8;;[m[K]
+[1.143s]    35 | #[01;35m[Kwarning[m[K This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead
+[1.143s]       |  [01;35m[K^~~~~~~[m[K
+[2.965s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:[m[K In member function ‘[01m[Kvoid FrontierDetectionNode::octomapCallback(octomap_msgs::msg::Octomap_<std::allocator<void> >::SharedPtr)[m[K’:
+[2.965s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:33:53:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Koctomap::OcTree::getMetricMin()[m[K’
+[2.965s]    33 |     octomap::point3d metric_min = [01;31m[Ktree->getMetricMin()[m[K;
+[2.965s]       |                                   [01;31m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[2.965s] In file included from [01m[K/opt/ros/humble/include/octomap/OcTreeBaseImpl.h:573[m[K,
+[2.965s]                  from [01m[K/opt/ros/humble/include/octomap/OccupancyOcTreeBase.h:44[m[K,
+[2.965s]                  from [01m[K/opt/ros/humble/include/octomap/OcTree.h:38[m[K,
+[2.965s]                  from [01m[K/opt/ros/humble/include/octomap/octomap.h:37[m[K,
+[2.966s]                  from [01m[K/opt/ros/humble/include/octomap_msgs/octomap_msgs/conversions.h:41[m[K,
+[2.966s]                  from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:3[m[K:
+[2.966s] [01m[K/opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:942:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid octomap::OcTreeBaseImpl<NODE, INTERFACE>::getMetricMin(double&, double&, double&) [with NODE = octomap::OcTreeNode; INTERFACE = octomap::AbstractOccupancyOcTree][m[K’
+[2.966s]   942 |   void [01;36m[KOcTreeBaseImpl<NODE,I>[m[K::getMetricMin(double& x, double& y, double& z){
+[2.966s]       |        [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.966s] [01m[K/opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:942:8:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 0 provided
+[2.966s] [01m[K/opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:960:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid octomap::OcTreeBaseImpl<NODE, INTERFACE>::getMetricMin(double&, double&, double&) const [with NODE = octomap::OcTreeNode; INTERFACE = octomap::AbstractOccupancyOcTree][m[K’
+[2.966s]   960 |   void [01;36m[KOcTreeBaseImpl<NODE,I>[m[K::getMetricMin(double& mx, double& my, double& mz) const {
+[2.966s]       |        [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.966s] [01m[K/opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:960:8:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 0 provided
+[2.966s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:34:53:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Koctomap::OcTree::getMetricMax()[m[K’
+[2.966s]    34 |     octomap::point3d metric_max = [01;31m[Ktree->getMetricMax()[m[K;
+[2.966s]       |                                   [01;31m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[2.966s] In file included from [01m[K/opt/ros/humble/include/octomap/OcTreeBaseImpl.h:573[m[K,
+[2.966s]                  from [01m[K/opt/ros/humble/include/octomap/OccupancyOcTreeBase.h:44[m[K,
+[2.966s]                  from [01m[K/opt/ros/humble/include/octomap/OcTree.h:38[m[K,
+[2.966s]                  from [01m[K/opt/ros/humble/include/octomap/octomap.h:37[m[K,
+[2.966s]                  from [01m[K/opt/ros/humble/include/octomap_msgs/octomap_msgs/conversions.h:41[m[K,
+[2.966s]                  from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:3[m[K:
+[2.966s] [01m[K/opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:950:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid octomap::OcTreeBaseImpl<NODE, INTERFACE>::getMetricMax(double&, double&, double&) [with NODE = octomap::OcTreeNode; INTERFACE = octomap::AbstractOccupancyOcTree][m[K’
+[2.966s]   950 |   void [01;36m[KOcTreeBaseImpl<NODE,I>[m[K::getMetricMax(double& x, double& y, double& z){
+[2.966s]       |        [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.966s] [01m[K/opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:950:8:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 0 provided
+[2.969s] [01m[K/opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:988:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid octomap::OcTreeBaseImpl<NODE, INTERFACE>::getMetricMax(double&, double&, double&) const [with NODE = octomap::OcTreeNode; INTERFACE = octomap::AbstractOccupancyOcTree][m[K’
+[2.970s]   988 |   void [01;36m[KOcTreeBaseImpl<NODE,I>[m[K::getMetricMax(double& mx, double& my, double& mz) const {
+[2.970s]       |        [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.970s] [01m[K/opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:988:8:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 0 provided
+[5.003s] gmake[2]: *** [CMakeFiles/frontier_nodes.dir/build.make:76: CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o] Error 1
+[5.003s] gmake[1]: *** [CMakeFiles/Makefile2:215: CMakeFiles/frontier_nodes.dir/all] Error 2
+[5.003s] gmake[1]: *** Waiting for unfinished jobs....
+[7.323s] [ 97%] [32m[1mLinking CXX executable ground_remove[0m
+[7.985s] [ 97%] Built target ground_remove
+[7.986s] gmake: *** [Makefile:146: all] Error 2
+[7.988s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4

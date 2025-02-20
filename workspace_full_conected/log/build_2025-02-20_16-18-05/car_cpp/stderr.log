@@ -1,0 +1,7 @@
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/ground_remove.cpp:[m[K In member function ‘[01m[Kvoid OctomapGroundFilter::octomapCallback(octomap_msgs::msg::Octomap_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/ground_remove.cpp:35:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass octomap::OcTree[m[K’ has no member named ‘[01m[Klogodds_free[m[K’
+   35 |         it->setLogOdds(tree->[01;31m[Klogodds_free[m[K);
+      |                              [01;31m[K^~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/ground_remove.dir/build.make:76: CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:239: CMakeFiles/ground_remove.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

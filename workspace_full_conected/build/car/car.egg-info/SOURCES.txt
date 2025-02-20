@@ -13,6 +13,7 @@ car/camara_time.py
 car/debugtf.py
 car/ekf_node.py
 car/filter_points_cloud.py
+car/frontier.py
 car/joystick_control.py
 car/keyboard_control.py
 car/laser_scan.py
@@ -27,7 +28,9 @@ config/drive_controller.yaml
 config/ekf_params.yaml
 config/gaz_ros2_ctl_use_sim.yaml
 config/mapper_params_online_async.yaml
+config/nav2.yaml
 config/slam.yaml
+config/twist_mux.yaml
 launch/control.launch.py
 launch/control_with_gazebo.launch.py
 launch/display.launch.py

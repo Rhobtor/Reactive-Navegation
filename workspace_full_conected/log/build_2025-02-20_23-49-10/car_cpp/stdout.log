@@ -1,0 +1,15 @@
+[35m[1mConsolidate compiler generated dependencies of target frontier_nodes[0m
+[  5%] Built target navigation_nodes
+[ 11%] Built target ground_remove
+[ 37%] Built target car_cpp
+[ 40%] [32mBuilding CXX object CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o[0m
+[ 45%] Built target testo
+[ 51%] Built target camera_filter
+[ 57%] Built target map_measure
+[ 62%] Built target check_map
+[ 68%] Built target path_planner_node
+[ 74%] Built target joints_plugin
+[ 80%] Built target control_plugin
+[ 85%] Built target drive_plugin
+[ 91%] Built target odometry_plugin
+[ 97%] Built target driver_plugin

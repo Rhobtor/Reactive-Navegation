@@ -2,6 +2,7 @@
     "cmake.ignoreCMakeListsMissing": true,
     "git.ignoreLimitWarning": true,
     "files.associations": {
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "functional": "cpp"
     }
 }

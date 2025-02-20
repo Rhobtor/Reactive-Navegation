@@ -1,0 +1,34 @@
+[0.795s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python': PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build install --record /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log --single-version-externally-managed install_data
+[0.966s] running egg_info
+[0.966s] writing ../../build/car/car.egg-info/PKG-INFO
+[0.967s] writing dependency_links to ../../build/car/car.egg-info/dependency_links.txt
+[0.967s] writing entry points to ../../build/car/car.egg-info/entry_points.txt
+[0.967s] writing requirements to ../../build/car/car.egg-info/requires.txt
+[0.967s] writing top-level names to ../../build/car/car.egg-info/top_level.txt
+[0.968s] reading manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[0.970s] writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[0.971s] running build
+[0.971s] running build_py
+[0.972s] running install
+[0.972s] running install_lib
+[0.979s] running install_data
+[0.984s] copying launch/gazebo_mountain.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[0.984s] running install_egg_info
+[0.984s] removing '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info' (and everything under it)
+[0.984s] Copying ../../build/car/car.egg-info to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info
+[0.984s] running install_scripts
+[0.997s] Installing camara_time_node script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.998s] Installing debug_node script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.998s] Installing ekf_node script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.998s] Installing filter_points_cloud script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.998s] Installing frontier_view script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.998s] Installing joystick_control script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.998s] Installing keyboard_control script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.998s] Installing log_joystick script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.998s] Installing map script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.998s] Installing octomap_2d_display script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.998s] Installing odometry_node script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.000s] Installing scan_to_cloud script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.000s] Installing view_point_and_click script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.000s] writing list of installed files to '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log'
+[1.037s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python' returned '0': PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build install --record /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log --single-version-externally-managed install_data

@@ -1,0 +1,10 @@
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:[m[K In member function ‘[01m[Kvoid FrontierDetectionNode::octomapCallback(octomap_msgs::msg::Octomap_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:43:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kmetric_max[m[K’ was not declared in this scope
+   43 |     int grid_width = std::ceil(([01;31m[Kmetric_max[m[K.x() - metric_min.x()) / grid_res);
+      |                                 [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontier_nodes.cpp:43:50:[m[K [01;31m[Kerror: [m[K‘[01m[Kmetric_min[m[K’ was not declared in this scope
+   43 |     int grid_width = std::ceil((metric_max.x() - [01;31m[Kmetric_min[m[K.x()) / grid_res);
+      |                                                  [01;31m[K^~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/frontier_nodes.dir/build.make:76: CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:215: CMakeFiles/frontier_nodes.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
