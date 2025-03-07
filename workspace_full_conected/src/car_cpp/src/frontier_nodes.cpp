@@ -2,6 +2,8 @@
 #include <nav_msgs/msg/occupancy_grid.hpp>
 #include <visualization_msgs/msg/marker.hpp>
 #include <geometry_msgs/msg/point.hpp>
+#include <geometry_msgs/msg/pose_array.hpp>
+#include <geometry_msgs/msg/pose.hpp>
 #include <vector>
 #include <cmath>
 
@@ -17,6 +19,8 @@ public:
     );
     // Publicador para los marcadores que representan la frontera
     marker_pub_ = this->create_publisher<visualization_msgs::msg::Marker>("frontier_marker", 10);
+    // Publicador para las coordenadas de los puntos frontera (lista de poses)
+    frontier_points_pub_ = this->create_publisher<geometry_msgs::msg::PoseArray>("frontier_points", 10);
 
     RCLCPP_INFO(this->get_logger(), "Nodo de frontera basado en projected_map iniciado.");
   }
@@ -69,7 +73,7 @@ private:
 
     // Crear el marcador de tipo SPHERE_LIST para visualizar la frontera
     visualization_msgs::msg::Marker marker;
-    marker.header.frame_id = msg->header.frame_id;  // Debe ser el mismo frame del mapa, normalmente \"map\"
+    marker.header.frame_id = msg->header.frame_id;  // Debe ser el mismo frame del mapa, normalmente "map"
     marker.header.stamp = this->now();
     marker.ns = "frontier_boundary";
     marker.id = 0;
@@ -90,11 +94,29 @@ private:
     marker.points = frontier_points;
 
     marker_pub_->publish(marker);
-    RCLCPP_INFO(this->get_logger(), "Puntos de frontera publicados: %zu", frontier_points.size());
+    RCLCPP_INFO(this->get_logger(), "Puntos de frontera publicados en marcador: %zu", frontier_points.size());
+
+    // Crear y publicar un PoseArray con las coordenadas de los puntos frontera
+    geometry_msgs::msg::PoseArray frontier_poses;
+    frontier_poses.header = msg->header;  // Usamos el mismo header del mapa (frame y timestamp)
+    for (const auto &pt : frontier_points) {
+      geometry_msgs::msg::Pose pose;
+      pose.position = pt;
+      // Orientación nula (identidad) ya que solo interesa la posición
+      pose.orientation.w = 1.0;
+      pose.orientation.x = 0.0;
+      pose.orientation.y = 0.0;
+      pose.orientation.z = 0.0;
+      frontier_poses.poses.push_back(pose);
+    }
+
+    frontier_points_pub_->publish(frontier_poses);
+    RCLCPP_INFO(this->get_logger(), "Puntos de frontera publicados en PoseArray: %zu", frontier_poses.poses.size());
   }
 
   rclcpp::Subscription<nav_msgs::msg::OccupancyGrid>::SharedPtr occupancy_sub_;
   rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr marker_pub_;
+  rclcpp::Publisher<geometry_msgs::msg::PoseArray>::SharedPtr frontier_points_pub_;
 };
 
 int main(int argc, char ** argv)

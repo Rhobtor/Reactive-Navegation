@@ -1,0 +1,27 @@
+[  5%] Built target navigation_nodes_ground
+[ 11%] Built target navigation_nodes
+[ 16%] Built target frontier_nodes
+[ 22%] Built target ground_remove
+[ 27%] Built target frontiers_values
+[ 33%] Built target move_navigation_nodes_frontier
+[ 38%] Built target camera_filter
+[ 44%] Built target map_measure
+[35m[1mConsolidate compiler generated dependencies of target remove_paths[0m
+[ 50%] Built target testo
+[ 52%] [32mBuilding CXX object CMakeFiles/remove_paths.dir/src/remove_paths.cpp.o[0m
+[ 58%] Built target remove_graph_obstacles
+[ 63%] Built target 2D_graph
+[ 69%] Built target check_map
+[ 75%] Built target path_planner_node
+[ 80%] Built target control_plugin
+[ 86%] Built target joints_plugin
+[ 91%] Built target drive_plugin
+[ 97%] Built target driver_plugin
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/remove_paths.cpp:[m[K In member function ‘[01m[Kvoid CollisionZoneNode::octomapCallback(octomap_msgs::msg::Octomap_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/remove_paths.cpp:37:9:[m[K [01;31m[Kerror: [m[K‘[01m[Koctree_[m[K’ was not declared in this scope; did you mean ‘[01m[Koctree[m[K’?
+   37 |         [01;31m[Koctree_[m[K = std::shared_ptr<octomap::OcTree>(
+      |         [01;31m[K^~~~~~~[m[K
+      |         [32m[Koctree[m[K
+gmake[2]: *** [CMakeFiles/remove_paths.dir/build.make:76: CMakeFiles/remove_paths.dir/src/remove_paths.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:431: CMakeFiles/remove_paths.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

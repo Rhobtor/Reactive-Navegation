@@ -4,12 +4,14 @@ debug_node = car.debugtf:main
 ekf_node = car.ekf_node:main
 filter_points_cloud = car.filter_points_cloud:main
 frontier_view = car.frontier:main
+graph = car.graph:main
 joystick_control = car.joystick_control:main
 keyboard_control = car.keyboard_control:main
 log_joystick = car.log_joystick:main
 map = car.map:main
 octomap_2d_display = car.octomap_2d_display:main
 odometry_node = car.odometry:main
+points_goal = car.points_goal:main
 scan_to_cloud = car.laser_scan:main
 view_point_and_click = car.view_point_and_click:main
 

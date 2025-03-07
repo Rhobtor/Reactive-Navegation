@@ -1,0 +1,5 @@
+ros__parameters:
+  resolution: 0.2
+  frame_id: "map"
+  sensor_model:
+    max_range: 7.0

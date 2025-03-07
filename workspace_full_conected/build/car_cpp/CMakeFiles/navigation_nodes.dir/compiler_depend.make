@@ -713,6 +713,15 @@ CMakeFiles/navigation_nodes.dir/src/navigation_nodes.cpp.o: /home/rhobtor/reacti
   /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/marker.hpp \
   /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__builder.hpp \
   /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__type_support.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_array.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__builder.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__type_support.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__builder.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__type_support.hpp \
   /opt/ros/humble/include/octomap/octomap.h \
   /opt/ros/humble/include/octomap/octomap_types.h \
   /usr/include/inttypes.h \
@@ -791,7 +800,6 @@ CMakeFiles/navigation_nodes.dir/src/navigation_nodes.cpp.o: /home/rhobtor/reacti
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__traits.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__traits.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__type_support.hpp \
-  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/velocity_stamped.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__struct.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__struct.hpp \
@@ -902,10 +910,6 @@ CMakeFiles/navigation_nodes.dir/src/navigation_nodes.cpp.o: /home/rhobtor/reacti
 
 /opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:
 
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
-
-/opt/ros/humble/include/octomap/OcTreeIterator.hxx:
-
 /usr/include/c++/11/tr1/unordered_map.h:
 
 /usr/include/c++/11/tr1/unordered_set.h:
@@ -923,8 +927,6 @@ CMakeFiles/navigation_nodes.dir/src/navigation_nodes.cpp.o: /home/rhobtor/reacti
 /opt/ros/humble/include/tf2/tf2/transform_datatypes.hpp:
 
 /usr/include/c++/11/bits/stl_stack.h:
-
-/usr/include/c++/11/bits/deque.tcc:
 
 /usr/include/c++/11/bits/stl_deque.h:
 
@@ -945,6 +947,24 @@ CMakeFiles/navigation_nodes.dir/src/navigation_nodes.cpp.o: /home/rhobtor/reacti
 /usr/include/inttypes.h:
 
 /opt/ros/humble/include/octomap/octomap.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__type_support.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__builder.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose.hpp:
+
+/opt/ros/humble/include/octomap/OcTreeIterator.hxx:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__traits.hpp:
+
+/usr/include/c++/11/bits/deque.tcc:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__builder.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_array.hpp:
 
 /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__type_support.hpp:
 
@@ -1360,6 +1380,8 @@ CMakeFiles/navigation_nodes.dir/src/navigation_nodes.cpp.o: /home/rhobtor/reacti
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__type_support.hpp:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
 
 /usr/include/c++/11/tr1/legendre_function.tcc:
@@ -1515,6 +1537,8 @@ CMakeFiles/navigation_nodes.dir/src/navigation_nodes.cpp.o: /home/rhobtor/reacti
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/intra_process_buffer_type.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__struct.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 

@@ -1,0 +1,20 @@
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/navigation_nodes_ground.cpp:[m[K In constructor ‘[01m[KGroundNavigationNodes::GroundNavigationNodes()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/navigation_nodes_ground.cpp:35:68:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K)[m[K’ token
+   35 |                 ground_z_threshold_, connection_distance_threshold_[01;31m[K)[m[K;
+      |                                                                    [01;31m[K^[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:[m[K In member function ‘[01m[Kvoid FrontierNavigator::controlLoop()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:122:73:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K)[m[K’ token
+  122 |                 distance_error, angle_error, linear_speed, angular_speed[01;31m[K)[m[K;
+      |                                                                         [01;31m[K^[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/remove_graph_obstacles.cpp:[m[K In constructor ‘[01m[KGroundFilterNode::GroundFilterNode()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/remove_graph_obstacles.cpp:50:63:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K)[m[K’ token
+   50 |                 obstacle_filter_radius_, clustering_threshold_[01;31m[K)[m[K;
+      |                                                               [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/navigation_nodes_ground.dir/build.make:76: CMakeFiles/navigation_nodes_ground.dir/src/navigation_nodes_ground.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:195: CMakeFiles/navigation_nodes_ground.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/move_navigation_nodes_frontier.dir/build.make:76: CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:299: CMakeFiles/move_navigation_nodes_frontier.dir/all] Error 2
+gmake[2]: *** [CMakeFiles/remove_graph_obstacles.dir/build.make:76: CMakeFiles/remove_graph_obstacles.dir/src/remove_graph_obstacles.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:429: CMakeFiles/remove_graph_obstacles.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

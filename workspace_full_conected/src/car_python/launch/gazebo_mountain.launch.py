@@ -22,7 +22,11 @@ def generate_launch_description():
         'worlds',
         'map1_test.world'
     ])
-
+    octomap_arg = PathJoinSubstitution([
+        FindPackageShare('car'),
+        'config',
+        'octomap.yaml'
+    ])
     # Get the car URDF by processing the xacro file
     xacro_file = os.path.join(share_dir, 'urdf', 'car.xacro')
     config_file = os.path.join(share_dir, 'config', 'ekf_params.yaml')
@@ -66,7 +70,7 @@ def generate_launch_description():
             PathJoinSubstitution([FindPackageShare('gazebo_ros'), 'launch', 'gzserver.launch.py'])
         ]),
         launch_arguments={
-            'pause': 'true',
+            'pause': 'false',
             'verbose': 'true',
             'world': world_arg
         }.items()
@@ -100,6 +104,51 @@ def generate_launch_description():
         name='filter_points_cloud',  # Nombre del nodo
     )
 
+    frontier = Node(
+        package='car_cpp',
+        executable='frontiers_values',
+        name='frontiers_values'
+    )
+
+    octomap = Node(
+        package='octomap_server',
+        executable='octomap_server_node',
+        name='octomap_server_node',
+        parameters=[octomap_arg]
+    )
+
+    map_odom_tf = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_transform_publisher',
+        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom']
+    )
+
+    navigation_nodes_ground = Node(
+        package='car_cpp',
+        executable='navigation_nodes_ground',
+        name='navigation_nodes_ground'
+    )
+
+    remove_graph_obstacles = Node(
+        package='car_cpp',
+        executable='remove_graph_obstacles',
+        name='remove_graph_obstacles'
+    )
+
+    navigation_nodes = Node(
+        package='car_cpp',
+        executable='navigation_nodes',
+        name='navigation_nodes'
+    )
+
+    move_navigation_nodes = Node(
+        package='car_cpp',
+        executable='move_navigation_nodes_frontier',
+        name='move_navigation_nodes_frontier'
+    )
+
+
     return LaunchDescription([
         # static_tf,  # Publica la transformación de 'odom' a 'map'
         # static_tf2,
@@ -108,7 +157,14 @@ def generate_launch_description():
         gazebo_server,
         gazebo_client,
         urdf_spawn_node,
-        filter_points_cloud
-        
-   
+        filter_points_cloud,
+        frontier,
+        #octomap,
+        map_odom_tf,
+        navigation_nodes_ground,
+        remove_graph_obstacles,
+        navigation_nodes,
+        #move_navigation_nodes
+
+
     ])

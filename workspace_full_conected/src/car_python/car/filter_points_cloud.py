@@ -40,13 +40,13 @@ class LidarXYAndZFilter(Node):
 
         # Define los límites de la región que ocupa el coche (en el plano xy)
         # Ajusta estos valores según las dimensiones y posición de tu modelo
-        x_min = -1.7  # límite izquierdo
-        x_max =  1.7  # límite derecho
+        x_min = -1.4  # límite izquierdo
+        x_max =  1.4  # límite derecho
         y_min = -1.0  # límite trasero
-        y_max =  1.5  # límite delantero
+        y_max =  1.4  # límite delantero
 
         # Define los límites para la coordenada z
-        z_min = -3.0  # Evita puntos muy cercanos al suelo
+        z_min = -6.0  # Evita puntos muy cercanos al suelo
         z_max = 5.0  # Evita puntos que toquen el modelo
 
         # Crea una máscara para filtrar puntos que estén DENTRO de la caja (modelo) en xy

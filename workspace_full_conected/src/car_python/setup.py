@@ -42,6 +42,8 @@ setup(
             'filter_points_cloud = car.filter_points_cloud:main',
             'view_point_and_click = car.view_point_and_click:main',
             'frontier_view = car.frontier:main',
+            'graph = car.graph:main',
+            'points_goal = car.points_goal:main',
         ],
     },
 )

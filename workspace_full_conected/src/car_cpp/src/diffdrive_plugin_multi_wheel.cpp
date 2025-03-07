@@ -290,8 +290,8 @@ void GazeboRosDiffDriveMultiWheel::FiniChild()
 void GazeboRosDiffDriveMultiWheel::getWheelVelocities()
 {
   std::lock_guard<std::mutex> guard(lock_);
-  double vr = x_;
-  double va = rot_;
+  double vr = rot_;
+  double va = x_;
   wheel_speed_[LEFT]  = vr - va * wheel_separation_ / 2.0;
   wheel_speed_[RIGHT] = vr + va * wheel_separation_ / 2.0;
 }
@@ -300,8 +300,8 @@ void GazeboRosDiffDriveMultiWheel::getWheelVelocities()
 void GazeboRosDiffDriveMultiWheel::cmdVelCallback(const geometry_msgs::msg::Twist::SharedPtr msg)
 {
   std::lock_guard<std::mutex> guard(lock_);
-  x_ = msg->linear.x;
-  rot_ = msg->angular.z;
+  x_ = -msg->linear.x;
+  rot_ = -msg->angular.z;
   // Aquí, si se desea, se puede integrar para actualizar wheel_angle_ (por ejemplo, usando: delta_distance / wheel_radius)
 }
 

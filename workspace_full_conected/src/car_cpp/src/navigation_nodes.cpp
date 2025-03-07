@@ -1,6 +1,8 @@
 #include <rclcpp/rclcpp.hpp>
 #include <visualization_msgs/msg/marker_array.hpp>
 #include <visualization_msgs/msg/marker.hpp>
+#include <geometry_msgs/msg/pose_array.hpp>
+#include <geometry_msgs/msg/pose.hpp>
 #include <octomap/octomap.h>
 #include <octomap/OcTree.h>
 #include <octomap_msgs/msg/octomap.hpp>
@@ -39,7 +41,11 @@ public:
     min_distance_ = this->get_parameter("min_distance").as_double();
     max_distance_ = this->get_parameter("max_distance").as_double();
 
+    // Publicador para los markers de nodos de navegación
     marker_pub_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("navigation_nodes", 10);
+    // Publicador para los puntos de navegación (PoseArray)
+    navigable_pub_ = this->create_publisher<geometry_msgs::msg::PoseArray>("navigable_nodes", 10);
+
     octomap_sub_ = this->create_subscription<octomap_msgs::msg::Octomap>(
       "/octomap_full",
       10,
@@ -59,7 +65,6 @@ private:
       // Se obtiene la transformación de "base_link" al frame "map"
       rclcpp::Time query_time(0, 0, this->get_clock()->get_clock_type());
       transformStamped = tf_buffer_.lookupTransform("map", "base_link", query_time, rclcpp::Duration::from_seconds(0.1));
-
     } catch (tf2::TransformException &ex) {
       RCLCPP_WARN(this->get_logger(), "No se pudo obtener la transformación: %s", ex.what());
       return;
@@ -87,7 +92,12 @@ private:
 
     // Extraer nodos libres (navegables)
     auto nodes = extractFreeNodes(*tree);
+    
     visualization_msgs::msg::MarkerArray marker_array;
+    geometry_msgs::msg::PoseArray navigable_points;
+    navigable_points.header.frame_id = "map";
+    navigable_points.header.stamp = this->now();
+    
     int id = 0;
     for (const auto &pt : nodes) {
       // Calcular la distancia entre el punto y la posición actual del vehículo (base_link en el frame map)
@@ -98,6 +108,8 @@ private:
       if (distance < min_distance_ || distance > max_distance_) {
         continue;
       }
+      
+      // Crear y configurar el marker
       visualization_msgs::msg::Marker marker;
       marker.header.frame_id = "map";
       marker.header.stamp = this->now();
@@ -118,12 +130,27 @@ private:
       marker.color.a = 1.0;
       marker.lifetime = rclcpp::Duration(0, 0);
       marker_array.markers.push_back(marker);
+
+      // Crear y agregar la Pose correspondiente al punto navegable
+      geometry_msgs::msg::Pose pose;
+      pose.position.x = pt.x();
+      pose.position.y = pt.y();
+      pose.position.z = pt.z();
+      // Orientación por defecto (sin rotación)
+      pose.orientation.x = 0.0;
+      pose.orientation.y = 0.0;
+      pose.orientation.z = 0.0;
+      pose.orientation.w = 1.0;
+      navigable_points.poses.push_back(pose);
     }
+    
     marker_pub_->publish(marker_array);
-    RCLCPP_INFO(this->get_logger(), "Markers publicados: %d", id);
+    navigable_pub_->publish(navigable_points);
+    //RCLCPP_INFO(this->get_logger(), "Markers publicados: %d, puntos navegables: %zu", id, navigable_points.poses.size());
   }
 
   rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_pub_;
+  rclcpp::Publisher<geometry_msgs::msg::PoseArray>::SharedPtr navigable_pub_;
   rclcpp::Subscription<octomap_msgs::msg::Octomap>::SharedPtr octomap_sub_;
   tf2_ros::Buffer tf_buffer_;
   std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
@@ -139,4 +166,3 @@ int main(int argc, char ** argv)
   rclcpp::shutdown();
   return 0;
 }
-

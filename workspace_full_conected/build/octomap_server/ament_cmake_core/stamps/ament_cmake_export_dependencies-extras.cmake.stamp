@@ -1,6 +1,6 @@
 # generated from ament_cmake_export_dependencies/cmake/ament_cmake_export_dependencies-extras.cmake.in
 
-set(_exported_dependencies "geometry_msgs;message_filters;nav_msgs;octomap_msgs;octomap_ros;pcl_conversions;pcl_ros;rclcpp;rclcpp_components;sensor_msgs;std_msgs;std_srvs;tf2;tf2_eigen;tf2_geometry_msgs;tf2_ros;visualization_msgs")
+set(_exported_dependencies "geometry_msgs;message_filters;nav_msgs;octomap_msgs;octomap_ros;pcl_conversions;pcl_ros;rclcpp;rclcpp_components;sensor_msgs;std_msgs;std_srvs;tf2;tf2_eigen;tf2_geometry_msgs;tf2_ros;visualization_msgs;car_interfaces")
 
 find_package(ament_cmake_libraries QUIET REQUIRED)
 

@@ -1,0 +1,7 @@
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/remove_paths.cpp:[m[K In constructor ‘[01m[KCollisionZoneNode::CollisionZoneNode()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/remove_paths.cpp:20:24:[m[K [01;31m[Kerror: [m[K‘[01m[KGroundFilterNode[m[K’ has not been declared
+   20 |             std::bind(&[01;31m[KGroundFilterNode[m[K::octomapCallback, this, std::placeholders::_1)
+      |                        [01;31m[K^~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/remove_paths.dir/build.make:76: CMakeFiles/remove_paths.dir/src/remove_paths.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:431: CMakeFiles/remove_paths.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

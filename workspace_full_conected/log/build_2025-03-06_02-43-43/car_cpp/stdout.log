@@ -1,0 +1,18 @@
+[  5%] Built target ground_remove
+[ 11%] Built target frontier_nodes
+[ 17%] Built target navigation_nodes
+[35m[1mConsolidate compiler generated dependencies of target move_navigation_nodes_frontier[0m
+[ 23%] Built target navigation_nodes_ground
+[ 26%] [32mBuilding CXX object CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o[0m
+[ 32%] Built target frontiers_values
+[ 38%] Built target camera_filter
+[ 44%] Built target map_measure
+[ 50%] Built target 2D_graph
+[ 55%] Built target testo
+[ 61%] Built target path_planner_node
+[ 67%] Built target remove_graph_obstacles
+[ 73%] Built target check_map
+[ 79%] Built target control_plugin
+[ 85%] Built target joints_plugin
+[ 91%] Built target driver_plugin
+[ 97%] Built target drive_plugin

@@ -1,0 +1,30 @@
+[35m[1mConsolidate compiler generated dependencies of target navigation_nodes_ground[0m
+[  5%] Built target navigation_nodes
+[ 11%] Built target frontier_nodes
+[ 17%] Built target navigation_nodes_ground
+[35m[1mConsolidate compiler generated dependencies of target move_navigation_nodes_frontier[0m
+[ 23%] Built target ground_remove
+[ 26%] [32mBuilding CXX object CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o[0m
+[ 32%] Built target camera_filter
+[ 38%] Built target frontiers_values
+[ 44%] Built target map_measure
+[35m[1mConsolidate compiler generated dependencies of target remove_graph_obstacles[0m
+[ 50%] Built target testo
+[ 55%] Built target 2D_graph
+[ 61%] Built target check_map
+[ 64%] [32mBuilding CXX object CMakeFiles/remove_graph_obstacles.dir/src/remove_graph_obstacles.cpp.o[0m
+[ 70%] Built target path_planner_node
+[ 76%] Built target control_plugin
+[ 82%] Built target joints_plugin
+[ 88%] Built target drive_plugin
+[ 94%] Built target driver_plugin
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/remove_graph_obstacles.cpp:[m[K In constructor ‘[01m[KGroundFilterNode::GroundFilterNode()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/remove_graph_obstacles.cpp:50:63:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K)[m[K’ token
+   50 |                 obstacle_filter_radius_, clustering_threshold_[01;31m[K)[m[K;
+      |                                                               [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/remove_graph_obstacles.dir/build.make:76: CMakeFiles/remove_graph_obstacles.dir/src/remove_graph_obstacles.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:429: CMakeFiles/remove_graph_obstacles.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 97%] [32m[1mLinking CXX executable move_navigation_nodes_frontier[0m
+[ 97%] Built target move_navigation_nodes_frontier
+gmake: *** [Makefile:146: all] Error 2

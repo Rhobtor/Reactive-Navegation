@@ -1,0 +1,175 @@
+[0.691s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': AMENT_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4
+[0.813s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.268s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[1.306s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.316s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.326s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.340s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.381s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.437s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.442s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.731s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.783s] -- Found gazebo_ros: 3.9.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[1.830s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[1.859s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[1.861s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.874s] -- Searching for dependencies of ignition-math6
+[1.874s] -- Looking for OGRE...
+[1.888s] -- Found Ogre Ghadamon (1.9.0)
+[1.890s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[1.906s] -- Looking for OGRE_Paging...
+[1.906s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[1.906s] -- Looking for OGRE_Terrain...
+[1.906s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[1.906s] -- Looking for OGRE_Property...
+[1.906s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[1.906s] -- Looking for OGRE_RTShaderSystem...
+[1.906s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[1.906s] -- Looking for OGRE_Volume...
+[1.906s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[1.906s] -- Looking for OGRE_Overlay...
+[1.906s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[2.143s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.144s] -- Looking for ignition-transport8 -- found version 8.2.1
+[2.146s] -- Searching for dependencies of ignition-transport8
+[2.171s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[2.187s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[2.194s] -- Checking for module 'libzmq >= 4'
+[2.262s] --   Found libzmq , version 4.3.4
+[2.331s] -- Checking for module 'uuid'
+[2.348s] --   Found uuid, version 2.37.2
+[2.415s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[2.425s] -- Searching for dependencies of ignition-msgs5
+[2.444s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.458s] -- Checking for module 'tinyxml2'
+[2.476s] --   Found tinyxml2, version 9.0.0
+[2.537s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[2.537s] -- Looking for ignition-common3 -- found version 3.14.0
+[2.538s] -- Searching for dependencies of ignition-common3
+[2.538s] -- Looking for dlfcn.h - found
+[2.538s] -- Looking for libdl - found
+[2.553s] -- Searching for <ignition-common3> component [graphics]
+[2.553s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[2.555s] -- Searching for dependencies of ignition-common3-graphics
+[2.555s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.556s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[2.557s] -- Searching for dependencies of ignition-fuel_tools4
+[2.627s] -- Checking for module 'jsoncpp'
+[2.668s] --   Found jsoncpp, version 1.9.5
+[2.747s] -- Checking for module 'libzip'
+[2.768s] --   Found libzip, version 1.7.3
+[2.836s] -- Looking for ignition-common3 -- found version 3.14.0
+[2.836s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.836s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[2.838s] -- Gazebo version: 11.10
+[2.839s] -- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)
+[2.856s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[2.875s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[2.901s] -- Found octomap_msgs: 2.0.1 (/opt/ros/humble/share/octomap_msgs/cmake)
+[2.918s] -- Found octomap_ros: 0.4.4 (/opt/ros/humble/share/octomap_ros/cmake)
+[2.924s] -- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)
+[2.956s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[2.987s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[3.380s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.386s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[3.578s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[3.587s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.602s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[3.755s] -- Found Qhull version 8.0.2
+[3.934s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[4.123s] -- Found visualization_msgs: 4.2.4 (/opt/ros/humble/share/visualization_msgs/cmake)
+[4.137s] -- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)
+[4.151s] -- Found std_srvs: 4.2.4 (/opt/ros/humble/share/std_srvs/cmake)
+[4.160s] -- Found geographic_msgs: 1.0.6 (/opt/ros/humble/share/geographic_msgs/cmake)
+[4.183s] -- Found tf2_ros: 0.25.12 (/opt/ros/humble/share/tf2_ros/cmake)
+[4.238s] -- Found tf2_geometry_msgs: 0.25.12 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[4.240s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[4.241s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[4.243s] -- Looking for ignition-math6 -- found version 6.15.1
+[4.243s] -- Looking for ignition-common3 -- found version 3.14.0
+[4.243s] -- Found car_interfaces: 0.0.0 (/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake)
+[4.497s] -- Configuring done
+[5.053s] -- Generating done
+[5.168s] -- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp
+[5.236s] [35m[1mConsolidate compiler generated dependencies of target navigation_nodes[0m
+[5.275s] [  6%] Built target navigation_nodes
+[5.300s] [35m[1mConsolidate compiler generated dependencies of target ground_remove[0m
+[5.346s] [ 12%] Built target ground_remove
+[5.370s] [35m[1mConsolidate compiler generated dependencies of target camera_filter[0m
+[5.397s] [ 18%] Built target camera_filter
+[5.413s] [35m[1mConsolidate compiler generated dependencies of target move_navigation_nodes_frontier[0m
+[5.445s] [ 25%] Built target move_navigation_nodes_frontier
+[5.475s] [35m[1mConsolidate compiler generated dependencies of target frontiers_values[0m
+[5.520s] [ 31%] Built target frontiers_values
+[5.546s] [35m[1mConsolidate compiler generated dependencies of target map_measure[0m
+[5.596s] [ 37%] Built target map_measure
+[5.616s] [35m[1mConsolidate compiler generated dependencies of target testo[0m
+[5.638s] [ 43%] Built target testo
+[5.655s] [35m[1mConsolidate compiler generated dependencies of target 2D_graph[0m
+[5.685s] [ 46%] [32mBuilding CXX object CMakeFiles/2D_graph.dir/src/2D_graph.cpp.o[0m
+[6.065s] In file included from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:12[m[K:
+[6.065s] [01m[K/opt/ros/humble/include/tf2_geometry_msgs/tf2_geometry_msgs/tf2_geometry_msgs.h:35:2:[m[K [01;35m[Kwarning: [m[K#warning This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcpp-Wcpp]8;;[m[K]
+[6.065s]    35 | #[01;35m[Kwarning[m[K This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead
+[6.065s]       |  [01;35m[K^~~~~~~[m[K
+[8.128s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:[m[K In member function ‘[01m[Kvoid GroundPointsPublisher::nodesCallback(geometry_msgs::msg::PoseArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[8.129s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:63:41:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Ktf2_ros::Buffer::transform(geometry_msgs::msg::PoseStamped&, const char [4], rclcpp::Duration)[m[K’
+[8.129s]    63 |         pose_out = [01;31m[Ktf_buffer_->transform(pose_in, "map", rclcpp::Duration::from_seconds(0.1))[m[K;
+[8.129s]       |                    [01;31m[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[8.129s] In file included from [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:42[m[K,
+[8.129s]                  from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:10[m[K:
+[8.129s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:209:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> T& tf2_ros::BufferInterface::transform(const T&, T&, const string&, tf2::Duration) const[m[K’
+[8.129s]   209 |   T & [01;36m[Ktransform[m[K(
+[8.129s]       |       [01;36m[K^~~~~~~~~[m[K
+[8.129s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:209:7:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[8.129s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:63:41:[m[K [01;36m[Knote: [m[K  deduced conflicting types for parameter ‘[01m[KT[m[K’ (‘[01m[Kgeometry_msgs::msg::PoseStamped_<std::allocator<void> >[m[K’ and ‘[01m[Kconst char [4][m[K’)
+[8.129s]    63 |         pose_out = [01;36m[Ktf_buffer_->transform(pose_in, "map", rclcpp::Duration::from_seconds(0.1))[m[K;
+[8.130s]       |                    [01;36m[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[8.130s] In file included from [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:42[m[K,
+[8.130s]                  from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:10[m[K:
+[8.130s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:231:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> T tf2_ros::BufferInterface::transform(const T&, const string&, tf2::Duration) const[m[K’
+[8.130s]   231 |   T [01;36m[Ktransform[m[K(
+[8.130s]       |     [01;36m[K^~~~~~~~~[m[K
+[8.130s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:231:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[8.130s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:63:88:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krclcpp::Duration::from_seconds(double)()[m[K’ (type ‘[01m[Krclcpp::Duration[m[K’) to type ‘[01m[Ktf2::Duration[m[K’ {aka ‘[01m[Kstd::chrono::duration<long int, std::ratio<1, 1000000000> >[m[K’}
+[8.130s]    63 |         pose_out = tf_buffer_->transform(pose_in, "map", [01;36m[Krclcpp::Duration::from_seconds(0.1)[m[K);
+[8.130s]       |                                                          [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[8.130s] In file included from [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:42[m[K,
+[8.130s]                  from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:10[m[K:
+[8.130s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:257:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class A, class B> B& tf2_ros::BufferInterface::transform(const A&, B&, const string&, tf2::Duration) const[m[K’
+[8.130s]   257 |   B & [01;36m[Ktransform[m[K(
+[8.130s]       |       [01;36m[K^~~~~~~~~[m[K
+[8.130s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:257:7:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[8.133s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:63:88:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[Krclcpp::Duration::from_seconds(double)()[m[K’ (type ‘[01m[Krclcpp::Duration[m[K’) to type ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+[8.133s]    63 |         pose_out = tf_buffer_->transform(pose_in, "map", [01;36m[Krclcpp::Duration::from_seconds(0.1)[m[K);
+[8.133s]       |                                                          [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[8.133s] In file included from [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:42[m[K,
+[8.133s]                  from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:10[m[K:
+[8.133s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:282:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> T& tf2_ros::BufferInterface::transform(const T&, T&, const string&, const TimePoint&, const string&, tf2::Duration) const[m[K’
+[8.133s]   282 |   T & [01;36m[Ktransform[m[K(
+[8.133s]       |       [01;36m[K^~~~~~~~~[m[K
+[8.133s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:282:7:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[8.133s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:63:41:[m[K [01;36m[Knote: [m[K  deduced conflicting types for parameter ‘[01m[KT[m[K’ (‘[01m[Kgeometry_msgs::msg::PoseStamped_<std::allocator<void> >[m[K’ and ‘[01m[Kconst char [4][m[K’)
+[8.133s]    63 |         pose_out = [01;36m[Ktf_buffer_->transform(pose_in, "map", rclcpp::Duration::from_seconds(0.1))[m[K;
+[8.133s]       |                    [01;36m[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[8.133s] In file included from [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:42[m[K,
+[8.133s]                  from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:10[m[K:
+[8.133s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:312:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> T tf2_ros::BufferInterface::transform(const T&, const string&, const TimePoint&, const string&, tf2::Duration) const[m[K’
+[8.133s]   312 |   T [01;36m[Ktransform[m[K(
+[8.134s]       |     [01;36m[K^~~~~~~~~[m[K
+[8.134s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:312:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[8.134s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:63:41:[m[K [01;36m[Knote: [m[K  candidate expects 5 arguments, 3 provided
+[8.134s]    63 |         pose_out = [01;36m[Ktf_buffer_->transform(pose_in, "map", rclcpp::Duration::from_seconds(0.1))[m[K;
+[8.134s]       |                    [01;36m[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[8.134s] In file included from [01m[K/opt/ros/humble/include/tf2_ros/buffer.h:42[m[K,
+[8.134s]                  from [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:10[m[K:
+[8.134s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:343:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class A, class B> B& tf2_ros::BufferInterface::transform(const A&, B&, const string&, const TimePoint&, const string&, tf2::Duration) const[m[K’
+[8.134s]   343 |   B & [01;36m[Ktransform[m[K(
+[8.134s]       |       [01;36m[K^~~~~~~~~[m[K
+[8.134s] [01m[K/opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h:343:7:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[8.134s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/2D_graph.cpp:63:41:[m[K [01;36m[Knote: [m[K  candidate expects 6 arguments, 3 provided
+[8.134s]    63 |         pose_out = [01;36m[Ktf_buffer_->transform(pose_in, "map", rclcpp::Duration::from_seconds(0.1))[m[K;
+[8.134s]       |                    [01;36m[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[10.624s] gmake[2]: *** [CMakeFiles/2D_graph.dir/build.make:76: CMakeFiles/2D_graph.dir/src/2D_graph.cpp.o] Error 1
+[10.624s] gmake[1]: *** [CMakeFiles/Makefile2:401: CMakeFiles/2D_graph.dir/all] Error 2
+[10.624s] gmake: *** [Makefile:146: all] Error 2
+[10.627s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '2': AMENT_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4

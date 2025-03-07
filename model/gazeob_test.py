@@ -3,6 +3,9 @@ import rclpy
 from rclpy.node import Node
 from gazebo_msgs.msg import ModelState
 from geometry_msgs.msg import Twist
+from geometry_msgs.msg import PoseArray
+from std_msgs.msg import Float64
+from car_interfaces.msg import Graph
 from std_srvs.srv import Empty
 import time
 import numpy as np
@@ -23,13 +26,14 @@ logger = logging.getLogger('GazeboTest')
 class GazeboTest:
     def __init__(self,launch_file):
         
-        self.odom_x = 0
-        self.odom_y = 0
 
-        self.goal_x = 1
+        # Goal local 
+        self.goal_x = 0.0  
         self.goal_y = 0.0
-        
-        self.last_odom = None
+        # Posicion del robot
+        self.odom_x = 0.0
+        self.odom_y = 0.0
+
 
         #Estatus del robot en cada accion
         self.set_self_state = ModelState()
@@ -49,34 +53,67 @@ class GazeboTest:
 
         # Subscribirse a los topic de velocidad y posiscion
         # self.vel_sub = self.node.create_subscription(Twist, '/car/cmd_vel', self.vel_callback, 10)
-        self.odom_sub = self.node.create_subscription(ModelState, '/imu/data', self.odom_callback, 10)
+        self.odom_sub = self.node.create_subscription(ModelState, '/odom', self.odom_callback, 10)
 
         # Subscribirse al topic del mapa octree
         # self.map_sub = self.node.create_subscription(OccupancyGrid, '/octomap_binary', self.map_callback, 10)
 
         # Publicar la velocidad
-        self.vel_pub = self.node.create_publisher(Twist, '/wheel_torque_command', 10)
+        self.vel_pub = self.node.create_publisher(Twist, '/cmd_vel', 10)
 
+        # Publicar la posicion del goal
+        self.goal_pub = self.node.create_publisher(ModelState, '/goal', 10)
+
+        # recibe el mapa 2d de los nodos
+        self.map_2d = self.node.create_subscription(Graph, '/navigation_graph', self.map_callback, 10)
+
+        # recibe la entropia toal del mapa
+        self.total_entropy = self.node.create_subscription(Float64, '/total_entropy', self.total_entropy_callback, 10)
+
+        # recibe la entropia de los ptos de interes
+        self.ptos_entropy = self.node.create_subscription(Float64, '/frontier_entropie', self.ptos_entropy_callback, 10)
+
+        #recibe la posicion de los puntos fronteras
+        self.frontier = self.node.create_subscription(PoseArray, '/frontier_points', self.frontier_callback, 10)
 
         # Lanza Gazebo
         self.launch_gazebo(launch_file)
 
 
+    def map_callback(self, msg):
+        self.map_data = msg
+
+    def total_entropy_callback(self, msg):
+        self.total_entropy = msg.data
+    
+    def ptos_entropy_callback(self, msg):
+        self.ptos_entropy = msg.data
+    
+    def frontier_callback(self, msg):
+        self.frontier = msg
+
+    # Por ahora solo 2D
     def odom_callback(self, msg):
+       
         self.odom_x = msg.pose.position.x
         self.odom_y = msg.pose.position.y
         self.last_odom = msg
     
+
+    # Comunicacion con robot-modelo_IA
     def step(self, action):
         target = False
 
-        # Publish the robot action
-        vel_cmd = Twist()
-        vel_cmd.linear.x = action[0]
-        vel_cmd.angular.z = action[1]
-        self.vel_pub.publish(vel_cmd)
+        # Publish the robot goal
 
-        # No se que es la accion a la que se refiere, mirar el otro script
+
+        self.goal = ModelState()
+        self.goal.pose.position.x= action[0]
+        self.goal.pose.position.y= action[1]
+
+        self.goal_pub.publish(self.goal)
+
+        #publicar la seleccion y hacerla visible en rviz
         self.publish_markers(action)
 
         # Unpause the simulation to propagate the state
@@ -88,13 +125,8 @@ class GazeboTest:
         # Pause the simulation to read the new state
         self.pause_simulation()
 
-        # read the state of the octree map
+        # lee el topic del mapa 2d de los nodos
         self.map_data = self.read_map()
-
-        # done, collision, min_laser = self.observe_collision(self.velodyne_data)
-        # v_state = []
-        # v_state[:] = self.velodyne_data[:]
-        # laser_state = [v_state]
 
         # Calculate robot heading from odometry data
         self.odom_x = self.last_odom.pose.pose.position.x
@@ -110,7 +142,7 @@ class GazeboTest:
 ##### Hay una parte del car_cpp que hace esta parte a la hora de seleccionar un nodo transitable
 ##### Se puede usar para la recompnesa usando un A* o Dijkstra, ESTUDIAR ESTO    (solo para cuando es frontorea euristica)
         
-        # Calculate distance to the goal from the robot // por ahora usar esto
+        # Calculate distance to goal from current position
         distance = np.linalg.norm(
             [self.odom_x - self.goal_x, self.odom_y - self.goal_y]
         )
@@ -135,9 +167,15 @@ class GazeboTest:
             theta = -np.pi - theta
             theta = np.pi - theta
 
+
         # Detect if the goal has been reached and give a large positive reward
+        
+
+
+
+        # Si llega al objetivo positiva recompensa
         if distance < GOAL_REACHED_DIST:
-            target = True
+            target = True 
             done = True
 
         robot_state = [distance, theta, action[0], action[1]]
@@ -195,6 +233,7 @@ class GazeboTest:
 
 
 ###Reset del mundo y variuables, por ahora solo utilizar 1 mundo, pero se puede cambiar para tener varios mundos
+## el reset debe tener en cuenta el modelo DRL tambien, ver si resetar para hacer varios experimentos
     def reset(self):
         # Reset the state of the robot
         reset_client = self.node.create_client(Empty, '/reset_simulation')
@@ -245,10 +284,6 @@ class GazeboTest:
 
         self.pause_simulation()
 
-        # v_state = []
-        # v_state[:] = self.velodyne_data[:]
-        # laser_state = [v_state]
-
         distance = np.linalg.norm(
             [self.odom_x - self.goal_x, self.odom_y - self.goal_y]
         )
@@ -278,3 +313,26 @@ class GazeboTest:
         robot_state = [distance, theta, 0.0, 0.0]
         state = np.append(robot_state)
         return state
+
+    def reward(self, target, action):
+        reward = 0.0
+        if target == "arrive":
+            reward = 10.0
+        if target == "colision":
+            reward = -10.0
+        if target == "close_obstacle":
+            reward = -0.1
+        if target == "close_path":
+            reward = -10.0
+        else:
+            reward = -0.1
+        return reward
+
+    # si sale el mapa de nodos seria el costo de moverse de un nodo a otro
+    # def cost_move(self, action):
+        
+
+
+
+    #     return cost
+

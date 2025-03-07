@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "car_interfaces__py",
+		"source" : "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces/car_interfaces__py"
+	}
+}

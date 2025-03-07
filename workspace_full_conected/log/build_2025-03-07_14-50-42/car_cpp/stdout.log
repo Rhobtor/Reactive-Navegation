@@ -1,0 +1,9 @@
+[  5%] Built target navigation_nodes
+[ 10%] Built target ground_remove
+[ 15%] Built target camera_filter
+[ 21%] Built target move_navigation_nodes_frontier
+[ 26%] Built target frontiers_values
+[ 31%] Built target map_measure
+[ 36%] Built target testo
+[35m[1mConsolidate compiler generated dependencies of target create_wall[0m
+[ 39%] [32mBuilding CXX object CMakeFiles/create_wall.dir/src/create_wall.cpp.o[0m

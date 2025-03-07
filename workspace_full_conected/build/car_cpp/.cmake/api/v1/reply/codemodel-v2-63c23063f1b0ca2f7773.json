@@ -1,0 +1,241 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-d27154a3a06e6973cd6c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.2"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "car_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "2D_graph::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-2D_graph-0100ce7bc3d08d9656af.json",
+					"name" : "2D_graph",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera_filter::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera_filter-38a7a9ba88fba07fcb28.json",
+					"name" : "camera_filter",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "car_cpp_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-car_cpp_uninstall-025c49d488bc2d7ffa01.json",
+					"name" : "car_cpp_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "check_map::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-check_map-01b8511344708a9ce05f.json",
+					"name" : "check_map",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "control_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-control_plugin-e56f6dafe382c5a7cc04.json",
+					"name" : "control_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "create_wall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-create_wall-cfbb6db0b9cf9493f2a8.json",
+					"name" : "create_wall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "drive_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-drive_plugin-08ae064c321109a23a59.json",
+					"name" : "drive_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "driver_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-driver_plugin-3d2d6c065f32213e129e.json",
+					"name" : "driver_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "frontier_nodes::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-frontier_nodes-a1a6c983658c6f59ac50.json",
+					"name" : "frontier_nodes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "frontiers_values::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-frontiers_values-b07c05d1b739c8f88ba9.json",
+					"name" : "frontiers_values",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ground_remove::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ground_remove-097af22341da05f7280e.json",
+					"name" : "ground_remove",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "joints_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joints_plugin-2049c714d7ede8d1212c.json",
+					"name" : "joints_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "map_measure::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-map_measure-9799661cb370e551c0a0.json",
+					"name" : "map_measure",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "move_navigation_nodes_frontier::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-move_navigation_nodes_frontier-192d72a78d56e18d5409.json",
+					"name" : "move_navigation_nodes_frontier",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "navigation_nodes::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-navigation_nodes-d191fb526ad6841a5ce1.json",
+					"name" : "navigation_nodes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "navigation_nodes_ground::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-navigation_nodes_ground-4119705deec1898cf965.json",
+					"name" : "navigation_nodes_ground",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "path_planner_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-path_planner_node-426964bdeb2d1125e799.json",
+					"name" : "path_planner_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "remove_graph_obstacles::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-remove_graph_obstacles-7b7303aadccad672ff13.json",
+					"name" : "remove_graph_obstacles",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "remove_paths::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-remove_paths-18ffe63280bee7f5eff4.json",
+					"name" : "remove_paths",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testo-d49058d2541dfa79724b.json",
+					"name" : "testo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-9bdae4ada331aa4563a6.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp",
+		"source" : "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

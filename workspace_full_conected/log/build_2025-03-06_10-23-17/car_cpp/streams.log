@@ -1,0 +1,102 @@
+[0.262s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4
+[0.301s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.513s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[0.572s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.578s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.595s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.614s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.634s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.685s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.690s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.805s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.873s] -- Found gazebo_ros: 3.9.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[0.944s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[0.987s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[0.993s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.003s] -- Searching for dependencies of ignition-math6
+[1.008s] -- Looking for OGRE...
+[1.015s] -- Found Ogre Ghadamon (1.9.0)
+[1.015s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[1.025s] -- Looking for OGRE_Paging...
+[1.026s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[1.026s] -- Looking for OGRE_Terrain...
+[1.026s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[1.026s] -- Looking for OGRE_Property...
+[1.026s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[1.026s] -- Looking for OGRE_RTShaderSystem...
+[1.026s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[1.026s] -- Looking for OGRE_Volume...
+[1.026s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[1.026s] -- Looking for OGRE_Overlay...
+[1.026s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[1.114s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.115s] -- Looking for ignition-transport8 -- found version 8.2.1
+[1.115s] -- Searching for dependencies of ignition-transport8
+[1.129s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[1.137s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[1.141s] -- Checking for module 'libzmq >= 4'
+[1.161s] --   Found libzmq , version 4.3.4
+[1.215s] -- Checking for module 'uuid'
+[1.232s] --   Found uuid, version 2.37.2
+[1.273s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[1.273s] -- Searching for dependencies of ignition-msgs5
+[1.292s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.301s] -- Checking for module 'tinyxml2'
+[1.323s] --   Found tinyxml2, version 9.0.0
+[1.376s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[1.376s] -- Looking for ignition-common3 -- found version 3.14.0
+[1.377s] -- Searching for dependencies of ignition-common3
+[1.377s] -- Looking for dlfcn.h - found
+[1.377s] -- Looking for libdl - found
+[1.392s] -- Searching for <ignition-common3> component [graphics]
+[1.393s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[1.394s] -- Searching for dependencies of ignition-common3-graphics
+[1.394s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.396s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[1.397s] -- Searching for dependencies of ignition-fuel_tools4
+[1.447s] -- Checking for module 'jsoncpp'
+[1.462s] --   Found jsoncpp, version 1.9.5
+[1.527s] -- Checking for module 'libzip'
+[1.545s] --   Found libzip, version 1.7.3
+[1.592s] -- Looking for ignition-common3 -- found version 3.14.0
+[1.592s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.592s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[1.595s] -- Gazebo version: 11.10
+[1.597s] -- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)
+[1.623s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.646s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.666s] -- Found octomap_msgs: 2.0.1 (/opt/ros/humble/share/octomap_msgs/cmake)
+[1.687s] -- Found octomap_ros: 0.4.4 (/opt/ros/humble/share/octomap_ros/cmake)
+[1.697s] -- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)
+[1.742s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[1.767s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[2.203s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[2.211s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[2.341s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[2.350s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[2.356s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[2.468s] -- Found Qhull version 8.0.2
+[2.577s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[2.695s] -- Found visualization_msgs: 4.2.4 (/opt/ros/humble/share/visualization_msgs/cmake)
+[2.714s] -- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)
+[2.732s] -- Found std_srvs: 4.2.4 (/opt/ros/humble/share/std_srvs/cmake)
+[2.746s] -- Found geographic_msgs: 1.0.6 (/opt/ros/humble/share/geographic_msgs/cmake)
+[2.777s] -- Found tf2_ros: 0.25.12 (/opt/ros/humble/share/tf2_ros/cmake)
+[2.847s] -- Found tf2_geometry_msgs: 0.25.12 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[2.853s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[2.854s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.855s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.855s] -- Looking for ignition-common3 -- found version 3.14.0
+[2.856s] -- Found car_interfaces: 0.0.0 (/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake)
+[3.010s] [31mCMake Error at CMakeLists.txt:185 (add_executable):
+[3.010s]   add_executable cannot create target "remove_graph_obstacles" because
+[3.010s]   another target with the same name already exists.  The existing target is
+[3.010s]   an executable created in source directory
+[3.010s]   "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp".
+[3.010s]   See documentation for policy CMP0002 for more details.
+[3.010s] 
+[3.010s] [0m
+[3.119s] -- Configuring incomplete, errors occurred!
+[3.119s] See also "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/CMakeOutput.log".
+[3.136s] gmake: *** [Makefile:899: cmake_check_build_system] Error 1
+[3.138s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '2': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4

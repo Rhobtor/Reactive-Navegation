@@ -1,0 +1,7 @@
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:[m[K In member function ‘[01m[Kvoid FrontierNavigator::controlLoop()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:150:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kcmd_vel[m[K’
+  150 |     [01;31m[Kcmd_vel[m[K.angular.z = linear_speed;
+      |     [01;31m[K^~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/move_navigation_nodes_frontier.dir/build.make:76: CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:299: CMakeFiles/move_navigation_nodes_frontier.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,8 @@
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/remove_graph_obstacles.cpp:[m[K In constructor ‘[01m[KGroundFilterNode::GroundFilterNode()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/remove_graph_obstacles.cpp:50:63:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K)[m[K’ token
+   50 |                 obstacle_filter_radius_, clustering_threshold_[01;31m[K)[m[K;
+      |                                                               [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/remove_graph_obstacles.dir/build.make:76: CMakeFiles/remove_graph_obstacles.dir/src/remove_graph_obstacles.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:429: CMakeFiles/remove_graph_obstacles.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

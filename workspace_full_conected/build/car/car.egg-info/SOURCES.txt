@@ -14,6 +14,7 @@ car/debugtf.py
 car/ekf_node.py
 car/filter_points_cloud.py
 car/frontier.py
+car/graph.py
 car/joystick_control.py
 car/keyboard_control.py
 car/laser_scan.py
@@ -21,16 +22,13 @@ car/log_joystick.py
 car/map.py
 car/octomap_2d_display.py
 car/odometry.py
+car/points_goal.py
 car/view_point_and_click.py
-config/diff_drive_controller.yaml
 config/display.rviz
-config/drive_controller.yaml
 config/ekf_params.yaml
-config/gaz_ros2_ctl_use_sim.yaml
 config/mapper_params_online_async.yaml
 config/nav2.yaml
-config/slam.yaml
-config/twist_mux.yaml
+config/octomap.yaml
 launch/control.launch.py
 launch/control_with_gazebo.launch.py
 launch/display.launch.py

@@ -94,5 +94,5 @@ def generate_launch_description():
         gazebo_server,
         gazebo_client,
         urdf_spawn_node,
-        odometry_node
+        #odometry_node
     ])

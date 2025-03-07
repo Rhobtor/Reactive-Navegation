@@ -28,6 +28,10 @@
   <depend>rclpy</depend> <!-- Para nodos en Python -->
   <depend>std_msgs</depend>
 
+  <build_depend>car_interfaces</build_depend>
+  <exec_depend>car_interfaces</exec_depend> 
+
+
   <!-- Dependencias para pruebas -->
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

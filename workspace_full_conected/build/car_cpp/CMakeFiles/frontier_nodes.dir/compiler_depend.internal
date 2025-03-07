@@ -685,69 +685,24 @@ CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp
- /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/octomap.hpp
- /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__struct.hpp
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/occupancy_grid.hpp
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/occupancy_grid__struct.hpp
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp
- /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__builder.hpp
- /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__traits.hpp
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp
- /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__type_support.hpp
- /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
- /opt/ros/humble/include/octomap_msgs/octomap_msgs/conversions.h
- /opt/ros/humble/include/octomap/octomap.h
- /opt/ros/humble/include/octomap/octomap_types.h
- /usr/include/inttypes.h
- /opt/ros/humble/include/octomap/math/Vector3.h
- /usr/include/c++/11/math.h
- /opt/ros/humble/include/octomap/math/Pose6D.h
- /opt/ros/humble/include/octomap/math/Vector3.h
- /opt/ros/humble/include/octomap/math/Quaternion.h
- /opt/ros/humble/include/octomap/octomap_deprecated.h
- /opt/ros/humble/include/octomap/Pointcloud.h
- /opt/ros/humble/include/octomap/octomap_types.h
- /opt/ros/humble/include/octomap/ScanGraph.h
- /opt/ros/humble/include/octomap/OcTree.h
- /opt/ros/humble/include/octomap/OccupancyOcTreeBase.h
- /opt/ros/humble/include/octomap/octomap_utils.h
- /opt/ros/humble/include/octomap/OcTreeBaseImpl.h
- /usr/include/c++/11/stack
- /usr/include/c++/11/deque
- /usr/include/c++/11/bits/stl_deque.h
- /usr/include/c++/11/bits/deque.tcc
- /usr/include/c++/11/bits/stl_stack.h
- /usr/include/c++/11/bitset
- /opt/ros/humble/include/octomap/OcTreeKey.h
- /usr/include/c++/11/ciso646
- /usr/include/c++/11/tr1/unordered_set
- /usr/include/c++/11/tr1/type_traits
- /usr/include/c++/11/tr1/functional_hash.h
- /usr/include/c++/11/tr1/hashtable.h
- /usr/include/c++/11/tr1/hashtable_policy.h
- /usr/include/c++/11/tr1/unordered_set.h
- /usr/include/c++/11/tr1/unordered_map
- /usr/include/c++/11/tr1/unordered_map.h
- /opt/ros/humble/include/octomap/OcTreeIterator.hxx
- /opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx
- /opt/ros/humble/include/octomap/AbstractOccupancyOcTree.h
- /opt/ros/humble/include/octomap/AbstractOcTree.h
- /usr/include/c++/11/cstddef
- /usr/include/c++/11/fstream
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
- /usr/include/c++/11/bits/fstream.tcc
- /opt/ros/humble/include/octomap/OcTreeNode.h
- /opt/ros/humble/include/octomap/OcTreeDataNode.h
- /opt/ros/humble/include/octomap/OcTreeDataNode.hxx
- /opt/ros/humble/include/octomap/OccupancyOcTreeBase.hxx
- /opt/ros/humble/include/octomap/MCTables.h
- /opt/ros/humble/include/octomap/ColorOcTree.h
- /opt/ros/humble/include/octomap/OcTreeNode.h
- /opt/ros/humble/include/octomap/OccupancyOcTreeBase.h
- /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/marker.hpp
- /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__struct.hpp
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/map_meta_data__struct.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.hpp
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/occupancy_grid__builder.hpp
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/occupancy_grid__traits.hpp
+ /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/map_meta_data__traits.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__traits.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__traits.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__traits.hpp
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/occupancy_grid__type_support.hpp
+ /opt/ros/humble/include/nav_msgs/nav_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+ /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/marker.hpp
+ /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__struct.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.hpp
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/color_rgba__struct.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__struct.hpp
@@ -755,9 +710,6 @@ CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/mesh_file__struct.hpp
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__builder.hpp
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__traits.hpp
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__traits.hpp
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__traits.hpp
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__traits.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__traits.hpp
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/color_rgba__traits.hpp
  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__traits.hpp
@@ -765,17 +717,16 @@ CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/mesh_file__traits.hpp
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__type_support.hpp
  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/point.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__builder.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__type_support.hpp
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_array.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__struct.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__builder.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__traits.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_array__type_support.hpp
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__builder.hpp
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__type_support.hpp
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/point.hpp
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__builder.hpp
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__type_support.hpp
- /opt/ros/humble/include/octomap/OcTree.h
 

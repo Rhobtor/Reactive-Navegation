@@ -1,0 +1,12 @@
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:[m[K In member function ‘[01m[Kvoid FrontierNavigator::controlLoop()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:82:60:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing PoseArray = struct geometry_msgs::msg::PoseArray_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct geometry_msgs::msg::PoseArray_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kpose[m[K’; did you mean ‘[01m[Kposes[m[K’?
+   82 |       double dx = pose.position.x - latest_frontier_point_.[01;31m[Kpose[m[K.position.x;
+      |                                                            [01;31m[K^~~~[m[K
+      |                                                            [32m[Kposes[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:83:60:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing PoseArray = struct geometry_msgs::msg::PoseArray_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct geometry_msgs::msg::PoseArray_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kpose[m[K’; did you mean ‘[01m[Kposes[m[K’?
+   83 |       double dy = pose.position.y - latest_frontier_point_.[01;31m[Kpose[m[K.position.y;
+      |                                                            [01;31m[K^~~~[m[K
+      |                                                            [32m[Kposes[m[K
+gmake[2]: *** [CMakeFiles/move_navigation_nodes_frontier.dir/build.make:76: CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:299: CMakeFiles/move_navigation_nodes_frontier.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,13 @@
+[  5%] Built target navigation_nodes
+[ 14%] Built target ground_remove
+[ 14%] [32mBuilding CXX object CMakeFiles/navigation_nodes_ground.dir/src/navigation_nodes_ground.cpp.o[0m
+[ 20%] Built target frontier_nodes
+[ 26%] Built target camera_filter
+[ 29%] [32mBuilding CXX object CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o[0m
+[ 35%] Built target frontiers_values
+[ 41%] Built target map_measure
+[ 47%] Built target testo
+[ 50%] [32mBuilding CXX object CMakeFiles/2D_graph.dir/src/2D_graph.cpp.o[0m
+[ 52%] [32mBuilding CXX object CMakeFiles/remove_graph_obstacles.dir/src/remove_graph_obstacles.cpp.o[0m
+[ 55%] [32m[1mLinking CXX executable 2D_graph[0m
+[ 55%] Built target 2D_graph

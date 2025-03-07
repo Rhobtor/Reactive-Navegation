@@ -1,0 +1,227 @@
+[0.025s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_interfaces -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces
+[0.187s] -- The C compiler identification is GNU 11.4.0
+[0.304s] -- The CXX compiler identification is GNU 11.4.0
+[0.327s] -- Detecting C compiler ABI info
+[0.534s] -- Detecting C compiler ABI info - done
+[0.548s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.548s] -- Detecting C compile features
+[0.548s] -- Detecting C compile features - done
+[0.556s] -- Detecting CXX compiler ABI info
+[0.770s] -- Detecting CXX compiler ABI info - done
+[0.778s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.778s] -- Detecting CXX compile features
+[0.778s] -- Detecting CXX compile features - done
+[0.789s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.056s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.178s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.210s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.213s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.220s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.237s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.247s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.320s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[1.964s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[2.817s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.208s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.284s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[3.284s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[3.398s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[3.399s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[3.399s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[3.399s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[3.478s] -- Found PythonExtra: .so  
+[3.632s] -- Configuring done
+[3.683s] -- Generating done
+[3.702s] -- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces
+[3.719s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_interfaces -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces
+[3.723s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces -- -j4 -l4
+[3.840s] [  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[4.394s] [  3%] Built target car_interfaces__cpp
+[4.470s] [  3%] Built target ament_cmake_python_copy_car_interfaces
+[4.497s] [  6%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[4.958s] [  9%] [32mBuilding CXX object CMakeFiles/car_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/car_interfaces/msg/detail/dds_fastrtps/graph__type_support.cpp.o[0m
+[5.701s] [ 12%] [32m[1mLinking CXX shared library libcar_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[5.895s] [ 12%] Built target car_interfaces__rosidl_typesupport_fastrtps_cpp
+[5.932s] [ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[6.237s] [ 19%] [32mBuilding CXX object CMakeFiles/car_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/car_interfaces/msg/detail/graph__type_support.cpp.o[0m
+[7.085s] [ 22%] [32m[1mLinking CXX shared library libcar_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[7.235s] [ 22%] Built target car_interfaces__rosidl_typesupport_introspection_cpp
+[7.776s] running egg_info
+[7.778s] creating car_interfaces.egg-info
+[7.779s] writing car_interfaces.egg-info/PKG-INFO
+[7.780s] writing dependency_links to car_interfaces.egg-info/dependency_links.txt
+[7.780s] writing top-level names to car_interfaces.egg-info/top_level.txt
+[7.781s] writing manifest file 'car_interfaces.egg-info/SOURCES.txt'
+[7.781s] reading manifest file 'car_interfaces.egg-info/SOURCES.txt'
+[7.781s] writing manifest file 'car_interfaces.egg-info/SOURCES.txt'
+[7.838s] [ 22%] Built target ament_cmake_python_build_car_interfaces_egg
+[7.875s] [ 25%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[8.331s] [ 29%] [32mBuilding CXX object CMakeFiles/car_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/car_interfaces/msg/graph__type_support.cpp.o[0m
+[8.737s] [ 32%] [32m[1mLinking CXX shared library libcar_interfaces__rosidl_typesupport_cpp.so[0m
+[8.808s] [ 32%] Built target car_interfaces__rosidl_typesupport_cpp
+[8.823s] [ 35%] [34m[1mGenerating C code for ROS interfaces[0m
+[9.255s] [ 38%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_generator_c.dir/rosidl_generator_c/car_interfaces/msg/detail/graph__functions.c.o[0m
+[9.352s] [ 41%] [32m[1mLinking C shared library libcar_interfaces__rosidl_generator_c.so[0m
+[9.439s] [ 41%] Built target car_interfaces__rosidl_generator_c
+[9.464s] [ 45%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[9.984s] [ 48%] [32mBuilding CXX object CMakeFiles/car_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/car_interfaces/msg/detail/graph__type_support_c.cpp.o[0m
+[10.651s] [ 51%] [32m[1mLinking CXX shared library libcar_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[10.906s] [ 51%] Built target car_interfaces__rosidl_typesupport_fastrtps_c
+[10.930s] [ 54%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[11.312s] [ 58%] [32mBuilding CXX object CMakeFiles/car_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/car_interfaces/msg/graph__type_support.cpp.o[0m
+[11.390s] [ 61%] [32m[1mLinking CXX shared library libcar_interfaces__rosidl_typesupport_c.so[0m
+[11.508s] [ 61%] Built target car_interfaces__rosidl_typesupport_c
+[11.545s] [ 64%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[11.951s] [ 67%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/car_interfaces/msg/detail/graph__type_support.c.o[0m
+[12.008s] [ 70%] [32m[1mLinking C shared library libcar_interfaces__rosidl_typesupport_introspection_c.so[0m
+[12.103s] [ 70%] Built target car_interfaces__rosidl_typesupport_introspection_c
+[12.168s] [ 70%] Built target car_interfaces
+[12.262s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[12.703s] [ 74%] Built target car_interfaces__py
+[12.759s] [ 77%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_generator_py.dir/rosidl_generator_py/car_interfaces/msg/_graph_s.c.o[0m
+[12.995s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/car_interfaces/libcar_interfaces__rosidl_generator_py.so[0m
+[13.087s] [ 80%] Built target car_interfaces__rosidl_generator_py
+[13.159s] [ 83%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[13.361s] [ 87%] [32m[1mLinking C shared library rosidl_generator_py/car_interfaces/car_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[13.461s] [ 87%] Built target car_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[13.520s] [ 90%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[13.753s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/car_interfaces/car_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[13.861s] [ 93%] Built target car_interfaces__rosidl_typesupport_c__pyext
+[13.951s] [ 96%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[14.174s] [100%] [32m[1mLinking C shared library rosidl_generator_py/car_interfaces/car_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[14.313s] [100%] Built target car_interfaces__rosidl_typesupport_introspection_c__pyext
+[14.357s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces -- -j4 -l4
+[14.378s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces
+[14.413s] -- Install configuration: ""
+[14.414s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/ament_index/resource_index/rosidl_interfaces/car_interfaces
+[14.414s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[14.414s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[14.414s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[14.415s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__functions.c
+[14.415s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__functions.h
+[14.415s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__type_support.h
+[14.415s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__struct.h
+[14.415s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/rosidl_generator_c__visibility_control.h
+[14.415s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/graph.h
+[14.424s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/library_path.sh
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/library_path.dsv
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_generator_c.so
+[14.425s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_generator_c.so" to ""
+[14.425s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[14.425s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[14.425s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__rosidl_typesupport_fastrtps_c.h
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_fastrtps_c.so
+[14.425s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[14.425s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[14.425s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/graph.hpp
+[14.425s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__type_support.hpp
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__struct.hpp
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__traits.hpp
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__builder.hpp
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[14.425s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[14.425s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[14.425s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/dds_fastrtps
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__rosidl_typesupport_fastrtps_cpp.hpp
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[14.425s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[14.432s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[14.432s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[14.432s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[14.433s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[14.433s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[14.433s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__type_support.c
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__rosidl_typesupport_introspection_c.h
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_introspection_c.so
+[14.436s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_c.so
+[14.436s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_c.so" to ""
+[14.436s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[14.436s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[14.436s] -- Up-to-date: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__type_support.cpp
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__rosidl_typesupport_introspection_cpp.hpp
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_introspection_cpp.so
+[14.436s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_cpp.so
+[14.436s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_cpp.so" to ""
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/pythonpath.sh
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/pythonpath.dsv
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces-0.0.0-py3.10.egg-info
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[14.436s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[14.437s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[14.437s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_c.c
+[14.437s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/libcar_interfaces__rosidl_generator_py.so
+[14.437s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/__init__.py
+[14.437s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg
+[14.437s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg/_graph_s.c
+[14.437s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg/__init__.py
+[14.439s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg/_graph.py
+[14.439s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[14.439s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[14.539s] Listing '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces'...
+[14.539s] Compiling '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/__init__.py'...
+[14.539s] Listing '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg'...
+[14.539s] Compiling '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg/__init__.py'...
+[14.539s] Compiling '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg/_graph.py'...
+[14.555s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[14.556s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[14.556s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[14.556s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[14.557s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[14.557s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[14.557s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_generator_py.so
+[14.558s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_generator_py.so" to ""
+[14.559s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/msg/Graph.idl
+[14.561s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/msg/Graph.msg
+[14.561s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/ament_index/resource_index/package_run_dependencies/car_interfaces
+[14.562s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/ament_index/resource_index/parent_prefix_path/car_interfaces
+[14.562s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/ament_prefix_path.sh
+[14.563s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/ament_prefix_path.dsv
+[14.563s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/path.sh
+[14.563s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/path.dsv
+[14.563s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/local_setup.bash
+[14.563s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/local_setup.sh
+[14.563s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/local_setup.zsh
+[14.563s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/local_setup.dsv
+[14.563s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.dsv
+[14.566s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/ament_index/resource_index/packages/car_interfaces
+[14.566s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_generator_cExport.cmake
+[14.567s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_generator_cExport-noconfig.cmake
+[14.567s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[14.567s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[14.567s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_generator_cppExport.cmake
+[14.567s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[14.567s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[14.567s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[14.567s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[14.567s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_cExport.cmake
+[14.567s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[14.567s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[14.568s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[14.568s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_cppExport.cmake
+[14.568s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[14.568s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_generator_pyExport.cmake
+[14.568s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[14.568s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/rosidl_cmake-extras.cmake
+[14.569s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[14.569s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[14.569s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[14.570s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[14.571s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[14.571s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[14.571s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfacesConfig.cmake
+[14.572s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfacesConfig-version.cmake
+[14.573s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.xml
+[14.581s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces

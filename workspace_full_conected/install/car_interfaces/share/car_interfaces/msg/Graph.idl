@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from car_interfaces/msg/Graph.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseArray.idl"
+
+module car_interfaces {
+  module msg {
+    @verbatim (language="comment", text=
+      "Graph.msg")
+    struct Graph {
+      geometry_msgs::msg::PoseArray nodes;
+
+      @verbatim (language="comment", text=
+        "Se interpretan en pares: [nodo0, nodo1, nodo2, nodo3, ...]")
+      sequence<int32> edges;
+    };
+  };
+};
