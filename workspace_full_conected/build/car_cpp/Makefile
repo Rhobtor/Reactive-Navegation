@@ -302,17 +302,17 @@ map_measure/fast:
 .PHONY : map_measure/fast
 
 #=============================================================================
-# Target rules for targets named testo
+# Target rules for targets named occupied_nodes_near_obstacles
 
 # Build rule for target.
-testo: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testo
-.PHONY : testo
+occupied_nodes_near_obstacles: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 occupied_nodes_near_obstacles
+.PHONY : occupied_nodes_near_obstacles
 
 # fast build rule for target.
-testo/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testo.dir/build.make CMakeFiles/testo.dir/build
-.PHONY : testo/fast
+occupied_nodes_near_obstacles/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/occupied_nodes_near_obstacles.dir/build.make CMakeFiles/occupied_nodes_near_obstacles.dir/build
+.PHONY : occupied_nodes_near_obstacles/fast
 
 #=============================================================================
 # Target rules for targets named create_wall
@@ -341,30 +341,30 @@ create_wall/fast:
 .PHONY : 2D_graph/fast
 
 #=============================================================================
-# Target rules for targets named remove_paths
+# Target rules for targets named obstacles_in_2d
 
 # Build rule for target.
-remove_paths: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 remove_paths
-.PHONY : remove_paths
+obstacles_in_2d: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 obstacles_in_2d
+.PHONY : obstacles_in_2d
 
 # fast build rule for target.
-remove_paths/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_paths.dir/build.make CMakeFiles/remove_paths.dir/build
-.PHONY : remove_paths/fast
+obstacles_in_2d/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obstacles_in_2d.dir/build.make CMakeFiles/obstacles_in_2d.dir/build
+.PHONY : obstacles_in_2d/fast
 
 #=============================================================================
-# Target rules for targets named remove_graph_obstacles
+# Target rules for targets named filtered_navigation_nodes
 
 # Build rule for target.
-remove_graph_obstacles: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 remove_graph_obstacles
-.PHONY : remove_graph_obstacles
+filtered_navigation_nodes: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 filtered_navigation_nodes
+.PHONY : filtered_navigation_nodes
 
 # fast build rule for target.
-remove_graph_obstacles/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_graph_obstacles.dir/build.make CMakeFiles/remove_graph_obstacles.dir/build
-.PHONY : remove_graph_obstacles/fast
+filtered_navigation_nodes/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/filtered_navigation_nodes.dir/build.make CMakeFiles/filtered_navigation_nodes.dir/build
+.PHONY : filtered_navigation_nodes/fast
 
 #=============================================================================
 # Target rules for targets named check_map
@@ -591,6 +591,30 @@ src/diffdrive_plugin_multi_wheel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/drive_plugin.dir/build.make CMakeFiles/drive_plugin.dir/src/diffdrive_plugin_multi_wheel.cpp.s
 .PHONY : src/diffdrive_plugin_multi_wheel.cpp.s
 
+src/filtered_navigation_nodes.o: src/filtered_navigation_nodes.cpp.o
+.PHONY : src/filtered_navigation_nodes.o
+
+# target to build an object file
+src/filtered_navigation_nodes.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/filtered_navigation_nodes.dir/build.make CMakeFiles/filtered_navigation_nodes.dir/src/filtered_navigation_nodes.cpp.o
+.PHONY : src/filtered_navigation_nodes.cpp.o
+
+src/filtered_navigation_nodes.i: src/filtered_navigation_nodes.cpp.i
+.PHONY : src/filtered_navigation_nodes.i
+
+# target to preprocess a source file
+src/filtered_navigation_nodes.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/filtered_navigation_nodes.dir/build.make CMakeFiles/filtered_navigation_nodes.dir/src/filtered_navigation_nodes.cpp.i
+.PHONY : src/filtered_navigation_nodes.cpp.i
+
+src/filtered_navigation_nodes.s: src/filtered_navigation_nodes.cpp.s
+.PHONY : src/filtered_navigation_nodes.s
+
+# target to generate assembly for a file
+src/filtered_navigation_nodes.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/filtered_navigation_nodes.dir/build.make CMakeFiles/filtered_navigation_nodes.dir/src/filtered_navigation_nodes.cpp.s
+.PHONY : src/filtered_navigation_nodes.cpp.s
+
 src/frontier_nodes.o: src/frontier_nodes.cpp.o
 .PHONY : src/frontier_nodes.o
 
@@ -783,6 +807,54 @@ src/navigation_nodes_ground.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation_nodes_ground.dir/build.make CMakeFiles/navigation_nodes_ground.dir/src/navigation_nodes_ground.cpp.s
 .PHONY : src/navigation_nodes_ground.cpp.s
 
+src/obstacles_in_2d.o: src/obstacles_in_2d.cpp.o
+.PHONY : src/obstacles_in_2d.o
+
+# target to build an object file
+src/obstacles_in_2d.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obstacles_in_2d.dir/build.make CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o
+.PHONY : src/obstacles_in_2d.cpp.o
+
+src/obstacles_in_2d.i: src/obstacles_in_2d.cpp.i
+.PHONY : src/obstacles_in_2d.i
+
+# target to preprocess a source file
+src/obstacles_in_2d.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obstacles_in_2d.dir/build.make CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.i
+.PHONY : src/obstacles_in_2d.cpp.i
+
+src/obstacles_in_2d.s: src/obstacles_in_2d.cpp.s
+.PHONY : src/obstacles_in_2d.s
+
+# target to generate assembly for a file
+src/obstacles_in_2d.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obstacles_in_2d.dir/build.make CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.s
+.PHONY : src/obstacles_in_2d.cpp.s
+
+src/occupied_nodes_near_obstacles.o: src/occupied_nodes_near_obstacles.cpp.o
+.PHONY : src/occupied_nodes_near_obstacles.o
+
+# target to build an object file
+src/occupied_nodes_near_obstacles.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/occupied_nodes_near_obstacles.dir/build.make CMakeFiles/occupied_nodes_near_obstacles.dir/src/occupied_nodes_near_obstacles.cpp.o
+.PHONY : src/occupied_nodes_near_obstacles.cpp.o
+
+src/occupied_nodes_near_obstacles.i: src/occupied_nodes_near_obstacles.cpp.i
+.PHONY : src/occupied_nodes_near_obstacles.i
+
+# target to preprocess a source file
+src/occupied_nodes_near_obstacles.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/occupied_nodes_near_obstacles.dir/build.make CMakeFiles/occupied_nodes_near_obstacles.dir/src/occupied_nodes_near_obstacles.cpp.i
+.PHONY : src/occupied_nodes_near_obstacles.cpp.i
+
+src/occupied_nodes_near_obstacles.s: src/occupied_nodes_near_obstacles.cpp.s
+.PHONY : src/occupied_nodes_near_obstacles.s
+
+# target to generate assembly for a file
+src/occupied_nodes_near_obstacles.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/occupied_nodes_near_obstacles.dir/build.make CMakeFiles/occupied_nodes_near_obstacles.dir/src/occupied_nodes_near_obstacles.cpp.s
+.PHONY : src/occupied_nodes_near_obstacles.cpp.s
+
 src/path_planner.o: src/path_planner.cpp.o
 .PHONY : src/path_planner.o
 
@@ -807,78 +879,6 @@ src/path_planner.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/src/path_planner.cpp.s
 .PHONY : src/path_planner.cpp.s
 
-src/remove_graph_obstacles.o: src/remove_graph_obstacles.cpp.o
-.PHONY : src/remove_graph_obstacles.o
-
-# target to build an object file
-src/remove_graph_obstacles.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_graph_obstacles.dir/build.make CMakeFiles/remove_graph_obstacles.dir/src/remove_graph_obstacles.cpp.o
-.PHONY : src/remove_graph_obstacles.cpp.o
-
-src/remove_graph_obstacles.i: src/remove_graph_obstacles.cpp.i
-.PHONY : src/remove_graph_obstacles.i
-
-# target to preprocess a source file
-src/remove_graph_obstacles.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_graph_obstacles.dir/build.make CMakeFiles/remove_graph_obstacles.dir/src/remove_graph_obstacles.cpp.i
-.PHONY : src/remove_graph_obstacles.cpp.i
-
-src/remove_graph_obstacles.s: src/remove_graph_obstacles.cpp.s
-.PHONY : src/remove_graph_obstacles.s
-
-# target to generate assembly for a file
-src/remove_graph_obstacles.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_graph_obstacles.dir/build.make CMakeFiles/remove_graph_obstacles.dir/src/remove_graph_obstacles.cpp.s
-.PHONY : src/remove_graph_obstacles.cpp.s
-
-src/remove_paths.o: src/remove_paths.cpp.o
-.PHONY : src/remove_paths.o
-
-# target to build an object file
-src/remove_paths.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_paths.dir/build.make CMakeFiles/remove_paths.dir/src/remove_paths.cpp.o
-.PHONY : src/remove_paths.cpp.o
-
-src/remove_paths.i: src/remove_paths.cpp.i
-.PHONY : src/remove_paths.i
-
-# target to preprocess a source file
-src/remove_paths.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_paths.dir/build.make CMakeFiles/remove_paths.dir/src/remove_paths.cpp.i
-.PHONY : src/remove_paths.cpp.i
-
-src/remove_paths.s: src/remove_paths.cpp.s
-.PHONY : src/remove_paths.s
-
-# target to generate assembly for a file
-src/remove_paths.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_paths.dir/build.make CMakeFiles/remove_paths.dir/src/remove_paths.cpp.s
-.PHONY : src/remove_paths.cpp.s
-
-src/testo.o: src/testo.cpp.o
-.PHONY : src/testo.o
-
-# target to build an object file
-src/testo.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testo.dir/build.make CMakeFiles/testo.dir/src/testo.cpp.o
-.PHONY : src/testo.cpp.o
-
-src/testo.i: src/testo.cpp.i
-.PHONY : src/testo.i
-
-# target to preprocess a source file
-src/testo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testo.dir/build.make CMakeFiles/testo.dir/src/testo.cpp.i
-.PHONY : src/testo.cpp.i
-
-src/testo.s: src/testo.cpp.s
-.PHONY : src/testo.s
-
-# target to generate assembly for a file
-src/testo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testo.dir/build.make CMakeFiles/testo.dir/src/testo.cpp.s
-.PHONY : src/testo.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -901,6 +901,7 @@ help:
 	@echo "... create_wall"
 	@echo "... drive_plugin"
 	@echo "... driver_plugin"
+	@echo "... filtered_navigation_nodes"
 	@echo "... frontier_nodes"
 	@echo "... frontiers_values"
 	@echo "... ground_remove"
@@ -909,10 +910,9 @@ help:
 	@echo "... move_navigation_nodes_frontier"
 	@echo "... navigation_nodes"
 	@echo "... navigation_nodes_ground"
+	@echo "... obstacles_in_2d"
+	@echo "... occupied_nodes_near_obstacles"
 	@echo "... path_planner_node"
-	@echo "... remove_graph_obstacles"
-	@echo "... remove_paths"
-	@echo "... testo"
 	@echo "... src/2D_graph.o"
 	@echo "... src/2D_graph.i"
 	@echo "... src/2D_graph.s"
@@ -931,6 +931,9 @@ help:
 	@echo "... src/diffdrive_plugin_multi_wheel.o"
 	@echo "... src/diffdrive_plugin_multi_wheel.i"
 	@echo "... src/diffdrive_plugin_multi_wheel.s"
+	@echo "... src/filtered_navigation_nodes.o"
+	@echo "... src/filtered_navigation_nodes.i"
+	@echo "... src/filtered_navigation_nodes.s"
 	@echo "... src/frontier_nodes.o"
 	@echo "... src/frontier_nodes.i"
 	@echo "... src/frontier_nodes.s"
@@ -955,18 +958,15 @@ help:
 	@echo "... src/navigation_nodes_ground.o"
 	@echo "... src/navigation_nodes_ground.i"
 	@echo "... src/navigation_nodes_ground.s"
+	@echo "... src/obstacles_in_2d.o"
+	@echo "... src/obstacles_in_2d.i"
+	@echo "... src/obstacles_in_2d.s"
+	@echo "... src/occupied_nodes_near_obstacles.o"
+	@echo "... src/occupied_nodes_near_obstacles.i"
+	@echo "... src/occupied_nodes_near_obstacles.s"
 	@echo "... src/path_planner.o"
 	@echo "... src/path_planner.i"
 	@echo "... src/path_planner.s"
-	@echo "... src/remove_graph_obstacles.o"
-	@echo "... src/remove_graph_obstacles.i"
-	@echo "... src/remove_graph_obstacles.s"
-	@echo "... src/remove_paths.o"
-	@echo "... src/remove_paths.i"
-	@echo "... src/remove_paths.s"
-	@echo "... src/testo.o"
-	@echo "... src/testo.i"
-	@echo "... src/testo.s"
 .PHONY : help
 
 

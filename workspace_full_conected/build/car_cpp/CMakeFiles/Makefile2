@@ -71,11 +71,11 @@ all: CMakeFiles/camera_filter.dir/all
 all: CMakeFiles/move_navigation_nodes_frontier.dir/all
 all: CMakeFiles/frontiers_values.dir/all
 all: CMakeFiles/map_measure.dir/all
-all: CMakeFiles/testo.dir/all
+all: CMakeFiles/occupied_nodes_near_obstacles.dir/all
 all: CMakeFiles/create_wall.dir/all
 all: CMakeFiles/2D_graph.dir/all
-all: CMakeFiles/remove_paths.dir/all
-all: CMakeFiles/remove_graph_obstacles.dir/all
+all: CMakeFiles/obstacles_in_2d.dir/all
+all: CMakeFiles/filtered_navigation_nodes.dir/all
 all: CMakeFiles/check_map.dir/all
 all: CMakeFiles/path_planner_node.dir/all
 all: CMakeFiles/control_plugin.dir/all
@@ -99,11 +99,11 @@ clean: CMakeFiles/camera_filter.dir/clean
 clean: CMakeFiles/move_navigation_nodes_frontier.dir/clean
 clean: CMakeFiles/frontiers_values.dir/clean
 clean: CMakeFiles/map_measure.dir/clean
-clean: CMakeFiles/testo.dir/clean
+clean: CMakeFiles/occupied_nodes_near_obstacles.dir/clean
 clean: CMakeFiles/create_wall.dir/clean
 clean: CMakeFiles/2D_graph.dir/clean
-clean: CMakeFiles/remove_paths.dir/clean
-clean: CMakeFiles/remove_graph_obstacles.dir/clean
+clean: CMakeFiles/obstacles_in_2d.dir/clean
+clean: CMakeFiles/filtered_navigation_nodes.dir/clean
 clean: CMakeFiles/check_map.dir/clean
 clean: CMakeFiles/path_planner_node.dir/clean
 clean: CMakeFiles/control_plugin.dir/clean
@@ -171,7 +171,7 @@ CMakeFiles/car_cpp_uninstall.dir/clean:
 CMakeFiles/navigation_nodes.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation_nodes.dir/build.make CMakeFiles/navigation_nodes.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation_nodes.dir/build.make CMakeFiles/navigation_nodes.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=27,28 "Built target navigation_nodes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=29,30 "Built target navigation_nodes"
 .PHONY : CMakeFiles/navigation_nodes.dir/all
 
 # Build rule for subdir invocation for target.
@@ -197,7 +197,7 @@ CMakeFiles/navigation_nodes.dir/clean:
 CMakeFiles/navigation_nodes_ground.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation_nodes_ground.dir/build.make CMakeFiles/navigation_nodes_ground.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation_nodes_ground.dir/build.make CMakeFiles/navigation_nodes_ground.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=29,30 "Built target navigation_nodes_ground"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=31,32 "Built target navigation_nodes_ground"
 .PHONY : CMakeFiles/navigation_nodes_ground.dir/all
 
 # Build rule for subdir invocation for target.
@@ -223,7 +223,7 @@ CMakeFiles/navigation_nodes_ground.dir/clean:
 CMakeFiles/frontier_nodes.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_nodes.dir/build.make CMakeFiles/frontier_nodes.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_nodes.dir/build.make CMakeFiles/frontier_nodes.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=15,16 "Built target frontier_nodes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=17,18 "Built target frontier_nodes"
 .PHONY : CMakeFiles/frontier_nodes.dir/all
 
 # Build rule for subdir invocation for target.
@@ -249,7 +249,7 @@ CMakeFiles/frontier_nodes.dir/clean:
 CMakeFiles/ground_remove.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ground_remove.dir/build.make CMakeFiles/ground_remove.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ground_remove.dir/build.make CMakeFiles/ground_remove.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=19,20 "Built target ground_remove"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=21,22 "Built target ground_remove"
 .PHONY : CMakeFiles/ground_remove.dir/all
 
 # Build rule for subdir invocation for target.
@@ -301,7 +301,7 @@ CMakeFiles/camera_filter.dir/clean:
 CMakeFiles/move_navigation_nodes_frontier.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_navigation_nodes_frontier.dir/build.make CMakeFiles/move_navigation_nodes_frontier.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_navigation_nodes_frontier.dir/build.make CMakeFiles/move_navigation_nodes_frontier.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=25,26 "Built target move_navigation_nodes_frontier"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=27,28 "Built target move_navigation_nodes_frontier"
 .PHONY : CMakeFiles/move_navigation_nodes_frontier.dir/all
 
 # Build rule for subdir invocation for target.
@@ -327,7 +327,7 @@ CMakeFiles/move_navigation_nodes_frontier.dir/clean:
 CMakeFiles/frontiers_values.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontiers_values.dir/build.make CMakeFiles/frontiers_values.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontiers_values.dir/build.make CMakeFiles/frontiers_values.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=17,18 "Built target frontiers_values"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=19,20 "Built target frontiers_values"
 .PHONY : CMakeFiles/frontiers_values.dir/all
 
 # Build rule for subdir invocation for target.
@@ -353,7 +353,7 @@ CMakeFiles/frontiers_values.dir/clean:
 CMakeFiles/map_measure.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_measure.dir/build.make CMakeFiles/map_measure.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_measure.dir/build.make CMakeFiles/map_measure.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=23,24 "Built target map_measure"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=25,26 "Built target map_measure"
 .PHONY : CMakeFiles/map_measure.dir/all
 
 # Build rule for subdir invocation for target.
@@ -373,30 +373,30 @@ CMakeFiles/map_measure.dir/clean:
 .PHONY : CMakeFiles/map_measure.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/testo.dir
+# Target rules for target CMakeFiles/occupied_nodes_near_obstacles.dir
 
 # All Build rule for target.
-CMakeFiles/testo.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testo.dir/build.make CMakeFiles/testo.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testo.dir/build.make CMakeFiles/testo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=37,38 "Built target testo"
-.PHONY : CMakeFiles/testo.dir/all
+CMakeFiles/occupied_nodes_near_obstacles.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/occupied_nodes_near_obstacles.dir/build.make CMakeFiles/occupied_nodes_near_obstacles.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/occupied_nodes_near_obstacles.dir/build.make CMakeFiles/occupied_nodes_near_obstacles.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=35,36 "Built target occupied_nodes_near_obstacles"
+.PHONY : CMakeFiles/occupied_nodes_near_obstacles.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/testo.dir/rule: cmake_check_build_system
+CMakeFiles/occupied_nodes_near_obstacles.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testo.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/occupied_nodes_near_obstacles.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles 0
-.PHONY : CMakeFiles/testo.dir/rule
+.PHONY : CMakeFiles/occupied_nodes_near_obstacles.dir/rule
 
 # Convenience name for target.
-testo: CMakeFiles/testo.dir/rule
-.PHONY : testo
+occupied_nodes_near_obstacles: CMakeFiles/occupied_nodes_near_obstacles.dir/rule
+.PHONY : occupied_nodes_near_obstacles
 
 # clean rule for target.
-CMakeFiles/testo.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testo.dir/build.make CMakeFiles/testo.dir/clean
-.PHONY : CMakeFiles/testo.dir/clean
+CMakeFiles/occupied_nodes_near_obstacles.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/occupied_nodes_near_obstacles.dir/build.make CMakeFiles/occupied_nodes_near_obstacles.dir/clean
+.PHONY : CMakeFiles/occupied_nodes_near_obstacles.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/create_wall.dir
@@ -451,56 +451,56 @@ CMakeFiles/2D_graph.dir/clean:
 .PHONY : CMakeFiles/2D_graph.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/remove_paths.dir
+# Target rules for target CMakeFiles/obstacles_in_2d.dir
 
 # All Build rule for target.
-CMakeFiles/remove_paths.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_paths.dir/build.make CMakeFiles/remove_paths.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_paths.dir/build.make CMakeFiles/remove_paths.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=35,36 "Built target remove_paths"
-.PHONY : CMakeFiles/remove_paths.dir/all
+CMakeFiles/obstacles_in_2d.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obstacles_in_2d.dir/build.make CMakeFiles/obstacles_in_2d.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obstacles_in_2d.dir/build.make CMakeFiles/obstacles_in_2d.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=33,34 "Built target obstacles_in_2d"
+.PHONY : CMakeFiles/obstacles_in_2d.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/remove_paths.dir/rule: cmake_check_build_system
+CMakeFiles/obstacles_in_2d.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/remove_paths.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/obstacles_in_2d.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles 0
-.PHONY : CMakeFiles/remove_paths.dir/rule
+.PHONY : CMakeFiles/obstacles_in_2d.dir/rule
 
 # Convenience name for target.
-remove_paths: CMakeFiles/remove_paths.dir/rule
-.PHONY : remove_paths
+obstacles_in_2d: CMakeFiles/obstacles_in_2d.dir/rule
+.PHONY : obstacles_in_2d
 
 # clean rule for target.
-CMakeFiles/remove_paths.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_paths.dir/build.make CMakeFiles/remove_paths.dir/clean
-.PHONY : CMakeFiles/remove_paths.dir/clean
+CMakeFiles/obstacles_in_2d.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/obstacles_in_2d.dir/build.make CMakeFiles/obstacles_in_2d.dir/clean
+.PHONY : CMakeFiles/obstacles_in_2d.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/remove_graph_obstacles.dir
+# Target rules for target CMakeFiles/filtered_navigation_nodes.dir
 
 # All Build rule for target.
-CMakeFiles/remove_graph_obstacles.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_graph_obstacles.dir/build.make CMakeFiles/remove_graph_obstacles.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_graph_obstacles.dir/build.make CMakeFiles/remove_graph_obstacles.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=33,34 "Built target remove_graph_obstacles"
-.PHONY : CMakeFiles/remove_graph_obstacles.dir/all
+CMakeFiles/filtered_navigation_nodes.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/filtered_navigation_nodes.dir/build.make CMakeFiles/filtered_navigation_nodes.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/filtered_navigation_nodes.dir/build.make CMakeFiles/filtered_navigation_nodes.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=15,16 "Built target filtered_navigation_nodes"
+.PHONY : CMakeFiles/filtered_navigation_nodes.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/remove_graph_obstacles.dir/rule: cmake_check_build_system
+CMakeFiles/filtered_navigation_nodes.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/remove_graph_obstacles.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/filtered_navigation_nodes.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles 0
-.PHONY : CMakeFiles/remove_graph_obstacles.dir/rule
+.PHONY : CMakeFiles/filtered_navigation_nodes.dir/rule
 
 # Convenience name for target.
-remove_graph_obstacles: CMakeFiles/remove_graph_obstacles.dir/rule
-.PHONY : remove_graph_obstacles
+filtered_navigation_nodes: CMakeFiles/filtered_navigation_nodes.dir/rule
+.PHONY : filtered_navigation_nodes
 
 # clean rule for target.
-CMakeFiles/remove_graph_obstacles.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/remove_graph_obstacles.dir/build.make CMakeFiles/remove_graph_obstacles.dir/clean
-.PHONY : CMakeFiles/remove_graph_obstacles.dir/clean
+CMakeFiles/filtered_navigation_nodes.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/filtered_navigation_nodes.dir/build.make CMakeFiles/filtered_navigation_nodes.dir/clean
+.PHONY : CMakeFiles/filtered_navigation_nodes.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/check_map.dir
@@ -535,7 +535,7 @@ CMakeFiles/check_map.dir/clean:
 CMakeFiles/path_planner_node.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=31,32 "Built target path_planner_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=37,38 "Built target path_planner_node"
 .PHONY : CMakeFiles/path_planner_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -587,7 +587,7 @@ CMakeFiles/control_plugin.dir/clean:
 CMakeFiles/joints_plugin.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joints_plugin.dir/build.make CMakeFiles/joints_plugin.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joints_plugin.dir/build.make CMakeFiles/joints_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=21,22 "Built target joints_plugin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=23,24 "Built target joints_plugin"
 .PHONY : CMakeFiles/joints_plugin.dir/all
 
 # Build rule for subdir invocation for target.

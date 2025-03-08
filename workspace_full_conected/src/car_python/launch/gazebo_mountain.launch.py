@@ -104,7 +104,7 @@ def generate_launch_description():
         name='filter_points_cloud',  # Nombre del nodo
     )
 
-    frontier = Node(
+    frontier_values = Node(
         package='car_cpp',
         executable='frontiers_values',
         name='frontiers_values'
@@ -130,10 +130,10 @@ def generate_launch_description():
         name='navigation_nodes_ground'
     )
 
-    remove_graph_obstacles = Node(
+    filtered_navigation_nodes = Node(
         package='car_cpp',
-        executable='remove_graph_obstacles',
-        name='remove_graph_obstacles'
+        executable='filtered_navigation_nodes',
+        name='filtered_navigation_nodes'
     )
 
     navigation_nodes = Node(
@@ -148,6 +148,19 @@ def generate_launch_description():
         name='move_navigation_nodes_frontier'
     )
 
+    obstacles_in_2d = Node(
+        package='car_cpp',
+        executable='obstacles_in_2d',
+        name='obstacles_in_2d'
+    )
+
+    occupied_nodes_near_obstacles = Node(
+        package='car_cpp',
+        executable='occupied_nodes_near_obstacles',
+        name='occupied_nodes_near_obstacles'
+    )
+
+
 
     return LaunchDescription([
         # static_tf,  # Publica la transformación de 'odom' a 'map'
@@ -158,12 +171,14 @@ def generate_launch_description():
         gazebo_client,
         urdf_spawn_node,
         filter_points_cloud,
-        frontier,
+        frontier_values,
         #octomap,
         map_odom_tf,
         navigation_nodes_ground,
-        remove_graph_obstacles,
+        filtered_navigation_nodes,
         navigation_nodes,
+        obstacles_in_2d,
+        occupied_nodes_near_obstacles
         #move_navigation_nodes
 
 

@@ -12,12 +12,17 @@ import numpy as np
 import logging
 import math
 from squaternion import Quaternion
-import torch
-import torch.nn as nn
-import torch.optim as optim
+import tensorflow as tf
+from tensorflow.keras import layers, optimizers, losses
 import random
 from collections import deque
 import json  # Para guardar los datos de replay
+import datetime
+
+
+log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+writer = tf.summary.create_file_writer(log_dir)
+
 
 # Parámetros de la simulación y del entorno
 GOAL_REACHED_DIST = 0.3
@@ -31,19 +36,20 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger('GazeboTest')
 
 #######################################
-# Definición del modelo DQN y el agente
+# Definición del modelo DQN y el agente (usando TensorFlow)
 #######################################
 
-class DQN(nn.Module):
+class DQN(tf.keras.Model):
     def __init__(self, state_size, action_size):
         super(DQN, self).__init__()
-        self.fc1 = nn.Linear(state_size, 64)
-        self.fc2 = nn.Linear(64, 64)
-        self.fc3 = nn.Linear(64, action_size)
+        # Definir capas densas con 64 unidades y ReLU
+        self.fc1 = layers.Dense(64, activation='relu', input_shape=(state_size,))
+        self.fc2 = layers.Dense(64, activation='relu')
+        self.fc3 = layers.Dense(action_size)
     
-    def forward(self, x):
-        x = torch.relu(self.fc1(x))
-        x = torch.relu(self.fc2(x))
+    def call(self, x):
+        x = self.fc1(x)
+        x = self.fc2(x)
         return self.fc3(x)
 
 class DQNAgent:
@@ -57,10 +63,9 @@ class DQNAgent:
         self.epsilon_min  = 0.01
         self.learning_rate = 0.001
         self.batch_size   = 32
-        self.device       = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.model        = DQN(state_size, action_size).to(self.device)
-        self.optimizer    = optim.Adam(self.model.parameters(), lr=self.learning_rate)
-        self.loss_fn      = nn.MSELoss()
+        self.model = DQN(state_size, action_size)
+        self.optimizer = optimizers.Adam(learning_rate=self.learning_rate)
+        self.loss_fn = losses.MeanSquaredError()
     
     def remember(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
@@ -68,36 +73,37 @@ class DQNAgent:
     def act(self, state):
         if np.random.rand() < self.epsilon:
             return random.randrange(self.action_size)
-        state_tensor = torch.FloatTensor(state).unsqueeze(0).to(self.device)
-        with torch.no_grad():
-            q_values = self.model(state_tensor)
-        return torch.argmax(q_values).item()
+        state_tensor = tf.convert_to_tensor([state], dtype=tf.float32)
+        q_values = self.model(state_tensor)
+        return np.argmax(q_values.numpy()[0])
     
     def replay(self):
         if len(self.memory) < self.batch_size:
             return
         minibatch = random.sample(self.memory, self.batch_size)
-        states     = torch.FloatTensor([m[0] for m in minibatch]).to(self.device)
-        actions    = torch.LongTensor([m[1] for m in minibatch]).to(self.device)
-        rewards    = torch.FloatTensor([m[2] for m in minibatch]).to(self.device)
-        next_states= torch.FloatTensor([m[3] for m in minibatch]).to(self.device)
-        dones      = torch.FloatTensor([float(m[4]) for m in minibatch]).to(self.device)
+        states      = np.array([m[0] for m in minibatch], dtype=np.float32)
+        actions     = np.array([m[1] for m in minibatch], dtype=np.int32)
+        rewards     = np.array([m[2] for m in minibatch], dtype=np.float32)
+        next_states = np.array([m[3] for m in minibatch], dtype=np.float32)
+        dones       = np.array([float(m[4]) for m in minibatch], dtype=np.float32)
         
-        q_values = self.model(states).gather(1, actions.unsqueeze(1)).squeeze(1)
-        with torch.no_grad():
-            next_q_values = self.model(next_states).max(1)[0]
-        targets = rewards + self.gamma * next_q_values * (1 - dones)
-        
-        loss = self.loss_fn(q_values, targets)
-        self.optimizer.zero_grad()
-        loss.backward()
-        self.optimizer.step()
+        with tf.GradientTape() as tape:
+            q_values = self.model(states)  # Shape: (batch_size, action_size)
+            actions_onehot = tf.one_hot(actions, self.action_size)
+            # Obtener los Q-values correspondientes a las acciones tomadas
+            q_values_taken = tf.reduce_sum(q_values * actions_onehot, axis=1)
+            next_q_values = self.model(next_states)
+            max_next_q_values = tf.reduce_max(next_q_values, axis=1)
+            targets = rewards + self.gamma * max_next_q_values * (1 - dones)
+            loss = self.loss_fn(targets, q_values_taken)
+        gradients = tape.gradient(loss, self.model.trainable_variables)
+        self.optimizer.apply_gradients(zip(gradients, self.model.trainable_variables))
         
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
 
 #######################################
-# Clase del entorno Gazebo
+# Clase del entorno Gazebo (sin cambios significativos)
 #######################################
 
 class GazeboTest:
@@ -126,28 +132,30 @@ class GazeboTest:
         self.set_self_state.pose.orientation.z = 0.0
         self.set_self_state.pose.orientation.w = 1.0
         
-        # Inicializa rclpy y crea el nodo
         rclpy.init()
         self.node = rclpy.create_node('gazebo_control')
         
-        # Subscripciones a tópicos
-        self.odom_sub = self.node.create_subscription(ModelState, '/odom', self.odom_callback, 10)
-        # self.map_2d   = self.node.create_subscription(Graph, '/ground_map', self.map_callback, 10)
-        self.total_entropy_sub = self.node.create_subscription(Float64, '/total_entropy', self.total_entropy_callback, 10)
-        self.ptos_entropy_sub  = self.node.create_subscription(Float64, '/frontier_entropies', self.ptos_entropy_callback, 10)
-        self.frontier_sub = self.node.create_subscription(PoseArray, '/frontier_points', self.frontier_callback, 10)
+        self.odom_sub = self.node.create_subscription(ModelState, '/odom', self.odom_callback, 10) # poscion del robot
+        self.total_entropy_sub = self.node.create_subscription(Float64, '/total_entropy', self.total_entropy_callback, 10) # entropia total
+        self.ptos_entropy_sub  = self.node.create_subscription(Float64, '/frontier_entropies', self.ptos_entropy_callback, 10) # entropia de los puntos frontera
+        self.frontier_sub = self.node.create_subscription(PoseArray, '/frontier_points', self.frontier_callback, 10) # puntos frontera que son los que se eligen como objetivos
+        self.navigation_nodes_filtered = self.node.create_subscription(PoseArray, '/filtered_navigation_nodes', self.filtered_navigation_nodes_callback, 10) # nodos de navegacion filtrados despues de ser filtrados
+        self.occupied_rejected_nodes = self.node.create_subscription(PoseArray, '/occupied_rejected_nodes', self.occupied_rejected_nodes_callback, 10) # nodos de de costmap alrededor de los obstaculos, si se acercan se debe penalizar la trayectoria
         
-        # Publicadores
-        # self.vel_pub   = self.node.create_publisher(Twist, '/cmd_vel', 10)
+
+
         self.goal_pub  = self.node.create_publisher(PoseStamped, '/goal', 10)
-        # Para setear la posición del modelo (ej. reset o visualización)
         self.set_state = self.node.create_publisher(ModelState, '/gazebo/set_model_state', 10)
         
-        # Lanzar Gazebo
         self.launch_gazebo(launch_file)
     
-    # def map_callback(self, msg):
-    #     self.map_data = msg
+
+    def occupied_rejected_nodes_callback(self, msg):
+        self.occupied_rejected_nodes = msg
+
+    def filtered_navigation_nodes_callback(self, msg):
+        self.filtered_navigation_nodes = msg
+
 
     def total_entropy_callback(self, msg):
         self.total_entropy = msg.data
@@ -163,15 +171,12 @@ class GazeboTest:
         self.odom_y = msg.pose.position.y
         self.last_odom = msg
     
-    # Construir el estado para el agente DRL
     def get_state(self):
-        # Estado: [odom_x, odom_y, total_entropy, (x,y) de hasta MAX_FRONTIER_POINTS]
         state = [self.odom_x, self.odom_y, self.total_entropy]
         frontier_list = []
         if self.frontier is not None and len(self.frontier.poses) > 0:
             for pose in self.frontier.poses[:MAX_FRONTIER_POINTS]:
                 frontier_list.extend([pose.position.x, pose.position.y])
-            # Si hay menos de MAX_FRONTIER_POINTS, rellenar con ceros
             while len(frontier_list) < MAX_FRONTIER_POINTS * 2:
                 frontier_list.extend([0.0, 0.0])
         else:
@@ -179,61 +184,48 @@ class GazeboTest:
         state.extend(frontier_list)
         return np.array(state, dtype=np.float32)
     
-    # Ejecuta una acción: la acción es el índice del nodo frontera seleccionado
     def step(self, action_index):
         done = False
         target_reached = False
         
-        # Obtener la lista de nodos frontera disponibles
         frontier_coords = []
         if self.frontier is not None and len(self.frontier.poses) > 0:
             for pose in self.frontier.poses[:MAX_FRONTIER_POINTS]:
                 frontier_coords.append((pose.position.x, pose.position.y))
-        # Si no hay nodos disponibles, penalizar y terminar el episodio
         if len(frontier_coords) == 0:
             logger.warning("No hay nodos frontera disponibles.")
             return self.get_state(), -1.0, True, False
         
-        # Si el índice está fuera del rango, se selecciona el primero
         if action_index >= len(frontier_coords):
             action_index = 0
         
         action_coord = frontier_coords[action_index]
         
-        # Actualizar el objetivo con la coordenada seleccionada
         self.goal_x = action_coord[0]
         self.goal_y = action_coord[1]
         self.goal = PoseStamped()
         self.goal.header.stamp = self.node.get_clock().now().to_msg()
-        self.goal.header.frame_id = "map"  # or the appropriate frame
+        self.goal.header.frame_id = "map"
         self.goal.pose.position.x = self.goal_x
         self.goal.pose.position.y = self.goal_y
-        # Set the orientation if needed, e.g., identity quaternion:
         self.goal.pose.orientation.x = 0.0
         self.goal.pose.orientation.y = 0.0
         self.goal.pose.orientation.z = 0.0
         self.goal.pose.orientation.w = 1.0
         self.goal_pub.publish(self.goal)
-        # self.publish_markers(action_coord)
         
-        # Guardar la entropía previa para calcular la recompensa
         prev_entropy = self.total_entropy
         
-        # Despausar la simulación para propagar el cambio
         self.unpause_simulation()
         time.sleep(TIME_DELTA)
         self.pause_simulation()
         
-        # Actualizar la odometría
         if self.last_odom is not None:
             self.odom_x = self.last_odom.pose.position.x
             self.odom_y = self.last_odom.pose.position.y
         
-        # Calcular la distancia al objetivo
         distance = np.linalg.norm([self.odom_x - self.goal_x, self.odom_y - self.goal_y])
         
-        # Recompensa: si se alcanza el objetivo se asigna una recompensa grande;
-        # de lo contrario se utiliza la disminución de entropía (o una penalización leve)
         if distance < GOAL_REACHED_DIST:
             reward = 10.0
             done = True
@@ -245,14 +237,6 @@ class GazeboTest:
         
         next_state = self.get_state()
         return next_state, reward, done, target_reached
-    
-    def publish_markers(self, action_coord):
-        # Publica un marcador para visualizar el nodo frontera seleccionado en RViz
-        marker = ModelState()
-        marker.model_name = "selected_frontier"
-        marker.pose.position.x = action_coord[0]
-        marker.pose.position.y = action_coord[1]
-        self.set_state.publish(marker)
     
     def launch_gazebo(self, launch_file):
         port = 11345
@@ -293,7 +277,6 @@ class GazeboTest:
             return False
     
     def reset(self):
-        # Reinicia la simulación
         reset_client = self.node.create_client(Empty, '/reset_simulation')
         if not reset_client.wait_for_service(timeout_sec=5.0):
             logger.error("Servicio /reset_simulation no disponible")
@@ -330,22 +313,19 @@ class GazeboTest:
         return self.get_state()
     
     def change_goal(self):
-        # Establece un objetivo aleatorio en el entorno
         self.goal_x = np.random.uniform(-4.5, 4.5)
         self.goal_y = np.random.uniform(-4.5, 4.5)
         goal_state = PoseStamped()
         goal_state.header.stamp = self.node.get_clock().now().to_msg()
-        goal_state.header.frame_id = "map"  # Or the appropriate frame
+        goal_state.header.frame_id = "map"
         goal_state.pose.position.x = self.goal_x
         goal_state.pose.position.y = self.goal_y
-        # Set a default orientation (identity quaternion)
         goal_state.pose.orientation.x = 0.0
         goal_state.pose.orientation.y = 0.0
         goal_state.pose.orientation.z = 0.0
         goal_state.pose.orientation.w = 1.0
         self.goal_pub.publish(goal_state)
     
-    # Función de recompensa alternativa (si se desea modificar la heurística)
     def reward(self, target, action):
         if target == "arrive":
             return 10.0
@@ -362,34 +342,34 @@ def train_agent():
     launch_file = "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python/launch/gazebo_mountain.launch.py"  # Actualiza con tu archivo launch
     env = GazeboTest(launch_file)
     
-    # Definir el tamaño del estado: [odom_x, odom_y, total_entropy] + (x,y) de MAX_FRONTIER_POINTS
     state_size = 3 + (MAX_FRONTIER_POINTS * 2)
-    action_size = MAX_FRONTIER_POINTS  # El agente elige entre hasta MAX_FRONTIER_POINTS
+    action_size = MAX_FRONTIER_POINTS
     agent = DQNAgent(state_size, action_size)
     
     num_episodes = 3
-    max_steps = 2  # Número máximo de pasos por episodio
+    max_steps = 2
 
-    # Lista para guardar datos de replay
     episodes_data = []
     
     for e in range(num_episodes):
         state = env.reset()
         total_reward = 0.0
-        episode_steps = []  # Almacena cada paso del episodio
+        episode_steps = []
         
         for step in range(max_steps):
             current_state = env.get_state()
             action = agent.act(current_state)
-            # Ejecutar la acción y obtener la respuesta del entorno
             next_state, reward, done, target_reached = env.step(action)
             agent.remember(current_state, action, reward, next_state, done)
             agent.replay()
             total_reward += reward
+            with writer.as_default():
+                tf.summary.scalar("loss", loss, step=step + episode * max_steps)
+                tf.summary.scalar("reward", reward, step=step + episode * max_steps)
+            writer.flush()  # Opcional, para asegurar que se escriban los datos
 
-            # Guardar datos del paso para el replay
             step_data = {
-                "timestamp": time.time(),  # Puede usarse time.time() o el índice 'step'
+                "timestamp": time.time(),
                 "action": action,
                 "goal": {"x": env.goal_x, "y": env.goal_y},
                 "reward": reward
@@ -400,7 +380,6 @@ def train_agent():
                 break
         
         logger.info(f"Episode {e+1}/{num_episodes} - Total Reward: {total_reward}")
-        # Guardar datos del episodio en la lista de replay
         episode_data = {
             "episode": e+1,
             "steps": episode_steps,
@@ -408,13 +387,12 @@ def train_agent():
         }
         episodes_data.append(episode_data)
     
-    # Guardar todos los datos de replay en un archivo JSON
     with open(REPLAY_FILE, 'w') as f:
         json.dump(episodes_data, f, indent=4)
     logger.info(f"Datos de replay guardados en {REPLAY_FILE}")
     
-    # Guardar el modelo entrenado
-    torch.save(agent.model.state_dict(), "dqn_model.pth")
+    # Guardar el modelo entrenado con TensorFlow
+    agent.model.save_weights("dqn_model.h5")
     logger.info("Modelo DQN guardado.")
 
 if __name__ == '__main__':
