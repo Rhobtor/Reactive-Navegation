@@ -716,6 +716,32 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
   /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp \
   /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__type_support.hpp \
   /opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+  /opt/ros/humble/include/nav_msgs/nav_msgs/msg/odometry.hpp \
+  /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/odometry__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_with_covariance__struct.hpp \
+  /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/odometry__builder.hpp \
+  /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/odometry__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_with_covariance__traits.hpp \
+  /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/odometry__type_support.hpp \
+  /opt/ros/humble/include/nav_msgs/nav_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/marker_array.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__struct.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/color_rgba__struct.hpp \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__struct.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__struct.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/mesh_file__struct.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__builder.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__traits.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__traits.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/color_rgba__traits.hpp \
+  /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__traits.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__traits.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/mesh_file__traits.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__type_support.hpp \
+  /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
   /opt/ros/humble/include/tf2_ros/transform_listener.h \
   /opt/ros/humble/include/tf2/tf2/buffer_core.hpp \
   /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp \
@@ -802,9 +828,7 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point32__traits.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point32__type_support.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_with_covariance.hpp \
-  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance__struct.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance__builder.hpp \
-  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance__traits.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance__type_support.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_with_covariance_stamped.hpp \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance_stamped__struct.hpp \
@@ -966,10 +990,6 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance_stamped__struct.hpp:
 
-/opt/ros/humble/include/octomap/math/Vector3.h:
-
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance__traits.hpp:
-
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance__builder.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point32__type_support.hpp:
@@ -1060,6 +1080,30 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 
 /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp:
 
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
+
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/mesh_file__traits.hpp:
+
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__builder.hpp:
+
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__struct.hpp:
+
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__struct.hpp:
+
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/marker_array.hpp:
+
+/opt/ros/humble/include/nav_msgs/nav_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_with_covariance__traits.hpp:
+
+/opt/ros/humble/include/octomap/math/Vector3.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance__traits.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist_with_covariance__struct.hpp:
+
+/opt/ros/humble/include/nav_msgs/nav_msgs/msg/odometry.hpp:
+
 /opt/ros/humble/include/std_msgs/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
 /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__type_support.hpp:
@@ -1113,6 +1157,8 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 /opt/ros/humble/include/rclcpp/rclcpp/wait_result_kind.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/wait_result.hpp:
+
+/opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/odometry__struct.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/subscription_wait_set_mask.hpp:
 
@@ -1213,6 +1259,8 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__type_support.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter.hpp:
+
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__struct.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_parameters_interface.hpp:
 
@@ -1366,6 +1414,8 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__traits.hpp:
+
 /usr/include/c++/11/numeric:
 
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__traits.hpp:
@@ -1442,6 +1492,8 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 
 /opt/ros/humble/include/tf2_msgs/msg/tf_message.hpp:
 
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/color_rgba__struct.hpp:
+
 /usr/include/c++/11/cerrno:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__struct.hpp:
@@ -1479,6 +1531,8 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__traits.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/odometry__traits.hpp:
 
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
 
@@ -1602,7 +1656,11 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 
 /usr/include/c++/11/bits/functional_hash.h:
 
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__struct.hpp:
+
 /usr/include/c++/11/csignal:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/color_rgba__traits.hpp:
 
 /usr/include/c++/11/pstl/glue_memory_defs.h:
 
@@ -1772,9 +1830,13 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
 
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__traits.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
 /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__builder.hpp:
+
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__traits.hpp:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
@@ -1856,6 +1918,8 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__type_support.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
@@ -1925,6 +1989,8 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 /usr/include/c++/11/bits/sstream.tcc:
 
 /usr/include/c++/11/array:
+
+/opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/odometry__builder.hpp:
 
 /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/bool__builder.hpp:
 
@@ -2252,6 +2318,8 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 
 /opt/ros/humble/include/rclcpp/rclcpp/timer.hpp:
 
+/opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/odometry__type_support.hpp:
+
 /opt/ros/humble/include/rmw/rmw/events_statuses/incompatible_qos.h:
 
 /opt/ros/humble/include/rmw/rmw/qos_policy_kind.h:
@@ -2323,6 +2391,8 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 /usr/include/c++/11/bitset:
 
 /opt/ros/humble/include/rcl/rcl/service.h:
+
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__traits.hpp:
 
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:
 
@@ -2417,6 +2487,8 @@ CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__builder.hpp:
 
 /opt/ros/humble/include/tf2/tf2/exceptions.hpp:
+
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/mesh_file__struct.hpp:
 
 /usr/include/c++/11/tr1/hypergeometric.tcc:
 

@@ -354,6 +354,19 @@ obstacles_in_2d/fast:
 .PHONY : obstacles_in_2d/fast
 
 #=============================================================================
+# Target rules for targets named check_goal
+
+# Build rule for target.
+check_goal: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 check_goal
+.PHONY : check_goal
+
+# fast build rule for target.
+check_goal/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_goal.dir/build.make CMakeFiles/check_goal.dir/build
+.PHONY : check_goal/fast
+
+#=============================================================================
 # Target rules for targets named filtered_navigation_nodes
 
 # Build rule for target.
@@ -491,6 +504,30 @@ src/camera_filter.s: src/camera_filter.cpp.s
 src/camera_filter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_filter.dir/build.make CMakeFiles/camera_filter.dir/src/camera_filter.cpp.s
 .PHONY : src/camera_filter.cpp.s
+
+src/check_goal.o: src/check_goal.cpp.o
+.PHONY : src/check_goal.o
+
+# target to build an object file
+src/check_goal.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_goal.dir/build.make CMakeFiles/check_goal.dir/src/check_goal.cpp.o
+.PHONY : src/check_goal.cpp.o
+
+src/check_goal.i: src/check_goal.cpp.i
+.PHONY : src/check_goal.i
+
+# target to preprocess a source file
+src/check_goal.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_goal.dir/build.make CMakeFiles/check_goal.dir/src/check_goal.cpp.i
+.PHONY : src/check_goal.cpp.i
+
+src/check_goal.s: src/check_goal.cpp.s
+.PHONY : src/check_goal.s
+
+# target to generate assembly for a file
+src/check_goal.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_goal.dir/build.make CMakeFiles/check_goal.dir/src/check_goal.cpp.s
+.PHONY : src/check_goal.cpp.s
 
 src/check_map.o: src/check_map.cpp.o
 .PHONY : src/check_map.o
@@ -896,6 +933,7 @@ help:
 	@echo "... uninstall"
 	@echo "... 2D_graph"
 	@echo "... camera_filter"
+	@echo "... check_goal"
 	@echo "... check_map"
 	@echo "... control_plugin"
 	@echo "... create_wall"
@@ -919,6 +957,9 @@ help:
 	@echo "... src/camera_filter.o"
 	@echo "... src/camera_filter.i"
 	@echo "... src/camera_filter.s"
+	@echo "... src/check_goal.o"
+	@echo "... src/check_goal.i"
+	@echo "... src/check_goal.s"
 	@echo "... src/check_map.o"
 	@echo "... src/check_map.i"
 	@echo "... src/check_map.s"

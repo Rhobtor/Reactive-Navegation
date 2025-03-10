@@ -1,0 +1,17 @@
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:384:19:[m[K [01;31m[Kerror: [m[K‘[01m[KPID[m[K’ was not declared in this scope
+  384 |   std::unique_ptr<[01;31m[KPID[m[K> linear_pid_;
+      |                   [01;31m[K^~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:384:22:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  384 |   std::unique_ptr<PID[01;31m[K>[m[K linear_pid_;
+      |                      [01;31m[K^[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:384:22:[m[K [01;31m[Kerror: [m[Ktemplate argument 2 is invalid
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:385:19:[m[K [01;31m[Kerror: [m[K‘[01m[KPID[m[K’ was not declared in this scope
+  385 |   std::unique_ptr<[01;31m[KPID[m[K> angular_pid_;
+      |                   [01;31m[K^~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:385:22:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  385 |   std::unique_ptr<PID[01;31m[K>[m[K angular_pid_;
+      |                      [01;31m[K^[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:385:22:[m[K [01;31m[Kerror: [m[Ktemplate argument 2 is invalid
+gmake[2]: *** [CMakeFiles/move_navigation_nodes_frontier.dir/build.make:76: CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:305: CMakeFiles/move_navigation_nodes_frontier.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,7 @@
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:[m[K In member function ‘[01m[Kvoid EnhancedNavigator::controlLoop()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:241:31:[m[K [01;31m[Kerror: [m[K‘[01m[KgetYaw[m[K’ is not a member of ‘[01m[Ktf2[m[K’
+  241 |     double current_yaw = tf2::[01;31m[KgetYaw[m[K(q);
+      |                               [01;31m[K^~~~~~[m[K
+gmake[2]: *** [CMakeFiles/move_navigation_nodes_frontier.dir/build.make:76: CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:305: CMakeFiles/move_navigation_nodes_frontier.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

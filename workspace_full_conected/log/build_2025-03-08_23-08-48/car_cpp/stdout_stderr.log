@@ -1,0 +1,36 @@
+[  5%] Built target navigation_nodes_ground
+[ 10%] Built target ground_remove
+[ 15%] Built target frontier_nodes
+[ 21%] Built target navigation_nodes
+[35m[1mConsolidate compiler generated dependencies of target move_navigation_nodes_frontier[0m
+[ 26%] Built target frontiers_values
+[ 31%] Built target map_measure
+[ 36%] Built target camera_filter
+[ 39%] [32mBuilding CXX object CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o[0m
+[ 44%] Built target occupied_nodes_near_obstacles
+[ 50%] Built target 2D_graph
+[ 55%] Built target create_wall
+[ 60%] Built target filtered_navigation_nodes
+[ 65%] Built target obstacles_in_2d
+[ 71%] Built target check_map
+[ 76%] Built target path_planner_node
+[ 81%] Built target control_plugin
+[ 86%] Built target drive_plugin
+[ 92%] Built target joints_plugin
+[ 97%] Built target driver_plugin
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:[m[K In constructor ‘[01m[KEnhancedNavigator::EnhancedNavigator()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:55:5:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KEnhancedNavigator[m[K’ does not have any field named ‘[01m[Kgoal_radius_large_[m[K’
+   55 |     [01;31m[Kgoal_radius_large_[m[K(1.0),
+      |     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:70:50:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_radius_large_[m[K’ was not declared in this scope; did you mean ‘[01m[Kgoal_radius_small_[m[K’?
+   70 |     this->declare_parameter("goal_radius_large", [01;31m[Kgoal_radius_large_[m[K);
+      |                                                  [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+      |                                                  [32m[Kgoal_radius_small_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:[m[K In member function ‘[01m[Kvoid EnhancedNavigator::controlLoop()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:273:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_radius_large_[m[K’ was not declared in this scope; did you mean ‘[01m[Kgoal_radius_small_[m[K’?
+  273 |     if (distance_error < [01;31m[Kgoal_radius_large_[m[K) {
+      |                          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+      |                          [32m[Kgoal_radius_small_[m[K
+gmake[2]: *** [CMakeFiles/move_navigation_nodes_frontier.dir/build.make:76: CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:303: CMakeFiles/move_navigation_nodes_frontier.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

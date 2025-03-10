@@ -1,0 +1,38 @@
+[0.373s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4
+[0.496s] [  5%] Built target navigation_nodes_ground
+[0.498s] [ 10%] Built target ground_remove
+[0.503s] [ 15%] Built target frontier_nodes
+[0.509s] [ 21%] Built target navigation_nodes
+[0.529s] [35m[1mConsolidate compiler generated dependencies of target move_navigation_nodes_frontier[0m
+[0.572s] [ 26%] Built target frontiers_values
+[0.579s] [ 31%] Built target map_measure
+[0.582s] [ 36%] Built target camera_filter
+[0.583s] [ 39%] [32mBuilding CXX object CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o[0m
+[0.626s] [ 44%] Built target occupied_nodes_near_obstacles
+[0.630s] [ 50%] Built target 2D_graph
+[0.665s] [ 55%] Built target create_wall
+[0.701s] [ 60%] Built target filtered_navigation_nodes
+[0.703s] [ 65%] Built target obstacles_in_2d
+[0.742s] [ 71%] Built target check_map
+[0.764s] [ 76%] Built target path_planner_node
+[0.781s] [ 81%] Built target control_plugin
+[0.850s] [ 86%] Built target drive_plugin
+[0.852s] [ 92%] Built target joints_plugin
+[0.857s] [ 97%] Built target driver_plugin
+[2.888s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:[m[K In constructor ‘[01m[KEnhancedNavigator::EnhancedNavigator()[m[K’:
+[2.889s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:55:5:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KEnhancedNavigator[m[K’ does not have any field named ‘[01m[Kgoal_radius_large_[m[K’
+[2.889s]    55 |     [01;31m[Kgoal_radius_large_[m[K(1.0),
+[2.889s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[2.897s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:70:50:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_radius_large_[m[K’ was not declared in this scope; did you mean ‘[01m[Kgoal_radius_small_[m[K’?
+[2.897s]    70 |     this->declare_parameter("goal_radius_large", [01;31m[Kgoal_radius_large_[m[K);
+[2.898s]       |                                                  [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[2.898s]       |                                                  [32m[Kgoal_radius_small_[m[K
+[2.928s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:[m[K In member function ‘[01m[Kvoid EnhancedNavigator::controlLoop()[m[K’:
+[2.928s] [01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:273:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_radius_large_[m[K’ was not declared in this scope; did you mean ‘[01m[Kgoal_radius_small_[m[K’?
+[2.928s]   273 |     if (distance_error < [01;31m[Kgoal_radius_large_[m[K) {
+[2.928s]       |                          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[2.928s]       |                          [32m[Kgoal_radius_small_[m[K
+[5.371s] gmake[2]: *** [CMakeFiles/move_navigation_nodes_frontier.dir/build.make:76: CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o] Error 1
+[5.371s] gmake[1]: *** [CMakeFiles/Makefile2:303: CMakeFiles/move_navigation_nodes_frontier.dir/all] Error 2
+[5.371s] gmake: *** [Makefile:146: all] Error 2
+[5.373s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '2': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j4 -l4

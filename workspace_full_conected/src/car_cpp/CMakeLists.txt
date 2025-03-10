@@ -190,6 +190,16 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+
+add_executable(check_goal src/check_goal.cpp)
+ament_target_dependencies(check_goal rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)
+
+install(TARGETS
+  check_goal
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+
 add_executable(filtered_navigation_nodes src/filtered_navigation_nodes.cpp)
 ament_target_dependencies(filtered_navigation_nodes rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)
 

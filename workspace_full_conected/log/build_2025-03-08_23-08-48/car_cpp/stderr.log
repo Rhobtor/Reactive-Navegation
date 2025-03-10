@@ -1,0 +1,16 @@
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:[m[K In constructor ‘[01m[KEnhancedNavigator::EnhancedNavigator()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:55:5:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KEnhancedNavigator[m[K’ does not have any field named ‘[01m[Kgoal_radius_large_[m[K’
+   55 |     [01;31m[Kgoal_radius_large_[m[K(1.0),
+      |     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:70:50:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_radius_large_[m[K’ was not declared in this scope; did you mean ‘[01m[Kgoal_radius_small_[m[K’?
+   70 |     this->declare_parameter("goal_radius_large", [01;31m[Kgoal_radius_large_[m[K);
+      |                                                  [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+      |                                                  [32m[Kgoal_radius_small_[m[K
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:[m[K In member function ‘[01m[Kvoid EnhancedNavigator::controlLoop()[m[K’:
+[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/move_navigation_nodes_frontier.cpp:273:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kgoal_radius_large_[m[K’ was not declared in this scope; did you mean ‘[01m[Kgoal_radius_small_[m[K’?
+  273 |     if (distance_error < [01;31m[Kgoal_radius_large_[m[K) {
+      |                          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+      |                          [32m[Kgoal_radius_small_[m[K
+gmake[2]: *** [CMakeFiles/move_navigation_nodes_frontier.dir/build.make:76: CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:303: CMakeFiles/move_navigation_nodes_frontier.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

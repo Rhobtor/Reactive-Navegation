@@ -12,6 +12,7 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/create_wall.dir
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/2D_graph.dir
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/obstacles_in_2d.dir
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/check_goal.dir
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/filtered_navigation_nodes.dir
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/check_map.dir
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/path_planner_node.dir

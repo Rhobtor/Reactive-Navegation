@@ -1,0 +1,12 @@
+[  5%] Built target navigation_nodes
+[ 10%] Built target ground_remove
+[ 15%] Built target camera_filter
+[ 20%] Built target move_navigation_nodes_frontier
+[ 25%] Built target frontiers_values
+[ 30%] Built target map_measure
+[ 35%] Built target occupied_nodes_near_obstacles
+[ 40%] Built target create_wall
+[ 45%] Built target 2D_graph
+[ 50%] Built target obstacles_in_2d
+[35m[1mConsolidate compiler generated dependencies of target check_goal[0m
+[ 52%] [32mBuilding CXX object CMakeFiles/check_goal.dir/src/check_goal.cpp.o[0m
