@@ -107,8 +107,8 @@ public:
     avoidance_mode_(false),
     avoidance_counter_(0),
     last_distance_error_(std::numeric_limits<double>::max()),
-    goal_radius_large_(2.0),
-    goal_radius_small_(0.5),
+    goal_radius_large_(5.0),
+    goal_radius_small_(2.5),
     goal_stable_counter_(0),
     goal_stable_threshold_(20),
     angular_tolerance_(0.1),
@@ -160,7 +160,7 @@ public:
       std::bind(&EnhancedNavigator::navigableNodesCallback, this, std::placeholders::_1));
 
     frontier_point_sub_ = this->create_subscription<geometry_msgs::msg::PoseArray>(
-      "goal", 10,
+      "nav_point", 10,
       std::bind(&EnhancedNavigator::frontierPointCallback, this, std::placeholders::_1));
 
     octomap_sub_ = this->create_subscription<octomap_msgs::msg::Octomap>(
@@ -328,7 +328,7 @@ private:
     cmd_vel_pub_->publish(stop);
     std_msgs::msg::Bool goal_msg;
     goal_msg.data = true;
-    goal_reached_pub_->publish(goal_msg);
+    //goal_reached_pub_->publish(goal_msg);
     linear_pid_->reset();
     angular_pid_->reset();
   }
@@ -574,8 +574,8 @@ private:
   std::unique_ptr<PID> angular_pid_;
 
   // Ganancias para pure pursuit
-  const double k_linear = 0.8;
-  const double k_angular = 1.0;
+  const double k_linear = 2.0;
+  const double k_angular = 3.0;
 
   // Estado de navegación
   NavigationState nav_state_;
