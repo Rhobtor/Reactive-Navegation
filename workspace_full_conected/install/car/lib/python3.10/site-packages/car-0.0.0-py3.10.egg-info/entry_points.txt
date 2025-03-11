@@ -13,5 +13,6 @@ octomap_2d_display = car.octomap_2d_display:main
 odometry_node = car.odometry:main
 points_goal = car.points_goal:main
 scan_to_cloud = car.laser_scan:main
+train_ppo = car.train_ppo:main
 view_point_and_click = car.view_point_and_click:main
 

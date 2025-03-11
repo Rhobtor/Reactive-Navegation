@@ -23,6 +23,7 @@ car/map.py
 car/octomap_2d_display.py
 car/odometry.py
 car/points_goal.py
+car/train_ppo.py
 car/view_point_and_click.py
 config/display.rviz
 config/ekf_params.yaml

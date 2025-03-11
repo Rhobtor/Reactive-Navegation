@@ -44,6 +44,7 @@ setup(
             'frontier_view = car.frontier:main',
             'graph = car.graph:main',
             'points_goal = car.points_goal:main',
+            'train_ppo = car.train_ppo:main',
         ],
     },
 )

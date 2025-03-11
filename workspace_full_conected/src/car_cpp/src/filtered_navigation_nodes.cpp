@@ -126,7 +126,7 @@ private:
     filtered_nodes_pub_->publish(filtered_nodes);
     filtered_markers_pub_->publish(markers);
 
-    RCLCPP_INFO(this->get_logger(), "Nodos filtrados: %zu de %zu", filtered_nodes.poses.size(), msg->poses.size());
+    //RCLCPP_INFO(this->get_logger(), "Nodos filtrados: %zu de %zu", filtered_nodes.poses.size(), msg->poses.size());
   }
 
   double obstacle_projection_radius_; // Radio de influencia para descartar nodos cercanos a obstáculos

@@ -185,19 +185,19 @@ public:
       std::chrono::milliseconds(100),
       std::bind(&EnhancedNavigator::controlLoop, this));
 
-    RCLCPP_INFO(this->get_logger(), "EnhancedNavigator iniciado.");
+    //RCLCPP_INFO(this->get_logger(), "EnhancedNavigator iniciado.");
   }
 
 private:
   // Callbacks de suscripción
   void navigableNodesCallback(const geometry_msgs::msg::PoseArray::SharedPtr msg) {
     latest_navigable_nodes_ = *msg;
-    RCLCPP_INFO(this->get_logger(), "Actualizados nodos filtrados: %d poses.", static_cast<int>(msg->poses.size()));
+    //RCLCPP_INFO(this->get_logger(), "Actualizados nodos filtrados: %d poses.", static_cast<int>(msg->poses.size()));
   }
 
   void frontierPointCallback(const geometry_msgs::msg::PoseArray::SharedPtr msg) {
     latest_frontier_point_ = *msg;
-    RCLCPP_INFO(this->get_logger(), "Actualizado punto de meta: %d poses recibidas.", static_cast<int>(msg->poses.size()));
+    //RCLCPP_INFO(this->get_logger(), "Actualizado punto de meta: %d poses recibidas.", static_cast<int>(msg->poses.size()));
     goal_stable_counter_ = 0;
     nav_state_ = NavigationState::APPROACH;
     align_start_time_ = rclcpp::Time(0);
@@ -220,7 +220,7 @@ private:
 
   void occupiedRejectedNodesCallback(const geometry_msgs::msg::PoseArray::SharedPtr msg) {
     occupied_rejected_nodes_ = *msg;
-    RCLCPP_DEBUG(this->get_logger(), "Actualizados occupied_rejected_nodes: %d poses.", static_cast<int>(msg->poses.size()));
+    //RCLCPP_DEBUG(this->get_logger(), "Actualizados occupied_rejected_nodes: %d poses.", static_cast<int>(msg->poses.size()));
   }
 
   // Publicar markers para visualización en RViz
@@ -431,14 +431,14 @@ private:
       safe_position_set_ = true;
     } else {
       stuck_counter_++;
-      RCLCPP_DEBUG(this->get_logger(), "Progreso insuficiente. Contador de estancamiento: %d", stuck_counter_);
+      //RCLCPP_DEBUG(this->get_logger(), "Progreso insuficiente. Contador de estancamiento: %d", stuck_counter_);
     }
     last_distance_error_ = distance_error;
 
     // Activar backup si se excede el umbral o se detecta un obstáculo muy cerca.
     if (stuck_counter_ >= stuck_threshold_ && safe_position_set_) {
       backup_mode_ = true;
-      RCLCPP_WARN(this->get_logger(), "Robot estancado. Activando modo backup.");
+      //RCLCPP_WARN(this->get_logger(), "Robot estancado. Activando modo backup.");
       stuck_counter_ = 0;
     }
     bool obstacle_near = false;
@@ -452,7 +452,7 @@ private:
       }
     }
     if (obstacle_near) {
-      RCLCPP_WARN(this->get_logger(), "Obstáculo muy cerca detectado. Activando modo backup.");
+      //RCLCPP_WARN(this->get_logger(), "Obstáculo muy cerca detectado. Activando modo backup.");
       backup_mode_ = true;
     }
 
@@ -461,7 +461,7 @@ private:
       case NavigationState::APPROACH: {
         if (distance_error < goal_radius_small_) {
           nav_state_ = NavigationState::ALIGN;
-          RCLCPP_INFO(this->get_logger(), "Cambiando a estado ALIGN (cerca del goal).");
+          //RCLCPP_INFO(this->get_logger(), "Cambiando a estado ALIGN (cerca del goal).");
           geometry_msgs::msg::Twist stop;
           cmd_vel_pub_->publish(stop);
           align_start_time_ = this->now();
@@ -476,7 +476,7 @@ private:
         }
         auto current_time = this->now();
         if ((current_time - align_start_time_).seconds() > align_timeout_) {
-          RCLCPP_WARN(this->get_logger(), "Timeout en alineación. Forzando finalización.");
+          //RCLCPP_WARN(this->get_logger(), "Timeout en alineación. Forzando finalización.");
           publishGoalReached();
           nav_state_ = NavigationState::GOAL_REACHED;
           align_start_time_ = rclcpp::Time(0);
@@ -493,7 +493,7 @@ private:
           rotate_cmd.angular.z = angular_correction;
           cmd_vel_pub_->publish(rotate_cmd);
         } else {
-          RCLCPP_INFO(this->get_logger(), "Meta alcanzada de forma estable (alineación completa).");
+          //RCLCPP_INFO(this->get_logger(), "Meta alcanzada de forma estable (alineación completa).");
           publishGoalReached();
           nav_state_ = NavigationState::GOAL_REACHED;
           align_start_time_ = rclcpp::Time(0);
@@ -517,11 +517,11 @@ private:
         backup_cmd.linear.x = backup_speed_;
         backup_cmd.angular.z = 0.0;
         cmd_vel_pub_->publish(backup_cmd);
-        RCLCPP_INFO(this->get_logger(), "Modo backup: retrocediendo (distancia: %.2f)", backup_distance);
+        //RCLCPP_INFO(this->get_logger(), "Modo backup: retrocediendo (distancia: %.2f)", backup_distance);
         return;
       } else {
         backup_mode_ = false;
-        RCLCPP_INFO(this->get_logger(), "Posición segura alcanzada. Reiniciando control normal.");
+        //RCLCPP_INFO(this->get_logger(), "Posición segura alcanzada. Reiniciando control normal.");
       }
     }
   }
