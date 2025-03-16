@@ -1,5 +1,0 @@
-[  5%] Built target navigation_nodes
-[ 10%] Built target ground_remove
-[ 15%] Built target camera_filter
-[35m[1mConsolidate compiler generated dependencies of target move_navigation_nodes_frontier[0m
-[ 18%] [32mBuilding CXX object CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o[0m

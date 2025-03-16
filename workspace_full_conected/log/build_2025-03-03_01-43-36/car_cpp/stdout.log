@@ -1,9 +1,0 @@
-[  6%] Built target navigation_nodes
-[ 12%] Built target ground_remove
-[ 18%] Built target camera_filter
-[ 25%] Built target move_navigation_nodes_frontier
-[ 31%] Built target frontiers_values
-[ 37%] Built target map_measure
-[ 43%] Built target testo
-[35m[1mConsolidate compiler generated dependencies of target 2D_graph[0m
-[ 46%] [32mBuilding CXX object CMakeFiles/2D_graph.dir/src/2D_graph.cpp.o[0m

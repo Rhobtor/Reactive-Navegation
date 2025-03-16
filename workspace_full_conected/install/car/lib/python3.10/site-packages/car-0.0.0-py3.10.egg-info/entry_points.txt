@@ -1,10 +1,12 @@
 [console_scripts]
 camara_time_node = car.camara_time:main
+colision_zone = car.colision_zone:main
 debug_node = car.debugtf:main
 ekf_node = car.ekf_node:main
 filter_points_cloud = car.filter_points_cloud:main
 frontier_view = car.frontier:main
 graph = car.graph:main
+inference_ppo = car.inference_ppo:main
 joystick_control = car.joystick_control:main
 keyboard_control = car.keyboard_control:main
 log_joystick = car.log_joystick:main
@@ -13,6 +15,7 @@ octomap_2d_display = car.octomap_2d_display:main
 odometry_node = car.odometry:main
 points_goal = car.points_goal:main
 scan_to_cloud = car.laser_scan:main
+supervisor_node = car.supervisor:main
 train_ppo = car.train_ppo:main
 view_point_and_click = car.view_point_and_click:main
 

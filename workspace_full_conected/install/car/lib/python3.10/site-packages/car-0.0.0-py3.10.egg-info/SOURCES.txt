@@ -10,11 +10,13 @@ setup.py
 ../../build/car/car.egg-info/zip-safe
 car/__init__.py
 car/camara_time.py
+car/colision_zone.py
 car/debugtf.py
 car/ekf_node.py
 car/filter_points_cloud.py
 car/frontier.py
 car/graph.py
+car/inference_ppo.py
 car/joystick_control.py
 car/keyboard_control.py
 car/laser_scan.py
@@ -23,6 +25,7 @@ car/map.py
 car/octomap_2d_display.py
 car/odometry.py
 car/points_goal.py
+car/supervisor.py
 car/train_ppo.py
 car/view_point_and_click.py
 config/display.rviz
@@ -38,10 +41,13 @@ launch/gazebo.launch.py
 launch/gazebo_empty_world.launch.py
 launch/gazebo_mountain.launch.py
 launch/gazebo_no_gui.launch.py
+launch/gazebo_simple2.launch.py
+launch/gazebo_simple3.launch.py
+launch/gazebo_simple_world.launch.py
 launch/joystick.launch.py
 launch/rtamap_test.launch.py
-meshes/Component24_1.stl
-meshes/Component25_1.stl
+meshes/Camara.stl
+meshes/Lidar.stl
 meshes/base_link.stl
 meshes/chasis_1.stl
 meshes/direction_back_left_1.stl
@@ -79,4 +85,8 @@ worlds/heightmap_world.world
 worlds/map1_test.world
 worlds/mountain.world
 worlds/obstacles.world
+worlds/obstacles_and_traps.world
 worlds/test.world
+worlds/world_simple2.world
+worlds/world_simple3.world
+worlds/world_simple_object.world

@@ -113,8 +113,14 @@ def generate_launch_description():
     octomap = Node(
         package='octomap_server',
         executable='octomap_server_node',
-        name='octomap_server_node',
-        parameters=[octomap_arg]
+        name='octomap_server',
+        output='screen',
+        parameters=[{
+            'resolution': 0.2,
+            'frame_id': 'map',
+            'sensor_model.max_range': 7.0
+        }],
+        remappings=[('cloud_in', 'scan_cloud_filtered')]
     )
 
     map_odom_tf = Node(
@@ -160,6 +166,17 @@ def generate_launch_description():
         name='occupied_nodes_near_obstacles'
     )
 
+    check_goal = Node(
+        package='car_cpp',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
+        executable='check_goal',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='check_goal',  # Nombre del nodo
+    )
+
+    poinst_goal = Node(
+        package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
+        executable='points_goal',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='points_goal',  # Nombre del nodo
+    )
 
 
     return LaunchDescription([
@@ -172,14 +189,16 @@ def generate_launch_description():
         urdf_spawn_node,
         filter_points_cloud,
         frontier_values,
-        #octomap,
+        octomap,
         map_odom_tf,
         navigation_nodes_ground,
         filtered_navigation_nodes,
         navigation_nodes,
         obstacles_in_2d,
         occupied_nodes_near_obstacles,
-        #move_navigation_nodes
+        check_goal,
+        poinst_goal,
+        move_navigation_nodes
 
 
     ])

@@ -1,9 +1,0 @@
-[31mCMake Error at CMakeLists.txt:185 (add_executable):
-  add_executable cannot create target "remove_graph_obstacles" because
-  another target with the same name already exists.  The existing target is
-  an executable created in source directory
-  "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp".
-  See documentation for policy CMP0002 for more details.
-
-[0m
-gmake: *** [Makefile:899: cmake_check_build_system] Error 1

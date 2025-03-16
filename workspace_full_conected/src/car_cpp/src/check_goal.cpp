@@ -11,7 +11,7 @@ public:
   : Node("goal_reached_node"), goal_received_(false), odom_received_(false)
   {
     // Declarar parámetro para el umbral de llegada al goal (en metros)
-    this->declare_parameter("goal_threshold", 2.0);
+    this->declare_parameter("goal_threshold", 3.0);
     goal_threshold_ = this->get_parameter("goal_threshold").as_double();
 
     // Suscripción al topic "goal" (PoseArray)

@@ -1,7 +1,0 @@
-[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/remove_paths.cpp:3:10:[m[K [01;31m[Kfatal error: [m[Koctomap_msgs/Octomap.h: No such file or directory
-    3 | #include [01;31m[K<octomap_msgs/Octomap.h>[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-gmake[2]: *** [CMakeFiles/remove_paths.dir/build.make:76: CMakeFiles/remove_paths.dir/src/remove_paths.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:431: CMakeFiles/remove_paths.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

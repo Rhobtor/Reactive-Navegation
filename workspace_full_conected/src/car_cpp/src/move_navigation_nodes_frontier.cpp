@@ -99,7 +99,7 @@ public:
   : Node("enhanced_navigator"),
     tf_buffer_(this->get_clock()),
     tf_listener_(tf_buffer_),
-    num_samples_(20),
+    num_samples_(30),
     safety_distance_(0.05),
     stuck_counter_(0),
     stuck_threshold_(10),
@@ -108,7 +108,7 @@ public:
     avoidance_counter_(0),
     last_distance_error_(std::numeric_limits<double>::max()),
     goal_radius_large_(5.0),
-    goal_radius_small_(2.5),
+    goal_radius_small_(1.0),
     goal_stable_counter_(0),
     goal_stable_threshold_(20),
     angular_tolerance_(0.1),
@@ -152,7 +152,7 @@ public:
     // Crear controladores PID
     linear_pid_ = std::make_unique<PID>(0.5, 0.0, 0.1, dt);
     // Aumentar la ganancia del PID angular para giros más agresivos.
-    angular_pid_ = std::make_unique<PID>(1.5, 0.0, 0.2, dt);
+    angular_pid_ = std::make_unique<PID>(2.5, 0.0, 0.3, dt);
 
     // Configurar suscripciones y publicadores
     navigable_nodes_sub_ = this->create_subscription<geometry_msgs::msg::PoseArray>(
@@ -598,3 +598,4 @@ int main(int argc, char **argv) {
   rclcpp::shutdown();
   return 0;
 }
+

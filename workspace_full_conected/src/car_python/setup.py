@@ -45,6 +45,9 @@ setup(
             'graph = car.graph:main',
             'points_goal = car.points_goal:main',
             'train_ppo = car.train_ppo:main',
+            'inference_ppo = car.inference_ppo:main',
+            'colision_zone = car.colision_zone:main',
+            'supervisor_node = car.supervisor:main',
         ],
     },
 )
