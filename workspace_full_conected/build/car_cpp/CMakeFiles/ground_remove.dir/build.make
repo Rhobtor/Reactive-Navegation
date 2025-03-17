@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp
+CMAKE_SOURCE_DIR = /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp
+CMAKE_BINARY_DIR = /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ground_remove.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/ground_remove.dir/progress.make
 include CMakeFiles/ground_remove.dir/flags.make
 
 CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o: CMakeFiles/ground_remove.dir/flags.make
-CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/ground_remove.cpp
+CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/ground_remove.cpp
 CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o: CMakeFiles/ground_remove.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o -MF CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o.d -o CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o -c /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/ground_remove.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o -MF CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o.d -o CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o -c /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/ground_remove.cpp
 
 CMakeFiles/ground_remove.dir/src/ground_remove.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ground_remove.dir/src/ground_remove.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/ground_remove.cpp > CMakeFiles/ground_remove.dir/src/ground_remove.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/ground_remove.cpp > CMakeFiles/ground_remove.dir/src/ground_remove.cpp.i
 
 CMakeFiles/ground_remove.dir/src/ground_remove.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ground_remove.dir/src/ground_remove.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/ground_remove.cpp -o CMakeFiles/ground_remove.dir/src/ground_remove.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/ground_remove.cpp -o CMakeFiles/ground_remove.dir/src/ground_remove.cpp.s
 
 # Object files for target ground_remove
 ground_remove_OBJECTS = \
@@ -443,7 +443,7 @@ ground_remove: /usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.74.0
 ground_remove: /usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.74.0
 ground_remove: /usr/lib/x86_64-linux-gnu/libqhull_r.so.8.0.2
 ground_remove: CMakeFiles/ground_remove.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ground_remove"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ground_remove"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ground_remove.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -455,6 +455,6 @@ CMakeFiles/ground_remove.dir/clean:
 .PHONY : CMakeFiles/ground_remove.dir/clean
 
 CMakeFiles/ground_remove.dir/depend:
-	cd /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/ground_remove.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_cpp /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_cpp /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp/CMakeFiles/ground_remove.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ground_remove.dir/depend
 

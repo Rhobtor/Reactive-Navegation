@@ -20,7 +20,7 @@ STEP_PENALTY = -0.05          # Penalización por paso
 GOAL_REWARD = 50.0            # Recompensa al alcanzar la meta
 OBSTACLE_PENALTY_DIST = 2.0   # Umbral para descartar candidatos
 
-MAX_CANDIDATES = 5            # Número máximo de candidatos a considerar
+MAX_CANDIDATES = 30       # Número máximo de candidatos a considerar
 
 # Ahora, se añaden 2 características extras: 
 # 1) promedio de distancias a obstáculos alrededor del robot
@@ -31,7 +31,7 @@ GLOBAL_STATE_DIM = 6          # [robot_x, robot_y, goal_x, goal_y, avg_obs_dist,
 GAMMA = 0.99
 LAMBDA = 0.95
 CLIP_EPS = 0.2
-TRAIN_EPOCHS = 10
+TRAIN_EPOCHS = 1000
 BATCH_SIZE = 32
 
 # Parámetros de exploración
@@ -560,7 +560,7 @@ class NavigationPPOCandidateTrainer(Node):
         if not getattr(self, 'models_saved', False):
             self.save_models()
             self.models_saved = True
-        if self.episode_count >= 400:
+        if self.episode_count >= 1000:
             self.get_logger().info("Se han completado 400 episodios. Finalizando nodo.")
             rclpy.shutdown()
 

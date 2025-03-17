@@ -1,5 +1,5 @@
 CMakeFiles/octomap_saver_node.dir/rclcpp_components/node_main_octomap_saver_node.cpp.o: \
- /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server/rclcpp_components/node_main_octomap_saver_node.cpp \
+ /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/octomap_server/rclcpp_components/node_main_octomap_saver_node.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/memory \
  /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \

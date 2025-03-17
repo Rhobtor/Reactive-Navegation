@@ -10,13 +10,15 @@ class SupervisorNode(Node):
     def __init__(self):
         super().__init__('supervisor_node')
         # Parámetro para definir la lista de comandos a ejecutar para lanzar el entorno.
-
+        # Ejemplo de lista:
+        # ["ros2 launch car gazebo_world1.launch.py",
+        #  "ros2 launch car gazebo_world2.launch.py",
+        #  "ros2 launch car gazebo_world3.launch.py"]
         self.declare_parameter('launch_cmds', [
             'ros2 launch car gazebo_simple_world.launch.py',
             'ros2 launch car gazebo_simple2.launch.py',
             'ros2 launch car gazebo_simple3.launch.py',
             'ros2 launch car gazebo_mountain.launch.py'
-
         ])
         self.launch_cmds = self.get_parameter('launch_cmds').value
         self.get_logger().info(f"Comandos de lanzamiento: {self.launch_cmds}")
@@ -28,6 +30,9 @@ class SupervisorNode(Node):
 
         # Se suscribe al tópico '/reset_request' para recibir solicitudes de reinicio.
         self.create_subscription(Bool, '/reset_request', self.reset_request_callback, 10)
+        
+        # Publicador en el tópico "goal_reached"
+        self.goal_reached_pub = self.create_publisher(Bool, 'goal_reached', 10)
 
     def kill_existing_gazebo(self):
         """Intenta matar procesos de Gazebo que estén corriendo (gzserver y gzclient)."""
@@ -61,7 +66,13 @@ class SupervisorNode(Node):
     def reset_request_callback(self, msg: Bool):
         """Callback que se ejecuta al recibir una solicitud de reinicio."""
         if msg.data:
-            self.get_logger().info("Solicitud de reinicio recibida. Reiniciando entorno...")
+            self.get_logger().info("Solicitud de reinicio recibida.")
+            # Publicamos en el tópico 'goal_reached' para notificar que se alcanzó la meta
+            goal_msg = Bool()
+            goal_msg.data = True
+            self.goal_reached_pub.publish(goal_msg)
+            self.get_logger().info("Publicado goal_reached = True")
+            # Reiniciamos el entorno
             self.kill_environment()
             # Actualizamos el índice para seleccionar el siguiente comando de la lista
             self.current_index = (self.current_index + 1) % len(self.launch_cmds)
