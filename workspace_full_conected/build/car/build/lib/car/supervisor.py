@@ -18,6 +18,12 @@ class SupervisorNode(Node):
             'ros2 launch car gazebo_simple_world.launch.py',
             'ros2 launch car gazebo_simple2.launch.py',
             'ros2 launch car gazebo_simple3.launch.py',
+            'ros2 launch car gazebo_simple4.launch.py',
+            'ros2 launch car gazebo_simple5.launch.py',
+            'ros2 launch car gazebo_simple6.launch.py',
+            'ros2 launch car gazebo_simple7.launch.py',
+            'ros2 launch car gazebo_simple8.launch.py',
+            'ros2 launch car gazebo_simple9.launch.py',
             'ros2 launch car gazebo_mountain.launch.py'
         ])
         self.launch_cmds = self.get_parameter('launch_cmds').value

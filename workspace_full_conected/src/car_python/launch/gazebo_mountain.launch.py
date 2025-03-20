@@ -178,6 +178,12 @@ def generate_launch_description():
         name='points_goal',  # Nombre del nodo
     )
 
+    colision_zone = Node(
+        package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
+        executable='colision_zone',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='colision_zone',  # Nombre del nodo
+    )
+
 
     return LaunchDescription([
         # static_tf,  # Publica la transformación de 'odom' a 'map'
@@ -185,7 +191,7 @@ def generate_launch_description():
         robot_state_publisher_node,
         # joint_state_publisher_node,
         gazebo_server,
-        #gazebo_client,
+        gazebo_client,
         urdf_spawn_node,
         filter_points_cloud,
         frontier_values,
@@ -198,7 +204,8 @@ def generate_launch_description():
         occupied_nodes_near_obstacles,
         check_goal,
         poinst_goal,
-        move_navigation_nodes
+        move_navigation_nodes,
+        colision_zone
 
 
     ])

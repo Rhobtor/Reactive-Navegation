@@ -13,11 +13,11 @@ from octomap_msgs.msg import Octomap
 
 # Parámetros y constantes (ajusta según tu caso)
 GOAL_REACHED_DIST = 3.0         # Distancia para considerar que se alcanzó la meta
-OBSTACLE_PENALTY_DIST = 4.0     # Umbral de clearance para descartar candidatos
+OBSTACLE_PENALTY_DIST = 2.0       # Umbral de clearance para descartar candidatos
 
-MAX_CANDIDATES = 5              # Número máximo de candidatos a considerar
-FEATURE_DIM = 4                 # Dimensión del vector de características para cada candidato
-GLOBAL_STATE_DIM = 4            # [robot_x, robot_y, goal_x, goal_y]
+MAX_CANDIDATES = 30             # Número máximo de candidatos a considerar
+FEATURE_DIM = 6                 # Dimensión del vector de características para cada candidato
+GLOBAL_STATE_DIM = 6            # [robot_x, robot_y, goal_x, goal_y, avg_obs_dist, num_obs_norm]
 
 # --- Actor Recurrente con LSTM para Inferencia ---
 class RecurrentActorNetwork(tf.keras.Model):
@@ -75,11 +75,9 @@ class NavigationPPOCandidateInference(Node):
         self.filtered_nodes = None
         self.occupied_nodes = None
         self.current_candidate = None
-        # Para almacenar la última odometría en la que se seleccionó un candidato (opcional)
-        self.last_candidate_selection_odom = None
 
         # Cargar el modelo actor guardado en modo inferencia (modelo entrenado con LSTM)
-        self.actor = tf.keras.models.load_model('actor_model_20250315_201900.keras', 
+        self.actor = tf.keras.models.load_model('actor_model_20250316_181118.keras', 
                                                   custom_objects={'RecurrentActorNetwork': RecurrentActorNetwork})
         self.get_logger().info("Modelo actor (LSTM) cargado para inferencia.")
         # Estado recurrente inicial (se mantiene entre pasos)
@@ -102,6 +100,20 @@ class NavigationPPOCandidateInference(Node):
     def occupied_nodes_callback(self, msg: PoseArray):
         self.occupied_nodes = msg
 
+    # Función para calcular estadísticas de obstáculos
+    def compute_obstacle_stats(self):
+        if self.occupied_nodes and self.occupied_nodes.poses:
+            distances = [math.hypot(self.odom.position.x - obs.position.x,
+                                    self.odom.position.y - obs.position.y)
+                         for obs in self.occupied_nodes.poses]
+            avg_dist = np.mean(distances)
+            num_obs = len(distances)
+        else:
+            avg_dist = 10.0  # Valor por defecto
+            num_obs = 0
+        num_obs_norm = num_obs / 10.0
+        return avg_dist, num_obs_norm
+
     # Extrae características para cada candidato (igual que en entrenamiento)
     def compute_candidate_features(self):
         features = []
@@ -113,6 +125,10 @@ class NavigationPPOCandidateInference(Node):
         goal_x = self.goal.position.x
         goal_y = self.goal.position.y
         current_yaw = 0.0  # Ajusta si se dispone de orientación real
+
+        # Calcular estadísticas globales de obstáculos:
+        avg_obs_dist, num_obs_norm = self.compute_obstacle_stats()
+
         for node in self.filtered_nodes.poses:
             if self.occupied_nodes and self.occupied_nodes.poses:
                 clearance = min([math.hypot(node.position.x - occ.position.x,
@@ -128,11 +144,13 @@ class NavigationPPOCandidateInference(Node):
             angle_to_node = math.atan2(dy, dx)
             angle_diff = abs(angle_to_node - current_yaw)
             dist_to_goal = math.hypot(node.position.x - goal_x, node.position.y - goal_y)
-            features.append([dist_robot, angle_diff, clearance, dist_to_goal])
+            # Vector de características con 6 elementos:
+            feature_vector = [dist_robot, angle_diff, clearance, dist_to_goal, avg_obs_dist, num_obs_norm]
+            features.append(feature_vector)
             valid_nodes.append(node)
         if len(features) == 0:
             return None, None, None
-        # Ordenar candidatos por distancia a la meta
+        # Ordenar candidatos por distancia a la meta (usando la característica dist_to_goal)
         features, valid_nodes = zip(*sorted(zip(features, valid_nodes), key=lambda x: x[0][3]))
         features = list(features)
         valid_nodes = list(valid_nodes)

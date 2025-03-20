@@ -48,6 +48,8 @@ setup(
             'inference_ppo = car.inference_ppo:main',
             'colision_zone = car.colision_zone:main',
             'supervisor_node = car.supervisor:main',
+            'dqn_ppo = car.dqn_ppo:main',
+            'inference_dqn_ppo = car.inference_dqn_ppo:main',
         ],
     },
 )

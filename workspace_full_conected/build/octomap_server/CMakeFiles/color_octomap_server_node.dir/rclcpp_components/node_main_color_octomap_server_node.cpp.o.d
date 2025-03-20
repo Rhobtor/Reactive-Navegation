@@ -1,5 +1,5 @@
 CMakeFiles/color_octomap_server_node.dir/rclcpp_components/node_main_color_octomap_server_node.cpp.o: \
- /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/octomap_server/rclcpp_components/node_main_color_octomap_server_node.cpp \
+ /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server/rclcpp_components/node_main_color_octomap_server_node.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/memory \
  /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \

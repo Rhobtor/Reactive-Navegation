@@ -5,38 +5,47 @@ import math
 import numpy as np
 import tensorflow as tf
 import datetime
+import time
 import subprocess
+import os
+import signal
 
-from std_srvs.srv import Empty  # (Opcional) Para resetear Gazebo directamente
+from std_srvs.srv import Empty
 from std_msgs.msg import Bool
-from geometry_msgs.msg import PoseArray, Pose, Point
+from geometry_msgs.msg import PoseArray, Pose, Point, Quaternion
 from nav_msgs.msg import Odometry
 from visualization_msgs.msg import Marker
 from octomap_msgs.msg import Octomap
 
 # PPO hiperparámetros y parámetros de navegación
-GOAL_REACHED_DIST = 3.0       # Distancia para considerar que se alcanzó la meta
-STEP_PENALTY = -0.05          # Penalización por paso
-GOAL_REWARD = 50.0            # Recompensa al alcanzar la meta
-OBSTACLE_PENALTY_DIST = 2.0   # Umbral para descartar candidatos
+GOAL_REACHED_DIST = 3.0       
+STEP_PENALTY = -0.05          
+GOAL_REWARD = 50.0            
+OBSTACLE_PENALTY_DIST = 2.0   
 
-MAX_CANDIDATES = 30       # Número máximo de candidatos a considerar
-
-# Ahora, se añaden 2 características extras: 
-# 1) promedio de distancias a obstáculos alrededor del robot
-# 2) número de obstáculos (normalizado)
-FEATURE_DIM = 6               # [dist_robot, angle_diff, clearance, dist_to_goal, avg_obs_dist, num_obs_norm]
-GLOBAL_STATE_DIM = 6          # [robot_x, robot_y, goal_x, goal_y, avg_obs_dist, num_obs_norm]
+MAX_CANDIDATES = 5            
+# Características: [dist_robot, angle_diff, clearance, dist_to_goal, avg_obs_dist, num_obs_norm]
+FEATURE_DIM = 6               
+# Estado global para el crítico: se añade delta_heading (diferencia de orientación)
+GLOBAL_STATE_DIM = 7          
 
 GAMMA = 0.99
 LAMBDA = 0.95
 CLIP_EPS = 0.2
-TRAIN_EPOCHS = 1000
+TRAIN_EPOCHS = 10
 BATCH_SIZE = 32
 
-# Parámetros de exploración
-EXPLORATION_DISTANCE_THRESHOLD = 0.5  # m
-EXPLORATION_BONUS_FACTOR = 20.0         # Factor de bonus
+# Parámetros de exploración y bonus
+EXPLORATION_DISTANCE_THRESHOLD = 3.0  
+EXPLORATION_BONUS_FACTOR = 40.0         
+CLEARANCE_BONUS_FACTOR = 30.0           
+
+# --- Función auxiliar: Conversión de cuaternión a yaw ---
+def quaternion_to_yaw(q: Quaternion):
+    # Fórmula estándar: yaw = atan2(2*(w*z + x*y), 1 - 2*(y*y + z*z))
+    siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+    cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+    return math.atan2(siny_cosp, cosy_cosp)
 
 # --- Actor Recurrente con LSTM para Entrenamiento ---
 class RecurrentActorNetwork(tf.keras.Model):
@@ -90,13 +99,14 @@ class CriticNetwork(tf.keras.Model):
 class NavigationPPOCandidateTrainer(Node):
     def __init__(self):
         super().__init__('navigation_ppo_candidate_trainer')
-        # Subscripciones a odometría, meta, nodos filtrados y ocupados
+        # Subscripciones a odometría, goal, nodos filtrados, ocupados y colisión virtual
         self.create_subscription(Odometry, '/odom', self.odom_callback, 10)
         self.create_subscription(PoseArray, '/goal', self.goal_callback, 10)
         self.create_subscription(PoseArray, '/filtered_navigation_nodes', self.filtered_nodes_callback, 10)
         self.create_subscription(PoseArray, '/occupied_rejected_nodes', self.occupied_nodes_callback, 10)
-        # Suscripción al tópico de colisión virtual
         self.create_subscription(Bool, '/virtual_collision', self.collision_callback, 10)
+        # Subscripción para reinicio del mapa (por supervisor)
+        self.create_subscription(Bool, '/map_reset', self.map_reset_callback, 10)
         # Publicador para solicitar reinicio del entorno
         self.reset_request_pub = self.create_publisher(Bool, '/reset_request', 10)
         # Publicadores para visualización
@@ -109,8 +119,8 @@ class NavigationPPOCandidateTrainer(Node):
         self.filtered_nodes = None
         self.occupied_nodes = None
         self.current_candidate = None
-        self.last_candidate = None  # Backup
-        self.last_candidate_features = None  # (features, mask, action_index, probs)
+        self.last_candidate = None
+        self.last_candidate_features = None
         
         # Buffer de experiencia
         self.states = []
@@ -130,12 +140,12 @@ class NavigationPPOCandidateTrainer(Node):
         self.escape_counter = 0
         self.escape_threshold = 5
 
-        # Para detectar inactividad usando velocidad
+        # Detección de inactividad (basada en velocidad)
         self.last_movement_time = None
         self.movement_threshold = 0.01  # m/s
         self.inactivity_time_threshold = 10.0  # segundos
 
-        # Cooldown para reinicio
+        # Cooldown para reinicio del entorno
         self.last_reset_time = 0.0
         self.reset_cooldown = 20.0  # segundos
 
@@ -144,8 +154,18 @@ class NavigationPPOCandidateTrainer(Node):
         self.same_candidate_threshold = 3
         self.same_candidate_distance_threshold = 0.1  # m
 
-        # TensorBoard
+        # Para mejorar la memoria: seguimiento de orientación
+        self.last_heading = None
+        self.delta_heading = 0.0
+
+        # (Opcional) Suscribirse al mapa de puntos
+        self.create_subscription(PoseArray, '/navigation_map_points', self.map_points_callback, 10)
+        self.map_points = None
+
+        # TensorBoard y tiempo de entrenamiento
         self.episode_count = 0
+        self.total_episodes = 400
+        self.start_time = time.time()
         self.log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         self.summary_writer = tf.summary.create_file_writer(self.log_dir)
         self.get_logger().info(f"TensorBoard logs en: {self.log_dir}")
@@ -165,24 +185,33 @@ class NavigationPPOCandidateTrainer(Node):
         self.get_logger().info("Datos iniciales recibidos, iniciando selección de nodo.")
         self.timer = self.create_timer(0.1, self.step)
 
-    # Callbacks
+    # --- Callbacks ---
     def odom_callback(self, msg: Odometry):
         current_time = self.get_clock().now().nanoseconds / 1e9
         original_pose = msg.pose.pose
-        offset_x = 0.5  # Ajusta para centrar la posición
+        offset_x = 0.5
         adjusted_pose = Pose()
         adjusted_pose.position.x = original_pose.position.x - offset_x
         adjusted_pose.position.y = original_pose.position.y
         adjusted_pose.position.z = original_pose.position.z
         adjusted_pose.orientation = original_pose.orientation
+        self.odom = adjusted_pose
 
-        # Actualizar el tiempo de movimiento usando la velocidad lineal
+        # Extraer yaw del robot
+        yaw = quaternion_to_yaw(original_pose.orientation)
+        if self.last_heading is None:
+            self.last_heading = yaw
+            self.delta_heading = 0.0
+        else:
+            self.delta_heading = abs(yaw - self.last_heading)
+            self.last_heading = yaw
+
+        # Actualizar last_movement_time basándose en la velocidad
         linear = msg.twist.twist.linear
         speed = math.hypot(linear.x, linear.y)
+        self.last_speed = speed
         if speed > self.movement_threshold:
             self.last_movement_time = current_time
-
-        self.odom = adjusted_pose
 
     def goal_callback(self, msg: PoseArray):
         if msg.poses:
@@ -197,7 +226,15 @@ class NavigationPPOCandidateTrainer(Node):
     def collision_callback(self, msg: Bool):
         self.virtual_collision = msg.data
 
-    # Solicitar reinicio del entorno mediante el supervisor
+    def map_points_callback(self, msg: PoseArray):
+        self.map_points = msg.poses
+
+    def map_reset_callback(self, msg: Bool):
+        if msg.data:
+            self.get_logger().info("Se recibió señal para reiniciar el mapa (variables locales).")
+            self.map_points = None
+
+    # --- Solicitar reinicio del entorno ---
     def request_environment_reset(self):
         current_time = self.get_clock().now().nanoseconds / 1e9
         if current_time - self.last_reset_time >= self.reset_cooldown:
@@ -209,7 +246,7 @@ class NavigationPPOCandidateTrainer(Node):
         else:
             self.get_logger().info("Cooldown de reinicio activo; no se solicita reset.")
 
-    # Reiniciar estado interno
+    # --- Reiniciar el estado interno ---
     def reset_internal_state(self):
         self.actor_state = None
         self.collision_counter = 0
@@ -217,9 +254,8 @@ class NavigationPPOCandidateTrainer(Node):
         self.same_candidate_count = 0
         self.last_movement_time = self.get_clock().now().nanoseconds / 1e9
 
-    # Mejora del Estado de Entrada: incluir estadísticas de obstáculos
+    # --- Estadísticas de obstáculos ---
     def compute_obstacle_stats(self):
-        # Si hay obstáculos, calcular la distancia promedio y el número de obstáculos
         if self.occupied_nodes and self.occupied_nodes.poses:
             distances = [math.hypot(self.odom.position.x - obs.position.x,
                                     self.odom.position.y - obs.position.y)
@@ -227,13 +263,12 @@ class NavigationPPOCandidateTrainer(Node):
             avg_dist = np.mean(distances)
             num_obs = len(distances)
         else:
-            avg_dist = 10.0  # Valor por defecto
+            avg_dist = 10.0
             num_obs = 0
-        # Normalizar el número de obstáculos (por ejemplo, dividiendo entre 10)
         num_obs_norm = num_obs / 10.0
         return avg_dist, num_obs_norm
 
-    # Extrae características para cada candidato
+    # --- Extraer características para cada candidato ---
     def compute_candidate_features(self):
         features = []
         valid_nodes = []
@@ -244,7 +279,6 @@ class NavigationPPOCandidateTrainer(Node):
         goal_x = self.goal.position.x
         goal_y = self.goal.position.y
         current_yaw = 0.0
-        # Calcular estadísticas globales de obstáculos
         avg_obs_dist, num_obs_norm = self.compute_obstacle_stats()
         for node in self.filtered_nodes.poses:
             if self.occupied_nodes and self.occupied_nodes.poses:
@@ -261,8 +295,6 @@ class NavigationPPOCandidateTrainer(Node):
             angle_to_node = math.atan2(dy, dx)
             angle_diff = abs(angle_to_node - current_yaw)
             dist_to_goal = math.hypot(node.position.x - goal_x, node.position.y - goal_y)
-            # Vector original: [dist_robot, angle_diff, clearance, dist_to_goal]
-            # Se añaden dos características globales de obstáculos
             feature_vector = [dist_robot, angle_diff, clearance, dist_to_goal, avg_obs_dist, num_obs_norm]
             features.append(feature_vector)
             valid_nodes.append(node)
@@ -281,7 +313,7 @@ class NavigationPPOCandidateTrainer(Node):
         mask = np.array([True]*num_valid + [False]*(MAX_CANDIDATES - num_valid))
         return features, valid_nodes, mask
 
-    # Estado global para el crítico, se agregan las mismas estadísticas de obstáculos
+    # --- Estado global para el crítico (se añade delta_heading) ---
     def get_global_state(self):
         avg_obs_dist, num_obs_norm = self.compute_obstacle_stats()
         return np.array([
@@ -290,15 +322,18 @@ class NavigationPPOCandidateTrainer(Node):
             self.goal.position.x,
             self.goal.position.y,
             avg_obs_dist,
-            num_obs_norm
+            num_obs_norm,
+            self.delta_heading  # Diferencia en orientación
         ], dtype=np.float32)
 
-    # Función de recompensa con bonus de exploración
+    # --- Función de recompensa ---
     def compute_reward(self):
-        dist = math.hypot(self.odom.position.x - self.goal.position.x,
-                          self.odom.position.y - self.goal.position.y)
-        reward = -dist * 0.1 + STEP_PENALTY
-        if dist < GOAL_REACHED_DIST:
+        # Distancia actual al goal
+        d_current = math.hypot(self.odom.position.x - self.goal.position.x,
+                               self.odom.position.y - self.goal.position.y)
+        # Penaliza acercarse demasiado (se usa la distancia)
+        reward = -d_current * 0.1 + STEP_PENALTY
+        if d_current < GOAL_REACHED_DIST:
             reward += GOAL_REWARD
 
         # Penalización por colisión física
@@ -312,8 +347,10 @@ class NavigationPPOCandidateTrainer(Node):
                     self.collision_detected = True
                     self.collision_counter += 1
                     break
+                elif d < 0.3:
+                    reward -= (0.3 - d) * 200
 
-        # Penalización por baja clearance
+        # Penalización por baja clearance (usando el clearance del primer candidato)
         features, valid_nodes, mask = self.compute_candidate_features()
         if features is not None:
             clearance = features[0][2]
@@ -325,24 +362,41 @@ class NavigationPPOCandidateTrainer(Node):
             reward -= 500.0
             self.get_logger().warn("¡Colisión virtual detectada!")
         
-        # Bonus de exploración: si el robot se aleja de la última zona (backup)
-        if self.last_candidate is not None:
+        # Bonus de exploración: si el robot se mueve (velocidad > 0.05 m/s)
+        if self.last_candidate is not None and hasattr(self, 'last_speed') and self.last_speed > 0.05:
             d_explore = math.hypot(self.odom.position.x - self.last_candidate.position.x,
                                    self.odom.position.y - self.last_candidate.position.y)
             if d_explore > EXPLORATION_DISTANCE_THRESHOLD:
                 bonus = EXPLORATION_BONUS_FACTOR * (d_explore - EXPLORATION_DISTANCE_THRESHOLD)
                 reward += bonus
                 self.get_logger().info(f"Bonus de exploración: {bonus:.2f}")
+        
+        # Bonus por mejora en clearance (si el nuevo candidato mejora la seguridad)
+        if self.last_candidate_features is not None:
+            last_features, _, last_action_index, _ = self.last_candidate_features
+            clearance_last = last_features[last_action_index][2]
+            new_features, _, _ = self.compute_candidate_features()
+            if new_features is not None:
+                clearance_new = new_features[0][2]
+                if clearance_new > clearance_last:
+                    bonus_clearance = CLEARANCE_BONUS_FACTOR * (clearance_new - clearance_last)
+                    reward += bonus_clearance
+                    self.get_logger().info(f"Bonus por clearance: {bonus_clearance:.2f}")
         return reward
 
-    # Función step: gestiona la selección de candidato, inactividad y reinicio
+    # --- Placeholder para planificación local (por ejemplo, A*) ---
+    def plan_route(self, candidate, map_points):
+        # Aquí se podría implementar un algoritmo de planificación local.
+        return candidate
+
+    # --- Función step ---
     def step(self):
         if self.odom is None or self.goal is None:
             return
 
         current_time = self.get_clock().now().nanoseconds / 1e9
 
-        # Verificar inactividad: si han pasado 10 segundos sin movimiento
+        # Verificar inactividad: 10 segundos sin movimiento
         if self.last_movement_time is not None:
             if current_time - self.last_movement_time >= self.inactivity_time_threshold:
                 self.get_logger().warn("Robot inactivo por 10 segundos. Solicitando reinicio del entorno...")
@@ -350,7 +404,7 @@ class NavigationPPOCandidateTrainer(Node):
                 self.reset_internal_state()
                 return
 
-        # Si se detecta colisión física, usar nodo previo como backup
+        # Si se detecta colisión física, usar el nodo previo como backup
         if self.collision_detected:
             if self.last_candidate is not None:
                 self.get_logger().info("Colisión física detectada, usando nodo previo como backup.")
@@ -391,7 +445,8 @@ class NavigationPPOCandidateTrainer(Node):
                 self.get_logger().warn("Candidato seleccionado inválido.")
                 return
             new_candidate = valid_nodes[action_index]
-            # Detectar repetición del mismo candidato
+            if self.map_points is not None:
+                new_candidate = self.plan_route(new_candidate, self.map_points)
             if self.last_candidate is not None:
                 d_same = math.hypot(new_candidate.position.x - self.last_candidate.position.x,
                                     new_candidate.position.y - self.last_candidate.position.y)
@@ -412,7 +467,7 @@ class NavigationPPOCandidateTrainer(Node):
             self.last_candidate = self.current_candidate
             self.last_candidate_features = (candidate_features, mask, action_index, probs)
 
-        # Publicar el candidato en RViz
+        # Publicar candidato en RViz
         marker = Marker()
         marker.header.frame_id = "map"
         marker.header.stamp = self.get_clock().now().to_msg()
@@ -436,7 +491,7 @@ class NavigationPPOCandidateTrainer(Node):
         nav_points.poses.append(self.current_candidate)
         self.nav_point.publish(nav_points)
 
-        # Actualizar experiencia usando la última información almacenada
+        # Actualizar experiencia
         if self.last_candidate_features is not None:
             stored_features, stored_mask, stored_action_index, stored_probs = self.last_candidate_features
             global_state = self.get_global_state()
@@ -467,7 +522,10 @@ class NavigationPPOCandidateTrainer(Node):
         if done or self.steps >= self.max_steps:
             self.get_logger().info(f"Episodio terminado en {self.steps} pasos.")
             self.update_model()
-            # Reiniciar buffers de experiencia
+            elapsed = time.time() - self.start_time
+            avg_ep_time = elapsed / (self.episode_count + 1)
+            remaining = (self.total_episodes - (self.episode_count + 1)) * avg_ep_time
+            self.get_logger().info(f"Tiempo transcurrido: {elapsed:.1f}s, Tiempo estimado restante: {remaining:.1f}s")
             self.states = []
             self.actor_inputs = []
             self.actions = []
@@ -527,7 +585,6 @@ class NavigationPPOCandidateTrainer(Node):
                     logits, _ = self.actor(batch_actor_inputs, mask=batch_masks, initial_state=None)
                     batch_actions = tf.cast(batch_actions, tf.int32)
                     indices = tf.stack([tf.range(tf.shape(logits)[0]), batch_actions], axis=1)
-                    chosen_logits = tf.gather_nd(logits, indices)
                     new_log_probs = tf.math.log(tf.nn.softmax(logits, axis=1) + 1e-8)
                     new_log_probs = tf.gather_nd(new_log_probs, indices)
                     ratio = tf.exp(new_log_probs - batch_old_log_probs)
@@ -560,7 +617,7 @@ class NavigationPPOCandidateTrainer(Node):
         if not getattr(self, 'models_saved', False):
             self.save_models()
             self.models_saved = True
-        if self.episode_count >= 1000:
+        if self.episode_count >= 400:
             self.get_logger().info("Se han completado 400 episodios. Finalizando nodo.")
             rclpy.shutdown()
 

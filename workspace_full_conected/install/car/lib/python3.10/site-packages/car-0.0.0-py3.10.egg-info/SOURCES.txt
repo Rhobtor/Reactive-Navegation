@@ -12,10 +12,12 @@ car/__init__.py
 car/camara_time.py
 car/colision_zone.py
 car/debugtf.py
+car/dqn_ppo.py
 car/ekf_node.py
 car/filter_points_cloud.py
 car/frontier.py
 car/graph.py
+car/inference_dqn_ppo.py
 car/inference_ppo.py
 car/joystick_control.py
 car/keyboard_control.py
@@ -26,6 +28,7 @@ car/octomap_2d_display.py
 car/odometry.py
 car/points_goal.py
 car/supervisor.py
+car/test1.py
 car/train_ppo.py
 car/view_point_and_click.py
 config/display.rviz
@@ -43,6 +46,12 @@ launch/gazebo_mountain.launch.py
 launch/gazebo_no_gui.launch.py
 launch/gazebo_simple2.launch.py
 launch/gazebo_simple3.launch.py
+launch/gazebo_simple4.launch.py
+launch/gazebo_simple5.launch.py
+launch/gazebo_simple6.launch.py
+launch/gazebo_simple7.launch.py
+launch/gazebo_simple8.launch.py
+launch/gazebo_simple9.launch.py
 launch/gazebo_simple_world.launch.py
 launch/joystick.launch.py
 launch/rtamap_test.launch.py
@@ -89,4 +98,10 @@ worlds/obstacles_and_traps.world
 worlds/test.world
 worlds/world_simple2.world
 worlds/world_simple3.world
+worlds/world_simple4.world
+worlds/world_simple5.world
+worlds/world_simple6.world
+worlds/world_simple7.world
+worlds/world_simple8.world
+worlds/world_simple9.world
 worlds/world_simple_object.world
