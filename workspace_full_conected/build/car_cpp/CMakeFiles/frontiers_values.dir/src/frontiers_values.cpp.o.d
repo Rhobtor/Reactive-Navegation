@@ -1,5 +1,5 @@
 CMakeFiles/frontiers_values.dir/src/frontiers_values.cpp.o: \
- /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontiers_values.cpp \
+ /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/frontiers_values.cpp \
  /usr/include/stdc-predef.h \
  /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp \
  /usr/include/c++/11/csignal \

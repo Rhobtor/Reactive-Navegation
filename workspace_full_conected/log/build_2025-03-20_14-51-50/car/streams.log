@@ -1,0 +1,41 @@
+[9.321s] Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_python': AMENT_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car/build install --record /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car/install.log --single-version-externally-managed install_data
+[12.319s] running egg_info
+[12.322s] writing ../../build/car/car.egg-info/PKG-INFO
+[12.328s] writing dependency_links to ../../build/car/car.egg-info/dependency_links.txt
+[12.333s] writing entry points to ../../build/car/car.egg-info/entry_points.txt
+[12.338s] writing requirements to ../../build/car/car.egg-info/requires.txt
+[12.342s] writing top-level names to ../../build/car/car.egg-info/top_level.txt
+[12.565s] reading manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[12.805s] writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[12.808s] running build
+[12.809s] running build_py
+[13.201s] running install
+[13.203s] running install_lib
+[14.192s] running install_data
+[15.531s] running install_egg_info
+[15.610s] removing '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info' (and everything under it)
+[15.747s] Copying ../../build/car/car.egg-info to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info
+[16.356s] running install_scripts
+[16.648s] Installing camara_time_node script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.670s] Installing colision_zone script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.717s] Installing debug_node script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.739s] Installing dqn_ppo script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.770s] Installing ekf_node script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.796s] Installing filter_points_cloud script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.817s] Installing frontier_view script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.832s] Installing graph script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.849s] Installing inference_dqn_ppo script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.866s] Installing inference_ppo script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.880s] Installing joystick_control script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.898s] Installing keyboard_control script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.908s] Installing log_joystick script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.925s] Installing map script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.944s] Installing octomap_2d_display script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.960s] Installing odometry_node script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.974s] Installing points_goal script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[16.998s] Installing scan_to_cloud script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[17.037s] Installing supervisor_node script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[17.065s] Installing train_ppo script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[17.093s] Installing view_point_and_click script to /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[17.121s] writing list of installed files to '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car/install.log'
+[17.151s] Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_python' returned '0': AMENT_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car/build install --record /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car/install.log --single-version-externally-managed install_data

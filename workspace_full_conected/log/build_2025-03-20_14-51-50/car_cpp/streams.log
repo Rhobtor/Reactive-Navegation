@@ -1,0 +1,128 @@
+[2.403s] Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp': AMENT_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j20 -l20
+[4.949s] [35m[1mConsolidate compiler generated dependencies of target navigation_nodes[0m
+[4.952s] [35m[1mConsolidate compiler generated dependencies of target drive_plugin[0m
+[4.970s] [35m[1mConsolidate compiler generated dependencies of target navigation_nodes_ground[0m
+[5.001s] [35m[1mConsolidate compiler generated dependencies of target map_measure[0m
+[5.026s] [35m[1mConsolidate compiler generated dependencies of target driver_plugin[0m
+[5.028s] [35m[1mConsolidate compiler generated dependencies of target create_wall[0m
+[5.052s] [35m[1mConsolidate compiler generated dependencies of target ground_remove[0m
+[5.055s] [35m[1mConsolidate compiler generated dependencies of target check_goal[0m
+[5.059s] [35m[1mConsolidate compiler generated dependencies of target control_plugin[0m
+[5.087s] [35m[1mConsolidate compiler generated dependencies of target obstacles_in_2d[0m
+[5.090s] [35m[1mConsolidate compiler generated dependencies of target check_map[0m
+[5.092s] [35m[1mConsolidate compiler generated dependencies of target 2D_graph[0m
+[5.111s] [35m[1mConsolidate compiler generated dependencies of target frontiers_values[0m
+[5.134s] [35m[1mConsolidate compiler generated dependencies of target move_navigation_nodes_frontier[0m
+[5.142s] [35m[1mConsolidate compiler generated dependencies of target occupied_nodes_near_obstacles[0m
+[5.154s] [35m[1mConsolidate compiler generated dependencies of target frontier_nodes[0m
+[5.366s] [35m[1mConsolidate compiler generated dependencies of target joints_plugin[0m
+[5.404s] [35m[1mConsolidate compiler generated dependencies of target path_planner_node[0m
+[5.440s] [35m[1mConsolidate compiler generated dependencies of target camera_filter[0m
+[5.527s] [35m[1mConsolidate compiler generated dependencies of target filtered_navigation_nodes[0m
+[6.462s] gmake[2]: Warning: File 'CMakeFiles/navigation_nodes_ground.dir/compiler_depend.make' has modification time 2.1 s in the future
+[6.490s] gmake[2]: Warning: File 'CMakeFiles/create_wall.dir/compiler_depend.make' has modification time 2.2 s in the future
+[6.492s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[6.511s] gmake[2]: Warning: File 'CMakeFiles/map_measure.dir/compiler_depend.make' has modification time 2.1 s in the future
+[6.514s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[6.537s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[6.551s] gmake[2]: Warning: File 'CMakeFiles/check_goal.dir/compiler_depend.make' has modification time 2.1 s in the future
+[6.567s] gmake[2]: Warning: File 'CMakeFiles/navigation_nodes.dir/compiler_depend.make' has modification time 2.1 s in the future
+[6.570s] gmake[2]: Warning: File 'CMakeFiles/2D_graph.dir/compiler_depend.make' has modification time 2.1 s in the future
+[6.577s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[6.592s] gmake[2]: Warning: File 'CMakeFiles/occupied_nodes_near_obstacles.dir/compiler_depend.make' has modification time 2.2 s in the future
+[6.594s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[6.598s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[6.607s] gmake[2]: Warning: File 'CMakeFiles/frontiers_values.dir/compiler_depend.make' has modification time 2.1 s in the future
+[6.615s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[6.628s] gmake[2]: Warning: File 'CMakeFiles/check_map.dir/compiler_depend.make' has modification time 2.1 s in the future
+[6.631s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[6.649s] gmake[2]: Warning: File 'CMakeFiles/frontier_nodes.dir/compiler_depend.make' has modification time 2.1 s in the future
+[6.654s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[6.680s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[6.687s] gmake[2]: Warning: File 'CMakeFiles/obstacles_in_2d.dir/compiler_depend.make' has modification time 2.1 s in the future
+[6.713s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[6.780s] gmake[2]: Warning: File 'CMakeFiles/ground_remove.dir/compiler_depend.make' has modification time 2 s in the future
+[6.807s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[7.078s] [ 12%] Built target navigation_nodes_ground
+[7.083s] [ 12%] Built target create_wall
+[7.085s] gmake[2]: Warning: File 'CMakeFiles/path_planner_node.dir/compiler_depend.make' has modification time 1.9 s in the future
+[7.090s] [ 15%] Built target map_measure
+[7.108s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[7.140s] [ 25%] Built target check_goal
+[7.143s] gmake[2]: Warning: File 'CMakeFiles/move_navigation_nodes_frontier.dir/compiler_depend.make' has modification time 1.8 s in the future
+[7.148s] [ 25%] Built target 2D_graph
+[7.167s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[7.174s] [ 30%] Built target navigation_nodes
+[7.209s] [ 37%] Built target occupied_nodes_near_obstacles
+[7.220s] [ 40%] Built target frontiers_values
+[7.233s] gmake[2]: Warning: File 'CMakeFiles/filtered_navigation_nodes.dir/compiler_depend.make' has modification time 1.9 s in the future
+[7.253s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[7.258s] [ 45%] Built target check_map
+[7.326s] [ 50%] Built target frontier_nodes
+[7.356s] [ 55%] Built target obstacles_in_2d
+[7.492s] [ 60%] Built target ground_remove
+[7.849s] [ 65%] Built target path_planner_node
+[7.878s] [ 70%] Built target move_navigation_nodes_frontier
+[8.000s] [ 75%] Built target filtered_navigation_nodes
+[8.328s] gmake[2]: Warning: File 'CMakeFiles/camera_filter.dir/compiler_depend.make' has modification time 1.8 s in the future
+[8.340s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[8.655s] gmake[2]: Warning: File 'CMakeFiles/driver_plugin.dir/compiler_depend.make' has modification time 1.7 s in the future
+[8.669s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[8.736s] gmake[2]: Warning: File 'CMakeFiles/control_plugin.dir/compiler_depend.make' has modification time 1.7 s in the future
+[8.750s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[8.885s] gmake[2]: Warning: File 'CMakeFiles/drive_plugin.dir/compiler_depend.make' has modification time 1.6 s in the future
+[8.896s] [ 80%] Built target camera_filter
+[8.900s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[8.961s] gmake[2]: Warning: File 'CMakeFiles/joints_plugin.dir/compiler_depend.make' has modification time 1.6 s in the future
+[8.978s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[9.217s] [ 85%] Built target driver_plugin
+[9.264s] [ 90%] Built target control_plugin
+[9.398s] [ 95%] Built target drive_plugin
+[9.443s] [100%] Built target joints_plugin
+[10.159s] Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '0': AMENT_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j20 -l20
+[10.182s] Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp': AMENT_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp
+[10.812s] -- Install configuration: ""
+[10.860s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/navigation_nodes
+[11.091s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/navigation_nodes_ground
+[11.163s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/frontier_nodes
+[11.243s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/ground_remove
+[11.415s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/camera_filter
+[11.506s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/move_navigation_nodes_frontier
+[11.578s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/frontiers_values
+[11.805s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/map_measure
+[11.980s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/occupied_nodes_near_obstacles
+[12.072s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/create_wall
+[12.154s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/2D_graph
+[12.248s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/obstacles_in_2d
+[12.342s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/check_goal
+[12.427s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/filtered_navigation_nodes
+[12.510s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/check_map
+[12.579s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/path_planner_node
+[12.660s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libcontrol_plugin.so
+[12.727s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libdrive_plugin.so
+[12.809s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libjoints_plugin.so
+[12.930s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libdriver_plugin.so
+[13.015s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/include/
+[13.037s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//control_plugin.hpp
+[13.070s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//motion.hpp
+[13.090s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//move_ros.hpp
+[13.109s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//obstacle_detection.hpp
+[13.123s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//odometria.hpp
+[13.143s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//utilities.hpp
+[13.165s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//visualization.hpp
+[13.199s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/ament_index/resource_index/package_run_dependencies/car_cpp
+[13.235s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/ament_index/resource_index/parent_prefix_path/car_cpp
+[13.251s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/ament_prefix_path.sh
+[13.274s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/ament_prefix_path.dsv
+[13.286s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/path.sh
+[13.303s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/path.dsv
+[13.326s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.bash
+[13.353s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.sh
+[13.369s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.zsh
+[13.397s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.dsv
+[13.416s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.dsv
+[13.497s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/ament_index/resource_index/packages/car_cpp
+[13.518s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/cmake/car_cppConfig.cmake
+[13.537s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/cmake/car_cppConfig-version.cmake
+[13.558s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.xml
+[13.573s] Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '0': AMENT_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_cpp

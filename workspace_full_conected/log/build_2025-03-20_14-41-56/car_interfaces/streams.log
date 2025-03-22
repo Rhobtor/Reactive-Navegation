@@ -1,0 +1,279 @@
+[0.080s] Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_interfaces -DCMAKE_INSTALL_PREFIX=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces
+[0.468s] -- The C compiler identification is GNU 11.4.0
+[1.052s] -- The CXX compiler identification is GNU 11.4.0
+[1.259s] -- Detecting C compiler ABI info
+[1.957s] -- Detecting C compiler ABI info - done
+[1.983s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.985s] -- Detecting C compile features
+[1.987s] -- Detecting C compile features - done
+[2.041s] -- Detecting CXX compiler ABI info
+[2.753s] -- Detecting CXX compiler ABI info - done
+[2.777s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.779s] -- Detecting CXX compile features
+[2.780s] -- Detecting CXX compile features - done
+[2.835s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.962s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[3.153s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[3.327s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[3.329s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[3.340s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[3.356s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.373s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.415s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[4.309s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[6.657s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[7.468s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[7.605s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[7.606s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[7.970s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[7.971s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[7.972s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[7.972s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[7.990s] -- Found PythonExtra: .so  
+[9.366s] -- Configuring done
+[11.370s] -- Generating done
+[12.252s] -- Build files have been written to: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces
+[12.257s] Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/car_interfaces -DCMAKE_INSTALL_PREFIX=/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces
+[12.264s] Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces -- -j20 -l20
+[12.278s] gmake: Warning: File 'Makefile' has modification time 1.1 s in the future
+[12.419s] gmake[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 1.6 s in the future
+[12.431s] gmake[2]: Warning: File 'CMakeFiles/ament_cmake_python_copy_car_interfaces.dir/progress.make' has modification time 1.4 s in the future
+[12.433s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__cpp.dir/progress.make' has modification time 1.4 s in the future
+[12.438s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_generator_c.dir/flags.make' has modification time 0.081 s in the future
+[12.448s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[12.458s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[12.462s] gmake[2]: Warning: File 'CMakeFiles/ament_cmake_python_copy_car_interfaces.dir/progress.make' has modification time 1.4 s in the future
+[12.468s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[12.474s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__cpp.dir/progress.make' has modification time 1.4 s in the future
+[12.508s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[12.533s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[12.548s] [  6%] Built target ament_cmake_python_copy_car_interfaces
+[12.560s] gmake[2]: Warning: File 'CMakeFiles/ament_cmake_python_build_car_interfaces_egg.dir/progress.make' has modification time 1.3 s in the future
+[12.579s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[12.591s] gmake[2]: Warning: File 'CMakeFiles/ament_cmake_python_build_car_interfaces_egg.dir/progress.make' has modification time 1.3 s in the future
+[12.826s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[12.842s] [  6%] Built target car_interfaces__cpp
+[12.851s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[12.869s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_cpp.dir/progress.make' has modification time 1.1 s in the future
+[12.872s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_fastrtps_cpp.dir/progress.make' has modification time 1.1 s in the future
+[12.874s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_introspection_cpp.dir/progress.make' has modification time 1.1 s in the future
+[12.876s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_generator_c.dir/progress.make' has modification time 1 s in the future
+[12.893s] [ 12%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[12.897s] [ 12%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[12.904s] [ 16%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[12.909s] running egg_info
+[12.911s] creating car_interfaces.egg-info
+[12.914s] writing car_interfaces.egg-info/PKG-INFO
+[12.922s] writing dependency_links to car_interfaces.egg-info/dependency_links.txt
+[12.926s] [ 19%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_generator_c.dir/rosidl_generator_c/car_interfaces/msg/detail/graph__functions.c.o[0m
+[12.931s] writing top-level names to car_interfaces.egg-info/top_level.txt
+[12.939s] writing manifest file 'car_interfaces.egg-info/SOURCES.txt'
+[12.972s] reading manifest file 'car_interfaces.egg-info/SOURCES.txt'
+[13.004s] writing manifest file 'car_interfaces.egg-info/SOURCES.txt'
+[13.044s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[13.055s] [ 19%] Built target ament_cmake_python_build_car_interfaces_egg
+[13.130s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[13.158s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_cpp.dir/progress.make' has modification time 0.79 s in the future
+[13.179s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[13.191s] [ 22%] [32mBuilding CXX object CMakeFiles/car_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/car_interfaces/msg/graph__type_support.cpp.o[0m
+[13.197s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[13.203s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_introspection_cpp.dir/progress.make' has modification time 0.81 s in the future
+[13.219s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_fastrtps_cpp.dir/progress.make' has modification time 0.76 s in the future
+[13.233s] [ 25%] [32m[1mLinking C shared library libcar_interfaces__rosidl_generator_c.so[0m
+[13.241s] [ 29%] [32mBuilding CXX object CMakeFiles/car_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/car_interfaces/msg/detail/graph__type_support.cpp.o[0m
+[13.256s] [ 32%] [32mBuilding CXX object CMakeFiles/car_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/car_interfaces/msg/detail/dds_fastrtps/graph__type_support.cpp.o[0m
+[13.416s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[13.444s] [ 32%] Built target car_interfaces__rosidl_generator_c
+[13.471s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_c.dir/progress.make' has modification time 0.45 s in the future
+[13.473s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_introspection_c.dir/progress.make' has modification time 0.52 s in the future
+[13.476s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_fastrtps_c.dir/progress.make' has modification time 0.48 s in the future
+[13.497s] [ 35%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[13.502s] [ 41%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[13.503s] [ 41%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[13.704s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[13.730s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_c.dir/progress.make' has modification time 0.19 s in the future
+[13.739s] [ 45%] [32m[1mLinking CXX shared library libcar_interfaces__rosidl_typesupport_cpp.so[0m
+[13.762s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[13.764s] [ 48%] [32mBuilding CXX object CMakeFiles/car_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/car_interfaces/msg/graph__type_support.cpp.o[0m
+[13.770s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[13.785s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_fastrtps_c.dir/progress.make' has modification time 0.17 s in the future
+[13.793s] gmake[2]: Warning: File 'CMakeFiles/car_interfaces__rosidl_typesupport_introspection_c.dir/progress.make' has modification time 0.19 s in the future
+[13.824s] [ 51%] [32mBuilding CXX object CMakeFiles/car_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/car_interfaces/msg/detail/graph__type_support_c.cpp.o[0m
+[13.834s] [ 54%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/car_interfaces/msg/detail/graph__type_support.c.o[0m
+[13.957s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[13.960s] [ 58%] [32m[1mLinking CXX shared library libcar_interfaces__rosidl_typesupport_c.so[0m
+[13.979s] [ 58%] Built target car_interfaces__rosidl_typesupport_cpp
+[14.070s] [ 61%] [32m[1mLinking CXX shared library libcar_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[14.175s] [ 64%] [32m[1mLinking C shared library libcar_interfaces__rosidl_typesupport_introspection_c.so[0m
+[14.178s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[14.182s] [ 67%] [32m[1mLinking CXX shared library libcar_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[14.203s] [ 67%] Built target car_interfaces__rosidl_typesupport_c
+[14.362s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[14.370s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[14.383s] [ 67%] Built target car_interfaces__rosidl_typesupport_introspection_c
+[14.388s] [ 67%] Built target car_interfaces__rosidl_typesupport_introspection_cpp
+[14.428s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[14.447s] [ 67%] Built target car_interfaces__rosidl_typesupport_fastrtps_cpp
+[14.637s] [ 70%] [32m[1mLinking CXX shared library libcar_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[14.861s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[14.879s] [ 70%] Built target car_interfaces__rosidl_typesupport_fastrtps_c
+[14.928s] [ 70%] Built target car_interfaces
+[14.994s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[15.284s] [ 74%] Built target car_interfaces__py
+[15.347s] gmake[2]: Warning: File 'rosidl_generator_py/car_interfaces/msg/_graph_s.c' has modification time 2.1 s in the future
+[15.367s] [ 77%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_generator_py.dir/rosidl_generator_py/car_interfaces/msg/_graph_s.c.o[0m
+[15.744s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/car_interfaces/libcar_interfaces__rosidl_generator_py.so[0m
+[15.986s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[16.000s] [ 80%] Built target car_interfaces__rosidl_generator_py
+[16.060s] gmake[2]: Warning: File 'rosidl_generator_py/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c' has modification time 1.3 s in the future
+[16.061s] gmake[2]: Warning: File 'rosidl_generator_py/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_c.c' has modification time 1.4 s in the future
+[16.063s] gmake[2]: Warning: File 'rosidl_generator_py/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_introspection_c.c' has modification time 1.4 s in the future
+[16.073s] [ 90%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[16.073s] [ 90%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[16.074s] [ 90%] [32mBuilding C object CMakeFiles/car_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[16.432s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/car_interfaces/car_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[16.524s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/car_interfaces/car_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[16.530s] [100%] [32m[1mLinking C shared library rosidl_generator_py/car_interfaces/car_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[16.687s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[16.702s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[16.704s] [100%] Built target car_interfaces__rosidl_typesupport_c__pyext
+[16.715s] [100%] Built target car_interfaces__rosidl_typesupport_introspection_c__pyext
+[16.724s] gmake[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[16.737s] [100%] Built target car_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[16.738s] gmake[1]: warning:  Clock skew detected.  Your build may be incomplete.
+[16.848s] gmake: warning:  Clock skew detected.  Your build may be incomplete.
+[16.850s] Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces -- -j20 -l20
+[16.867s] Invoking command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces
+[16.874s] -- Install configuration: ""
+[16.927s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/ament_index/resource_index/rosidl_interfaces/car_interfaces
+[17.006s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[17.032s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[17.067s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[17.114s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__functions.c
+[17.213s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__functions.h
+[17.318s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__struct.h
+[17.410s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__type_support.h
+[17.492s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/graph.h
+[17.562s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/rosidl_generator_c__visibility_control.h
+[17.653s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/library_path.sh
+[17.728s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/library_path.dsv
+[17.805s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_generator_c.so
+[17.904s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_generator_c.so" to ""
+[17.918s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[17.941s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[17.972s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[18.013s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__rosidl_typesupport_fastrtps_c.h
+[18.126s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[18.218s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_fastrtps_c.so
+[18.336s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[18.347s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[18.366s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[18.402s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[18.451s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__builder.hpp
+[18.549s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__struct.hpp
+[18.643s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__traits.hpp
+[18.743s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__type_support.hpp
+[18.829s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/graph.hpp
+[18.915s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[18.988s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[19.009s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[19.037s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[19.073s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/dds_fastrtps
+[19.136s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__rosidl_typesupport_fastrtps_cpp.hpp
+[19.247s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[19.355s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[19.483s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[19.497s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[19.519s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[19.543s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[19.576s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__rosidl_typesupport_introspection_c.h
+[19.700s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__type_support.c
+[19.802s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[19.880s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_introspection_c.so
+[19.974s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[19.987s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_c.so
+[20.083s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_c.so" to ""
+[20.094s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces
+[20.112s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg
+[20.135s] -- Up-to-date: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail
+[20.189s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__rosidl_typesupport_introspection_cpp.hpp
+[20.332s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/include/car_interfaces/car_interfaces/msg/detail/graph__type_support.cpp
+[20.499s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_introspection_cpp.so
+[20.608s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[20.622s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_cpp.so
+[20.745s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_typesupport_cpp.so" to ""
+[20.773s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/pythonpath.sh
+[20.862s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/pythonpath.dsv
+[20.930s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces-0.0.0-py3.10.egg-info
+[20.968s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[21.049s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[21.150s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[21.263s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[21.338s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces
+[21.394s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[21.490s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[21.597s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[21.724s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/libcar_interfaces__rosidl_generator_py.so
+[21.817s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg
+[21.867s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg/_graph.py
+[21.993s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg/_graph_s.c
+[22.083s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg/__init__.py
+[22.209s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_c.c
+[22.352s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[22.460s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/_car_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[22.563s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/__init__.py
+[23.068s] Listing '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces'...
+[23.069s] Compiling '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/__init__.py'...
+[23.072s] Listing '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg'...
+[23.076s] Compiling '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg/__init__.py'...
+[23.078s] Compiling '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/msg/_graph.py'...
+[23.175s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[23.367s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[23.471s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[23.696s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[23.792s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[23.989s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/local/lib/python3.10/dist-packages/car_interfaces/car_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[24.013s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_generator_py.so
+[24.210s] -- Set runtime path of "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/libcar_interfaces__rosidl_generator_py.so" to ""
+[24.253s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/msg/Graph.idl
+[24.380s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/msg/Graph.msg
+[24.513s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/ament_index/resource_index/package_run_dependencies/car_interfaces
+[24.644s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/ament_index/resource_index/parent_prefix_path/car_interfaces
+[24.747s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/ament_prefix_path.sh
+[24.851s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/ament_prefix_path.dsv
+[24.933s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/path.sh
+[25.022s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/environment/path.dsv
+[25.126s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/local_setup.bash
+[25.216s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/local_setup.sh
+[25.292s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/local_setup.zsh
+[25.369s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/local_setup.dsv
+[25.449s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.dsv
+[25.547s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/ament_index/resource_index/packages/car_interfaces
+[25.663s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_generator_cExport.cmake
+[25.780s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_generator_cExport-noconfig.cmake
+[25.910s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[26.011s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[26.127s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_generator_cppExport.cmake
+[26.224s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[26.336s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[26.459s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[26.567s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[26.681s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_cExport.cmake
+[26.795s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[26.923s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[27.038s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[27.174s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_cppExport.cmake
+[27.279s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[27.384s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_generator_pyExport.cmake
+[27.512s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/export_car_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[27.625s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/rosidl_cmake-extras.cmake
+[27.716s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[27.807s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[27.878s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[27.941s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[28.020s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[28.091s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[28.168s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfacesConfig.cmake
+[28.251s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake/car_interfacesConfig-version.cmake
+[28.322s] -- Installing: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.xml
+[28.397s] Invoked command in '/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces

@@ -32,13 +32,13 @@ GLOBAL_STATE_DIM = 7
 GAMMA = 0.99
 LAMBDA = 0.95
 CLIP_EPS = 0.2
-TRAIN_EPOCHS = 10
+TRAIN_EPOCHS = 1000
 BATCH_SIZE = 32
 
 # Parámetros de exploración y bonus
 EXPLORATION_DISTANCE_THRESHOLD = 3.0  
-EXPLORATION_BONUS_FACTOR = 40.0         
-CLEARANCE_BONUS_FACTOR = 30.0           
+EXPLORATION_BONUS_FACTOR = 70.0         
+CLEARANCE_BONUS_FACTOR = 40.0           
 
 # --- Función auxiliar: Conversión de cuaternión a yaw ---
 def quaternion_to_yaw(q: Quaternion):
@@ -143,7 +143,7 @@ class NavigationPPOCandidateTrainer(Node):
         # Detección de inactividad (basada en velocidad)
         self.last_movement_time = None
         self.movement_threshold = 0.01  # m/s
-        self.inactivity_time_threshold = 10.0  # segundos
+        self.inactivity_time_threshold = 300.0  # segundos
 
         # Cooldown para reinicio del entorno
         self.last_reset_time = 0.0
@@ -164,7 +164,7 @@ class NavigationPPOCandidateTrainer(Node):
 
         # TensorBoard y tiempo de entrenamiento
         self.episode_count = 0
-        self.total_episodes = 400
+        self.total_episodes = 1000
         self.start_time = time.time()
         self.log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         self.summary_writer = tf.summary.create_file_writer(self.log_dir)
@@ -326,64 +326,131 @@ class NavigationPPOCandidateTrainer(Node):
             self.delta_heading  # Diferencia en orientación
         ], dtype=np.float32)
 
-    # --- Función de recompensa ---
+    # # --- Función de recompensa ---
+    # def compute_reward(self):
+    #     # Distancia actual al goal
+    #     d_current = math.hypot(self.odom.position.x - self.goal.position.x,
+    #                            self.odom.position.y - self.goal.position.y)
+    #     # Penaliza acercarse demasiado (se usa la distancia)
+    #     reward = -d_current * 0.1 + STEP_PENALTY
+    #     if d_current < GOAL_REACHED_DIST:
+    #         reward += GOAL_REWARD
+
+    #     # Penalización por colisión física
+    #     if self.occupied_nodes and self.occupied_nodes.poses:
+    #         for occ in self.occupied_nodes.poses:
+    #             d = math.hypot(self.odom.position.x - occ.position.x,
+    #                            self.odom.position.y - occ.position.y)
+    #             if d < 0.05:
+    #                 reward -= 1000
+    #                 self.get_logger().warn("¡Colisión física detectada!")
+    #                 self.collision_detected = True
+    #                 self.collision_counter += 1
+    #                 break
+    #             elif d < 0.3:
+    #                 reward -= (0.3 - d) * 200
+
+    #     # Penalización por baja clearance (usando el clearance del primer candidato)
+    #     features, valid_nodes, mask = self.compute_candidate_features()
+    #     if features is not None:
+    #         clearance = features[0][2]
+    #         if clearance < 3.0:
+    #             reward -= 100.0
+
+    #     # Penalización por colisión virtual
+    #     if hasattr(self, 'virtual_collision') and self.virtual_collision:
+    #         reward -= 500.0
+    #         self.get_logger().warn("¡Colisión virtual detectada!")
+        
+    #     # Bonus de exploración: si el robot se mueve (velocidad > 0.05 m/s)
+    #     if self.last_candidate is not None and hasattr(self, 'last_speed') and self.last_speed > 0.05:
+    #         d_explore = math.hypot(self.odom.position.x - self.last_candidate.position.x,
+    #                                self.odom.position.y - self.last_candidate.position.y)
+    #         if d_explore > EXPLORATION_DISTANCE_THRESHOLD:
+    #             bonus = EXPLORATION_BONUS_FACTOR * (d_explore - EXPLORATION_DISTANCE_THRESHOLD)
+    #             reward += bonus
+    #             self.get_logger().info(f"Bonus de exploración: {bonus:.2f}")
+        
+    #     # Bonus por mejora en clearance (si el nuevo candidato mejora la seguridad)
+    #     if self.last_candidate_features is not None:
+    #         last_features, _, last_action_index, _ = self.last_candidate_features
+    #         clearance_last = last_features[last_action_index][2]
+    #         new_features, _, _ = self.compute_candidate_features()
+    #         if new_features is not None:
+    #             clearance_new = new_features[0][2]
+    #             if clearance_new > clearance_last:
+    #                 bonus_clearance = CLEARANCE_BONUS_FACTOR * (clearance_new - clearance_last)
+    #                 reward += bonus_clearance
+    #                 self.get_logger().info(f"Bonus por clearance: {bonus_clearance:.2f}")
+    #     return reward
     def compute_reward(self):
         # Distancia actual al goal
         d_current = math.hypot(self.odom.position.x - self.goal.position.x,
-                               self.odom.position.y - self.goal.position.y)
-        # Penaliza acercarse demasiado (se usa la distancia)
-        reward = -d_current * 0.1 + STEP_PENALTY
+                            self.odom.position.y - self.goal.position.y)
+        # Calcular Δd: mejora en la distancia (si no hay dato previo, se considera 0)
+        if hasattr(self, 'prev_goal_distance'):
+            delta_d = self.prev_goal_distance - d_current
+        else:
+            delta_d = 0.0
+        self.prev_goal_distance = d_current
+
+        # Obtener clearance del mejor candidato (usando la primera característica del candidato)
+        features, valid_nodes, mask = self.compute_candidate_features()
+        if features is not None:
+            clearance = features[0][2]
+        else:
+            clearance = 10.0
+
+        # Cambio de dirección (Δθ) obtenido en el callback de odometría (self.delta_heading)
+        delta_theta = self.delta_heading
+
+        # Parámetros para la fórmula (pueden ajustarse o declararse como parámetros del nodo)
+        alpha = 20.0  # Peso para Δd
+        beta = 60.0   # Peso para la penalización basada en clearance
+        lam = 30.0    # Controla la rapidez de la penalización del clearance
+        delta_param = 15.0  # Peso para Δθ
+
+        # Penalización por clearance: cuando clearance es pequeño, la penalización es alta.
+        clearance_penalty = beta * math.exp(-lam * clearance)
+
+        # Fórmula compuesta para la recompensa
+        reward = alpha * delta_d - clearance_penalty + delta_param * delta_theta
+
+        # Agregar penalización fija por cada paso
+        reward += STEP_PENALTY
+
+        # Recompensa si se alcanza el goal
         if d_current < GOAL_REACHED_DIST:
             reward += GOAL_REWARD
 
-        # Penalización por colisión física
+        # Penalizaciones por colisión física
         if self.occupied_nodes and self.occupied_nodes.poses:
             for occ in self.occupied_nodes.poses:
                 d = math.hypot(self.odom.position.x - occ.position.x,
-                               self.odom.position.y - occ.position.y)
+                            self.odom.position.y - occ.position.y)
                 if d < 0.05:
                     reward -= 1000
                     self.get_logger().warn("¡Colisión física detectada!")
                     self.collision_detected = True
-                    self.collision_counter += 1
                     break
                 elif d < 0.3:
                     reward -= (0.3 - d) * 200
 
-        # Penalización por baja clearance (usando el clearance del primer candidato)
-        features, valid_nodes, mask = self.compute_candidate_features()
-        if features is not None:
-            clearance = features[0][2]
-            if clearance < 3.0:
-                reward -= 100.0
-
         # Penalización por colisión virtual
         if hasattr(self, 'virtual_collision') and self.virtual_collision:
-            reward -= 500.0
+            reward -= 500
             self.get_logger().warn("¡Colisión virtual detectada!")
-        
-        # Bonus de exploración: si el robot se mueve (velocidad > 0.05 m/s)
+
+        # Bonus de exploración: si el robot se mueve (velocidad > 0.05 m/s) y se aleja del último candidato
         if self.last_candidate is not None and hasattr(self, 'last_speed') and self.last_speed > 0.05:
             d_explore = math.hypot(self.odom.position.x - self.last_candidate.position.x,
-                                   self.odom.position.y - self.last_candidate.position.y)
+                                self.odom.position.y - self.last_candidate.position.y)
             if d_explore > EXPLORATION_DISTANCE_THRESHOLD:
                 bonus = EXPLORATION_BONUS_FACTOR * (d_explore - EXPLORATION_DISTANCE_THRESHOLD)
                 reward += bonus
                 self.get_logger().info(f"Bonus de exploración: {bonus:.2f}")
-        
-        # Bonus por mejora en clearance (si el nuevo candidato mejora la seguridad)
-        if self.last_candidate_features is not None:
-            last_features, _, last_action_index, _ = self.last_candidate_features
-            clearance_last = last_features[last_action_index][2]
-            new_features, _, _ = self.compute_candidate_features()
-            if new_features is not None:
-                clearance_new = new_features[0][2]
-                if clearance_new > clearance_last:
-                    bonus_clearance = CLEARANCE_BONUS_FACTOR * (clearance_new - clearance_last)
-                    reward += bonus_clearance
-                    self.get_logger().info(f"Bonus por clearance: {bonus_clearance:.2f}")
-        return reward
 
+        return reward
     # --- Placeholder para planificación local (por ejemplo, A*) ---
     def plan_route(self, candidate, map_points):
         # Aquí se podría implementar un algoritmo de planificación local.
@@ -537,6 +604,20 @@ class NavigationPPOCandidateTrainer(Node):
             self.current_candidate = None
             self.episode_count += 1
             self.actor_state = None
+
+            elapsed = time.time() - self.start_time
+            avg_ep_time = elapsed / self.episode_count
+            remaining = (self.total_episodes - self.episode_count) * avg_ep_time
+            self.get_logger().info(f"Tiempo transcurrido: {elapsed:.1f}s, Tiempo estimado restante: {remaining:.1f}s")
+            
+            # --- Registro de progreso de episodios ---
+            progress_bar_length = 1  # Longitud de la barra de progreso
+            completed_units = int((self.episode_count / self.total_episodes) * progress_bar_length)
+            progress_bar = "[" + "#" * completed_units + "-" * (progress_bar_length - completed_units) + "]"
+            self.get_logger().info(f"Episodios: {self.episode_count}/{self.total_episodes} {progress_bar}")
+
+
+
 
     def compute_advantages(self, rewards, values, dones):
         advantages = np.zeros_like(rewards, dtype=np.float32)

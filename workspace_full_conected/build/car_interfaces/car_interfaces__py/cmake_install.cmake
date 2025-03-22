@@ -1,8 +1,8 @@
-# Install script for directory: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces/car_interfaces__py
+# Install script for directory: /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/car_interfaces/car_interfaces__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces")
+  set(CMAKE_INSTALL_PREFIX "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/install/car_interfaces")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

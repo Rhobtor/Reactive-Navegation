@@ -192,7 +192,7 @@ def generate_launch_description():
         robot_state_publisher_node,
         # joint_state_publisher_node,
         gazebo_server,
-        gazebo_client,
+        #gazebo_client,
         urdf_spawn_node,
         filter_points_cloud,
         frontier_values,

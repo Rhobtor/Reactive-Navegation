@@ -1,10 +1,10 @@
 {
   "package_name": "hector_gazebo_plugins",
-  "output_dir": "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins/rosidl_generator_cpp/hector_gazebo_plugins",
+  "output_dir": "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins/rosidl_generator_cpp/hector_gazebo_plugins",
   "template_dir": "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource",
   "idl_tuples": [
-    "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins/rosidl_adapter/hector_gazebo_plugins:srv/SetBias.idl",
-    "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins/rosidl_adapter/hector_gazebo_plugins:srv/SetReferenceGeoPose.idl"
+    "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins/rosidl_adapter/hector_gazebo_plugins:srv/SetBias.idl",
+    "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins/rosidl_adapter/hector_gazebo_plugins:srv/SetReferenceGeoPose.idl"
   ],
   "ros_interface_dependencies": [
     "geographic_msgs:/opt/ros/humble/share/geographic_msgs/msg/BoundingBox.idl",
@@ -107,8 +107,8 @@
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__builder.hpp.em",
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__struct.hpp.em",
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__traits.hpp.em",
-    "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins/rosidl_adapter/hector_gazebo_plugins/srv/SetBias.idl",
-    "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins/rosidl_adapter/hector_gazebo_plugins/srv/SetReferenceGeoPose.idl",
+    "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins/rosidl_adapter/hector_gazebo_plugins/srv/SetBias.idl",
+    "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins/rosidl_adapter/hector_gazebo_plugins/srv/SetReferenceGeoPose.idl",
     "/opt/ros/humble/share/geographic_msgs/msg/BoundingBox.idl",
     "/opt/ros/humble/share/geographic_msgs/msg/GeographicMapChanges.idl",
     "/opt/ros/humble/share/geographic_msgs/msg/GeographicMap.idl",

@@ -34,7 +34,7 @@ GLOBAL_STATE_DIM = 7
 GAMMA = 0.99
 LAMBDA = 0.95
 CLIP_EPS = 0.2
-TRAIN_EPOCHS = 10
+TRAIN_EPOCHS = 500
 BATCH_SIZE = 32
 EXPLORATION_DISTANCE_THRESHOLD = 3.0  
 EXPLORATION_BONUS_FACTOR = 70.0         
@@ -206,7 +206,7 @@ class NavigationCombinedTrainer(Node):
 
         # TensorBoard y control de episodios para PPO
         self.episode_count = 0
-        self.total_episodes = 400
+        self.total_episodes = 1000
         self.start_time = time.time()
         self.log_dir = "logs/combined/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         self.summary_writer = tf.summary.create_file_writer(self.log_dir)
@@ -512,7 +512,6 @@ class NavigationCombinedTrainer(Node):
                 self.current_candidate = self.last_candidate
             self.collision_counter = 0
 
-        # Se elimina la condición de "if self.current_candidate is None:" para actualizar en cada paso
         candidate_features, valid_nodes, mask = self.compute_candidate_features()
         if candidate_features is None:
             self.get_logger().warn("No hay candidatos válidos.")
@@ -537,6 +536,27 @@ class NavigationCombinedTrainer(Node):
             return
         self.last_action_index = action_index_ppo
         candidate_ppo = valid_nodes[action_index_ppo]
+
+        # Verificar si el candidato es el mismo que el anterior
+        if self.last_candidate is not None:
+            d_candidate = math.hypot(
+                candidate_ppo.position.x - self.last_candidate.position.x,
+                candidate_ppo.position.y - self.last_candidate.position.y
+            )
+            if d_candidate < self.same_candidate_distance_threshold:
+                self.same_candidate_count += 1
+            else:
+                self.same_candidate_count = 0
+        else:
+            self.same_candidate_count = 0
+
+        # Si se supera el umbral de repetición, reiniciamos
+        if self.same_candidate_count >= self.same_candidate_threshold:
+            self.get_logger().warn("Modelo atascado. Solicitando reinicio...")
+            self.request_environment_reset()
+            self.reset_internal_state()
+            self.same_candidate_count = 0
+            return
 
         # Actualizamos el candidato en cada iteración
         self.current_candidate = candidate_ppo
@@ -575,7 +595,7 @@ class NavigationCombinedTrainer(Node):
         if done or self.ppo_steps >= self.ppo_max_steps:
             self.get_logger().info(f"Episodio terminado en {self.ppo_steps} pasos.")
             self.update_ppo_model()
-            for _ in range(5):  # Actualizar DQN 5 veces por episodio
+            for _ in range(500):  # Actualizar DQN 5 veces por episodio
                 self.dqn_agent.replay()
             self.ppo_states = []
             self.ppo_actor_inputs = []
@@ -595,7 +615,7 @@ class NavigationCombinedTrainer(Node):
             self.get_logger().info(f"Tiempo transcurrido: {elapsed:.1f}s, Tiempo estimado restante: {remaining:.1f}s")
             
             # --- Registro de progreso de episodios ---
-            progress_bar_length = 1  # Longitud de la barra de progreso
+            progress_bar_length = 10  # Longitud de la barra de progreso
             completed_units = int((self.episode_count / self.total_episodes) * progress_bar_length)
             progress_bar = "[" + "#" * completed_units + "-" * (progress_bar_length - completed_units) + "]"
             self.get_logger().info(f"Episodios: {self.episode_count}/{self.total_episodes} {progress_bar}")
