@@ -1,0 +1,21 @@
+[  5%] Built target navigation_nodes
+[ 10%] Built target frontier_nodes
+[ 15%] Built target ground_remove
+[ 20%] Built target navigation_nodes_ground
+[ 25%] Built target frontiers_values
+[ 30%] Built target move_navigation_nodes_frontier
+[ 35%] Built target camera_filter
+[ 40%] Built target map_measure
+[35m[1mConsolidate compiler generated dependencies of target obstacles_in_2d[0m
+[ 45%] Built target create_wall
+[ 50%] Built target occupied_nodes_near_obstacles
+[ 55%] Built target 2D_graph
+[ 57%] [32mBuilding CXX object CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o[0m
+[ 62%] Built target filtered_navigation_nodes
+[ 67%] Built target check_goal
+[ 72%] Built target check_map
+[ 77%] Built target path_planner_node
+[ 82%] Built target control_plugin
+[ 87%] Built target joints_plugin
+[ 92%] Built target drive_plugin
+[ 97%] Built target driver_plugin

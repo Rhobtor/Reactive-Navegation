@@ -150,9 +150,9 @@ public:
     occupied_node_threshold_ = this->get_parameter("occupied_node_threshold").as_double();
 
     // Crear controladores PID
-    linear_pid_ = std::make_unique<PID>(0.5, 0.0, 0.1, dt);
+    linear_pid_ = std::make_unique<PID>(1.5, 0.0, 0.3, dt);
     // Aumentar la ganancia del PID angular para giros más agresivos.
-    angular_pid_ = std::make_unique<PID>(2.5, 0.0, 0.3, dt);
+    angular_pid_ = std::make_unique<PID>(1.5, 0.0, 0.3, dt);
 
     // Configurar suscripciones y publicadores
     navigable_nodes_sub_ = this->create_subscription<geometry_msgs::msg::PoseArray>(
@@ -574,7 +574,7 @@ private:
   std::unique_ptr<PID> angular_pid_;
 
   // Ganancias para pure pursuit
-  const double k_linear = 2.0;
+  const double k_linear = 5.0;
   const double k_angular = 3.0;
 
   // Estado de navegación

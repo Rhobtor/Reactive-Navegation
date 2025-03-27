@@ -50,6 +50,8 @@ setup(
             'supervisor_node = car.supervisor:main',
             'dqn_ppo = car.dqn_ppo:main',
             'inference_dqn_ppo = car.inference_dqn_ppo:main',
+            'ppo= car.ppo:main',
+            'imagine_ppo= car.imagine_ppo:main',
         ],
     },
 )

@@ -1,7 +1,7 @@
 {
   "package_name": "hector_gazebo_plugins",
   "non_idl_tuples": [
-    "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/hector_gazebo:srv/SetBias.srv",
-    "/mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/hector_gazebo:srv/SetReferenceGeoPose.srv"
+    "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/hector_gazebo:srv/SetBias.srv",
+    "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/hector_gazebo:srv/SetReferenceGeoPose.srv"
   ]
 }

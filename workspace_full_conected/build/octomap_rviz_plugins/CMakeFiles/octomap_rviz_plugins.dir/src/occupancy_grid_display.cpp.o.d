@@ -1,5 +1,5 @@
 CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_grid_display.cpp.o: \
- /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/plugin_rviz/src/occupancy_grid_display.cpp \
+ /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/plugin_rviz/src/occupancy_grid_display.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/algorithm \
  /usr/include/c++/11/utility \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -251,7 +251,7 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_grid_display.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h \
  /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
  /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
- /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/plugin_rviz/include/octomap_rviz_plugins/occupancy_grid_display.hpp \
+ /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/plugin_rviz/include/octomap_rviz_plugins/occupancy_grid_display.hpp \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/octomap.hpp \
  /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__struct.hpp \
  /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/bounded_vector.hpp \

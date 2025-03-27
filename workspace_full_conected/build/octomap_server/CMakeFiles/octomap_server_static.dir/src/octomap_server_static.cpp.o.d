@@ -1,7 +1,7 @@
 CMakeFiles/octomap_server_static.dir/src/octomap_server_static.cpp.o: \
- /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_server/src/octomap_server_static.cpp \
+ /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_server/src/octomap_server_static.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/luism/Documents/Ubuntu/Reactive-Navegation/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_server/include/octomap_server/octomap_server_static.hpp \
+ /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_server/include/octomap_server/octomap_server_static.hpp \
  /opt/ros/humble/include/octomap/octomap.h \
  /opt/ros/humble/include/octomap/octomap_types.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \

@@ -118,9 +118,9 @@ def generate_launch_description():
         parameters=[{
             'resolution': 0.2,
             'frame_id': 'map',
-            'sensor_model.max_range': 7.0
+            'sensor_model.max_range': 40.0
         }],
-        remappings=[('cloud_in', 'scan_cloud_filtered')]
+        remappings=[('cloud_in', 'scan_cloud')]
     )
 
     map_odom_tf = Node(
@@ -191,7 +191,7 @@ def generate_launch_description():
         robot_state_publisher_node,
         # joint_state_publisher_node,
         gazebo_server,
-        #gazebo_client,
+        gazebo_client,
         urdf_spawn_node,
         filter_points_cloud,
         frontier_values,
@@ -202,7 +202,7 @@ def generate_launch_description():
         navigation_nodes,
         obstacles_in_2d,
         occupied_nodes_near_obstacles,
-        check_goal,
+        #check_goal,
         poinst_goal,
         move_navigation_nodes,
         colision_zone

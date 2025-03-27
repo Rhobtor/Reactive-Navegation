@@ -77,7 +77,7 @@ class NavigationPPOCandidateInference(Node):
         self.current_candidate = None
 
         # Cargar el modelo actor guardado en modo inferencia (modelo entrenado con LSTM)
-        self.actor = tf.keras.models.load_model('actor_model_20250316_181118.keras', 
+        self.actor = tf.keras.models.load_model('actor_model_20250320_174242.keras', 
                                                   custom_objects={'RecurrentActorNetwork': RecurrentActorNetwork})
         self.get_logger().info("Modelo actor (LSTM) cargado para inferencia.")
         # Estado recurrente inicial (se mantiene entre pasos)

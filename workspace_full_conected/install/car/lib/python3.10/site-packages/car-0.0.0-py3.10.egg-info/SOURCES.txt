@@ -17,6 +17,7 @@ car/ekf_node.py
 car/filter_points_cloud.py
 car/frontier.py
 car/graph.py
+car/imagine_ppo.py
 car/inference_dqn_ppo.py
 car/inference_ppo.py
 car/joystick_control.py
@@ -27,6 +28,8 @@ car/map.py
 car/octomap_2d_display.py
 car/odometry.py
 car/points_goal.py
+car/ppo.py
+car/ppo_path.py
 car/supervisor.py
 car/test1.py
 car/train_ppo.py

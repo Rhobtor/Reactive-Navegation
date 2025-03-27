@@ -15,14 +15,14 @@
           </horizontal>
           <vertical>
             <!-- Define un barrido vertical; ajusta samples y ángulos según el FOV deseado -->
-            <samples>16</samples>
+            <samples>25</samples>
             <min_angle>-0.523599</min_angle>  <!-- -15° -->
             <max_angle>0.523599</max_angle>    <!-- 15° -->
           </vertical>
         </scan>
         <range>
           <min>0.3</min>
-          <max>12.0</max>
+          <max>40.0</max>
           <resolution>0.01</resolution>
         </range>
         <noise>
