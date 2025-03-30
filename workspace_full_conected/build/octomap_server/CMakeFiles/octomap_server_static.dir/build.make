@@ -201,8 +201,8 @@ liboctomap_server_static.so: /usr/lib/x86_64-linux-gnu/libpython3.10.so
 liboctomap_server_static.so: /usr/lib/libOpenNI.so
 liboctomap_server_static.so: /usr/lib/x86_64-linux-gnu/libOpenNI2.so
 liboctomap_server_static.so: /usr/lib/x86_64-linux-gnu/libusb-1.0.so
-liboctomap_server_static.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so
-liboctomap_server_static.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so
+liboctomap_server_static.so: /usr/lib/x86_64-linux-gnu/liboctomap.so
+liboctomap_server_static.so: /usr/lib/x86_64-linux-gnu/liboctomath.so
 liboctomap_server_static.so: /usr/lib/x86_64-linux-gnu/libpcl_apps.so
 liboctomap_server_static.so: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so
 liboctomap_server_static.so: /usr/lib/x86_64-linux-gnu/libpcl_people.so

@@ -52,6 +52,7 @@ setup(
             'inference_dqn_ppo = car.inference_dqn_ppo:main',
             'ppo= car.ppo:main',
             'imagine_ppo= car.imagine_ppo:main',
+            'imagine_ppo_map= car.imagine_ppo_map:main',
         ],
     },
 )

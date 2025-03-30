@@ -177,8 +177,8 @@ liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/libpython3.10.so
 liboctomap_server_multilayer.so: /usr/lib/libOpenNI.so
 liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/libOpenNI2.so
 liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/libusb-1.0.so
-liboctomap_server_multilayer.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so
-liboctomap_server_multilayer.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so
+liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/liboctomap.so
+liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/liboctomath.so
 liboctomap_server_multilayer.so: /usr/lib/libOpenNI.so
 liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/libusb-1.0.so
 liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/libOpenNI2.so
@@ -506,8 +506,8 @@ liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/libtbb.so.12.5
 liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/libvtksys-9.1.so.9.1.0
 liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/libflann_cpp.so
 liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/libqhull_r.so.8.0.2
-liboctomap_server_multilayer.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so
-liboctomap_server_multilayer.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so
+liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/liboctomap.so
+liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/liboctomath.so
 liboctomap_server_multilayer.so: /usr/lib/libOpenNI.so
 liboctomap_server_multilayer.so: /usr/lib/x86_64-linux-gnu/libOpenNI2.so
 liboctomap_server_multilayer.so: CMakeFiles/octomap_server_multilayer.dir/link.txt

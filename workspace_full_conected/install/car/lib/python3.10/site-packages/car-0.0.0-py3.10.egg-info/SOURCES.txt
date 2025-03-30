@@ -18,6 +18,7 @@ car/filter_points_cloud.py
 car/frontier.py
 car/graph.py
 car/imagine_ppo.py
+car/imagine_ppo_map.py
 car/inference_dqn_ppo.py
 car/inference_ppo.py
 car/joystick_control.py

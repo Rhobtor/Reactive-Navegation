@@ -161,8 +161,8 @@ liboctomap_saver.so: /usr/lib/x86_64-linux-gnu/libpython3.10.so
 liboctomap_saver.so: /usr/lib/libOpenNI.so
 liboctomap_saver.so: /usr/lib/x86_64-linux-gnu/libOpenNI2.so
 liboctomap_saver.so: /usr/lib/x86_64-linux-gnu/libusb-1.0.so
-liboctomap_saver.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so
-liboctomap_saver.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so
+liboctomap_saver.so: /usr/lib/x86_64-linux-gnu/liboctomap.so
+liboctomap_saver.so: /usr/lib/x86_64-linux-gnu/liboctomath.so
 liboctomap_saver.so: libtracking_octomap_server.so
 liboctomap_saver.so: liboctomap_server_multilayer.so
 liboctomap_saver.so: liboctomap_server.so
@@ -491,8 +491,8 @@ liboctomap_saver.so: /usr/lib/x86_64-linux-gnu/libtbb.so.12.5
 liboctomap_saver.so: /usr/lib/x86_64-linux-gnu/libvtksys-9.1.so.9.1.0
 liboctomap_saver.so: /usr/lib/x86_64-linux-gnu/libflann_cpp.so
 liboctomap_saver.so: /usr/lib/x86_64-linux-gnu/libqhull_r.so.8.0.2
-liboctomap_saver.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so
-liboctomap_saver.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so
+liboctomap_saver.so: /usr/lib/x86_64-linux-gnu/liboctomap.so
+liboctomap_saver.so: /usr/lib/x86_64-linux-gnu/liboctomath.so
 liboctomap_saver.so: CMakeFiles/octomap_saver.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library liboctomap_saver.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/octomap_saver.dir/link.txt --verbose=$(VERBOSE)

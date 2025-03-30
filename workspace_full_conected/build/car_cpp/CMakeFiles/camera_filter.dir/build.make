@@ -160,8 +160,6 @@ camera_filter: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.74.0
 camera_filter: /usr/lib/x86_64-linux-gnu/libOgreTerrain.so
 camera_filter: /usr/lib/x86_64-linux-gnu/libOgrePaging.so
 camera_filter: /usr/lib/x86_64-linux-gnu/libignition-common3-graphics.so.3.14.0
-camera_filter: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so
-camera_filter: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so
 camera_filter: /opt/ros/humble/lib/liboctomap_msgs__rosidl_generator_c.so
 camera_filter: /opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_fastrtps_c.so
 camera_filter: /opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_introspection_c.so
@@ -357,8 +355,8 @@ camera_filter: /usr/lib/x86_64-linux-gnu/libccd.so.2.0
 camera_filter: /usr/lib/x86_64-linux-gnu/libm.so
 camera_filter: /usr/lib/x86_64-linux-gnu/libfcl.so
 camera_filter: /usr/lib/x86_64-linux-gnu/libassimp.so
-camera_filter: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so.1.9.8
-camera_filter: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so.1.9.8
+camera_filter: /usr/lib/x86_64-linux-gnu/liboctomap.so.1.9.7
+camera_filter: /usr/lib/x86_64-linux-gnu/liboctomath.so.1.9.7
 camera_filter: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.74.0
 camera_filter: /usr/lib/x86_64-linux-gnu/libignition-transport8.so.8.2.1
 camera_filter: /usr/lib/x86_64-linux-gnu/libignition-fuel_tools4.so.4.4.0

@@ -1,7 +1,0 @@
-[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/obstacles_in_2d.cpp:[m[K In member function ‘[01m[Kvoid NavigationNode::octomapCallback(octomap_msgs::msg::Octomap_<std::allocator<void> >::SharedPtr)[m[K’:
-[01m[K/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/obstacles_in_2d.cpp:470:12:[m[K [01;31m[Kerror: [m[Ktype ‘[01m[Kclass std::shared_ptr<octomap::OcTree>[m[K’ argument given to ‘[01m[Kdelete[m[K’, expected pointer
-  470 |     delete [01;31m[Ktree[m[K;
-      |            [01;31m[K^~~~[m[K
-gmake[2]: *** [CMakeFiles/obstacles_in_2d.dir/build.make:76: CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:461: CMakeFiles/obstacles_in_2d.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

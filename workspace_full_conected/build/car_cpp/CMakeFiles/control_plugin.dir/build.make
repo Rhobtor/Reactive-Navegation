@@ -248,8 +248,8 @@ libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libccd.so.2.0
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libm.so
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libfcl.so
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libassimp.so
-libcontrol_plugin.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so.1.9.8
-libcontrol_plugin.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so.1.9.8
+libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/liboctomap.so.1.9.7
+libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/liboctomath.so.1.9.7
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.74.0
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-transport8.so.8.2.1
 libcontrol_plugin.so: /usr/lib/x86_64-linux-gnu/libignition-fuel_tools4.so.4.4.0

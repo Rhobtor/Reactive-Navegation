@@ -32,7 +32,7 @@ GLOBAL_STATE_DIM = 7
 GAMMA = 0.99
 LAMBDA = 0.95
 CLIP_EPS = 0.2
-TRAIN_EPOCHS = 10
+TRAIN_EPOCHS = 1000
 BATCH_SIZE = 256
 
 EXPLORATION_DISTANCE_THRESHOLD = 2.5 
@@ -124,6 +124,7 @@ class ImaginationModule(tf.keras.Model):
         super(ImaginationModule, self).__init__(**kwargs)
         self.dense1 = tf.keras.layers.Dense(hidden_units, activation='relu')
         self.dense2 = tf.keras.layers.Dense(hidden_units, activation='relu')
+
         # Output a bonus scalar per candidate feature vector.
         self.bonus_layer = tf.keras.layers.Dense(1, activation=None)
     
@@ -176,10 +177,13 @@ class NavigationEndToEndTrainer(Node):
         self.create_subscription(PoseArray, '/obstacle_points', self.obstacle_points_callback, 10)
         self.create_subscription(Bool, '/virtual_collision', self.collision_callback, 10)
         self.create_subscription(Bool, '/reset_confirmation', self.map_reset_callback, qos_profile)
+        self.create_subscription(PoseArray, '/navigation_map_points', self.map_points_callback, 10)
+
         self.marker_pub = self.create_publisher(Marker, '/planned_path_marker', 10)
         self.nav_point = self.create_publisher(PoseArray, '/nav_point', 10)
         self.reset_request_pub = self.create_publisher(Bool, '/reset_request', qos_profile)
         self.goal_reached_pub = self.create_publisher(Bool, 'goal_reached', 10)
+        
         self.reset_confirmation_received = False
         self.reset_triggered = False
         self.reset_request_pending = False
@@ -211,10 +215,10 @@ class NavigationEndToEndTrainer(Node):
         self.values = []
         self.dones = []
         self.steps = 0
-        self.max_steps = 1000
+        self.max_steps = 200
 
         self.episode_count = 0
-        self.total_episodes = 200
+        self.total_episodes = 1000
         self.start_time = time.time()
         self.log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         self.summary_writer = tf.summary.create_file_writer(self.log_dir)
@@ -283,6 +287,12 @@ class NavigationEndToEndTrainer(Node):
         if abs(roll) > threshold or abs(pitch) > threshold:
             self.get_logger().error("Robot volcado detectado (roll: {:.2f}, pitch: {:.2f}). Solicitando reinicio.".format(roll, pitch))
             self.request_environment_reset()
+
+
+    def map_points_callback(self, msg: PoseArray):
+            self.map_points = msg
+            self.get_logger().info(f"Mapa actualizado: {len(msg.poses)} nodos recibidos.")
+
 
     def goal_callback(self, msg: PoseArray):
         if msg.poses:
@@ -441,20 +451,55 @@ class NavigationEndToEndTrainer(Node):
 
 
     # ----------------------- Planificación Local Basada en filtered_nodes -----------------------
-    def plan_route(self, candidate):
-        if self.filtered_nodes is None or not self.filtered_nodes.poses:
-            candidate_pose = candidate
-            camino = [(self.odom.position.x, self.odom.position.y),
-                      (candidate.position.x, candidate.position.y)]
-            return candidate_pose, camino
+    # def plan_route(self, candidate):
+    #     if self.filtered_nodes is None or not self.filtered_nodes.poses:
+    #         candidate_pose = candidate
+    #         camino = [(self.odom.position.x, self.odom.position.y),
+    #                   (candidate.position.x, candidate.position.y)]
+    #         return candidate_pose, camino
 
+    #     current_pos = (self.odom.position.x, self.odom.position.y)
+    #     candidate_pos = (candidate.position.x, candidate.position.y)
+    #     nodos = [current_pos]
+    #     for node in self.filtered_nodes.poses:
+    #         nodos.append((node.position.x, node.position.y))
+    #     nodos.append(candidate_pos)
+    #     umbral_conexion = 3.0
+    #     grafo = construir_grafo(nodos, umbral_conexion)
+    #     inicio = 0
+    #     objetivo = len(nodos) - 1
+    #     indices_camino = dijkstra(grafo, inicio, objetivo)
+    #     camino_calculado = [nodos[i] for i in indices_camino]
+    #     if len(indices_camino) >= 2:
+    #         next_index = indices_camino[1]
+    #         next_waypoint = nodos[next_index]
+    #         new_pose = Pose()
+    #         new_pose.position.x = next_waypoint[0]
+    #         new_pose.position.y = next_waypoint[1]
+    #         new_pose.orientation = candidate.orientation
+    #         return new_pose, camino_calculado
+    #     else:
+    #         return candidate, camino_calculado
+    def plan_route(self, candidate):
         current_pos = (self.odom.position.x, self.odom.position.y)
         candidate_pos = (candidate.position.x, candidate.position.y)
         nodos = [current_pos]
-        for node in self.filtered_nodes.poses:
-            nodos.append((node.position.x, node.position.y))
+        
+        # Agregar nodos filtrados (datos inmediatos)
+        if self.filtered_nodes is not None and self.filtered_nodes.poses:
+            for node in self.filtered_nodes.poses:
+                nodos.append((node.position.x, node.position.y))
+        
+        # Agregar nodos del mapa (acumulados con Octomap)
+        if self.map_points is not None and self.map_points.poses:
+            for node in self.map_points.poses:
+                nodos.append((node.position.x, node.position.y))
+        
+        # Finalmente, agregar la posición del candidato
         nodos.append(candidate_pos)
-        umbral_conexion = 3.0
+        
+        # Usar Dijkstra para planificar la ruta
+        umbral_conexion = 3.0  # Puedes ajustar este parámetro según convenga
         grafo = construir_grafo(nodos, umbral_conexion)
         inicio = 0
         objetivo = len(nodos) - 1
@@ -706,17 +751,100 @@ class NavigationEndToEndTrainer(Node):
         returns = advantages + np.array(values, dtype=np.float32)
         return advantages, returns
 
+    # def update_model(self):
+    #     if len(self.states) == 0:
+    #         self.get_logger().info("No se recogieron experiencias, omitiendo actualización del modelo.")
+    #         return
+    #     states = np.array(self.states, dtype=np.float32)
+    #     actions = np.array(self.actions, dtype=np.int32)
+    #     log_probs_old = np.array(self.log_probs, dtype=np.float32)
+    #     rewards = np.array(self.rewards, dtype=np.float32)
+    #     dones = np.array(self.dones, dtype=np.float32)
+    #     advantages, returns = self.compute_advantages(rewards, self.values, dones)
+    #     advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
+    #     actor_inputs = []
+    #     masks = []
+    #     for cand_feat, m in self.actor_inputs:
+    #         actor_inputs.append(cand_feat)
+    #         masks.append(m)
+    #     actor_inputs = np.array(actor_inputs, dtype=np.float32)
+    #     masks = np.array(masks, dtype=bool)
+    #     # Convertir a tensores de TF
+    #     actor_inputs = tf.convert_to_tensor(actor_inputs)
+    #     masks = tf.convert_to_tensor(masks)
+    #     # Quitar la dimensión extra en el eje 1, pasando de (batch, 1, MAX_CANDIDATES, FEATURE_DIM) a (batch, MAX_CANDIDATES, FEATURE_DIM)
+    #     actor_inputs = tf.squeeze(actor_inputs, axis=1)
+    #     masks = tf.squeeze(masks, axis=1)
+    #     N = len(states)
+    #     dataset = tf.data.Dataset.from_tensor_slices((states, actor_inputs, masks, actions, log_probs_old, returns, advantages))
+    #     dataset = dataset.shuffle(N).batch(BATCH_SIZE)
+    #     total_actor_loss = 0.0
+    #     total_critic_loss = 0.0
+    #     total_loss_value = 0.0
+    #     batch_count = 0
+    #     for epoch in range(TRAIN_EPOCHS):
+    #         for batch in dataset:
+    #             batch_states, batch_actor_inputs, batch_masks, batch_actions, batch_old_log_probs, batch_returns, batch_advantages = batch
+    #             with tf.GradientTape(persistent=True) as tape:
+    #                 logits, _ = self.actor(batch_actor_inputs, mask=tf.convert_to_tensor(batch_masks), initial_state=None)
+    #                 # Agregar bonus de imaginación a los logits:
+    #                 bonus = self.imagination_module(batch_actor_inputs)
+    #                 combined_logits = logits + BONUS_WEIGHT * bonus
+    #                 batch_actions = tf.cast(batch_actions, tf.int32)
+    #                 indices = tf.stack([tf.range(tf.shape(combined_logits)[0]), batch_actions], axis=1)
+    #                 new_log_probs = tf.math.log(tf.nn.softmax(combined_logits, axis=1) + 1e-8)
+    #                 new_log_probs = tf.gather_nd(new_log_probs, indices)
+    #                 ratio = tf.exp(new_log_probs - batch_old_log_probs)
+    #                 clipped_ratio = tf.clip_by_value(ratio, 1 - CLIP_EPS, 1 + CLIP_EPS)
+    #                 actor_loss = -tf.reduce_mean(tf.minimum(ratio * batch_advantages, clipped_ratio * batch_advantages))
+    #                 values_pred = self.critic(batch_states)
+    #                 critic_loss = tf.reduce_mean(tf.square(batch_returns - values_pred))
+    #                 total_loss = actor_loss + 0.5 * critic_loss
+    #             actor_grads = tape.gradient(total_loss, self.actor.trainable_variables + self.imagination_module.trainable_variables)
+    #             critic_grads = tape.gradient(total_loss, self.critic.trainable_variables)
+    #             self.actor_optimizer.apply_gradients(zip(actor_grads, self.actor.trainable_variables + self.imagination_module.trainable_variables))
+    #             self.critic_optimizer.apply_gradients(zip(critic_grads, self.critic.trainable_variables))
+    #             total_actor_loss += actor_loss.numpy()
+    #             total_critic_loss += critic_loss.numpy()
+    #             total_loss_value += total_loss.numpy()
+    #             batch_count += 1
+    #     avg_actor_loss = total_actor_loss / batch_count if batch_count > 0 else 0.0
+    #     avg_critic_loss = total_critic_loss / batch_count if batch_count > 0 else 0.0
+    #     avg_total_loss = total_loss_value / batch_count if batch_count > 0 else 0.0
+    #     self.get_logger().info("Modelo PPO actualizado.")
+    #     episode_reward = np.sum(self.rewards)
+    #     episode_length = len(self.rewards)
+    #     with self.summary_writer.as_default():
+    #         tf.summary.scalar('actor_loss', avg_actor_loss, step=self.episode_count)
+    #         tf.summary.scalar('critic_loss', avg_critic_loss, step=self.episode_count)
+    #         tf.summary.scalar('total_loss', avg_total_loss, step=self.episode_count)
+    #         tf.summary.scalar('episode_reward', episode_reward, step=self.episode_count)
+    #         tf.summary.scalar('episode_length', episode_length, step=self.episode_count)
+    #     self.get_logger().info(f"Métricas registradas para el episodio {self.episode_count}.")
+    #     if not getattr(self, 'models_saved', False):
+    #         self.save_models()
+    #         self.models_saved = True
+    #     if self.episode_count >= 1000:
+    #         self.get_logger().info("1000 episodios completados. Finalizando nodo.")
+    #         rclpy.shutdown()
+
     def update_model(self):
         if len(self.states) == 0:
             self.get_logger().info("No se recogieron experiencias, omitiendo actualización del modelo.")
             return
+
+        # Convertir listas de experiencias a arreglos numpy
         states = np.array(self.states, dtype=np.float32)
         actions = np.array(self.actions, dtype=np.int32)
         log_probs_old = np.array(self.log_probs, dtype=np.float32)
         rewards = np.array(self.rewards, dtype=np.float32)
         dones = np.array(self.dones, dtype=np.float32)
+
+        # Calcular ventajas y returns (objetivos) para PPO
         advantages, returns = self.compute_advantages(rewards, self.values, dones)
         advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
+
+        # Preparar las entradas para el actor (características de los candidatos y máscaras)
         actor_inputs = []
         masks = []
         for cand_feat, m in self.actor_inputs:
@@ -724,48 +852,71 @@ class NavigationEndToEndTrainer(Node):
             masks.append(m)
         actor_inputs = np.array(actor_inputs, dtype=np.float32)
         masks = np.array(masks, dtype=bool)
-        # Convertir a tensores de TF
+
+        # Convertir a tensores de TF y ajustar dimensiones
         actor_inputs = tf.convert_to_tensor(actor_inputs)
         masks = tf.convert_to_tensor(masks)
-        # Quitar la dimensión extra en el eje 1, pasando de (batch, 1, MAX_CANDIDATES, FEATURE_DIM) a (batch, MAX_CANDIDATES, FEATURE_DIM)
-        actor_inputs = tf.squeeze(actor_inputs, axis=1)
+        actor_inputs = tf.squeeze(actor_inputs, axis=1)  # De (batch, 1, MAX_CANDIDATES, FEATURE_DIM) a (batch, MAX_CANDIDATES, FEATURE_DIM)
         masks = tf.squeeze(masks, axis=1)
+
+        # Crear dataset para entrenar en batches
         N = len(states)
-        dataset = tf.data.Dataset.from_tensor_slices((states, actor_inputs, masks, actions, log_probs_old, returns, advantages))
+        dataset = tf.data.Dataset.from_tensor_slices(
+            (states, actor_inputs, masks, actions, log_probs_old, returns, advantages)
+        )
         dataset = dataset.shuffle(N).batch(BATCH_SIZE)
+
         total_actor_loss = 0.0
         total_critic_loss = 0.0
         total_loss_value = 0.0
         batch_count = 0
+
         for epoch in range(TRAIN_EPOCHS):
             for batch in dataset:
                 batch_states, batch_actor_inputs, batch_masks, batch_actions, batch_old_log_probs, batch_returns, batch_advantages = batch
+
                 with tf.GradientTape(persistent=True) as tape:
+                    # Obtener la salida del actor
                     logits, _ = self.actor(batch_actor_inputs, mask=tf.convert_to_tensor(batch_masks), initial_state=None)
-                    # Agregar bonus de imaginación a los logits:
+                    # Obtener el bonus del módulo de imaginación
                     bonus = self.imagination_module(batch_actor_inputs)
+                    # Combinar logits y bonus (se pondera el bonus)
                     combined_logits = logits + BONUS_WEIGHT * bonus
+
+                    # Seleccionar las probabilidades correspondientes a las acciones tomadas
                     batch_actions = tf.cast(batch_actions, tf.int32)
                     indices = tf.stack([tf.range(tf.shape(combined_logits)[0]), batch_actions], axis=1)
                     new_log_probs = tf.math.log(tf.nn.softmax(combined_logits, axis=1) + 1e-8)
                     new_log_probs = tf.gather_nd(new_log_probs, indices)
+
+                    # Calcular la ratio y aplicar el clipping para PPO
                     ratio = tf.exp(new_log_probs - batch_old_log_probs)
                     clipped_ratio = tf.clip_by_value(ratio, 1 - CLIP_EPS, 1 + CLIP_EPS)
                     actor_loss = -tf.reduce_mean(tf.minimum(ratio * batch_advantages, clipped_ratio * batch_advantages))
+
+                    # Valor predicho por el critic y cálculo del loss para éste
                     values_pred = self.critic(batch_states)
                     critic_loss = tf.reduce_mean(tf.square(batch_returns - values_pred))
                     total_loss = actor_loss + 0.5 * critic_loss
-                actor_grads = tape.gradient(total_loss, self.actor.trainable_variables + self.imagination_module.trainable_variables)
+
+                # Aquí se calculan los gradientes para el actor y el módulo de imaginación conjuntamente
+                actor_imagination_vars = self.actor.trainable_variables + self.imagination_module.trainable_variables
+                actor_imagination_grads = tape.gradient(total_loss, actor_imagination_vars)
+                self.actor_optimizer.apply_gradients(zip(actor_imagination_grads, actor_imagination_vars))
+
+                # Gradientes y actualización del critic
                 critic_grads = tape.gradient(total_loss, self.critic.trainable_variables)
-                self.actor_optimizer.apply_gradients(zip(actor_grads, self.actor.trainable_variables + self.imagination_module.trainable_variables))
                 self.critic_optimizer.apply_gradients(zip(critic_grads, self.critic.trainable_variables))
+
                 total_actor_loss += actor_loss.numpy()
                 total_critic_loss += critic_loss.numpy()
                 total_loss_value += total_loss.numpy()
                 batch_count += 1
+
         avg_actor_loss = total_actor_loss / batch_count if batch_count > 0 else 0.0
         avg_critic_loss = total_critic_loss / batch_count if batch_count > 0 else 0.0
         avg_total_loss = total_loss_value / batch_count if batch_count > 0 else 0.0
+
         self.get_logger().info("Modelo PPO actualizado.")
         episode_reward = np.sum(self.rewards)
         episode_length = len(self.rewards)
@@ -775,21 +926,26 @@ class NavigationEndToEndTrainer(Node):
             tf.summary.scalar('total_loss', avg_total_loss, step=self.episode_count)
             tf.summary.scalar('episode_reward', episode_reward, step=self.episode_count)
             tf.summary.scalar('episode_length', episode_length, step=self.episode_count)
+
         self.get_logger().info(f"Métricas registradas para el episodio {self.episode_count}.")
+
+        # Guardar modelos si es la primera vez
         if not getattr(self, 'models_saved', False):
             self.save_models()
             self.models_saved = True
-        if self.episode_count >= 400:
-            self.get_logger().info("400 episodios completados. Finalizando nodo.")
-            rclpy.shutdown()
+
 
     def save_models(self):
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         actor_model_filename = f"actor_model_{timestamp}.keras"
         critic_model_filename = f"critic_model_{timestamp}.keras"
+        imagination_model_filename = f"imagination_model_{timestamp}.keras"
         self.actor.save(actor_model_filename)
         self.critic.save(critic_model_filename)
-        self.get_logger().info(f"Modelos guardados: {actor_model_filename} y {critic_model_filename}.")
+        self.imagination_module.save(imagination_model_filename)
+        self.get_logger().info(f"Modelos guardados: {actor_model_filename} , {critic_model_filename} y {imagination_model_filename}.")
+
+
 
 def main(args=None):
     rclpy.init(args=args)

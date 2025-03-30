@@ -725,29 +725,29 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
   /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/marker.hpp \
   /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__builder.hpp \
   /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__type_support.hpp \
-  /opt/ros/humble/include/octomap/octomap.h \
-  /opt/ros/humble/include/octomap/octomap_types.h \
+  /usr/include/octomap/octomap.h \
+  /usr/include/octomap/octomap_types.h \
   /usr/include/inttypes.h \
-  /opt/ros/humble/include/octomap/math/Vector3.h \
+  /usr/include/octomap/math/Vector3.h \
   /usr/include/c++/11/math.h \
-  /opt/ros/humble/include/octomap/math/Pose6D.h \
-  /opt/ros/humble/include/octomap/math/Vector3.h \
-  /opt/ros/humble/include/octomap/math/Quaternion.h \
-  /opt/ros/humble/include/octomap/octomap_deprecated.h \
-  /opt/ros/humble/include/octomap/Pointcloud.h \
-  /opt/ros/humble/include/octomap/octomap_types.h \
-  /opt/ros/humble/include/octomap/ScanGraph.h \
-  /opt/ros/humble/include/octomap/OcTree.h \
-  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.h \
-  /opt/ros/humble/include/octomap/octomap_utils.h \
-  /opt/ros/humble/include/octomap/OcTreeBaseImpl.h \
+  /usr/include/octomap/math/Pose6D.h \
+  /usr/include/octomap/math/Vector3.h \
+  /usr/include/octomap/math/Quaternion.h \
+  /usr/include/octomap/octomap_deprecated.h \
+  /usr/include/octomap/Pointcloud.h \
+  /usr/include/octomap/octomap_types.h \
+  /usr/include/octomap/ScanGraph.h \
+  /usr/include/octomap/OcTree.h \
+  /usr/include/octomap/OccupancyOcTreeBase.h \
+  /usr/include/octomap/octomap_utils.h \
+  /usr/include/octomap/OcTreeBaseImpl.h \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/bits/stl_stack.h \
   /usr/include/c++/11/bitset \
-  /opt/ros/humble/include/octomap/OcTreeKey.h \
+  /usr/include/octomap/OcTreeKey.h \
   /usr/include/c++/11/ciso646 \
   /usr/include/c++/11/tr1/unordered_set \
   /usr/include/c++/11/tr1/type_traits \
@@ -757,21 +757,21 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
   /usr/include/c++/11/tr1/unordered_set.h \
   /usr/include/c++/11/tr1/unordered_map \
   /usr/include/c++/11/tr1/unordered_map.h \
-  /opt/ros/humble/include/octomap/OcTreeIterator.hxx \
-  /opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx \
-  /opt/ros/humble/include/octomap/AbstractOccupancyOcTree.h \
-  /opt/ros/humble/include/octomap/AbstractOcTree.h \
+  /usr/include/octomap/OcTreeIterator.hxx \
+  /usr/include/octomap/OcTreeBaseImpl.hxx \
+  /usr/include/octomap/AbstractOccupancyOcTree.h \
+  /usr/include/octomap/AbstractOcTree.h \
   /usr/include/c++/11/cstddef \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
-  /opt/ros/humble/include/octomap/OcTreeNode.h \
-  /opt/ros/humble/include/octomap/OcTreeDataNode.h \
-  /opt/ros/humble/include/octomap/OcTreeDataNode.hxx \
-  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.hxx \
-  /opt/ros/humble/include/octomap/MCTables.h \
-  /opt/ros/humble/include/octomap/OcTree.h \
+  /usr/include/octomap/OcTreeNode.h \
+  /usr/include/octomap/OcTreeDataNode.h \
+  /usr/include/octomap/OcTreeDataNode.hxx \
+  /usr/include/octomap/OccupancyOcTreeBase.hxx \
+  /usr/include/octomap/MCTables.h \
+  /usr/include/octomap/OcTree.h \
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/octomap.hpp \
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__struct.hpp \
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__builder.hpp \
@@ -779,12 +779,12 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/detail/octomap__type_support.hpp \
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/conversions.h \
-  /opt/ros/humble/include/octomap/ColorOcTree.h \
-  /opt/ros/humble/include/octomap/OcTreeNode.h \
-  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.h \
-  /opt/ros/humble/include/tf2_ros/buffer.h \
+  /usr/include/octomap/ColorOcTree.h \
+  /usr/include/octomap/OcTreeNode.h \
+  /usr/include/octomap/OccupancyOcTreeBase.h \
+  /opt/ros/humble/include/tf2_ros/tf2_ros/buffer.h \
   /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.h \
-  /opt/ros/humble/include/tf2_ros/visibility_control.h \
+  /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h \
   /opt/ros/humble/include/tf2/tf2/buffer_core.hpp \
   /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp \
   /opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.hpp \
@@ -821,19 +821,18 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
   /opt/ros/humble/include/tf2/tf2/convert.hpp \
   /opt/ros/humble/include/tf2/tf2/impl/convert.hpp \
   /opt/ros/humble/include/tf2_ros/tf2_ros/create_timer_interface.h \
-  /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h \
-  /opt/ros/humble/include/tf2_msgs/srv/frame_graph.hpp \
-  /opt/ros/humble/include/tf2_msgs/srv/detail/frame_graph__struct.hpp \
-  /opt/ros/humble/include/tf2_msgs/srv/detail/frame_graph__builder.hpp \
-  /opt/ros/humble/include/tf2_msgs/srv/detail/frame_graph__traits.hpp \
-  /opt/ros/humble/include/tf2_msgs/srv/detail/frame_graph__type_support.hpp \
-  /opt/ros/humble/include/tf2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
-  /opt/ros/humble/include/tf2_ros/transform_listener.h \
-  /opt/ros/humble/include/tf2_msgs/msg/tf_message.hpp \
-  /opt/ros/humble/include/tf2_msgs/msg/detail/tf_message__struct.hpp \
-  /opt/ros/humble/include/tf2_msgs/msg/detail/tf_message__builder.hpp \
-  /opt/ros/humble/include/tf2_msgs/msg/detail/tf_message__traits.hpp \
-  /opt/ros/humble/include/tf2_msgs/msg/detail/tf_message__type_support.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/frame_graph.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__type_support.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+  /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.h \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/tf_message.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__struct.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__builder.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__traits.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__type_support.hpp \
   /opt/ros/humble/include/tf2_ros/tf2_ros/qos.hpp \
   /usr/include/nanoflann.hpp
 
@@ -842,13 +841,17 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/tf2_ros/tf2_ros/qos.hpp:
 
-/opt/ros/humble/include/tf2_msgs/msg/detail/tf_message__struct.hpp:
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__traits.hpp:
 
-/opt/ros/humble/include/tf2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__struct.hpp:
 
-/opt/ros/humble/include/tf2_msgs/srv/detail/frame_graph__traits.hpp:
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/tf_message.hpp:
 
-/opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h:
+/opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.h:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp:
 
 /opt/ros/humble/include/tf2_ros/tf2_ros/create_timer_interface.h:
 
@@ -876,19 +879,19 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/c++/11/cfloat:
 
-/opt/ros/humble/include/tf2/tf2/LinearMath/Scalar.hpp:
-
 /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.hpp:
 
 /opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.hpp:
 
-/opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp:
+/opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h:
 
 /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.h:
 
-/opt/ros/humble/include/tf2_ros/buffer.h:
+/opt/ros/humble/include/tf2_ros/tf2_ros/buffer.h:
 
-/opt/ros/humble/include/octomap/ColorOcTree.h:
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__type_support.hpp:
+
+/usr/include/octomap/ColorOcTree.h:
 
 /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
@@ -896,11 +899,13 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/octomap_msgs/octomap_msgs/msg/octomap.hpp:
 
-/opt/ros/humble/include/octomap/MCTables.h:
+/usr/include/octomap/MCTables.h:
 
-/opt/ros/humble/include/octomap/OcTreeDataNode.hxx:
+/usr/include/octomap/OccupancyOcTreeBase.hxx:
 
-/opt/ros/humble/include/octomap/OcTreeNode.h:
+/usr/include/octomap/OcTreeDataNode.hxx:
+
+/usr/include/octomap/OcTreeNode.h:
 
 /usr/include/c++/11/bits/fstream.tcc:
 
@@ -912,9 +917,9 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/c++/11/cstddef:
 
-/opt/ros/humble/include/octomap/AbstractOccupancyOcTree.h:
+/opt/ros/humble/include/tf2/tf2/LinearMath/Scalar.hpp:
 
-/opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:
+/usr/include/octomap/OcTreeIterator.hxx:
 
 /usr/include/c++/11/tr1/unordered_map.h:
 
@@ -930,6 +935,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/c++/11/ciso646:
 
+/usr/include/octomap/OcTreeKey.h:
+
 /opt/ros/humble/include/tf2/tf2/transform_datatypes.hpp:
 
 /usr/include/c++/11/bits/stl_stack.h:
@@ -940,19 +947,17 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/c++/11/stack:
 
-/opt/ros/humble/include/octomap/OccupancyOcTreeBase.h:
+/usr/include/octomap/OccupancyOcTreeBase.h:
 
-/opt/ros/humble/include/octomap/OcTree.h:
+/usr/include/octomap/ScanGraph.h:
 
-/opt/ros/humble/include/octomap/octomap_deprecated.h:
+/opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp:
 
-/opt/ros/humble/include/octomap/math/Pose6D.h:
-
-/opt/ros/humble/include/octomap/math/Vector3.h:
+/usr/include/octomap/octomap_deprecated.h:
 
 /usr/include/inttypes.h:
 
-/opt/ros/humble/include/octomap/octomap.h:
+/usr/include/octomap/octomap_types.h:
 
 /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker__type_support.hpp:
 
@@ -979,8 +984,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__builder.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose.hpp:
-
-/opt/ros/humble/include/octomap/OcTreeIterator.hxx:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
@@ -1016,9 +1019,9 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/dynamic_storage.hpp:
 
-/opt/ros/humble/include/octomap/math/Quaternion.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/parameter_service.hpp:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/frame_graph.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/parameter_event_handler.hpp:
 
@@ -1065,6 +1068,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /opt/ros/humble/include/rclcpp/rclcpp/executors/static_executor_entities_collector.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/executors/static_single_threaded_executor.hpp:
+
+/usr/include/octomap/math/Pose6D.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_base_interface_traits.hpp:
 
@@ -1148,6 +1153,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter_descriptor.hpp:
 
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp:
+
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__builder.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__struct.hpp:
@@ -1195,8 +1202,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__builder.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__struct.hpp:
-
-/opt/ros/humble/include/octomap/AbstractOcTree.h:
 
 /usr/include/c++/11/bits/stl_heap.h:
 
@@ -1274,9 +1279,9 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
-/usr/include/c++/11/bits/localefwd.h:
+/usr/include/octomap/math/Vector3.h:
 
-/opt/ros/humble/include/tf2_ros/transform_listener.h:
+/usr/include/c++/11/bits/localefwd.h:
 
 /usr/include/c++/11/bits/std_thread.h:
 
@@ -1296,15 +1301,11 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/c++/11/functional:
 
-/opt/ros/humble/include/tf2_msgs/srv/frame_graph.hpp:
-
 /usr/include/asm-generic/errno-base.h:
 
 /opt/ros/humble/include/rmw/rmw/subscription_options.h:
 
 /usr/include/asm-generic/errno.h:
-
-/opt/ros/humble/include/octomap/octomap_utils.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
@@ -1315,8 +1316,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /usr/include/x86_64-linux-gnu/bits/signum-arch.h:
 
 /opt/ros/humble/include/rmw/rmw/security_options.h:
-
-/opt/ros/humble/include/tf2_msgs/msg/tf_message.hpp:
 
 /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/color_rgba__struct.hpp:
 
@@ -1452,6 +1451,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/c++/11/bits/basic_string.h:
 
+/usr/include/octomap/AbstractOccupancyOcTree.h:
+
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
 /opt/ros/humble/include/rmw/rmw/incompatible_qos_events_statuses.h:
@@ -1499,6 +1500,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /opt/ros/humble/include/rclcpp/rclcpp/event.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+/usr/include/octomap/OcTreeDataNode.h:
 
 /usr/include/c++/11/bits/hashtable_policy.h:
 
@@ -1570,8 +1573,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/c++/11/ctime:
 
-/opt/ros/humble/include/tf2_msgs/msg/detail/tf_message__builder.hpp:
-
 /opt/ros/humble/include/rcutils/rcutils/types/array_list.h:
 
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__type_support.hpp:
@@ -1636,6 +1637,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
 
+/usr/include/octomap/octomap_utils.h:
+
 /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__traits.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
@@ -1647,6 +1650,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
 /usr/include/c++/11/tr1/gamma.tcc:
+
+/usr/include/octomap/OcTreeBaseImpl.hxx:
 
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
@@ -1665,8 +1670,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_clock_interface.hpp:
 
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp/src/obstacles_in_2d.cpp:
-
-/opt/ros/humble/include/octomap/OcTreeBaseImpl.h:
 
 /usr/include/c++/11/clocale:
 
@@ -1689,8 +1692,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /opt/ros/humble/include/rclcpp/rclcpp/detail/qos_parameters.hpp:
 
 /usr/include/c++/11/cmath:
-
-/opt/ros/humble/include/tf2_msgs/srv/detail/frame_graph__builder.hpp:
 
 /usr/include/c++/11/pstl/pstl_config.h:
 
@@ -1750,8 +1751,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/rcutils/rcutils/types/uint8_array.h:
 
-/opt/ros/humble/include/octomap/OcTreeKey.h:
-
 /usr/include/c++/11/bits/unique_ptr.h:
 
 /usr/include/c++/11/bits/stl_relops.h:
@@ -1810,7 +1809,7 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/c++/11/bits/exception.h:
 
-/opt/ros/humble/include/octomap/ScanGraph.h:
+/usr/include/octomap/OcTreeBaseImpl.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/detail/subscription_callback_type_helper.hpp:
 
@@ -1827,8 +1826,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
 /opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/metrics_message__type_support.hpp:
-
-/opt/ros/humble/include/tf2_msgs/srv/detail/frame_graph__struct.hpp:
 
 /usr/include/c++/11/bits/this_thread_sleep.h:
 
@@ -1904,8 +1901,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
-/opt/ros/humble/include/octomap/octomap_types.h:
-
 /usr/include/c++/11/algorithm:
 
 /usr/include/c++/11/backward/binders.h:
@@ -1940,8 +1935,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /usr/include/c++/11/iostream:
 
-/opt/ros/humble/include/tf2_msgs/msg/detail/tf_message__type_support.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 /usr/include/strings.h:
@@ -1951,8 +1944,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/c++/11/unordered_set:
-
-/opt/ros/humble/include/octomap/OcTreeDataNode.h:
 
 /usr/include/c++/11/cassert:
 
@@ -1973,8 +1964,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /usr/include/string.h:
 
 /usr/include/c++/11/cwctype:
-
-/opt/ros/humble/include/octomap/OccupancyOcTreeBase.hxx:
 
 /opt/ros/humble/include/rmw/rmw/subscription_content_filter_options.h:
 
@@ -2024,6 +2013,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/rcutils/rcutils/testing/fault_injection.h:
 
+/usr/include/octomap/math/Quaternion.h:
+
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
@@ -2053,6 +2044,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /usr/include/c++/11/type_traits:
 
 /opt/ros/humble/include/rmw/rmw/visibility_control.h:
+
+/usr/include/octomap/OcTree.h:
 
 /opt/ros/humble/include/rmw/rmw/macros.h:
 
@@ -2146,6 +2139,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/rmw/rmw/events_statuses/requested_deadline_missed.h:
 
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__type_support.hpp:
+
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters.hpp:
 
 /opt/ros/humble/include/rcl/rcl/visibility_control.h:
@@ -2170,8 +2165,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h:
 
-/opt/ros/humble/include/tf2_msgs/msg/detail/tf_message__traits.hpp:
-
 /opt/ros/humble/include/rcl/rcl/context.h:
 
 /opt/ros/humble/include/rmw/rmw/event_callback_type.h:
@@ -2192,6 +2185,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/rcl/rcl/subscription.h:
 
+/usr/include/octomap/octomap.h:
+
 /opt/ros/humble/include/rcl/rcl/timer.h:
 
 /usr/include/c++/11/bits/locale_facets_nonio.h:
@@ -2203,8 +2198,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__traits.hpp:
 
 /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/sequence_bound.h:
-
-/opt/ros/humble/include/tf2_ros/visibility_control.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp:
 
@@ -2280,9 +2273,9 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/rclcpp/rclcpp/logger.hpp:
 
-/opt/ros/humble/include/tf2_msgs/srv/detail/frame_graph__type_support.hpp:
-
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__type_support.hpp:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__builder.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/get_node_base_interface.hpp:
 
@@ -2294,6 +2287,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/rclcpp/rclcpp/utilities.hpp:
 
+/usr/include/octomap/Pointcloud.h:
+
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_graph_interface.hpp:
 
 /opt/ros/humble/include/rmw/rmw/names_and_types.h:
@@ -2301,6 +2296,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /usr/include/wctype.h:
 
 /opt/ros/humble/include/rmw/rmw/topic_endpoint_info.h:
+
+/usr/include/octomap/AbstractOcTree.h:
 
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/duration.hpp:
 
@@ -2402,8 +2399,6 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/intra_process_manager.hpp:
 
-/opt/ros/humble/include/octomap/Pointcloud.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/create_generic_subscription.hpp:
 
 /usr/include/c++/11/shared_mutex:
@@ -2413,6 +2408,8 @@ CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o: /home/rhobtor/reactive
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/buffer_implementation_base.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/rate.hpp:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/clock.hpp:
 

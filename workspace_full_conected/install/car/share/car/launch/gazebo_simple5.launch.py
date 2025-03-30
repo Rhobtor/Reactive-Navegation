@@ -184,7 +184,11 @@ def generate_launch_description():
         name='colision_zone',  # Nombre del nodo
     )
 
-
+    map = Node(
+        package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
+        executable='map',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='map',  # Nombre del nodo
+    )
 
     return LaunchDescription([
         # static_tf,  # Publica la transformación de 'odom' a 'map'
@@ -206,5 +210,6 @@ def generate_launch_description():
         move_navigation_nodes,
         #check_goal,
         poinst_goal,
-        colision_zone
+        colision_zone,
+        map
     ])

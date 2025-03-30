@@ -574,8 +574,8 @@ private:
   std::unique_ptr<PID> angular_pid_;
 
   // Ganancias para pure pursuit
-  const double k_linear = 5.0;
-  const double k_angular = 3.0;
+  const double k_linear = 1.0;
+  const double k_angular = 1.0;
 
   // Estado de navegación
   NavigationState nav_state_;

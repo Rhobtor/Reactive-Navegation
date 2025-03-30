@@ -23,6 +23,9 @@ class NavigationMapBuilder(Node):
         # Umbral para considerar que dos puntos son iguales (en metros)
         self.node_distance_threshold = 2.0
 
+        # Timer para publicar el mapa periódicamente (cada 1 segundo)
+        self.create_timer(1.0, self.publish_map)
+
     def pose_callback(self, msg: PoseArray):
         updated = False
         for pose in msg.poses:
@@ -31,7 +34,7 @@ class NavigationMapBuilder(Node):
                 self.map_nodes.append(pose)
                 updated = True
         if updated:
-            self.publish_map()
+            self.get_logger().info(f"Mapa actualizado: {len(self.map_nodes)} nodos.")
 
     def is_pose_in_map(self, new_pose: Pose):
         for pose in self.map_nodes:
@@ -59,7 +62,7 @@ class NavigationMapBuilder(Node):
             marker.color.a = 1.0
             marker.color.r = 0.0
             marker.color.g = 1.0
-            marker.color.b = 0.0
+            marker.color.b = 1.0
             marker_array.markers.append(marker)
         self.marker_pub.publish(marker_array)
         
@@ -70,7 +73,8 @@ class NavigationMapBuilder(Node):
         map_pose.poses = self.map_nodes
         self.map_pose_pub.publish(map_pose)
         
-        self.get_logger().info(f"Mapa actualizado: {len(self.map_nodes)} nodos.")
+        # Para evitar llenar el log, se puede comentar la siguiente línea
+        self.get_logger().info(f"Mapa publicado: {len(self.map_nodes)} nodos.")
 
 def main(args=None):
     rclpy.init(args=args)

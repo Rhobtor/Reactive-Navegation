@@ -3153,22 +3153,22 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_grid_display.cpp.o: /home/rhob
   /opt/ros/humble/include/rviz_rendering/rviz_rendering/logging_handler.hpp \
   /opt/ros/humble/include/rviz_common/rviz_common/properties/enum_property.hpp \
   /opt/ros/humble/include/rviz_common/rviz_common/properties/float_property.hpp \
-  /opt/ros/humble/include/octomap/octomap.h \
-  /opt/ros/humble/include/octomap/octomap_types.h \
+  /usr/include/octomap/octomap.h \
+  /usr/include/octomap/octomap_types.h \
   /usr/include/inttypes.h \
-  /opt/ros/humble/include/octomap/math/Vector3.h \
-  /opt/ros/humble/include/octomap/math/Pose6D.h \
-  /opt/ros/humble/include/octomap/math/Vector3.h \
-  /opt/ros/humble/include/octomap/math/Quaternion.h \
-  /opt/ros/humble/include/octomap/octomap_deprecated.h \
-  /opt/ros/humble/include/octomap/Pointcloud.h \
-  /opt/ros/humble/include/octomap/octomap_types.h \
-  /opt/ros/humble/include/octomap/ScanGraph.h \
-  /opt/ros/humble/include/octomap/OcTree.h \
-  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.h \
-  /opt/ros/humble/include/octomap/octomap_utils.h \
-  /opt/ros/humble/include/octomap/OcTreeBaseImpl.h \
-  /opt/ros/humble/include/octomap/OcTreeKey.h \
+  /usr/include/octomap/math/Vector3.h \
+  /usr/include/octomap/math/Pose6D.h \
+  /usr/include/octomap/math/Vector3.h \
+  /usr/include/octomap/math/Quaternion.h \
+  /usr/include/octomap/octomap_deprecated.h \
+  /usr/include/octomap/Pointcloud.h \
+  /usr/include/octomap/octomap_types.h \
+  /usr/include/octomap/ScanGraph.h \
+  /usr/include/octomap/OcTree.h \
+  /usr/include/octomap/OccupancyOcTreeBase.h \
+  /usr/include/octomap/octomap_utils.h \
+  /usr/include/octomap/OcTreeBaseImpl.h \
+  /usr/include/octomap/OcTreeKey.h \
   /usr/include/c++/11/ciso646 \
   /usr/include/c++/11/tr1/unordered_set \
   /usr/include/c++/11/tr1/type_traits \
@@ -3178,19 +3178,19 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_grid_display.cpp.o: /home/rhob
   /usr/include/c++/11/tr1/unordered_set.h \
   /usr/include/c++/11/tr1/unordered_map \
   /usr/include/c++/11/tr1/unordered_map.h \
-  /opt/ros/humble/include/octomap/OcTreeIterator.hxx \
-  /opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx \
-  /opt/ros/humble/include/octomap/AbstractOccupancyOcTree.h \
-  /opt/ros/humble/include/octomap/AbstractOcTree.h \
-  /opt/ros/humble/include/octomap/OcTreeNode.h \
-  /opt/ros/humble/include/octomap/OcTreeDataNode.h \
-  /opt/ros/humble/include/octomap/OcTreeDataNode.hxx \
-  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.hxx \
-  /opt/ros/humble/include/octomap/MCTables.h \
-  /opt/ros/humble/include/octomap/ColorOcTree.h \
-  /opt/ros/humble/include/octomap/OcTreeNode.h \
-  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.h \
-  /opt/ros/humble/include/octomap/OcTreeStamped.h \
+  /usr/include/octomap/OcTreeIterator.hxx \
+  /usr/include/octomap/OcTreeBaseImpl.hxx \
+  /usr/include/octomap/AbstractOccupancyOcTree.h \
+  /usr/include/octomap/AbstractOcTree.h \
+  /usr/include/octomap/OcTreeNode.h \
+  /usr/include/octomap/OcTreeDataNode.h \
+  /usr/include/octomap/OcTreeDataNode.hxx \
+  /usr/include/octomap/OccupancyOcTreeBase.hxx \
+  /usr/include/octomap/MCTables.h \
+  /usr/include/octomap/ColorOcTree.h \
+  /usr/include/octomap/OcTreeNode.h \
+  /usr/include/octomap/OccupancyOcTreeBase.h \
+  /usr/include/octomap/OcTreeStamped.h \
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/conversions.h \
   /opt/ros/humble/include/pluginlib/pluginlib/class_list_macros.hpp
 
@@ -4231,24 +4231,24 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_map_display.cpp.o: /home/rhobt
   /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreResourceManager.h \
   /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreScriptLoader.h \
   /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreTechnique.h \
-  /opt/ros/humble/include/octomap/octomap.h \
-  /opt/ros/humble/include/octomap/octomap_types.h \
+  /usr/include/octomap/octomap.h \
+  /usr/include/octomap/octomap_types.h \
   /usr/include/inttypes.h \
-  /opt/ros/humble/include/octomap/math/Vector3.h \
-  /opt/ros/humble/include/octomap/math/Pose6D.h \
-  /opt/ros/humble/include/octomap/math/Vector3.h \
-  /opt/ros/humble/include/octomap/math/Quaternion.h \
-  /opt/ros/humble/include/octomap/octomap_deprecated.h \
-  /opt/ros/humble/include/octomap/Pointcloud.h \
-  /opt/ros/humble/include/octomap/octomap_types.h \
-  /opt/ros/humble/include/octomap/ScanGraph.h \
-  /opt/ros/humble/include/octomap/OcTree.h \
-  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.h \
-  /opt/ros/humble/include/octomap/octomap_utils.h \
-  /opt/ros/humble/include/octomap/OcTreeBaseImpl.h \
+  /usr/include/octomap/math/Vector3.h \
+  /usr/include/octomap/math/Pose6D.h \
+  /usr/include/octomap/math/Vector3.h \
+  /usr/include/octomap/math/Quaternion.h \
+  /usr/include/octomap/octomap_deprecated.h \
+  /usr/include/octomap/Pointcloud.h \
+  /usr/include/octomap/octomap_types.h \
+  /usr/include/octomap/ScanGraph.h \
+  /usr/include/octomap/OcTree.h \
+  /usr/include/octomap/OccupancyOcTreeBase.h \
+  /usr/include/octomap/octomap_utils.h \
+  /usr/include/octomap/OcTreeBaseImpl.h \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  /opt/ros/humble/include/octomap/OcTreeKey.h \
+  /usr/include/octomap/OcTreeKey.h \
   /usr/include/c++/11/ciso646 \
   /usr/include/c++/11/tr1/unordered_set \
   /usr/include/c++/11/tr1/type_traits \
@@ -4258,20 +4258,20 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_map_display.cpp.o: /home/rhobt
   /usr/include/c++/11/tr1/unordered_set.h \
   /usr/include/c++/11/tr1/unordered_map \
   /usr/include/c++/11/tr1/unordered_map.h \
-  /opt/ros/humble/include/octomap/OcTreeIterator.hxx \
-  /opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx \
-  /opt/ros/humble/include/octomap/AbstractOccupancyOcTree.h \
-  /opt/ros/humble/include/octomap/AbstractOcTree.h \
-  /opt/ros/humble/include/octomap/OcTreeNode.h \
-  /opt/ros/humble/include/octomap/OcTreeDataNode.h \
-  /opt/ros/humble/include/octomap/OcTreeDataNode.hxx \
-  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.hxx \
-  /opt/ros/humble/include/octomap/MCTables.h \
-  /opt/ros/humble/include/octomap/OcTreeStamped.h \
-  /opt/ros/humble/include/octomap/OcTreeNode.h \
-  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.h \
+  /usr/include/octomap/OcTreeIterator.hxx \
+  /usr/include/octomap/OcTreeBaseImpl.hxx \
+  /usr/include/octomap/AbstractOccupancyOcTree.h \
+  /usr/include/octomap/AbstractOcTree.h \
+  /usr/include/octomap/OcTreeNode.h \
+  /usr/include/octomap/OcTreeDataNode.h \
+  /usr/include/octomap/OcTreeDataNode.hxx \
+  /usr/include/octomap/OccupancyOcTreeBase.hxx \
+  /usr/include/octomap/MCTables.h \
+  /usr/include/octomap/OcTreeStamped.h \
+  /usr/include/octomap/OcTreeNode.h \
+  /usr/include/octomap/OccupancyOcTreeBase.h \
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/conversions.h \
-  /opt/ros/humble/include/octomap/ColorOcTree.h \
+  /usr/include/octomap/ColorOcTree.h \
   /opt/ros/humble/include/rviz_rendering/rviz_rendering/material_manager.hpp \
   /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreColourValue.h \
   /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreMaterialManager.h \
@@ -4377,23 +4377,17 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_map_display.cpp.o: /home/rhobt
 
 /opt/ros/humble/include/octomap_msgs/octomap_msgs/conversions.h:
 
-/opt/ros/humble/include/octomap/OcTreeStamped.h:
+/usr/include/octomap/OcTreeStamped.h:
 
-/opt/ros/humble/include/octomap/MCTables.h:
+/usr/include/octomap/ColorOcTree.h:
 
-/opt/ros/humble/include/octomap/OcTreeDataNode.hxx:
+/usr/include/octomap/OcTreeDataNode.hxx:
 
-/opt/ros/humble/include/octomap/OcTreeDataNode.h:
+/usr/include/octomap/OcTreeDataNode.h:
 
-/opt/ros/humble/include/octomap/OcTreeNode.h:
+/usr/include/octomap/OcTreeNode.h:
 
-/opt/ros/humble/include/octomap/AbstractOcTree.h:
-
-/opt/ros/humble/include/octomap/AbstractOccupancyOcTree.h:
-
-/opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:
-
-/opt/ros/humble/include/octomap/OcTreeIterator.hxx:
+/usr/include/octomap/OcTreeIterator.hxx:
 
 /usr/include/c++/11/tr1/unordered_map.h:
 
@@ -4460,6 +4454,8 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_map_display.cpp.o: /home/rhobt
 /opt/ros/humble/include/rmw/rmw/ret_types.h:
 
 /opt/ros/humble/include/rmw/rmw/macros.h:
+
+/usr/include/octomap/OcTree.h:
 
 /usr/include/c++/11/type_traits:
 
@@ -4559,6 +4555,10 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_map_display.cpp.o: /home/rhobt
 
 /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreRadixSort.h:
 
+/usr/include/c++/11/thread:
+
+/opt/ros/humble/include/rclcpp/rclcpp/create_subscription.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
 
 /usr/include/asm-generic/types.h:
@@ -4643,7 +4643,7 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_map_display.cpp.o: /home/rhobt
 
 /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreResource.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h:
+/usr/include/octomap/math/Quaternion.h:
 
 /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreRenderable.h:
 
@@ -4660,6 +4660,8 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_map_display.cpp.o: /home/rhobt
 /usr/include/c++/11/stdexcept:
 
 /usr/include/c++/11/bits/regex_scanner.h:
+
+/usr/include/octomap/AbstractOcTree.h:
 
 /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreAxisAlignedBox.h:
 
@@ -4682,6 +4684,8 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_map_display.cpp.o: /home/rhobt
 /usr/include/linux/close_range.h:
 
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
+/usr/include/octomap/octomap_utils.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
@@ -4919,6 +4923,10 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_map_display.cpp.o: /home/rhobt
 
 /opt/ros/humble/include/rmw/rmw/subscription_content_filter_options.h:
 
+/opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreColourValue.h:
+
+/usr/include/c++/11/bits/stringfwd.h:
+
 /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreException.h:
 
 /usr/include/c++/11/unordered_set:
@@ -4976,16 +4984,6 @@ CMakeFiles/octomap_rviz_plugins.dir/src/occupancy_map_display.cpp.o: /home/rhobt
 /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreHeaderPrefix.h:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
-
-/opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreColourValue.h:
-
-/usr/include/c++/11/bits/stringfwd.h:
-
-/opt/ros/humble/include/octomap/octomap_types.h:
-
-/opt/ros/humble/include/rcutils/rcutils/qsort.h:
-
-/opt/ros/humble/include/rcl_yaml_param_parser/rcl_yaml_param_parser/parser.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant:
 
@@ -5173,6 +5171,8 @@ include/octomap_rviz_plugins/moc_occupancy_grid_display.cpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/twist.hpp:
 
+/usr/include/octomap/OccupancyOcTreeBase.hxx:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/received_message_period.hpp:
@@ -5208,8 +5208,6 @@ include/octomap_rviz_plugins/moc_occupancy_grid_display.cpp:
 /opt/ros/humble/include/rcl/rcl/event_callback.h:
 
 /opt/ros/humble/include/tracetools/tracetools/tracetools.h:
-
-/opt/ros/humble/include/octomap/OcTreeKey.h:
 
 /usr/include/c++/11/ostream:
 
@@ -5328,8 +5326,6 @@ include/octomap_rviz_plugins/moc_occupancy_grid_display.cpp:
 /usr/include/c++/11/clocale:
 
 /opt/ros/humble/include/rcl/rcl/event.h:
-
-/opt/ros/humble/include/octomap/OcTreeBaseImpl.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/create_generic_publisher.hpp:
 
@@ -5465,8 +5461,6 @@ include/octomap_rviz_plugins/moc_occupancy_grid_display.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
-/opt/ros/humble/include/octomap/octomap_utils.h:
-
 /usr/include/asm-generic/errno.h:
 
 /opt/ros/humble/include/message_filters/message_filters/message_event.h:
@@ -5480,6 +5474,8 @@ include/octomap_rviz_plugins/moc_occupancy_grid_display.cpp:
 /opt/ros/humble/include/nav_msgs/nav_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
 
 /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreHardwareUniformBuffer.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/exceptions/exceptions.hpp:
 
 /usr/include/c++/11/bits/algorithmfwd.h:
 
@@ -5609,7 +5605,7 @@ include/octomap_rviz_plugins/moc_occupancy_map_display.cpp:
 
 /opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/map_meta_data__struct.hpp:
 
-/opt/ros/humble/include/octomap/ScanGraph.h:
+/usr/include/octomap/OcTreeBaseImpl.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
 
@@ -5640,6 +5636,8 @@ include/octomap_rviz_plugins/moc_occupancy_map_display.cpp:
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__builder.hpp:
 
 /opt/ros/humble/include/rcl/rcl/timer.h:
+
+/usr/include/octomap/octomap.h:
 
 /usr/include/c++/11/bits/locale_conv.h:
 
@@ -5775,6 +5773,12 @@ include/octomap_rviz_plugins/moc_occupancy_map_display.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
 
+/opt/ros/humble/include/rcutils/rcutils/qsort.h:
+
+/opt/ros/humble/include/rcl_yaml_param_parser/rcl_yaml_param_parser/parser.h:
+
+/usr/include/octomap/Pointcloud.h:
+
 /opt/ros/humble/include/rclcpp/rclcpp/topic_statistics/subscription_topic_statistics.hpp:
 
 /opt/ros/humble/include/rcl/rcl/graph.h:
@@ -5824,8 +5828,6 @@ include/octomap_rviz_plugins/moc_occupancy_map_display.cpp:
 /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/service_type_support_decl.hpp:
 
 /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_typesupport_cpp/service_type_support.hpp:
-
-/opt/ros/humble/include/rmw/rmw/impl/cpp/demangle.hpp:
 
 /usr/include/c++/11/cxxabi.h:
 
@@ -5897,8 +5899,6 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 
 /opt/ros/humble/include/map_msgs/map_msgs/msg/detail/occupancy_grid_update__type_support.hpp:
 
-/opt/ros/humble/include/octomap/Pointcloud.h:
-
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/subscription_intra_process_base.hpp:
 
 /opt/ros/humble/include/rviz_common/rviz_common/logging.hpp:
@@ -5919,8 +5919,6 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qpoint.h:
 
-/opt/ros/humble/include/octomap/OccupancyOcTreeBase.hxx:
-
 /opt/ros/humble/include/tracetools/tracetools/visibility_control.hpp:
 
 /opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE/OgreAnimationState.h:
@@ -5928,6 +5926,8 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 /opt/ros/humble/include/rclcpp/rclcpp/intra_process_buffer_type.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.hpp:
+
+/usr/include/octomap/math/Vector3.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/subscription_content_filter_options.hpp:
 
@@ -6025,6 +6025,8 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/publisher_options.hpp:
 
+/usr/include/octomap/MCTables.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h:
@@ -6097,6 +6099,8 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter.hpp:
 
+/usr/include/octomap/AbstractOccupancyOcTree.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__type_support.hpp:
@@ -6143,6 +6147,10 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 
 /opt/ros/humble/include/pluginlib/pluginlib/class_loader.hpp:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h:
+
+/usr/include/octomap/math/Pose6D.h:
+
 /opt/ros/humble/include/rclcpp/rclcpp/executors/static_single_threaded_executor.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/executable_list.hpp:
@@ -6188,12 +6196,6 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/frame_graph.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/parameter_service.hpp:
-
-/usr/include/c++/11/thread:
-
-/opt/ros/humble/include/rclcpp/rclcpp/create_subscription.hpp:
-
-/opt/ros/humble/include/octomap/math/Quaternion.h:
 
 /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/bounded_vector.hpp:
 
@@ -6272,6 +6274,8 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 /opt/ros/humble/include/map_msgs/map_msgs/msg/detail/occupancy_grid_update__struct.hpp:
 
 /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp:
+
+/usr/include/octomap/octomap_deprecated.h:
 
 /opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.hpp:
 
@@ -6427,6 +6431,8 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringmatcher.h:
 
+/usr/include/octomap/OcTreeBaseImpl.hxx:
+
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h:
 
 /usr/include/c++/11/cstdlib:
@@ -6444,6 +6450,10 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h:
+
+/opt/ros/humble/include/rmw/rmw/impl/cpp/demangle.hpp:
+
+/usr/include/octomap/OcTreeKey.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h:
 
@@ -6476,8 +6486,6 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h:
 
 /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__traits.hpp:
-
-/opt/ros/humble/include/octomap/math/Pose6D.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h:
 
@@ -6581,8 +6589,6 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 
 /opt/ros/humble/include/class_loader/class_loader/exceptions.hpp:
 
-/opt/ros/humble/include/octomap/ColorOcTree.h:
-
 /opt/ros/humble/include/map_msgs/map_msgs/msg/occupancy_grid_update.hpp:
 
 /opt/ros/humble/include/pluginlib/pluginlib/class_desc.hpp:
@@ -6635,21 +6641,15 @@ octomap_rviz_plugins_autogen/mocs_compilation.cpp:
 
 /opt/ros/humble/include/rviz_common/rviz_common/properties/float_property.hpp:
 
-/opt/ros/humble/include/octomap/octomap.h:
+/usr/include/octomap/octomap_types.h:
 
 /opt/ros/humble/include/tf2_ros/tf2_ros/qos.hpp:
 
 /usr/include/inttypes.h:
 
-/opt/ros/humble/include/octomap/math/Vector3.h:
+/usr/include/octomap/ScanGraph.h:
 
-/opt/ros/humble/include/rclcpp/rclcpp/exceptions/exceptions.hpp:
-
-/opt/ros/humble/include/octomap/octomap_deprecated.h:
-
-/opt/ros/humble/include/octomap/OcTree.h:
-
-/opt/ros/humble/include/octomap/OccupancyOcTreeBase.h:
+/usr/include/octomap/OccupancyOcTreeBase.h:
 
 /usr/include/c++/11/ciso646:
 

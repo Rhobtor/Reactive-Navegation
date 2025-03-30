@@ -8,6 +8,7 @@ filter_points_cloud = car.filter_points_cloud:main
 frontier_view = car.frontier:main
 graph = car.graph:main
 imagine_ppo = car.imagine_ppo:main
+imagine_ppo_map = car.imagine_ppo_map:main
 inference_dqn_ppo = car.inference_dqn_ppo:main
 inference_ppo = car.inference_ppo:main
 joystick_control = car.joystick_control:main

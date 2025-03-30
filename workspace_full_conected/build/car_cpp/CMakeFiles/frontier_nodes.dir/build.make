@@ -160,8 +160,6 @@ frontier_nodes: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.74.0
 frontier_nodes: /usr/lib/x86_64-linux-gnu/libOgreTerrain.so
 frontier_nodes: /usr/lib/x86_64-linux-gnu/libOgrePaging.so
 frontier_nodes: /usr/lib/x86_64-linux-gnu/libignition-common3-graphics.so.3.14.0
-frontier_nodes: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so
-frontier_nodes: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so
 frontier_nodes: /opt/ros/humble/lib/liboctomap_msgs__rosidl_generator_c.so
 frontier_nodes: /opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_fastrtps_c.so
 frontier_nodes: /opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_introspection_c.so
@@ -357,8 +355,8 @@ frontier_nodes: /usr/lib/x86_64-linux-gnu/libccd.so.2.0
 frontier_nodes: /usr/lib/x86_64-linux-gnu/libm.so
 frontier_nodes: /usr/lib/x86_64-linux-gnu/libfcl.so
 frontier_nodes: /usr/lib/x86_64-linux-gnu/libassimp.so
-frontier_nodes: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so.1.9.8
-frontier_nodes: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so.1.9.8
+frontier_nodes: /usr/lib/x86_64-linux-gnu/liboctomap.so.1.9.7
+frontier_nodes: /usr/lib/x86_64-linux-gnu/liboctomath.so.1.9.7
 frontier_nodes: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.74.0
 frontier_nodes: /usr/lib/x86_64-linux-gnu/libignition-transport8.so.8.2.1
 frontier_nodes: /usr/lib/x86_64-linux-gnu/libignition-fuel_tools4.so.4.4.0
