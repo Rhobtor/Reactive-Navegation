@@ -1,0 +1,22 @@
+[35m[1mConsolidate compiler generated dependencies of target frontier_reduction[0m
+[  2%] [32mBuilding CXX object CMakeFiles/frontier_reduction.dir/src/frontier_reduction.cpp.o[0m
+[  7%] Built target navigation_nodes
+[ 16%] Built target camera_filter
+[ 16%] Built target ground_remove
+[ 21%] Built target map_measure
+[ 26%] Built target frontier_nodes
+[ 30%] Built target navigation_nodes_ground
+[ 45%] Built target 2D_graph
+[ 45%] Built target frontiers_values
+[ 45%] Built target occupied_nodes_near_obstacles
+[ 50%] Built target obstacles_in_2d
+[ 54%] Built target check_goal
+[ 59%] Built target create_wall
+[ 69%] Built target check_map
+[ 69%] Built target path_planner_node
+[ 73%] Built target move_navigation_nodes_frontier
+[ 78%] Built target filtered_navigation_nodes
+[ 83%] Built target control_plugin
+[ 88%] Built target drive_plugin
+[ 92%] Built target joints_plugin
+[ 97%] Built target driver_plugin

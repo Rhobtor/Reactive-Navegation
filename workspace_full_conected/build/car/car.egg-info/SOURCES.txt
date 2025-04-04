@@ -16,8 +16,10 @@ car/dqn_ppo.py
 car/ekf_node.py
 car/filter_points_cloud.py
 car/frontier.py
+car/frontier_centroid.py
 car/graph.py
 car/imagine_ppo.py
+car/imagine_ppo_avoid.py
 car/imagine_ppo_map.py
 car/inference_dqn_ppo.py
 car/inference_ppo.py

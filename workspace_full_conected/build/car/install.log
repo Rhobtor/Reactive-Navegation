@@ -11,6 +11,7 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/debugtf.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/map.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/laser_scan.py
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/frontier_centroid.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/inference_dqn_ppo.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/octomap_2d_display.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/filter_points_cloud.py
@@ -19,6 +20,7 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/colision_zone.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/inference_ppo.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/test1.py
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/imagine_ppo_avoid.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/train_ppo.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/dqn_ppo.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/supervisor.py
@@ -38,6 +40,7 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/debugtf.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/map.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/laser_scan.cpython-310.pyc
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/frontier_centroid.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/inference_dqn_ppo.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/octomap_2d_display.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/filter_points_cloud.cpython-310.pyc
@@ -46,6 +49,7 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/colision_zone.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/inference_ppo.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/test1.cpython-310.pyc
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/imagine_ppo_avoid.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/train_ppo.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/dqn_ppo.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/supervisor.cpython-310.pyc
@@ -138,9 +142,11 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/dqn_ppo
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/ekf_node
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/filter_points_cloud
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/frontier_centroid
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/frontier_view
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/graph
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/imagine_ppo
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/imagine_ppo_avoid
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/imagine_ppo_map
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/inference_dqn_ppo
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/inference_ppo

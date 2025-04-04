@@ -237,6 +237,19 @@ frontier_nodes/fast:
 .PHONY : frontier_nodes/fast
 
 #=============================================================================
+# Target rules for targets named frontier_reduction
+
+# Build rule for target.
+frontier_reduction: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 frontier_reduction
+.PHONY : frontier_reduction
+
+# fast build rule for target.
+frontier_reduction/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_reduction.dir/build.make CMakeFiles/frontier_reduction.dir/build
+.PHONY : frontier_reduction/fast
+
+#=============================================================================
 # Target rules for targets named ground_remove
 
 # Build rule for target.
@@ -676,6 +689,30 @@ src/frontier_nodes.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_nodes.dir/build.make CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.s
 .PHONY : src/frontier_nodes.cpp.s
 
+src/frontier_reduction.o: src/frontier_reduction.cpp.o
+.PHONY : src/frontier_reduction.o
+
+# target to build an object file
+src/frontier_reduction.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_reduction.dir/build.make CMakeFiles/frontier_reduction.dir/src/frontier_reduction.cpp.o
+.PHONY : src/frontier_reduction.cpp.o
+
+src/frontier_reduction.i: src/frontier_reduction.cpp.i
+.PHONY : src/frontier_reduction.i
+
+# target to preprocess a source file
+src/frontier_reduction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_reduction.dir/build.make CMakeFiles/frontier_reduction.dir/src/frontier_reduction.cpp.i
+.PHONY : src/frontier_reduction.cpp.i
+
+src/frontier_reduction.s: src/frontier_reduction.cpp.s
+.PHONY : src/frontier_reduction.s
+
+# target to generate assembly for a file
+src/frontier_reduction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_reduction.dir/build.make CMakeFiles/frontier_reduction.dir/src/frontier_reduction.cpp.s
+.PHONY : src/frontier_reduction.cpp.s
+
 src/frontiers_values.o: src/frontiers_values.cpp.o
 .PHONY : src/frontiers_values.o
 
@@ -941,6 +978,7 @@ help:
 	@echo "... driver_plugin"
 	@echo "... filtered_navigation_nodes"
 	@echo "... frontier_nodes"
+	@echo "... frontier_reduction"
 	@echo "... frontiers_values"
 	@echo "... ground_remove"
 	@echo "... joints_plugin"
@@ -978,6 +1016,9 @@ help:
 	@echo "... src/frontier_nodes.o"
 	@echo "... src/frontier_nodes.i"
 	@echo "... src/frontier_nodes.s"
+	@echo "... src/frontier_reduction.o"
+	@echo "... src/frontier_reduction.i"
+	@echo "... src/frontier_reduction.s"
 	@echo "... src/frontiers_values.o"
 	@echo "... src/frontiers_values.i"
 	@echo "... src/frontiers_values.s"

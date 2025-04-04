@@ -160,7 +160,7 @@ class NavigationEndToEndTrainer(Node):
         self.create_subscription(PoseArray, '/occupied_rejected_nodes', self.occupied_nodes_callback, 10)
         self.create_subscription(PoseArray, '/obstacle_points', self.obstacle_points_callback, 10)
         # Suscripción al mapa generado (por ejemplo, con Octomap)
-        self.create_subscription(PoseArray, '/navigation_map_points', self.map_points_callback, 10)
+        # self.create_subscription(PoseArray, '/navigation_map_points', self.map_points_callback, 10)
 
         self.marker_pub = self.create_publisher(Marker, '/planned_path_marker', 10)
         self.nav_point = self.create_publisher(PoseArray, '/nav_point', 10)
@@ -175,7 +175,7 @@ class NavigationEndToEndTrainer(Node):
         self.filtered_nodes = None
         self.occupied_nodes = None
         self.obstacle_points = None
-        self.map_points = None
+        # self.map_points = None
         self.virtual_collision = False
 
         # Variables de entrenamiento y experiencia
@@ -286,9 +286,9 @@ class NavigationEndToEndTrainer(Node):
     def obstacle_points_callback(self, msg: PoseArray):
         self.obstacle_points = msg
 
-    def map_points_callback(self, msg: PoseArray):
-        self.map_points = msg
-        self.get_logger().info(f"Mapa actualizado: {len(msg.poses)} nodos.")
+    # def map_points_callback(self, msg: PoseArray):
+    #     self.map_points = msg
+    #     self.get_logger().info(f"Mapa actualizado: {len(msg.poses)} nodos.")
 
     def request_environment_reset(self):
         current_time = self.get_clock().now().nanoseconds / 1e9
@@ -373,25 +373,15 @@ class NavigationEndToEndTrainer(Node):
                 nodes.append((pos, 'filtrado'))
                 filtered_count += 1
 
-        # Agregar nodos del mapa (memoria acumulada)
-        if self.map_points is not None and self.map_points.poses:
-            for node in self.map_points.poses:
-                pos = (node.position.x, node.position.y)
-                nodes.append((pos, 'map'))
-                map_count += 1
+        # # Agregar nodos del mapa (memoria acumulada)
+        # if self.map_points is not None and self.map_points.poses:
+        #     for node in self.map_points.poses:
+        #         pos = (node.position.x, node.position.y)
+        #         nodes.append((pos, 'map'))
+        #         map_count += 1
 
         # Agregar el candidato final
         nodes.append((candidate_pos, 'candidato'))
-
-        # Log para indicar qué nodos se están usando:
-        if filtered_count > 0 and map_count > 0:
-            self.get_logger().info("Planificación: fusionando {} nodos filtrados y {} nodos del mapa.".format(filtered_count, map_count))
-        elif filtered_count > 0:
-            self.get_logger().info("Planificación: usando solo {} nodos filtrados.".format(filtered_count))
-        elif map_count > 0:
-            self.get_logger().info("Planificación: usando solo {} nodos del mapa.".format(map_count))
-        else:
-            self.get_logger().info("Planificación: no se encontraron nodos filtrados ni del mapa.")
 
         # Construir el grafo inicializando todas las claves
         grafo = {i: [] for i in range(len(nodes))}

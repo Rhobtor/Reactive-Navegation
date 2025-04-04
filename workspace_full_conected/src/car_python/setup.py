@@ -53,6 +53,8 @@ setup(
             'ppo= car.ppo:main',
             'imagine_ppo= car.imagine_ppo:main',
             'imagine_ppo_map= car.imagine_ppo_map:main',
+            'imagine_ppo_avoid= car.imagine_ppo_avoid:main',
+            'frontier_centroid = car.frontier_centroid:main',
         ],
     },
 )

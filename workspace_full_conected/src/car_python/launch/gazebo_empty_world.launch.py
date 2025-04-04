@@ -178,7 +178,7 @@ def generate_launch_description():
         navigation_nodes,
         obstacles_in_2d,
         occupied_nodes_near_obstacles,
-        #move_navigation_nodes
+        move_navigation_nodes
 
 
     ])

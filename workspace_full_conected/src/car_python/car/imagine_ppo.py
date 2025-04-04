@@ -32,7 +32,7 @@ GLOBAL_STATE_DIM = 7
 GAMMA = 0.99
 LAMBDA = 0.95
 CLIP_EPS = 0.2
-TRAIN_EPOCHS = 1000
+TRAIN_EPOCHS = 30
 BATCH_SIZE = 256
 
 EXPLORATION_DISTANCE_THRESHOLD = 2.5 
@@ -490,10 +490,10 @@ class NavigationEndToEndTrainer(Node):
             for node in self.filtered_nodes.poses:
                 nodos.append((node.position.x, node.position.y))
         
-        # Agregar nodos del mapa (acumulados con Octomap)
-        if self.map_points is not None and self.map_points.poses:
-            for node in self.map_points.poses:
-                nodos.append((node.position.x, node.position.y))
+        # # Agregar nodos del mapa (acumulados con Octomap)
+        # if self.map_points is not None and self.map_points.poses:
+        #     for node in self.map_points.poses:
+        #         nodos.append((node.position.x, node.position.y))
         
         # Finalmente, agregar la posición del candidato
         nodos.append(candidate_pos)
@@ -517,6 +517,85 @@ class NavigationEndToEndTrainer(Node):
             return candidate, camino_calculado
 
     # ----------------------- Bucle Reactivo con Módulo de Imagination -----------------------
+    # def reactive_step(self):
+    #     if self.odom is None or self.goal is None:
+    #         return
+    #     if self.reset_triggered:
+    #         return
+
+    #     if self.state == "IDLE":
+    #         candidate_features, valid_nodes, mask = self.compute_candidate_features_tf()
+    #         if candidate_features is None:
+    #             self.get_logger().warn("No hay candidatos válidos.")
+    #             return
+    #         self.last_candidate_features = (candidate_features, mask)
+    #         actor_input = candidate_features  # Ya tiene forma (1, MAX_CANDIDATES, FEATURE_DIM)
+    #         mask_input = mask  # Ya tiene forma (1, MAX_CANDIDATES)
+    #         logits, self.actor_state = self.actor(actor_input, mask=mask_input, initial_state=self.actor_state)
+    #         # Nuevo: Obtener bonus de imaginación
+    #         bonus = self.imagination_module(actor_input)  # forma: (1, MAX_CANDIDATES)
+    #         bonus = tf.convert_to_tensor(bonus)
+    #         # Combinar logits con bonus de imaginación
+    #         combined_logits = logits + BONUS_WEIGHT * bonus
+    #         probs = tf.nn.softmax(combined_logits, axis=-1).numpy()[0]
+    #         action_index = int(np.argmax(probs))
+    #         if not mask[0,action_index]:
+    #             self.get_logger().warn("Candidato seleccionado inválido.")
+    #             return
+    #         new_candidate = valid_nodes[action_index]
+    #         if self.last_candidate is not None:
+    #             d_same = math.hypot(new_candidate.position.x - self.last_candidate.position.x,
+    #                                 new_candidate.position.y - self.last_candidate.position.y)
+    #             if d_same < 0.1:
+    #                 self.same_candidate_count += 1
+    #             else:
+    #                 self.same_candidate_count = 0
+    #         else:
+    #             self.same_candidate_count = 0
+    #         self.last_candidate = new_candidate
+    #         self.current_candidate = new_candidate
+    #         self.last_action_index = action_index
+    #         self.last_probs = probs
+    #         self.get_logger().info(f"Candidato seleccionado: ({new_candidate.position.x:.2f}, {new_candidate.position.y:.2f}), Repeticiones: {self.same_candidate_count}")
+    #         if self.same_candidate_count >= self.same_candidate_reset_threshold:
+    #             self.get_logger().warn("Se ha seleccionado el mismo candidato demasiadas veces. Solicitando reinicio.")
+    #             self.request_environment_reset()
+    #             self.same_candidate_count = 0
+    #             self.state = "IDLE"
+    #             return
+    #         self.state = "MOVING"
+    #         self.state_start_time = self.get_clock().now().nanoseconds / 1e9
+    #     else:
+    #         if not hasattr(self, 'last_action_index'):
+    #             self.last_action_index = 0
+    #         if not hasattr(self, 'last_probs'):
+    #             self.last_probs = np.zeros(MAX_CANDIDATES)
+    #         if not hasattr(self, 'last_candidate_features'):
+    #             candidate_features, valid_nodes, mask = self.compute_candidate_features()
+    #             self.last_candidate_features = (candidate_features, mask)
+
+    #     planned_waypoint, computed_path = self.plan_route(self.current_candidate)
+    #     self.current_waypoint = planned_waypoint
+    #     nav_points = PoseArray()
+    #     nav_points.header.stamp = self.get_clock().now().to_msg()
+    #     nav_points.header.frame_id = "map"
+    #     nav_points.poses.append(planned_waypoint)
+    #     self.nav_point.publish(nav_points)
+    #     marker = Marker()
+    #     marker.header.frame_id = "map"
+    #     marker.header.stamp = self.get_clock().now().to_msg()
+    #     marker.ns = "planned_path"
+    #     marker.id = 0
+    #     marker.type = Marker.LINE_STRIP
+    #     marker.action = Marker.ADD
+    #     marker.scale.x = 0.1
+    #     marker.color.a = 1.0
+    #     marker.color.r = 0.0
+    #     marker.color.g = 1.0
+    #     marker.color.b = 0.0
+    #     marker.points = [Point(x=pt[0], y=pt[1], z=0.0) for pt in computed_path]
+    #     self.marker_pub.publish(marker)
+
     def reactive_step(self):
         if self.odom is None or self.goal is None:
             return
@@ -524,25 +603,54 @@ class NavigationEndToEndTrainer(Node):
             return
 
         if self.state == "IDLE":
-            candidate_features, valid_nodes, mask = self.compute_candidate_features_tf()
-            if candidate_features is None:
+            candidate_features_tensor, valid_nodes, mask = self.compute_candidate_features_tf()
+            if candidate_features_tensor is None:
                 self.get_logger().warn("No hay candidatos válidos.")
                 return
-            self.last_candidate_features = (candidate_features, mask)
-            actor_input = candidate_features  # Ya tiene forma (1, MAX_CANDIDATES, FEATURE_DIM)
-            mask_input = mask  # Ya tiene forma (1, MAX_CANDIDATES)
-            logits, self.actor_state = self.actor(actor_input, mask=mask_input, initial_state=self.actor_state)
-            # Nuevo: Obtener bonus de imaginación
-            bonus = self.imagination_module(actor_input)  # forma: (1, MAX_CANDIDATES)
-            bonus = tf.convert_to_tensor(bonus)
-            # Combinar logits con bonus de imaginación
+            self.last_candidate_features = (candidate_features_tensor, mask)
+            
+            # Obtener logits del actor y bonus del módulo de imaginación
+            logits, self.actor_state = self.actor(candidate_features_tensor, mask=mask, initial_state=self.actor_state)
+            bonus = self.imagination_module(candidate_features_tensor)  # forma: (1, MAX_CANDIDATES)
             combined_logits = logits + BONUS_WEIGHT * bonus
+            
+            # Calcular las probabilidades (softmax)
             probs = tf.nn.softmax(combined_logits, axis=-1).numpy()[0]
-            action_index = int(np.argmax(probs))
-            if not mask[0,action_index]:
-                self.get_logger().warn("Candidato seleccionado inválido.")
+            
+            # --- Cálculo del centroide ponderado de los nodos filtrados ---
+            # Se consideran solo los candidatos válidos (donde mask es True)
+            mask_np = mask.numpy()[0]
+            num_valid = int(np.sum(mask_np))
+            if num_valid == 0:
+                self.get_logger().warn("No hay nodos válidos para calcular centroide.")
                 return
-            new_candidate = valid_nodes[action_index]
+            
+            total_weight = 0.0
+            x_weighted = 0.0
+            y_weighted = 0.0
+            # Se itera solo hasta el número de nodos válidos
+            for i in range(num_valid):
+                weight = probs[i]
+                x_weighted += weight * valid_nodes[i].position.x
+                y_weighted += weight * valid_nodes[i].position.y
+                total_weight += weight
+            
+            centroid_x = x_weighted / total_weight
+            centroid_y = y_weighted / total_weight
+            
+            # Se selecciona la orientación del nodo que tenga la mayor probabilidad entre los válidos
+            best_index = int(np.argmax(probs[:num_valid]))
+            selected_candidate = Pose()
+            selected_candidate.position.x = centroid_x
+            selected_candidate.position.y = centroid_y
+            # Se conserva la componente z (si está definida) y la orientación del mejor candidato
+            selected_candidate.position.z = valid_nodes[best_index].position.z  
+            selected_candidate.orientation = valid_nodes[best_index].orientation
+            # --- Fin del cálculo del centroide ---
+            
+            new_candidate = selected_candidate
+            
+            # Manejo de repeticiones del mismo candidato
             if self.last_candidate is not None:
                 d_same = math.hypot(new_candidate.position.x - self.last_candidate.position.x,
                                     new_candidate.position.y - self.last_candidate.position.y)
@@ -554,15 +662,20 @@ class NavigationEndToEndTrainer(Node):
                 self.same_candidate_count = 0
             self.last_candidate = new_candidate
             self.current_candidate = new_candidate
-            self.last_action_index = action_index
+            # Se guarda, aunque ya no se usa para seleccionar el índice, para el registro
+            self.last_action_index = best_index
             self.last_probs = probs
-            self.get_logger().info(f"Candidato seleccionado: ({new_candidate.position.x:.2f}, {new_candidate.position.y:.2f}), Repeticiones: {self.same_candidate_count}")
+            
+            self.get_logger().info(
+                f"Punto representativo calculado: ({new_candidate.position.x:.2f}, {new_candidate.position.y:.2f}), Repeticiones: {self.same_candidate_count}"
+            )
             if self.same_candidate_count >= self.same_candidate_reset_threshold:
-                self.get_logger().warn("Se ha seleccionado el mismo candidato demasiadas veces. Solicitando reinicio.")
+                self.get_logger().warn("Se ha calculado el mismo punto representativo demasiadas veces. Solicitando reinicio.")
                 self.request_environment_reset()
                 self.same_candidate_count = 0
                 self.state = "IDLE"
                 return
+
             self.state = "MOVING"
             self.state_start_time = self.get_clock().now().nanoseconds / 1e9
         else:
@@ -571,9 +684,10 @@ class NavigationEndToEndTrainer(Node):
             if not hasattr(self, 'last_probs'):
                 self.last_probs = np.zeros(MAX_CANDIDATES)
             if not hasattr(self, 'last_candidate_features'):
-                candidate_features, valid_nodes, mask = self.compute_candidate_features()
-                self.last_candidate_features = (candidate_features, mask)
+                candidate_features_tensor, valid_nodes, mask = self.compute_candidate_features_tf()
+                self.last_candidate_features = (candidate_features_tensor, mask)
 
+        # Planifica la ruta hacia el punto representativo calculado
         planned_waypoint, computed_path = self.plan_route(self.current_candidate)
         self.current_waypoint = planned_waypoint
         nav_points = PoseArray()
@@ -595,6 +709,8 @@ class NavigationEndToEndTrainer(Node):
         marker.color.b = 0.0
         marker.points = [Point(x=pt[0], y=pt[1], z=0.0) for pt in computed_path]
         self.marker_pub.publish(marker)
+
+
 
     # ----------------------- Bucle de Experiencia (Sin cambios) -----------------------
     def experience_step(self):
