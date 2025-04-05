@@ -458,11 +458,11 @@ public:
   : Node("navigation_node"),
     tf_buffer_(this->get_clock()),
     min_distance_(0.0),
-    max_distance_(20.0)  // Ampliado a 20 m, por ejemplo
+    max_distance_(40.0)  // Ampliado a 20 m, por ejemplo
   {
     // Parámetros
     this->declare_parameter("min_distance", 0.0);
-    this->declare_parameter("max_distance", 20.0);
+    this->declare_parameter("max_distance", 40.0);
     this->declare_parameter("node_distance_threshold", 1.0);
     min_distance_ = this->get_parameter("min_distance").as_double();
     max_distance_ = this->get_parameter("max_distance").as_double();

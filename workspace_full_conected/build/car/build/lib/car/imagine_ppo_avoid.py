@@ -371,7 +371,7 @@ class NavigationEndToEndTrainer(Node):
     def follow_trajectory(self, waypoint):
         lookahead_dist = 1.0
         EVASION_THRESHOLD = 1.0
-        EVASION_WEIGHT = 0.5
+        EVASION_WEIGHT = 0.8
 
         current_pos = np.array([self.odom.position.x, self.odom.position.y])
         target_pos = np.array([waypoint.position.x, waypoint.position.y])

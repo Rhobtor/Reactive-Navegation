@@ -17,12 +17,15 @@ joystick_control = car.joystick_control:main
 keyboard_control = car.keyboard_control:main
 log_joystick = car.log_joystick:main
 map = car.map:main
+map_navegation = car.map_navegation:main
+memory_map = car.memory_map:main
 octomap_2d_display = car.octomap_2d_display:main
 odometry_node = car.odometry:main
 points_goal = car.points_goal:main
 ppo = car.ppo:main
 scan_to_cloud = car.laser_scan:main
 supervisor_node = car.supervisor:main
+test2 = car.test2:main
 train_ppo = car.train_ppo:main
 view_point_and_click = car.view_point_and_click:main
 

@@ -27,6 +27,8 @@
   <depend>pcl_msgs</depend>
   <depend>rclpy</depend> <!-- Para nodos en Python -->
   <depend>std_msgs</depend>
+  <depend>tf_transformations</depend>
+
 
   <build_depend>car_interfaces</build_depend>
   <exec_depend>car_interfaces</exec_depend> 

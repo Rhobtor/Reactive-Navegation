@@ -55,6 +55,9 @@ setup(
             'imagine_ppo_map= car.imagine_ppo_map:main',
             'imagine_ppo_avoid= car.imagine_ppo_avoid:main',
             'frontier_centroid = car.frontier_centroid:main',
+            'test2= car.test2:main',
+            'map_navegation= car.map_navegation:main',
+            'memory_map= car.memory_map:main',
         ],
     },
 )
