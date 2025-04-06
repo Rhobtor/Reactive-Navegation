@@ -22,11 +22,7 @@ def generate_launch_description():
         'worlds',
         'world_simple2.world'
     ])
-    octomap_arg = PathJoinSubstitution([
-        FindPackageShare('car'),
-        'config',
-        'octomap.yaml'
-    ])
+
     # Get the car URDF by processing the xacro file
     xacro_file = os.path.join(share_dir, 'urdf', 'car.xacro')
     config_file = os.path.join(share_dir, 'config', 'ekf_params.yaml')

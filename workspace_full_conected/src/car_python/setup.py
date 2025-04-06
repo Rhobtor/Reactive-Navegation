@@ -58,6 +58,8 @@ setup(
             'test2= car.test2:main',
             'map_navegation= car.map_navegation:main',
             'memory_map= car.memory_map:main',
+            'planificador_script= car.planificador_script:main',
+            'reset_octomap= car.reset_octomap:main',
         ],
     },
 )

@@ -319,6 +319,7 @@ public:
 
 private:
   void octomapCallback(const octomap_msgs::msg::Octomap::SharedPtr msg) {
+    
     // Obtener la transformación "base_link" -> "map".
     geometry_msgs::msg::TransformStamped transformStamped;
     try {

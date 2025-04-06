@@ -835,125 +835,847 @@
 # if __name__ == '__main__':
 #     main()
 
-
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import QoSProfile
-import math
-from geometry_msgs.msg import Twist, PoseStamped
-from nav_msgs.msg import Odometry, Path
 
+import math
+import numpy as np
+import heapq
+from nav_msgs.msg import Odometry, OccupancyGrid, Path
+from geometry_msgs.msg import PoseArray, Pose, PoseStamped, Twist, Point
+from nav_msgs.msg import MapMetaData
+import threading
+import time
+
+
+# Función auxiliar para calcular distancia Euclidiana
 def distance(p1, p2):
     return math.hypot(p2[0] - p1[0], p2[1] - p1[1])
 
-def quaternion_to_yaw(q):
-    # Conversión simple de quaternion a yaw
-    siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
-    cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
-    return math.atan2(siny_cosp, cosy_cosp)
+# Algoritmo de Dijkstra para planificar el camino en un grafo
+def dijkstra(graph, start, goal):
+    dist = {node: float('inf') for node in graph.keys()}
+    prev = {node: None for node in graph.keys()}
+    dist[start] = 0
+    queue = [(0, start)]
+    while queue:
+        current_dist, current_node = heapq.heappop(queue)
+        if current_node == goal:
+            break
+        if current_dist > dist[current_node]:
+            continue
+        for neighbor, weight in graph[current_node]:
+            alt = current_dist + weight
+            if alt < dist[neighbor]:
+                dist[neighbor] = alt
+                prev[neighbor] = current_node
+                heapq.heappush(queue, (alt, neighbor))
+    # Reconstruir el camino
+    path = []
+    node = goal
+    while node is not None:
+        path.append(node)
+        node = prev[node]
+    path.reverse()
+    return path
 
-class StanleyController(Node):
+# Función para convertir índices del mapa a coordenadas en el mundo
+def index_to_world(i, j, info):
+    x = info.origin.position.x + (i + 0.5) * info.resolution
+    y = info.origin.position.y + (j + 0.5) * info.resolution
+    return (x, y)
+
+class NavigationNode(Node):
     def __init__(self):
-        super(StanleyController, self).__init__('stanley_controller')
-        qos = QoSProfile(depth=10)
+        super().__init__('navigation_node')
+        
         
         # Suscriptores
-        self.create_subscription(Odometry, '/odom', self.odom_callback, qos)
-        self.create_subscription(Path, '/global_path', self.path_callback, qos)
+        self.create_subscription(Odometry, '/odom', self.odom_callback, 10)
+        self.create_subscription(PoseArray, '/goal', self.goal_callback, 10)
+        self.create_subscription(OccupancyGrid, '/occupancy_grid', self.current_grid_callback, 10)
+        self.create_subscription(OccupancyGrid, '/persistent_dynamic_occupancy_grid', self.memory_grid_callback, 10)
         
-        # Publicador
-        self.cmd_vel_pub = self.create_publisher(Twist, '/cmd_vel', qos)
+        # Publicadores
+        self.path_pub = self.create_publisher(Path, '/global_path', 10)
+        self.cmd_vel_pub = self.create_publisher(Twist, '/cmd_vel', 10)
         
-        # Parámetros del controlador Stanley
-        self.k = 1.0                  # Ganancia para el error lateral
-        self.max_steering = math.radians(30)  # Límite máximo en radianes (30°)
-        self.linear_speed = 1.0       # Velocidad lineal fija (m/s)
-        
+        # Parámetros para la fusión y planificación
+        self.connection_threshold = 3.0   # Umbral para conectar nodos
+        self.lookahead_distance = 1.0       # Para el controlador Pure Pursuit
+        self.linear_speed = 5.0           # Velocidad lineal fija
+        self.k_pursuit = 2.0              # Ganancia angular
+        self.last_valid_path = None  # Almacena el último camino aceptado
+        self.path_update_threshold = 0.3  # Umbral para actualizar el camino (por ejemplo, 30% de diferencia)
+        self.last_valid_path = None
+        self.last_replan_time = 0.0
+        self.replan_interval = 3.0  # segundos
+        self.path_change_threshold = 0.3  # Umbral mínimo para actualizar el camino
+
         # Variables de estado
-        self.current_pose = None      # Pose actual del robot
-        self.global_path = []         # Lista de puntos (x,y) del path global
+        self.odom = None
+        self.goal = None
+        self.current_grid = None
+        self.memory_grid = None
+
+        # Variable para el path global persistente
+        self.current_global_path = None  
+        # Buffer para registrar datos para entrenamiento
+        self.training_buffer = []  
+        self.current_path_index = 0  # Índice del siguiente waypoint
+        # Parámetros para actualizar el path
+        self.waypoint_threshold = 0.5  # Umbral para considerar que se ha alcanzado un waypoint
+
         
-        # Timer para ejecutar el control a 10 Hz
+        # Timer para actualizar el path y generar el control (10 Hz)
         self.create_timer(0.1, self.control_loop)
-        
-        self.get_logger().info("StanleyController iniciado.")
+        self.get_logger().info("Nodo de navegación iniciado.")
+
+
+        self.last_twist = Twist()
+        self.twist_pub_rate = 20  # Publicar a 20 Hz
+        self.start_twist_publisher()
+
+    def start_twist_publisher(self):
+        # Inicia un hilo que publica continuamente el último comando Twist
+        thread = threading.Thread(target=self.publish_twist_continuously, daemon=True)
+        thread.start()
+
+    def publish_twist_continuously(self):
+        rate = 1.0 / self.twist_pub_rate
+        while rclpy.ok():
+            self.cmd_vel_pub.publish(self.last_twist)
+            time.sleep(rate)
+
 
     def odom_callback(self, msg: Odometry):
-        self.current_pose = msg.pose.pose
+        self.odom = msg.pose.pose
 
-    def path_callback(self, msg: Path):
-        self.global_path = []
-        for pose_st in msg.poses:
-            x = pose_st.pose.position.x
-            y = pose_st.pose.position.y
-            self.global_path.append((x, y))
-        self.get_logger().info(f"Path global recibido con {len(self.global_path)} puntos.")
+    def goal_callback(self, msg: PoseArray):
+        if msg.poses:
+            self.goal = msg.poses[0]
+            self.get_logger().info("Goal recibido.")
+
+    def current_grid_callback(self, msg: OccupancyGrid):
+        self.current_grid = msg
+
+    def memory_grid_callback(self, msg: OccupancyGrid):
+        self.memory_grid = msg
+
+
+    def compute_dynamic_twist(self, current_pos, current_yaw, new_path, fused_grid, info):
+        # Calcular velocidades base usando Pure Pursuit
+        linear_speed_base, angular_speed = self.pure_pursuit_control(new_path, current_pos, current_yaw)
+        
+        # Ejemplo: Calcula el error angular con el siguiente punto del path
+        target_point = new_path[min(1, len(new_path)-1)]
+        desired_heading = math.atan2(target_point[1] - current_pos[1],
+                                     target_point[0] - current_pos[0])
+        error_angle = math.atan2(math.sin(desired_heading - current_yaw),
+                                 math.cos(desired_heading - current_yaw))
+        
+        # Ajuste de velocidad: cuanto mayor sea el error angular, menor la velocidad lineal
+        reduction_factor = max(0.1, 1 - abs(error_angle))
+        linear_speed = linear_speed_base * reduction_factor
+
+        # Comprobar obstáculos locales para determinar si retroceder
+        safe_distance = 0.5  # Distancia mínima segura (ejemplo)
+        obstacle_detected, obs_distance = self.check_local_obstacles(fused_grid, info, current_pos, current_yaw)
+        if obstacle_detected and obs_distance < safe_distance:
+            self.get_logger().warn(f"Obstáculo muy cerca ({obs_distance:.2f} m), activando retroceso.")
+            linear_speed = -abs(linear_speed_base)
+        
+        return linear_speed, angular_speed
+
+    # def fuse_maps(self):
+    #     """
+    #     Fusiona dos OccupancyGrids: si en alguna de las celdas hay obstáculo (valor 100),
+    #     la celda se marca como obstáculo; si ambas son libres (0), se marca como libre; si
+    #     no se conocen, se deja en -1.
+    #     """
+    #     if self.current_grid is None and self.memory_grid is None:
+    #         return None
+    #     # Usamos la información del grid actual como base
+    #     info = self.current_grid.info if self.current_grid is not None else self.memory_grid.info
+    #     # Convertir datos a arrays numpy
+    #     grid1 = np.array(self.current_grid.data, dtype=np.int8) if self.current_grid is not None else -1 * np.ones(info.width * info.height, dtype=np.int8)
+    #     grid2 = np.array(self.memory_grid.data, dtype=np.int8) if self.memory_grid is not None else -1 * np.ones(info.width * info.height, dtype=np.int8)
+    #     # Fusion: si alguno es 100, la celda es 100; si ambos son 0, la celda es 0; en otro caso, -1
+    #     fused = np.where((grid1 == 100) | (grid2 == 100), 100,
+    #                      np.where((grid1 == 0) & (grid2 == 0), 0, -1))
+    #     fused_grid = fused.reshape((info.height, info.width))
+    #     return fused_grid, info
+
+
+    def fuse_maps_dynamic(self,grid_msg1, grid_msg2):
+        """
+        Fusiona dos mensajes OccupancyGrid, que pueden tener distintos tamaños y orígenes.
+        Devuelve un array 2D fused_grid y la información (MapMetaData) asociada.
+        
+        La fusión se realiza de forma que:
+        - Si alguna celda es obstáculo (100) en alguno de los mapas, se marca 100.
+        - Si ambas celdas son libres (0), se marca 0.
+        - En otro caso, se marca como desconocido (-1).
+        """
+        # Usamos la información del primer mapa si está disponible; de lo contrario, el segundo.
+        info1 = grid_msg1.info if grid_msg1 is not None else None
+        info2 = grid_msg2.info if grid_msg2 is not None else None
+        if info1 is None and info2 is None:
+            return None, None
+
+        # Obtener límites en coordenadas mundo para cada mapa
+        def get_bounds(info):
+            ox = info.origin.position.x
+            oy = info.origin.position.y
+            max_x = ox + info.width * info.resolution
+            max_y = oy + info.height * info.resolution
+            return ox, oy, max_x, max_y
+
+        bounds = []
+        if info1 is not None:
+            bounds.append(get_bounds(info1))
+        if info2 is not None:
+            bounds.append(get_bounds(info2))
+        
+        # Calcular límites globales
+        min_x = min(b[0] for b in bounds)
+        min_y = min(b[1] for b in bounds)
+        max_x = max(b[2] for b in bounds)
+        max_y = max(b[3] for b in bounds)
+
+        # Añadir margen extra (por ejemplo, 5 m)
+        margin = 5.0
+        min_x -= margin
+        min_y -= margin
+        max_x += margin
+        max_y += margin
+
+        # Calcular dimensiones del nuevo grid
+        resolution = info1.resolution if info1 is not None else info2.resolution
+        new_width = int(math.ceil((max_x - min_x) / resolution))
+        new_height = int(math.ceil((max_y - min_y) / resolution))
+
+        # Crear el grid unificado, inicializado con -1 (desconocido)
+        fused_grid = -1 * np.ones((new_height, new_width), dtype=np.int8)
+
+        # Función para reproyectar un mapa en el grid unificado
+        def reproject_map(grid_msg, fused_grid, new_origin_x, new_origin_y, resolution):
+            info = grid_msg.info
+            # Convertir los datos del grid a un array 2D
+            grid_array = np.array(grid_msg.data, dtype=np.int8).reshape((info.height, info.width))
+            # Para cada celda en el grid original, calcular su posición en el nuevo grid
+            for j in range(info.height):
+                for i in range(info.width):
+                    # Coordenadas en el mundo del centro de la celda
+                    x = info.origin.position.x + (i + 0.5) * resolution
+                    y = info.origin.position.y + (j + 0.5) * resolution
+                    # Indices en el grid unificado
+                    new_i = int((x - new_origin_x) / resolution)
+                    new_j = int((y - new_origin_y) / resolution)
+                    if 0 <= new_i < fused_grid.shape[1] and 0 <= new_j < fused_grid.shape[0]:
+                        value = grid_array[j, i]
+                        # Actualizar la celda: si ya tiene datos, aplicamos reglas de fusión
+                        if value == 100:
+                            fused_grid[new_j, new_i] = 100
+                        elif value == 0 and fused_grid[new_j, new_i] != 100:
+                            fused_grid[new_j, new_i] = 0
+            return fused_grid
+
+        # Reproyectar cada mapa en el grid unificado
+        if grid_msg1 is not None:
+            fused_grid = reproject_map(grid_msg1, fused_grid, min_x, min_y, resolution)
+        if grid_msg2 is not None:
+            fused_grid = reproject_map(grid_msg2, fused_grid, min_x, min_y, resolution)
+
+        # Crear un MapMetaData para el grid fusionado
+        new_info = MapMetaData()
+        new_info.resolution = resolution
+        new_info.width = new_width
+        new_info.height = new_height
+        new_info.origin.position.x = min_x
+        new_info.origin.position.y = min_y
+        new_info.origin.position.z = 0.0
+        new_info.origin.orientation.w = 1.0
+
+        return fused_grid, new_info
+
+
+    def extract_nodes(self, fused_grid, info):
+        """Extrae nodos candidatos (celdas libres) del mapa fusionado."""
+        nodes = []
+        for j in range(fused_grid.shape[0]):
+            for i in range(fused_grid.shape[1]):
+                if fused_grid[j, i] == 0:
+                    nodes.append(index_to_world(i, j, info))
+        return nodes
+
+    # def plan_path(self, nodes):
+    #     """
+    #     Construye un grafo a partir de los nodos y añade la posición actual y el goal.
+    #     Luego utiliza Dijkstra para obtener el camino.
+    #     """
+    #     if self.odom is None or self.goal is None:
+    #         return None
+    #     # Posición actual y goal
+    #     robot_pos = (self.odom.position.x, self.odom.position.y)
+    #     goal_pos = (self.goal.position.x, self.goal.position.y)
+    #     # Añadimos robot y goal al conjunto de nodos
+    #     all_nodes = nodes.copy()
+    #     all_nodes.append(robot_pos)
+    #     all_nodes.append(goal_pos)
+    #     robot_index = len(all_nodes) - 2
+    #     goal_index = len(all_nodes) - 1
+        
+    #     # Construir grafo: conectar nodos si están a menos de connection_threshold metros
+    #     graph = {i: [] for i in range(len(all_nodes))}
+    #     for i in range(len(all_nodes)):
+    #         for j in range(i+1, len(all_nodes)):
+    #             d = distance(all_nodes[i], all_nodes[j])
+    #             if d <= self.connection_threshold:
+    #                 graph[i].append((j, d))
+    #                 graph[j].append((i, d))
+    #     path_indices = dijkstra(graph, robot_index, goal_index)
+    #     if not path_indices or len(path_indices) < 2:
+    #         self.get_logger().warn("No se pudo planificar un path global, usando línea directa.")
+    #         return [robot_pos, goal_pos]
+    #     path = [all_nodes[i] for i in path_indices]
+    #     return path
+    def project_goal(self, goal_pos, info):
+        # Limites del mapa
+        ox = info.origin.position.x
+        oy = info.origin.position.y
+        max_x = ox + info.width * info.resolution
+        max_y = oy + info.height * info.resolution
+        # Proyectar goal dentro de los límites
+        x, y = goal_pos
+        x = min(max(x, ox), max_x)
+        y = min(max(y, oy), max_y)
+        return (x, y)
+    def rrt_plan_path(self, start, goal, fused_grid, info, max_iterations=1000, step_size=1.0, goal_threshold=1.0, goal_bias=0.2):
+        """
+        Planifica un camino usando un RRT simple con sesgo hacia el goal.
+        start, goal: tuplas (x, y) en coordenadas del mundo.
+        fused_grid, info: mapa fusionado y su metadata.
+        max_iterations: número máximo de iteraciones para muestreo.
+        step_size: tamaño del paso para extender el árbol.
+        goal_threshold: distancia para considerar alcanzada la meta.
+        goal_bias: probabilidad de usar el goal en el muestreo.
+        Retorna una lista de puntos que representa el camino o None si falla.
+        """
+        # Inicializa el árbol con el nodo de inicio.
+        tree = [{'point': start, 'parent': None}]
+        
+        for i in range(max_iterations):
+            # Definir límites a partir de la información del mapa.
+            ox = info.origin.position.x
+            oy = info.origin.position.y
+            max_x = ox + info.width * info.resolution
+            max_y = oy + info.height * info.resolution
+
+            # Con probabilidad goal_bias, usar el goal como punto muestreado
+            if np.random.rand() < goal_bias:
+                random_point = goal
+            else:
+                # Muestrear un punto aleatorio dentro de los límites.
+                random_point = (np.random.uniform(ox, max_x), np.random.uniform(oy, max_y))
+            
+            # Buscar el nodo más cercano en el árbol.
+            nearest = min(tree, key=lambda node: distance(node['point'], random_point))
+            
+            # Calcular la dirección (ángulo) hacia el punto muestreado.
+            theta = math.atan2(random_point[1] - nearest['point'][1],
+                            random_point[0] - nearest['point'][0])
+            # Crear un nuevo punto extendido desde el nodo cercano.
+            new_point = (nearest['point'][0] + step_size * math.cos(theta),
+                        nearest['point'][1] + step_size * math.sin(theta))
+            
+            # Verificar que la línea desde el nodo cercano hasta el nuevo punto esté libre de obstáculos.
+            if not self.is_line_free(fused_grid, info, nearest['point'], new_point):
+                continue
+            
+            # Añadir el nuevo nodo al árbol.
+            new_node = {'point': new_point, 'parent': nearest}
+            tree.append(new_node)
+            
+            # Si el nuevo nodo está suficientemente cerca del goal y hay línea libre hacia él, se ha encontrado una solución.
+            if distance(new_point, goal) < goal_threshold and self.is_line_free(fused_grid, info, new_point, goal):
+                goal_node = {'point': goal, 'parent': new_node}
+                tree.append(goal_node)
+                # Reconstruir el camino retrocediendo desde el nodo goal.
+                path = []
+                current = goal_node
+                while current is not None:
+                    path.append(current['point'])
+                    current = current['parent']
+                path.reverse()
+                return path
+        # Si no se encuentra un camino en el número máximo de iteraciones, se retorna None.
+        return None
+
+
+    def is_line_free(self,fused_grid, info, start, end):
+        """
+        Verifica si la línea entre start y end está libre de obstáculos usando el algoritmo de Bresenham.
+        start, end: Tuplas (x, y) en coordenadas del mundo.
+        fused_grid: Array 2D del mapa fusionado.
+        info: MapMetaData del mapa fusionado.
+        Retorna True si la línea es libre, False si se detecta un obstáculo.
+        """
+        # Convertir coordenadas del mundo a índices del grid
+        def world_to_index(point, info):
+            i = int((point[0] - info.origin.position.x) / info.resolution)
+            j = int((point[1] - info.origin.position.y) / info.resolution)
+            return i, j
+
+        x0, y0 = world_to_index(start, info)
+        x1, y1 = world_to_index(end, info)
+
+        dx = abs(x1 - x0)
+        dy = abs(y1 - y0)
+        x, y = x0, y0
+        sx = -1 if x0 > x1 else 1
+        sy = -1 if y0 > y1 else 1
+        if dx > dy:
+            err = dx / 2.0
+            while x != x1:
+                if fused_grid[y, x] == 100:  # Asumiendo que 100 es obstáculo
+                    return False
+                err -= dy
+                if err < 0:
+                    y += sy
+                    err += dx
+                x += sx
+        else:
+            err = dy / 2.0
+            while y != y1:
+                if fused_grid[y, x] == 100:
+                    return False
+                err -= dx
+                if err < 0:
+                    x += sx
+                    err += dy
+                y += sy
+        # Revisar la celda final
+        if fused_grid[y, x] == 100:
+            return False
+        return True
+
+    def plan_path(self, nodes, fused_grid, info):
+        """
+        Construye un grafo a partir de los nodos y añade la posición actual y el goal.
+        Solo conecta nodos que estén dentro del umbral Y tengan línea libre.
+        """
+        if self.odom is None or self.goal is None:
+            return None
+        # Posición actual y goal
+        robot_pos = (self.odom.position.x, self.odom.position.y)
+        goal_pos = (self.goal.position.x, self.goal.position.y)
+        
+        # Proyectar el goal si es necesario (como se mostró previamente)
+        if self.current_grid is not None:
+            goal_pos = self.project_goal(goal_pos, self.current_grid.info)
+        elif self.memory_grid is not None:
+            goal_pos = self.project_goal(goal_pos, self.memory_grid.info)
+        
+        # Añadir robot y goal al conjunto de nodos
+        all_nodes = nodes.copy()
+        all_nodes.append(robot_pos)
+        all_nodes.append(goal_pos)
+        robot_index = len(all_nodes) - 2
+        goal_index = len(all_nodes) - 1
+        
+        # Construir grafo: conectar nodos si están a menos de connection_threshold metros
+        # Y si la línea entre ellos es libre de obstáculos.
+        graph = {i: [] for i in range(len(all_nodes))}
+        for i in range(len(all_nodes)):
+            for j in range(i + 1, len(all_nodes)):
+                d = distance(all_nodes[i], all_nodes[j])
+                if d <= self.connection_threshold:
+                    if self.is_line_free(fused_grid, info, all_nodes[i], all_nodes[j]):
+                        graph[i].append((j, d))
+                        graph[j].append((i, d))
+        path_indices = dijkstra(graph, robot_index, goal_index)
+        if not path_indices or len(path_indices) < 2:
+            self.get_logger().warn("No se pudo planificar un path global, usando línea directa.")
+            return [robot_pos, goal_pos]
+        path = [all_nodes[i] for i in path_indices]
+        return path
+
+
+
+    def publish_path(self, path):
+        path_msg = Path()
+        path_msg.header.stamp = self.get_clock().now().to_msg()
+        path_msg.header.frame_id = "map"
+        for pt in path:
+            pose_st = PoseStamped()
+            pose_st.header = path_msg.header
+            pose_st.pose.position.x = pt[0]
+            pose_st.pose.position.y = pt[1]
+            pose_st.pose.position.z = 0.0
+            pose_st.pose.orientation.w = 1.0
+            path_msg.poses.append(pose_st)
+        self.path_pub.publish(path_msg)
+        self.get_logger().info(f"Path global publicado con {len(path)} puntos.")
+
+    # def pure_pursuit_control(self, path, current_pos, current_yaw):
+    #     """
+    #     Calcula el comando de velocidad utilizando Pure Pursuit:
+    #       - Busca el primer punto en el path a una distancia >= lookahead_distance.
+    #       - Calcula el error de dirección y genera el giro.
+    #     """
+    #     target_point = None
+    #     for pt in path:
+    #         if distance(current_pos, pt) >= self.lookahead_distance:
+    #             target_point = pt
+    #             break
+    #     if target_point is None:
+    #         target_point = path[-1]
+    #     desired_heading = math.atan2(target_point[1] - current_pos[1],
+    #                                  target_point[0] - current_pos[0])
+    #     error_angle = desired_heading - current_yaw
+    #     error_angle = math.atan2(math.sin(error_angle), math.cos(error_angle))
+    #     angular_speed = self.k_pursuit * error_angle
+    #     return self.linear_speed, angular_speed
+
+
+    def pure_pursuit_control(self, path, current_pos, current_yaw):
+        """
+        Calcula el comando de velocidad utilizando Pure Pursuit.
+        """
+        target_point = None
+        # Buscar el primer punto en el path a una distancia >= lookahead_distance
+        for pt in path:
+            if distance(current_pos, pt) >= self.lookahead_distance:
+                target_point = pt
+                break
+        if target_point is None:
+            target_point = path[-1]
+        
+        # Calcular el ángulo deseado hacia el target
+        desired_heading = math.atan2(target_point[1] - current_pos[1],
+                                    target_point[0] - current_pos[0])
+        error_angle = desired_heading - current_yaw
+        error_angle = math.atan2(math.sin(error_angle), math.cos(error_angle))
+        
+        # Ajustar parámetros (prueba con diferentes valores)
+        linear_speed = self.linear_speed  # Considera reducir este valor si es muy alto.
+        angular_speed = self.k_pursuit * error_angle  # Aumenta k_pursuit si es necesario.
+        return linear_speed, angular_speed
+
+
+    # def control_loop(self):
+    #     if self.odom is None or self.goal is None:
+    #         return
+    #     # Fusionar mapas
+    #     fused_result = self.fuse_maps_dynamic(self.current_grid, self.memory_grid)
+    #     if fused_result is None or fused_result[0] is None:
+    #         self.get_logger().warn("No se pudo fusionar mapas. Esperando datos válidos...")
+    #         return
+    #     fused_grid, info = fused_result
+    #     # Extraer nodos candidatos
+    #     nodes = self.extract_nodes(fused_grid, info)
+    #     # Planificar path
+    #     path = self.plan_path(nodes, fused_grid, info)
+    #     if path is None or len(path) < 2:
+    #         self.get_logger().warn("No se pudo calcular el path global.")
+    #         return
+    #     self.publish_path(path)
+    #     # Control Pure Pursuit
+    #     current_x = self.odom.position.x
+    #     current_y = self.odom.position.y
+    #     current_pos = (current_x, current_y)
+    #     # Extraer el yaw actual
+    #     q = self.odom.orientation
+    #     siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+    #     cosy_cosp = 1.0 - 2.0 * (q.y*q.y + q.z*q.z)
+    #     current_yaw = math.atan2(siny_cosp, cosy_cosp)
+    #     linear_speed, angular_speed = self.pure_pursuit_control(path, current_pos, current_yaw)
+    #     # Crear y publicar comando Twist
+    #     twist = Twist()
+    #     twist.linear.x = linear_speed
+    #     twist.angular.z = angular_speed
+    #     self.cmd_vel_pub.publish(twist)
+    #     self.get_logger().info(f"Twist publicado: linear = {linear_speed:.2f} m/s, angular = {angular_speed:.2f} rad/s")
+
+
+    ## es bueno
+    # def control_loop(self):
+    #     if self.odom is None or self.goal is None:
+    #         return
+    #     # Fusionar mapas
+    #     fused_result = self.fuse_maps_dynamic(self.current_grid, self.memory_grid)
+    #     if fused_result is None or fused_result[0] is None:
+    #         self.get_logger().warn("No se pudo fusionar mapas. Esperando datos válidos...")
+    #         return
+    #     fused_grid, info = fused_result
+    #     # Extraer nodos candidatos del mapa fusionado
+    #     nodes = self.extract_nodes(fused_grid, info)
+        
+    #     # Intentar planificar el camino con el método actual
+    #     path = self.plan_path(nodes, fused_grid, info)
+    #     if path is None or len(path) < 3:
+    #         self.get_logger().warn("Planificación convencional fallida, intentando RRT.")
+    #         # Usar RRT para planificar el camino
+    #         start = (self.odom.position.x, self.odom.position.y)
+    #         goal = (self.goal.position.x, self.goal.position.y)
+    #         path = self.rrt_plan_path(start, goal, fused_grid, info)
+    #         if path is None:
+    #             self.get_logger().warn("RRT falló. Usando línea directa.")
+    #             path = [start, goal]
+    #     self.publish_path(path)
+        
+    #     # Control Pure Pursuit (como antes)
+    #     current_pos = (self.odom.position.x, self.odom.position.y)
+    #     q = self.odom.orientation
+    #     siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+    #     cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+    #     current_yaw = math.atan2(siny_cosp, cosy_cosp)
+    #     linear_speed, angular_speed = self.pure_pursuit_control(path, current_pos, current_yaw)
+    #     twist = Twist()
+    #     twist.linear.x = linear_speed
+    #     twist.angular.z = angular_speed
+    #     self.cmd_vel_pub.publish(twist)
+    #     self.get_logger().info(f"Twist publicado: linear = {linear_speed:.2f} m/s, angular = {angular_speed:.2f} rad/s")
+
+
+# Método para suavizar el camino (ejemplo sencillo)
+    def smooth_path(self, path):
+        # Aquí se puede implementar un suavizado (por ejemplo, media móvil)
+        if len(path) < 3:
+            return path
+        smoothed = [path[0]]
+        for i in range(1, len(path)-1):
+            # Promediar con el punto anterior y siguiente
+            avg_x = (path[i-1][0] + path[i][0] + path[i+1][0]) / 3.0
+            avg_y = (path[i-1][1] + path[i][1] + path[i+1][1]) / 3.0
+            smoothed.append((avg_x, avg_y))
+        smoothed.append(path[-1])
+        return smoothed
+
+    # Función para comparar caminos y decidir si se actualiza
+    def path_quality_improved(self, new_path, old_path):
+        # Ejemplo: si el nuevo camino tiene al menos un 30% más puntos (o menor desviación respecto al goal)
+        if old_path is None:
+            return True
+        len_new = len(new_path)
+        len_old = len(old_path)
+        # Si el nuevo camino es mucho más detallado, se puede considerar mejor
+        return (len_new - len_old) / (len_old + 1e-6) > self.path_update_threshold
+
+    def check_local_obstacles(self, fused_grid, info, current_pos, current_yaw, lookahead_distance=1.0, cone_angle=0.5):
+        """
+        Revisa en el mapa fusionado si hay obstáculos en una zona frontal definida por
+        lookahead_distance y un ángulo cone_angle (en radianes).
+        Retorna (obstacle_detected, min_distance) donde:
+        - obstacle_detected: Booleano que indica si se detectó obstáculo.
+        - min_distance: La distancia mínima al obstáculo dentro de la zona.
+        """
+        ox = info.origin.position.x
+        oy = info.origin.position.y
+        resolution = info.resolution
+        grid_height, grid_width = fused_grid.shape
+
+        obstacle_detected = False
+        min_distance = float('inf')
+
+        # Recorremos una ventana en el frente del robot
+        # Por ejemplo, de 0 a lookahead_distance en dirección de current_yaw
+        # y ±cone_angle a cada lado.
+        steps = int(lookahead_distance / resolution)
+        for step in range(1, steps + 1):
+            # Distancia actual en la dirección del robot
+            dist = step * resolution
+            # Revisar varios ángulos dentro del cono
+            num_angles = 5  # por ejemplo, 5 ángulos en el cono
+            for a in np.linspace(-cone_angle, cone_angle, num_angles):
+                angle = current_yaw + a
+                # Coordenadas del punto a revisar
+                x = current_pos[0] + dist * math.cos(angle)
+                y = current_pos[1] + dist * math.sin(angle)
+                # Convertir a índices en el grid
+                i = int((x - ox) / resolution)
+                j = int((y - oy) / resolution)
+                if 0 <= i < grid_width and 0 <= j < grid_height:
+                    cell_value = fused_grid[j, i]
+                    # Asumimos que 100 es obstáculo y -1 es desconocido (podrías tratar -1 como peligro)
+                    if cell_value == 100 or cell_value == -1:
+                        obstacle_detected = True
+                        if dist < min_distance:
+                            min_distance = dist
+                else:
+                    # Si se sale del mapa, se considera zona desconocida
+                    obstacle_detected = True
+                    if dist < min_distance:
+                        min_distance = dist
+        return obstacle_detected, min_distance
+
+###muy bueno
+    # def control_loop(self):
+    #     if self.odom is None or self.goal is None:
+    #         return
+
+    #     # Fusionar mapas y obtener info (como antes)
+    #     fused_result = self.fuse_maps_dynamic(self.current_grid, self.memory_grid)
+    #     if fused_result is None or fused_result[0] is None:
+    #         self.get_logger().warn("No se pudo fusionar mapas. Esperando datos válidos...")
+    #         return
+    #     fused_grid, info = fused_result
+
+    #     current_pos = (self.odom.position.x, self.odom.position.y)
+    #     current_time = self.get_clock().now().nanoseconds / 1e9
+
+    #     # Determinar si se debe replanificar globalmente
+    #     force_replan = False
+    #     if self.last_valid_path is None:
+    #         force_replan = True
+    #     elif (current_time - self.last_replan_time) > self.replan_interval:
+    #         # Solo forzamos la replanificación si el cambio en la posición es mayor que un umbral
+    #         if distance(current_pos, self.last_valid_path[0]) > self.path_change_threshold:
+    #             force_replan = True
+
+    #     if force_replan:
+    #         nodes = self.extract_nodes(fused_grid, info)
+    #         new_path = self.plan_path(nodes, fused_grid, info)
+    #         if new_path is None or len(new_path) < 3:
+    #             self.get_logger().warn("Planificación convencional fallida, intentando RRT.")
+    #             new_path = self.rrt_plan_path(current_pos, (self.goal.position.x, self.goal.position.y), fused_grid, info)
+    #             if new_path is None:
+    #                 self.get_logger().warn("RRT falló. Usando línea directa.")
+    #                 new_path = [current_pos, (self.goal.position.x, self.goal.position.y)]
+    #         new_path = self.smooth_path(new_path)
+    #         # Actualizamos el camino solo si la diferencia es considerable
+    #         if self.last_valid_path is None or self.path_quality_improved(new_path, self.last_valid_path):
+    #             self.last_valid_path = new_path
+    #             self.last_replan_time = current_time
+    #     else:
+    #         new_path = self.last_valid_path
+
+    #     self.publish_path(new_path)
+
+    #     # Control local reactivo (verificar obstáculos inmediatos, etc.)
+    #     q = self.odom.orientation
+    #     siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+    #     cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+    #     current_yaw = math.atan2(siny_cosp, cosy_cosp)
+    #     # Aquí se puede incluir el chequeo local de obstáculos (como en el ejemplo anterior)
+    #     obstacle_detected, obs_distance = self.check_local_obstacles(fused_grid, info, current_pos, current_yaw)
+    #     if obstacle_detected:
+    #         self.get_logger().warn(f"Obstáculo detectado a {obs_distance:.2f} m. Activando evasión local.")
+    #         linear_speed = 0.0
+    #         angular_speed = 0.5
+    #     else:
+    #         linear_speed, angular_speed = self.compute_dynamic_twist(current_pos, current_yaw, new_path, fused_grid, info)
+
+    #     twist = Twist()
+    #     twist.linear.x = linear_speed
+    #     twist.angular.z = angular_speed
+    #     alpha = 0.8  # Factor de suavizado (entre 0 y 1)
+    #     self.last_twist.linear.x = linear_speed
+    #     self.last_twist.angular.z = angular_speed
+    #     # self.cmd_vel_pub.publish(twist)
+    #     self.get_logger().info(f"Twist publicado: linear = {linear_speed:.2f} m/s, angular = {angular_speed:.2f} rad/s")
+
 
     def control_loop(self):
-        if self.current_pose is None or not self.global_path:
+        if self.odom is None or self.goal is None:
             return
 
-        # Posición y orientación actual
-        x = self.current_pose.position.x
-        y = self.current_pose.position.y
-        current_pos = (x, y)
-        current_yaw = quaternion_to_yaw(self.current_pose.orientation)
-
-        # Encontrar el punto más cercano en el path
-        closest_point, closest_dist, closest_index = None, float('inf'), None
-        for i, pt in enumerate(self.global_path):
-            d = distance(current_pos, pt)
-            if d < closest_dist:
-                closest_dist = d
-                closest_point = pt
-                closest_index = i
-        if closest_point is None:
+        fused_result = self.fuse_maps_dynamic(self.current_grid, self.memory_grid)
+        if fused_result is None or fused_result[0] is None:
+            self.get_logger().warn("No se pudo fusionar mapas. Esperando datos válidos...")
             return
+        fused_grid, info = fused_result
 
-        # Calcular la dirección del path en el tramo: usar el siguiente punto si existe
-        if closest_index < len(self.global_path) - 1:
-            next_point = self.global_path[closest_index + 1]
-        else:
-            next_point = closest_point
-        path_heading = math.atan2(next_point[1] - closest_point[1],
-                                  next_point[0] - closest_point[0])
+        current_pos = (self.odom.position.x, self.odom.position.y)
+        current_time = self.get_clock().now().nanoseconds / 1e9
 
-        # Error de heading (theta_e)
-        heading_error = path_heading - current_yaw
-        heading_error = math.atan2(math.sin(heading_error), math.cos(heading_error))
+        # Replanificación global: si no existe path o se fuerza replanteo (según tus criterios)
+        if self.current_global_path is None or self.should_replan(current_pos):
+            nodes = self.extract_nodes(fused_grid, info)
+            new_path = self.plan_path(nodes, fused_grid, info)
+            if new_path is None or len(new_path) < 3:
+                self.get_logger().warn("Planificación convencional fallida, intentando RRT.")
+                new_path = self.rrt_plan_path(current_pos, (self.goal.position.x, self.goal.position.y), fused_grid, info)
+                if new_path is None:
+                    self.get_logger().warn("RRT falló. Usando línea directa.")
+                    new_path = [current_pos, (self.goal.position.x, self.goal.position.y)]
+            new_path = self.smooth_path(new_path)
+            self.current_global_path = new_path
+            self.current_path_index = 0  # Reinicia el índice al planificar un nuevo path
+            self.training_buffer.append({
+                'time': current_time,
+                'global_path': new_path,
+                'position': current_pos,
+            })
 
-        # Error lateral: distancia desde el robot al punto más cercano, con signo.
-        dx = closest_point[0] - x
-        dy = closest_point[1] - y
-        cross_track_error = math.hypot(dx, dy)
-        # Determinar el signo usando el producto cruzado:
-        cross = (next_point[0] - closest_point[0]) * (y - closest_point[1]) - (next_point[1] - closest_point[1]) * (x - closest_point[0])
-        if cross < 0:
-            cross_track_error = -cross_track_error
+        # Actualizar el índice del path conforme se alcanzan los waypoints
+        self.update_path_index(current_pos)
 
-        # Evitar división por cero
-        eps = 1e-6
-        # Control Stanley
-        steering_angle = heading_error + math.atan2(self.k * cross_track_error, self.linear_speed + eps)
-        # Saturar el ángulo de giro
-        steering_angle = max(min(steering_angle, self.max_steering), -self.max_steering)
+        # Definir el path "restante" a seguir
+        effective_path = self.current_global_path[self.current_path_index:] if self.current_global_path else None
+        if effective_path is None or len(effective_path) < 2:
+            self.get_logger().warn("Path global insuficiente, usando línea directa.")
+            effective_path = [current_pos, (self.goal.position.x, self.goal.position.y)]
         
-        # Crear el comando Twist
+        self.publish_path(effective_path)
+
+        # Calcular velocidades (por ejemplo, con compute_dynamic_twist)
+        q = self.odom.orientation
+        siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+        cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+        current_yaw = math.atan2(siny_cosp, cosy_cosp)
+        linear_speed, angular_speed = self.compute_dynamic_twist(current_pos, current_yaw, effective_path, fused_grid, info)
+        
         twist = Twist()
-        twist.linear.x = self.linear_speed
-        twist.angular.z = steering_angle
-        
+        twist.linear.x = linear_speed
+        twist.angular.z = angular_speed
         self.cmd_vel_pub.publish(twist)
-        
-        self.get_logger().info(
-            f"Stanley: linear = {self.linear_speed:.2f} m/s, steering = {math.degrees(steering_angle):.2f}°, "
-            f"error lateral = {cross_track_error:.2f}, heading_error = {math.degrees(heading_error):.2f}°"
-        )
+        self.training_buffer.append({
+            'time': current_time,
+            'position': current_pos,
+            'twist': {'linear': linear_speed, 'angular': angular_speed}
+        })
+        self.get_logger().info(f"Twist publicado: linear = {linear_speed:.2f} m/s, angular = {angular_speed:.2f} rad/s")
+    
+    def update_path_index(self, current_pos):
+        # Actualiza el índice del waypoint actual mientras se alcancen los puntos
+        if self.current_global_path is None or len(self.current_global_path) == 0:
+            return
+        # Si el robot se encuentra dentro del umbral del waypoint actual, incrementa el índice
+        while self.current_path_index < len(self.current_global_path) and \
+              distance(current_pos, self.current_global_path[self.current_path_index]) < self.waypoint_threshold:
+            self.current_path_index += 1
+        # Evitar que se salga del rango; si se alcanzó el último punto, mantenerlo
+        if self.current_path_index >= len(self.current_global_path):
+            self.current_path_index = len(self.current_global_path) - 1
+
+    def should_replan(self, current_pos):
+        # Aquí defines cuándo forzar una nueva planificación global
+        # Por ejemplo, si el robot se desvía mucho del path actual
+        # O puedes definir un intervalo de tiempo
+        # Este ejemplo devuelve False para mantener el path mientras sea válido
+        return False
+
+    def publish_path(self, path):
+        path_msg = Path()
+        path_msg.header.stamp = self.get_clock().now().to_msg()
+        path_msg.header.frame_id = "map"
+        for pt in path:
+            pose_st = PoseStamped()
+            pose_st.header = path_msg.header
+            pose_st.pose.position.x = pt[0]
+            pose_st.pose.position.y = pt[1]
+            pose_st.pose.position.z = 0.0
+            pose_st.pose.orientation.w = 1.0
+            path_msg.poses.append(pose_st)
+        self.path_pub.publish(path_msg)
+        self.get_logger().info(f"Path global publicado con {len(path)} puntos.")
 
 def main(args=None):
     rclpy.init(args=args)
-    node = StanleyController()
+    node = NavigationNode()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:

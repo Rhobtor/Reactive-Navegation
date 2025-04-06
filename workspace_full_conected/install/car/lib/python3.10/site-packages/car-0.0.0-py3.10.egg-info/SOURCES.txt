@@ -32,9 +32,11 @@ car/map_navegation.py
 car/memory_map.py
 car/octomap_2d_display.py
 car/odometry.py
+car/planificador_script.py
 car/points_goal.py
 car/ppo.py
 car/ppo_path.py
+car/reset_octomap.py
 car/supervisor.py
 car/test1.py
 car/test2.py
