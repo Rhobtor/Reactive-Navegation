@@ -129,7 +129,7 @@ class PersistentDynamicOccupancyMemory(Node):
         self.memory_timestamp = None
         self.map_info = None
         self.iteration = 0
-        self.retention_steps = 20
+        self.retention_steps = 60
 
         # Crear cliente para resetear el octomap
         self.reset_client = self.create_client(Empty, 'octomap_server/reset')

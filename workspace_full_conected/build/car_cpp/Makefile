@@ -458,6 +458,19 @@ drive_plugin/fast:
 .PHONY : drive_plugin/fast
 
 #=============================================================================
+# Target rules for targets named move_plugin
+
+# Build rule for target.
+move_plugin: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 move_plugin
+.PHONY : move_plugin
+
+# fast build rule for target.
+move_plugin/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_plugin.dir/build.make CMakeFiles/move_plugin.dir/build
+.PHONY : move_plugin/fast
+
+#=============================================================================
 # Target rules for targets named driver_plugin
 
 # Build rule for target.
@@ -833,6 +846,30 @@ src/move_navigation_nodes_frontier.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_navigation_nodes_frontier.dir/build.make CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.s
 .PHONY : src/move_navigation_nodes_frontier.cpp.s
 
+src/move_object.o: src/move_object.cpp.o
+.PHONY : src/move_object.o
+
+# target to build an object file
+src/move_object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_plugin.dir/build.make CMakeFiles/move_plugin.dir/src/move_object.cpp.o
+.PHONY : src/move_object.cpp.o
+
+src/move_object.i: src/move_object.cpp.i
+.PHONY : src/move_object.i
+
+# target to preprocess a source file
+src/move_object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_plugin.dir/build.make CMakeFiles/move_plugin.dir/src/move_object.cpp.i
+.PHONY : src/move_object.cpp.i
+
+src/move_object.s: src/move_object.cpp.s
+.PHONY : src/move_object.s
+
+# target to generate assembly for a file
+src/move_object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_plugin.dir/build.make CMakeFiles/move_plugin.dir/src/move_object.cpp.s
+.PHONY : src/move_object.cpp.s
+
 src/navigation_nodes.o: src/navigation_nodes.cpp.o
 .PHONY : src/navigation_nodes.o
 
@@ -984,6 +1021,7 @@ help:
 	@echo "... joints_plugin"
 	@echo "... map_measure"
 	@echo "... move_navigation_nodes_frontier"
+	@echo "... move_plugin"
 	@echo "... navigation_nodes"
 	@echo "... navigation_nodes_ground"
 	@echo "... obstacles_in_2d"
@@ -1034,6 +1072,9 @@ help:
 	@echo "... src/move_navigation_nodes_frontier.o"
 	@echo "... src/move_navigation_nodes_frontier.i"
 	@echo "... src/move_navigation_nodes_frontier.s"
+	@echo "... src/move_object.o"
+	@echo "... src/move_object.i"
+	@echo "... src/move_object.s"
 	@echo "... src/navigation_nodes.o"
 	@echo "... src/navigation_nodes.i"
 	@echo "... src/navigation_nodes.s"

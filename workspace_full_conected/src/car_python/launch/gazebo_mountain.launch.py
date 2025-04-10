@@ -30,6 +30,7 @@ def generate_launch_description():
     # Get the car URDF by processing the xacro file
     xacro_file = os.path.join(share_dir, 'urdf', 'car.xacro')
     config_file = os.path.join(share_dir, 'config', 'ekf_params.yaml')
+    move_object_file = os.path.join(share_dir, 'urdf', 'object_movement.sdf')
     robot_description_config = xacro.process_file(xacro_file)
     robot_urdf = robot_description_config.toxml()
 
@@ -192,6 +193,22 @@ def generate_launch_description():
     )
 
 
+
+
+    spawn_moving_obstacle = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=[
+            '-entity', 'moving_obstacle',
+            '-file', move_object_file,
+            '-x', '14.0',   # Initial X position
+            '-y', '6.0',   # Initial Y position
+            '-z', '0.0'  # Initial Z position (adjust if needed)
+
+        ],
+        output='screen'
+    )
+
     return LaunchDescription([
         # static_tf,  # Publica la transformación de 'odom' a 'map'
         # static_tf2,
@@ -199,7 +216,7 @@ def generate_launch_description():
         # joint_state_publisher_node,
         gazebo_server,
         gazebo_client,
-        urdf_spawn_node,
+        #urdf_spawn_node,
         filter_points_cloud,
         frontier_values,
         octomap,
@@ -213,7 +230,8 @@ def generate_launch_description():
         poinst_goal,
         move_navigation_nodes,
         colision_zone,
-        map
+        map,
+        spawn_moving_obstacle
 
 
     ])

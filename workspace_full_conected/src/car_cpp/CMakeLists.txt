@@ -252,6 +252,11 @@ add_library(drive_plugin SHARED src/diffdrive_plugin_multi_wheel.cpp)
 target_include_directories(drive_plugin PUBLIC include)
 ament_target_dependencies(drive_plugin rclcpp ignition-common3 sensor_msgs gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
 
+#Library for control plugin
+add_library(move_plugin SHARED src/move_object.cpp)
+target_include_directories(move_plugin PUBLIC include)
+ament_target_dependencies(move_plugin rclcpp ignition-common3 sensor_msgs gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
+
 
 
 #Library for control plugin
@@ -266,6 +271,13 @@ install(
   TARGETS control_plugin 
   LIBRARY DESTINATION lib
 )
+
+
+install(
+  TARGETS move_plugin 
+  LIBRARY DESTINATION lib
+)
+
 
 install(
   TARGETS drive_plugin 

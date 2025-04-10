@@ -11,6 +11,7 @@ setup.py
 car/__init__.py
 car/camara_time.py
 car/colision_zone.py
+car/costmap.py
 car/debugtf.py
 car/dqn_ppo.py
 car/ekf_node.py
@@ -32,6 +33,7 @@ car/map_navegation.py
 car/memory_map.py
 car/octomap_2d_display.py
 car/odometry.py
+car/path_finder_ia.py
 car/planificador_script.py
 car/points_goal.py
 car/ppo.py
@@ -65,6 +67,7 @@ launch/gazebo_simple8.launch.py
 launch/gazebo_simple9.launch.py
 launch/gazebo_simple_world.launch.py
 launch/joystick.launch.py
+launch/object_move_gazebo.launch.py
 launch/rtamap_test.launch.py
 meshes/Camara.stl
 meshes/Lidar.stl
@@ -99,6 +102,7 @@ urdf/car.xacro
 urdf/control.plugin.xacro
 urdf/lidar.plugin.xacro
 urdf/materials.xacro
+urdf/object_movement.sdf
 worlds/empty.world
 worlds/grass.world
 worlds/heightmap_world.world

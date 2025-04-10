@@ -60,6 +60,8 @@ setup(
             'memory_map= car.memory_map:main',
             'planificador_script= car.planificador_script:main',
             'reset_octomap= car.reset_octomap:main',
+            'path_finder_ia= car.path_finder_ia:main',
+            'costmap= car.costmap:main',
         ],
     },
 )

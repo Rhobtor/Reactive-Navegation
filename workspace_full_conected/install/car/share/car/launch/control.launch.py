@@ -13,6 +13,7 @@ def generate_launch_description():
     
     # Ruta al archivo XACRO
     xacro_file = os.path.join(share_dir, 'urdf', 'car.urdf.xacro')
+    move_object_file = os.path.join(share_dir, 'urdf', 'moving_obstacle.sdf')
     
     # Procesa el archivo xacro y obtiene el URDF
     doc = xacro.process_file(xacro_file)
@@ -43,10 +44,24 @@ def generate_launch_description():
         launch_arguments={'verbose': 'true', 'pause': 'false'}.items()
     )
 
+
+    spawn_moving_obstacle = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=[
+            '-entity', 'moving_obstacle',
+            '-file', move_object_file
+        ],
+        output='screen'
+    )
+
+
     return LaunchDescription([
         rsp_node,
         gazebo_launch,
-        spawn_entity
+        spawn_entity,
+        spawn_moving_obstacle
+        
     ])
 
 if __name__ == '__main__':

@@ -28,6 +28,7 @@
   <depend>rclpy</depend> <!-- Para nodos en Python -->
   <depend>std_msgs</depend>
   <depend>tf_transformations</depend>
+  <depend>nav2_msgs</depend>
 
 
   <build_depend>car_interfaces</build_depend>

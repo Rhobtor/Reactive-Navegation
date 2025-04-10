@@ -1325,5 +1325,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/control_plugin.dir/DependInfo.cmake"
   "CMakeFiles/joints_plugin.dir/DependInfo.cmake"
   "CMakeFiles/drive_plugin.dir/DependInfo.cmake"
+  "CMakeFiles/move_plugin.dir/DependInfo.cmake"
   "CMakeFiles/driver_plugin.dir/DependInfo.cmake"
   )

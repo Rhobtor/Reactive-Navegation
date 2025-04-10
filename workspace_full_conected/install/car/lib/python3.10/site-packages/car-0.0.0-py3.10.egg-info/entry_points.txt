@@ -1,6 +1,7 @@
 [console_scripts]
 camara_time_node = car.camara_time:main
 colision_zone = car.colision_zone:main
+costmap = car.costmap:main
 debug_node = car.debugtf:main
 dqn_ppo = car.dqn_ppo:main
 ekf_node = car.ekf_node:main
@@ -21,6 +22,7 @@ map_navegation = car.map_navegation:main
 memory_map = car.memory_map:main
 octomap_2d_display = car.octomap_2d_display:main
 odometry_node = car.odometry:main
+path_finder_ia = car.path_finder_ia:main
 planificador_script = car.planificador_script:main
 points_goal = car.points_goal:main
 ppo = car.ppo:main
