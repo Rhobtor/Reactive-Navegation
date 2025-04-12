@@ -97,6 +97,7 @@ class FrontierClusterNode(Node):
         self.frontier_entropy_pub.publish(entropy_array_msg)
         self.get_logger().info(f"Entropía total del mapa: {total_entropy:.3f}")
 
+
     # ----------------------- Procesamiento y Clustering de Puntos Frontera -----------------------
     def process_frontiers(self):
         # Procesar solo si tenemos datos de frontera y obstáculos (aunque obstáculos pueden no estar disponibles)
@@ -170,9 +171,9 @@ class FrontierClusterNode(Node):
         marker.id = 0
         marker.type = Marker.SPHERE_LIST
         marker.action = Marker.ADD
-        marker.scale.x = 0.15
-        marker.scale.y = 0.15
-        marker.scale.z = 0.15
+        marker.scale.x = 3.15
+        marker.scale.y = 3.15
+        marker.scale.z = 3.15
         marker.color.a = 1.0
         marker.color.r = 0.0
         marker.color.g = 1.0

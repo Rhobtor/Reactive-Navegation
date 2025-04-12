@@ -160,6 +160,8 @@ CMakeFiles/2D_graph.dir/src/2D_graph.cpp.s: cmake_force
 2D_graph: /usr/lib/x86_64-linux-gnu/libOgreTerrain.so
 2D_graph: /usr/lib/x86_64-linux-gnu/libOgrePaging.so
 2D_graph: /usr/lib/x86_64-linux-gnu/libignition-common3-graphics.so.3.14.0
+2D_graph: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so
+2D_graph: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so
 2D_graph: /opt/ros/humble/lib/liboctomap_msgs__rosidl_generator_c.so
 2D_graph: /opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_fastrtps_c.so
 2D_graph: /opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_introspection_c.so
@@ -355,8 +357,8 @@ CMakeFiles/2D_graph.dir/src/2D_graph.cpp.s: cmake_force
 2D_graph: /usr/lib/x86_64-linux-gnu/libm.so
 2D_graph: /usr/lib/x86_64-linux-gnu/libfcl.so
 2D_graph: /usr/lib/x86_64-linux-gnu/libassimp.so
-2D_graph: /usr/lib/x86_64-linux-gnu/liboctomap.so.1.9.7
-2D_graph: /usr/lib/x86_64-linux-gnu/liboctomath.so.1.9.7
+2D_graph: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so.1.9.8
+2D_graph: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so.1.9.8
 2D_graph: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.74.0
 2D_graph: /usr/lib/x86_64-linux-gnu/libignition-transport8.so.8.2.1
 2D_graph: /usr/lib/x86_64-linux-gnu/libignition-fuel_tools4.so.4.4.0

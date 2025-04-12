@@ -903,15 +903,15 @@ class NavigationNode(Node):
         
         # Parámetros para la fusión y planificación
         self.connection_threshold = 3.0   # Umbral para conectar nodos
-        self.lookahead_distance = 1.0       # Para el controlador Pure Pursuit
+        self.lookahead_distance = 6.0       # Para el controlador Pure Pursuit
         self.linear_speed = 5.0           # Velocidad lineal fija
         self.k_pursuit = 2.0              # Ganancia angular
         self.last_valid_path = None  # Almacena el último camino aceptado
-        self.path_update_threshold = 0.3  # Umbral para actualizar el camino (por ejemplo, 30% de diferencia)
+        self.path_update_threshold = 0.4  # Umbral para actualizar el camino (por ejemplo, 30% de diferencia)
         self.last_valid_path = None
         self.last_replan_time = 0.0
         self.replan_interval = 3.0  # segundos
-        self.path_change_threshold = 0.3  # Umbral mínimo para actualizar el camino
+        self.path_change_threshold = 2.3  # Umbral mínimo para actualizar el camino
 
         # Variables de estado
         self.odom = None

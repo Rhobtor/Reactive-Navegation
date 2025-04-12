@@ -4,8 +4,8 @@
 CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_server/src/octomap_server.cpp \
   /usr/include/stdc-predef.h \
   /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_server/include/octomap_server/octomap_server.hpp \
-  /usr/include/octomap/octomap.h \
-  /usr/include/octomap/octomap_types.h \
+  /opt/ros/humble/include/octomap/octomap.h \
+  /opt/ros/humble/include/octomap/octomap_types.h \
   /usr/include/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h \
@@ -81,7 +81,7 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
-  /usr/include/octomap/math/Vector3.h \
+  /opt/ros/humble/include/octomap/math/Vector3.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -222,18 +222,18 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
   /usr/include/c++/11/tr1/poly_hermite.tcc \
   /usr/include/c++/11/tr1/poly_laguerre.tcc \
   /usr/include/c++/11/tr1/riemann_zeta.tcc \
-  /usr/include/octomap/math/Pose6D.h \
-  /usr/include/octomap/math/Vector3.h \
-  /usr/include/octomap/math/Quaternion.h \
-  /usr/include/octomap/octomap_deprecated.h \
-  /usr/include/octomap/Pointcloud.h \
-  /usr/include/octomap/octomap_types.h \
-  /usr/include/octomap/ScanGraph.h \
-  /usr/include/octomap/OcTree.h \
-  /usr/include/octomap/OccupancyOcTreeBase.h \
+  /opt/ros/humble/include/octomap/math/Pose6D.h \
+  /opt/ros/humble/include/octomap/math/Vector3.h \
+  /opt/ros/humble/include/octomap/math/Quaternion.h \
+  /opt/ros/humble/include/octomap/octomap_deprecated.h \
+  /opt/ros/humble/include/octomap/Pointcloud.h \
+  /opt/ros/humble/include/octomap/octomap_types.h \
+  /opt/ros/humble/include/octomap/ScanGraph.h \
+  /opt/ros/humble/include/octomap/OcTree.h \
+  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.h \
   /usr/include/c++/11/stdlib.h \
-  /usr/include/octomap/octomap_utils.h \
-  /usr/include/octomap/OcTreeBaseImpl.h \
+  /opt/ros/humble/include/octomap/octomap_utils.h \
+  /opt/ros/humble/include/octomap/OcTreeBaseImpl.h \
   /usr/include/c++/11/iterator \
   /usr/include/c++/11/bits/stream_iterator.h \
   /usr/include/c++/11/stack \
@@ -243,7 +243,7 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
   /usr/include/c++/11/bits/stl_stack.h \
   /usr/include/c++/11/bits/uses_allocator.h \
   /usr/include/c++/11/bitset \
-  /usr/include/octomap/OcTreeKey.h \
+  /opt/ros/humble/include/octomap/OcTreeKey.h \
   /usr/include/c++/11/ciso646 \
   /usr/include/assert.h \
   /usr/include/c++/11/tr1/unordered_set \
@@ -256,10 +256,10 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
   /usr/include/c++/11/tr1/unordered_set.h \
   /usr/include/c++/11/tr1/unordered_map \
   /usr/include/c++/11/tr1/unordered_map.h \
-  /usr/include/octomap/OcTreeIterator.hxx \
-  /usr/include/octomap/OcTreeBaseImpl.hxx \
-  /usr/include/octomap/AbstractOccupancyOcTree.h \
-  /usr/include/octomap/AbstractOcTree.h \
+  /opt/ros/humble/include/octomap/OcTreeIterator.hxx \
+  /opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx \
+  /opt/ros/humble/include/octomap/AbstractOccupancyOcTree.h \
+  /opt/ros/humble/include/octomap/AbstractOcTree.h \
   /usr/include/c++/11/cstddef \
   /usr/include/c++/11/fstream \
   /usr/include/c++/11/bits/codecvt.h \
@@ -275,11 +275,11 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/c++/11/bits/erase_if.h \
-  /usr/include/octomap/OcTreeNode.h \
-  /usr/include/octomap/OcTreeDataNode.h \
-  /usr/include/octomap/OcTreeDataNode.hxx \
+  /opt/ros/humble/include/octomap/OcTreeNode.h \
+  /opt/ros/humble/include/octomap/OcTreeDataNode.h \
+  /opt/ros/humble/include/octomap/OcTreeDataNode.hxx \
   /usr/include/c++/11/cassert \
-  /usr/include/octomap/OccupancyOcTreeBase.hxx \
+  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.hxx \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
@@ -296,8 +296,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
   /usr/include/c++/11/bits/enable_special_members.h \
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/pstl/execution_defs.h \
-  /usr/include/octomap/MCTables.h \
-  /usr/include/octomap/OcTreeKey.h \
+  /opt/ros/humble/include/octomap/MCTables.h \
+  /opt/ros/humble/include/octomap/OcTreeKey.h \
   /usr/include/pcl-1.12/pcl/sample_consensus/model_types.h \
   /usr/include/pcl-1.12/pcl/segmentation/sac_segmentation.h \
   /usr/include/pcl-1.12/pcl/pcl_base.h \
@@ -2063,9 +2063,9 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/srv/detail/bounding_box_query__traits.hpp \
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/srv/detail/bounding_box_query__type_support.hpp \
   /opt/ros/humble/include/octomap_msgs/octomap_msgs/conversions.h \
-  /usr/include/octomap/ColorOcTree.h \
-  /usr/include/octomap/OcTreeNode.h \
-  /usr/include/octomap/OccupancyOcTreeBase.h \
+  /opt/ros/humble/include/octomap/ColorOcTree.h \
+  /opt/ros/humble/include/octomap/OcTreeNode.h \
+  /opt/ros/humble/include/octomap/OccupancyOcTreeBase.h \
   /opt/ros/humble/include/octomap_ros/conversions.hpp \
   /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.h \
   /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.h \
@@ -2187,8 +2187,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance_stamped__type_support.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance_stamped__builder.hpp:
-
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_with_covariance_stamped.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point32__traits.hpp:
 
@@ -2318,10 +2316,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/pcl-1.12/pcl/common/eigen.h:
 
-/usr/include/pcl-1.12/pcl/common/impl/eigen.hpp:
-
-/usr/include/pcl-1.12/pcl/common/point_tests.h:
-
 /usr/include/boost/fusion/view/filter_view/detail/begin_impl.hpp:
 
 /usr/include/boost/fusion/view/filter_view/detail/key_of_impl.hpp:
@@ -2374,13 +2368,9 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/type_traits/same_traits.hpp:
 
-/usr/include/boost/mpl/aux_/iter_push_front.hpp:
-
 /usr/include/boost/mpl/aux_/joint_iter.hpp:
 
 /usr/include/boost/mpl/aux_/insert_range_impl.hpp:
-
-/usr/include/boost/mpl/insert_range.hpp:
 
 /usr/include/boost/fusion/algorithm/transformation/insert.hpp:
 
@@ -2424,8 +2414,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/fusion/container/list/detail/next_impl.hpp:
 
-/usr/include/boost/fusion/container/list/detail/deref_impl.hpp:
-
 /usr/include/boost/fusion/support/detail/enabler.hpp:
 
 /usr/include/boost/fusion/container/list/cons.hpp:
@@ -2451,6 +2439,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/fusion/view/single_view/single_view.hpp:
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/inherit.hpp:
+
+/usr/include/boost/mpl/inherit.hpp:
 
 /usr/include/boost/fusion/view/joint_view/detail/begin_impl.hpp:
 
@@ -2501,6 +2491,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/utility/result_of.hpp:
 
 /usr/include/boost/fusion/support/detail/segmented_fold_until_impl.hpp:
+
+/usr/include/boost/fusion/sequence/intrinsic/detail/segmented_begin_impl.hpp:
 
 /usr/include/boost/fusion/sequence/intrinsic/detail/segmented_begin.hpp:
 
@@ -2618,6 +2610,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /opt/ros/humble/include/pcl_msgs/pcl_msgs/msg/vertices.hpp:
 
+/opt/ros/humble/include/pcl_msgs/pcl_msgs/msg/detail/model_coefficients__traits.hpp:
+
 /opt/ros/humble/include/pcl_msgs/pcl_msgs/msg/detail/model_coefficients__struct.hpp:
 
 /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__builder.hpp:
@@ -2705,10 +2699,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/fusion/view/iterator_range/detail/value_at_impl.hpp:
 
 /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp:
-
-/usr/include/boost/fusion/mpl/at.hpp:
-
-/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__struct.hpp:
 
 /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h:
 
@@ -2844,6 +2834,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /opt/ros/humble/include/rclcpp/rclcpp/parameter_value.hpp:
 
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__type_support.hpp:
+
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__builder.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/parameter.hpp:
@@ -2960,6 +2952,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /opt/ros/humble/include/rclcpp/rclcpp/timer.hpp:
 
+/opt/ros/humble/include/rclcpp/rclcpp/subscription_content_filter_options.hpp:
+
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/ring_buffer_implementation.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/create_intra_process_buffer.hpp:
@@ -3014,6 +3008,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/c++/11/cxxabi.h:
 
+/opt/ros/humble/include/rmw/rmw/impl/cpp/demangle.hpp:
+
 /opt/ros/humble/include/rmw/rmw/error_handling.h:
 
 /usr/include/boost/fusion/view/iterator_range/detail/end_impl.hpp:
@@ -3067,8 +3063,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /opt/ros/humble/include/rclcpp/rclcpp/logger.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/function_traits.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/exceptions/exceptions.hpp:
 
 /usr/include/c++/11/optional:
 
@@ -3148,6 +3142,12 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /opt/ros/humble/include/rcutils/rcutils/types/uint8_array.h:
 
+/usr/include/boost/mpl/front.hpp:
+
+/opt/ros/humble/include/rcl_yaml_param_parser/rcl_yaml_param_parser/parser.h:
+
+/opt/ros/humble/include/rcutils/rcutils/qsort.h:
+
 /opt/ros/humble/include/rmw/rmw/events_statuses/events_statuses.h:
 
 /opt/ros/humble/include/rcutils/rcutils/types/string_array.h:
@@ -3209,12 +3209,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /opt/ros/humble/include/rcl/rcl/allocator.h:
 
 /usr/include/c++/11/bits/this_thread_sleep.h:
-
-/usr/include/boost/fusion/view/filter_view/detail/size_impl.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/create_subscription.hpp:
-
-/usr/include/c++/11/thread:
 
 /usr/include/c++/11/bits/std_thread.h:
 
@@ -3446,17 +3440,7 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/eigen3/Eigen/src/Core/util/Memory.h:
 
-/usr/include/pcl-1.12/pcl/common/io.h:
-
-/usr/include/eigen3/Eigen/src/Core/util/StaticAssert.h:
-
-/usr/include/eigen3/Eigen/src/Core/PartialReduxEvaluator.h:
-
-/usr/include/boost/mpl/aux_/preprocessed/gcc/plus.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/buffer_implementation_base.hpp:
-
-/usr/include/boost/random/detail/signed_unsigned_tools.hpp:
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
@@ -3542,7 +3526,9 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/eigen3/Eigen/src/Core/Matrix.h:
 
-/usr/include/boost/mpl/aux_/config/compiler.hpp:
+/usr/include/boost/preprocessor/repetition/enum_params.hpp:
+
+/usr/include/eigen3/Eigen/src/Core/VectorwiseOp.h:
 
 /opt/ros/humble/include/pcl_msgs/pcl_msgs/msg/detail/point_indices__struct.hpp:
 
@@ -3690,13 +3676,7 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/preprocessor/control/detail/while.hpp:
 
-/usr/include/pcl-1.12/pcl/filters/filter_indices.h:
-
-/usr/include/boost/preprocessor/list/fold_right.hpp:
-
-/usr/include/pcl-1.12/pcl/io/lzf.h:
-
-/usr/include/boost/mpl/assert.hpp:
+/opt/ros/humble/include/octomap/OcTreeBaseImpl.hxx:
 
 /usr/include/boost/algorithm/string/predicate.hpp:
 
@@ -3707,10 +3687,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/preprocessor/list/adt.hpp:
 
 /usr/include/boost/mpl/aux_/type_wrapper.hpp:
-
-/usr/include/boost/range/iterator.hpp:
-
-/usr/include/pcl-1.12/pcl/point_cloud.h:
 
 /usr/include/c++/11/bits/std_function.h:
 
@@ -3740,14 +3716,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/preprocessor/facilities/identity.hpp:
 
-/opt/ros/humble/include/rmw/rmw/events_statuses/requested_deadline_missed.h:
-
-/usr/include/boost/preprocessor/control/while.hpp:
-
-/usr/include/eigen3/Eigen/src/Core/arch/Default/Half.h:
-
-/usr/include/boost/mpl/pair.hpp:
-
 /usr/include/eigen3/Eigen/src/Core/CoreIterators.h:
 
 /usr/include/console_bridge_export.h:
@@ -3755,8 +3723,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/preprocessor/arithmetic/inc.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/boost/preprocessor/tuple/eat.hpp:
 
 /opt/ros/humble/include/pcl_msgs/pcl_msgs/msg/detail/point_indices__builder.hpp:
 
@@ -3779,14 +3745,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/preprocessor/repetition/repeat.hpp:
 
 /usr/include/boost/preprocessor/repeat.hpp:
-
-/opt/ros/humble/include/rcutils/rcutils/types/rcutils_ret.h:
-
-/usr/include/boost/preprocessor/logical/bool.hpp:
-
-/usr/include/octomap/ColorOcTree.h:
-
-/usr/include/boost/mpl/integral_c_fwd.hpp:
 
 /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__traits.hpp:
 
@@ -3813,12 +3771,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/integer/static_log2.hpp:
 
 /usr/include/boost/mpl/aux_/arg_typedef.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/intra_process_buffer_type.hpp:
-
-/opt/ros/humble/include/tracetools/tracetools/visibility_control.hpp:
-
-/usr/include/boost/mpl/aux_/config/dtp.hpp:
 
 /usr/include/boost/preprocessor/seq/size.hpp:
 
@@ -3902,7 +3854,17 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
-/usr/include/octomap/OcTreeBaseImpl.hxx:
+/usr/include/eigen3/Eigen/src/Core/PartialReduxEvaluator.h:
+
+/usr/include/boost/mpl/aux_/preprocessed/gcc/plus.hpp:
+
+/usr/include/pcl-1.12/pcl/common/io.h:
+
+/usr/include/eigen3/Eigen/src/Core/util/StaticAssert.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/buffer_implementation_base.hpp:
+
+/usr/include/boost/random/detail/signed_unsigned_tools.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
@@ -3922,29 +3884,27 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/mpl/apply.hpp:
 
-/usr/include/boost/mpl/aux_/adl_barrier.hpp:
-
 /usr/include/pcl-1.12/pcl/point_struct_traits.h:
 
 /usr/include/c++/11/bits/hashtable.h:
 
-/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+/usr/include/boost/mpl/aux_/adl_barrier.hpp:
 
-/usr/include/boost/mpl/front.hpp:
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/twist.hpp:
 
-/opt/ros/humble/include/rcl_yaml_param_parser/rcl_yaml_param_parser/parser.h:
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
-/opt/ros/humble/include/rcutils/rcutils/qsort.h:
-
-/usr/include/octomap/Pointcloud.h:
-
-/usr/include/octomap/MCTables.h:
+/opt/ros/humble/include/octomap/MCTables.h:
 
 /usr/include/c++/11/bits/unordered_map.h:
 
 /usr/include/boost/type_traits/is_arithmetic.hpp:
 
 /usr/include/c++/11/bits/hashtable_policy.h:
+
+/opt/ros/humble/include/tf2_geometry_msgs/tf2_geometry_msgs/tf2_geometry_msgs.hpp:
+
+/usr/include/c++/11/unordered_map:
 
 /usr/include/c++/11/bits/stl_tempbuf.h:
 
@@ -3982,6 +3942,24 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/mpl/aux_/contains_impl.hpp:
 
+/opt/ros/humble/include/rmw/rmw/events_statuses/requested_deadline_missed.h:
+
+/usr/include/boost/preprocessor/control/while.hpp:
+
+/usr/include/boost/preprocessor/logical/bitand.hpp:
+
+/usr/include/eigen3/Eigen/src/Core/arch/Default/Half.h:
+
+/usr/include/boost/mpl/pair.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/intra_process_buffer_type.hpp:
+
+/opt/ros/humble/include/tracetools/tracetools/visibility_control.hpp:
+
+/usr/include/boost/mpl/aux_/config/dtp.hpp:
+
+/opt/ros/humble/include/octomap/OccupancyOcTreeBase.hxx:
+
 /usr/include/boost/mpl/vector/aux_/size.hpp:
 
 /usr/include/c++/11/bits/ios_base.h:
@@ -3990,11 +3968,21 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/ref.hpp:
 
-/usr/include/octomap/OcTreeDataNode.hxx:
+/usr/include/boost/fusion/mpl/at.hpp:
 
-/usr/include/boost/mpl/inherit.hpp:
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/uv_coordinate__struct.hpp:
 
-/usr/include/octomap/OcTreeNode.h:
+/opt/ros/humble/include/octomap/OcTreeDataNode.h:
+
+/usr/include/pcl-1.12/pcl/filters/filter_indices.h:
+
+/usr/include/boost/preprocessor/list/fold_right.hpp:
+
+/usr/include/pcl-1.12/pcl/io/lzf.h:
+
+/usr/include/boost/mpl/assert.hpp:
+
+/opt/ros/humble/include/octomap/OcTreeNode.h:
 
 /usr/include/eigen3/Eigen/src/Core/MathFunctionsImpl.h:
 
@@ -4086,12 +4074,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/c++/11/bits/stl_pair.h:
 
-/usr/include/boost/preprocessor/repetition/enum_params.hpp:
-
-/usr/include/eigen3/Eigen/src/Core/VectorwiseOp.h:
-
-/usr/include/octomap/OcTree.h:
-
 /usr/include/boost/mpl/integral_c_tag.hpp:
 
 /usr/include/boost/preprocessor/punctuation/comma.hpp:
@@ -4104,14 +4086,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/twist.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
-
-/usr/include/octomap/OccupancyOcTreeBase.hxx:
-
-/usr/include/boost/type_traits/is_class.hpp:
-
 /usr/include/c++/11/bits/basic_string.h:
 
 /usr/include/locale.h:
@@ -4120,33 +4094,13 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
-/usr/include/octomap/math/Quaternion.h:
-
 /usr/include/c++/11/bits/localefwd.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/subscription_content_filter_options.hpp:
-
-/usr/include/octomap/math/Vector3.h:
 
 /usr/include/pcl-1.12/pcl/PCLImage.h:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance_stamped__struct.hpp:
 
 /usr/include/boost/iterator/iterator_facade.hpp:
-
-/usr/include/boost/mpl/not.hpp:
-
-/usr/include/boost/fusion/support/detail/is_native_fusion_sequence.hpp:
-
-/usr/include/eigen3/Eigen/src/Core/DiagonalMatrix.h:
-
-/opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/map_meta_data__traits.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
-
-/usr/include/wchar.h:
-
-/usr/include/x86_64-linux-gnu/bits/statx-generic.h:
 
 /usr/include/c++/11/exception:
 
@@ -4200,13 +4154,17 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 
-/usr/include/octomap/OcTreeDataNode.h:
-
 /usr/include/pcl-1.12/pcl/io/file_io.h:
 
 /usr/include/boost/exception/exception.hpp:
 
 /usr/include/c++/11/bits/stl_algobase.h:
+
+/usr/include/boost/mpl/integral_c_fwd.hpp:
+
+/opt/ros/humble/include/rcutils/rcutils/types/rcutils_ret.h:
+
+/usr/include/boost/preprocessor/logical/bool.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/any_subscription_callback.hpp:
 
@@ -4219,6 +4177,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/c++/11/tr1/special_function_util.h:
 
 /usr/include/eigen3/Eigen/src/Geometry/Umeyama.h:
+
+/opt/ros/humble/include/octomap/octomap_types.h:
 
 /usr/include/c++/11/bits/stringfwd.h:
 
@@ -4234,12 +4194,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/mpl/aux_/config/msvc_typename.hpp:
 
-/opt/ros/humble/include/rmw/rmw/impl/cpp/demangle.hpp:
-
-/usr/include/octomap/OcTreeKey.h:
-
-/usr/include/boost/smart_ptr/shared_ptr.hpp:
-
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/eigen3/Eigen/src/Core/util/XprHelper.h:
@@ -4253,6 +4207,10 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/c++/11/cctype:
 
 /usr/include/boost/range/algorithm/equal.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/c++/11/bits/range_access.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
@@ -4294,14 +4252,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/math.h:
 
-/usr/include/pcl-1.12/pcl/common/transforms.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/subscription_options.hpp:
-
-/usr/include/boost/smart_ptr/detail/local_sp_deleter.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
-
 /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/color_rgba__type_support.hpp:
 
 /usr/include/c++/11/bits/functional_hash.h:
@@ -4315,6 +4265,14 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/mpl/aux_/config/intel.hpp:
 
 /usr/include/boost/mpl/vector/aux_/pop_back.hpp:
+
+/usr/include/boost/fusion/view/filter_view/detail/size_impl.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/create_subscription.hpp:
+
+/usr/include/c++/11/thread:
+
+/opt/ros/humble/include/octomap/math/Quaternion.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/create_generic_publisher.hpp:
 
@@ -4351,6 +4309,14 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /opt/ros/humble/include/pcl_msgs/pcl_msgs/msg/detail/model_coefficients__type_support.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/boost/preprocessor/tuple/eat.hpp:
+
+/opt/ros/humble/include/octomap/OcTree.h:
+
+/usr/include/eigen3/Eigen/src/Core/SolverBase.h:
+
+/usr/include/boost/type_traits/has_minus.hpp:
 
 /usr/include/boost/preprocessor/repetition/enum_shifted_params.hpp:
 
@@ -4402,6 +4368,20 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/c++/11/typeinfo:
 
+/usr/include/pcl-1.12/pcl/common/transforms.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/subscription_options.hpp:
+
+/usr/include/boost/smart_ptr/detail/local_sp_deleter.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
+/usr/include/boost/mpl/insert_range.hpp:
+
+/opt/ros/humble/include/octomap/OcTreeKey.h:
+
+/usr/include/c++/11/bits/unique_ptr.h:
+
 /usr/include/c++/11/tr1/type_traits:
 
 /usr/include/boost/mpl/aux_/back_impl.hpp:
@@ -4426,6 +4406,18 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/c++/11/new:
 
+/usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h:
+
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+
+/usr/include/boost/random/detail/large_arithmetic.hpp:
+
+/usr/include/boost/fusion/iterator/detail/segmented_iterator.hpp:
+
+/usr/include/c++/11/bits/stl_iterator_base_funcs.h:
+
+/usr/include/boost/mpl/contains_fwd.hpp:
+
 /opt/ros/humble/include/rmw/rmw/subscription_options.h:
 
 /usr/include/c++/11/complex:
@@ -4443,6 +4435,10 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/fusion/mpl/begin.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
+
+/usr/include/wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/statx-generic.h:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__traits.hpp:
 
@@ -4468,19 +4464,11 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/iter_fold_impl.hpp:
 
-/usr/include/eigen3/Eigen/src/Core/arch/Default/BFloat16.h:
-
 /usr/include/boost/mpl/minus.hpp:
 
+/usr/include/eigen3/Eigen/src/Core/arch/Default/BFloat16.h:
+
 /usr/include/endian.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
-
-/usr/include/linux/errno.h:
-
-/usr/include/boost/fusion/support/is_iterator.hpp:
-
-/usr/include/boost/mpl/aux_/preprocessed/gcc/quote.hpp:
 
 /usr/include/c++/11/iosfwd:
 
@@ -4489,6 +4477,10 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
 
 /usr/include/eigen3/Eigen/src/Householder/HouseholderSequence.h:
+
+/opt/ros/humble/include/octomap/OcTreeDataNode.hxx:
+
+/usr/include/boost/preprocessor/repetition/detail/for.hpp:
 
 /usr/include/boost/mpl/size_t_fwd.hpp:
 
@@ -4520,10 +4512,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/mpl/vector/aux_/preprocessed/typeof_based/vector10.hpp:
 
-/usr/include/boost/interprocess/detail/workaround.hpp:
-
-/usr/include/boost/type_traits/integral_constant.hpp:
-
 /usr/include/eigen3/Eigen/src/Core/functors/NullaryFunctors.h:
 
 /usr/include/boost/type_traits/add_reference.hpp:
@@ -4537,16 +4525,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp:
 
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
-
-/usr/include/octomap/octomap.h:
-
-/usr/include/eigen3/Eigen/src/Core/Inverse.h:
-
-/usr/include/boost/fusion/view/filter_view/detail/value_of_impl.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/experimental/executable_list.hpp:
-
-/usr/include/boost/mpl/bind.hpp:
 
 /usr/include/eigen3/Eigen/Core:
 
@@ -4562,19 +4540,27 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/c++/11/tr1/exp_integral.tcc:
 
-/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__type_support.hpp:
+/usr/include/boost/mpl/not.hpp:
 
-/usr/include/boost/range/detail/safe_bool.hpp:
+/usr/include/boost/fusion/support/detail/is_native_fusion_sequence.hpp:
+
+/usr/include/eigen3/Eigen/src/Core/DiagonalMatrix.h:
+
+/opt/ros/humble/include/nav_msgs/nav_msgs/msg/detail/map_meta_data__traits.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+/usr/include/pcl-1.12/pcl/point_cloud.h:
+
+/usr/include/boost/range/iterator.hpp:
+
+/opt/ros/humble/include/octomap/octomap.h:
+
+/usr/include/c++/11/bits/move.h:
+
+/usr/include/boost/mpl/aux_/fold_impl.hpp:
 
 /usr/include/string.h:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__type_support.hpp:
-
-/usr/include/eigen3/Eigen/src/Core/util/ReshapedHelper.h:
-
-/usr/include/c++/11/tr1/bessel_function.tcc:
-
-/usr/include/boost/type_traits/declval.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_base_interface_traits.hpp:
 
@@ -4612,6 +4598,18 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/eigen3/Eigen/src/Core/products/TriangularSolverVector.h:
 
+/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__traits.hpp:
+
+/usr/include/boost/mpl/vector/aux_/begin_end.hpp:
+
+/usr/include/features.h:
+
+/usr/include/boost/fusion/include/mpl.hpp:
+
+/usr/include/boost/preprocessor/tuple/elem.hpp:
+
+/usr/include/eigen3/Eigen/src/Geometry/Hyperplane.h:
+
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/moving_average_statistics/moving_average.hpp:
@@ -4637,6 +4635,16 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/include/boost/preprocessor/comparison/less.hpp:
+
+/usr/include/boost/mpl/aux_/yes_no.hpp:
+
+/usr/include/boost/mpl/aux_/traits_lambda_spec.hpp:
+
+/usr/include/c++/11/vector:
+
+/opt/ros/humble/include/octomap/OcTreeBaseImpl.h:
 
 /usr/include/boost/mpl/aux_/template_arity_fwd.hpp:
 
@@ -4667,8 +4675,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /opt/ros/humble/include/rclcpp/rclcpp/qos_overriding_options.hpp:
 
 /usr/include/boost/type_traits/remove_reference.hpp:
-
-/usr/include/octomap/octomap_types.h:
 
 /usr/include/boost/mpl/int.hpp:
 
@@ -4714,6 +4720,24 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/mpl/same_as.hpp:
 
+/usr/include/eigen3/Eigen/src/Core/SelfAdjointView.h:
+
+/usr/include/boost/mpl/vector/aux_/include_preprocessed.hpp:
+
+/usr/include/boost/range/distance.hpp:
+
+/usr/include/boost/algorithm/string/classification.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/opt/ros/humble/include/tf2/tf2/time.hpp:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__type_support.hpp:
+
+/usr/include/libintl.h:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
 /usr/include/linux/limits.h:
 
 /usr/include/c++/11/bits/allocator.h:
@@ -4722,17 +4746,9 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/c++/11/cmath:
 
-/usr/include/c++/11/bits/range_access.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
 /usr/include/boost/fusion/sequence/intrinsic/begin.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__type_support.hpp:
-
-/usr/include/octomap/AbstractOccupancyOcTree.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
@@ -4759,6 +4775,18 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/predef/os/ios.h:
 
 /usr/include/boost/preprocessor/seq/fold_left.hpp:
+
+/usr/include/linux/errno.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
+
+/usr/include/boost/fusion/support/is_iterator.hpp:
+
+/usr/include/boost/mpl/aux_/preprocessed/gcc/quote.hpp:
+
+/usr/include/boost/type_traits/integral_constant.hpp:
+
+/usr/include/boost/interprocess/detail/workaround.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_timers_interface_traits.hpp:
 
@@ -4793,6 +4821,12 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/mpl/aux_/config/nttp.hpp:
 
 /usr/include/c++/11/bits/ostream_insert.h:
+
+/usr/include/boost/mpl/aux_/iter_push_front.hpp:
+
+/opt/ros/humble/include/octomap/AbstractOcTree.h:
+
+/usr/include/c++/11/bits/stl_heap.h:
 
 /usr/include/c++/11/bits/stl_function.h:
 
@@ -4830,20 +4864,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
-/usr/include/boost/mpl/aux_/advance_backward.hpp:
-
-/usr/include/boost/config/detail/select_stdlib_config.hpp:
-
-/usr/include/boost/mpl/aux_/O1_size_impl.hpp:
-
-/usr/include/boost/mpl/equal_to.hpp:
-
-/usr/include/boost/smart_ptr/detail/spinlock.hpp:
-
-/usr/include/boost/move/detail/config_end.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/byteswap.h:
-
 /usr/include/boost/fusion/mpl/insert.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_value__traits.hpp:
@@ -4853,8 +4873,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/eigen3/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h:
 
 /usr/include/alloca.h:
-
-/usr/include/c++/11/bits/stl_heap.h:
 
 /usr/include/c++/11/cstdio:
 
@@ -4882,6 +4900,10 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
+/usr/include/boost/fusion/container/list/detail/deref_impl.hpp:
+
+/opt/ros/humble/include/octomap/octomap_utils.h:
+
 /usr/include/eigen3/Eigen/Dense:
 
 /usr/include/asm-generic/errno.h:
@@ -4905,6 +4927,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/c++/11/bits/algorithmfwd.h:
 
 /usr/include/c++/11/bits/basic_string.tcc:
+
+/opt/ros/humble/include/octomap/OcTreeIterator.hxx:
 
 /opt/ros/humble/include/rclcpp/rclcpp/subscription.hpp:
 
@@ -4942,18 +4966,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/range/end.hpp:
 
-/usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h:
-
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
-
-/usr/include/boost/random/detail/large_arithmetic.hpp:
-
-/usr/include/boost/fusion/iterator/detail/segmented_iterator.hpp:
-
-/usr/include/c++/11/bits/stl_iterator_base_funcs.h:
-
-/usr/include/boost/mpl/contains_fwd.hpp:
-
 /usr/include/boost/type_traits/is_member_function_pointer.hpp:
 
 /usr/include/c++/11/bits/uniform_int_dist.h:
@@ -4986,9 +4998,7 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/c++/11/bits/locale_facets.h:
 
-/usr/include/boost/fusion/sequence/intrinsic/detail/segmented_begin_impl.hpp:
-
-/usr/include/octomap/OcTreeBaseImpl.h:
+/opt/ros/humble/include/octomap/ScanGraph.h:
 
 /usr/include/c++/11/bits/streambuf.tcc:
 
@@ -5050,10 +5060,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/mpl/aux_/config/ctps.hpp:
 
-/opt/ros/humble/include/pcl_msgs/pcl_msgs/msg/detail/model_coefficients__traits.hpp:
-
-/usr/include/octomap/AbstractOcTree.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
@@ -5098,6 +5104,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/mpl/aux_/nested_type_wknd.hpp:
 
+/opt/ros/humble/include/octomap/AbstractOccupancyOcTree.h:
+
 /usr/include/pcl-1.12/pcl/pcl_base.h:
 
 /usr/include/c++/11/tr1/poly_laguerre.tcc:
@@ -5130,33 +5138,45 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/c++/11/tr1/riemann_zeta.tcc:
 
-/usr/include/boost/preprocessor/logical/bitand.hpp:
+/opt/ros/humble/include/octomap/math/Pose6D.h:
 
-/usr/include/octomap/math/Pose6D.h:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__struct.hpp:
 
-/opt/ros/humble/include/tf2_geometry_msgs/tf2_geometry_msgs/tf2_geometry_msgs.hpp:
+/usr/include/c++/11/bits/std_abs.h:
 
-/usr/include/c++/11/unordered_map:
+/usr/include/boost/range/reverse_iterator.hpp:
 
-/usr/include/octomap/ScanGraph.h:
+/opt/ros/humble/include/rclcpp/rclcpp/exceptions/exceptions.hpp:
 
-/usr/include/eigen3/Eigen/src/Core/SelfAdjointView.h:
+/opt/ros/humble/include/octomap/octomap_deprecated.h:
 
-/usr/include/boost/mpl/vector/aux_/include_preprocessed.hpp:
+/usr/include/boost/mpl/aux_/advance_backward.hpp:
 
-/usr/include/boost/range/distance.hpp:
+/usr/include/boost/config/detail/select_stdlib_config.hpp:
 
-/usr/include/boost/algorithm/string/classification.hpp:
+/usr/include/boost/mpl/aux_/O1_size_impl.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+/usr/include/boost/mpl/equal_to.hpp:
 
-/opt/ros/humble/include/tf2/tf2/time.hpp:
+/usr/include/boost/smart_ptr/detail/spinlock.hpp:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__type_support.hpp:
+/usr/include/boost/move/detail/config_end.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
-/usr/include/libintl.h:
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_with_covariance_stamped.hpp:
+
+/opt/ros/humble/include/octomap/Pointcloud.h:
+
+/usr/include/boost/mpl/aux_/config/compiler.hpp:
+
+/usr/include/pcl-1.12/pcl/common/impl/eigen.hpp:
+
+/usr/include/pcl-1.12/pcl/common/point_tests.h:
+
+/opt/ros/humble/include/octomap/OccupancyOcTreeBase.h:
+
+/usr/include/c++/11/stdlib.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/floating_point_range__traits.hpp:
 
@@ -5169,8 +5189,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/c++/11/set:
 
 /usr/include/c++/11/bits/stl_deque.h:
-
-/usr/include/c++/11/stdlib.h:
 
 /usr/include/boost/mpl/long.hpp:
 
@@ -5190,17 +5208,13 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/preprocessor/config/config.hpp:
 
-/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/compressed_image__traits.hpp:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/set_parameters_result__type_support.hpp:
 
-/usr/include/boost/mpl/vector/aux_/begin_end.hpp:
+/usr/include/eigen3/Eigen/src/Core/util/ReshapedHelper.h:
 
-/usr/include/features.h:
+/usr/include/c++/11/tr1/bessel_function.tcc:
 
-/usr/include/boost/fusion/include/mpl.hpp:
-
-/usr/include/boost/preprocessor/tuple/elem.hpp:
-
-/usr/include/eigen3/Eigen/src/Geometry/Hyperplane.h:
+/usr/include/boost/type_traits/declval.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h:
 
@@ -5420,6 +5434,14 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/current_function.hpp:
 
+/usr/include/eigen3/Eigen/src/Core/Inverse.h:
+
+/usr/include/boost/fusion/view/filter_view/detail/value_of_impl.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/experimental/executable_list.hpp:
+
+/usr/include/boost/mpl/bind.hpp:
+
 /usr/include/pcl-1.12/pcl/common/impl/transforms.hpp:
 
 /usr/include/boost/fusion/view/single_view/detail/distance_impl.hpp:
@@ -5469,8 +5491,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/c++/11/bits/functexcept.h:
 
 /usr/include/eigen3/Eigen/src/Core/SolveTriangular.h:
-
-/usr/include/octomap/octomap_utils.h:
 
 /usr/include/eigen3/Eigen/src/Core/functors/StlFunctors.h:
 
@@ -5560,8 +5580,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/c++/11/bits/align.h:
 
-/usr/include/c++/11/bits/unique_ptr.h:
-
 /usr/include/boost/mpl/aux_/msvc_eti_base.hpp:
 
 /usr/include/c++/11/bits/shared_ptr.h:
@@ -5587,10 +5605,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/bounded_vector.hpp:
 
 /usr/include/eigen3/Eigen/src/LU/Determinant.h:
-
-/usr/include/boost/mpl/aux_/yes_no.hpp:
-
-/usr/include/boost/preprocessor/comparison/less.hpp:
 
 /usr/include/boost/preprocessor/comparison/less_equal.hpp:
 
@@ -5619,8 +5633,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/eigen3/Eigen/src/Householder/Householder.h:
 
 /opt/ros/humble/include/rclcpp_components/rclcpp_components/node_factory.hpp:
-
-/usr/include/octomap/octomap_deprecated.h:
 
 /usr/include/boost/numeric/conversion/converter.hpp:
 
@@ -5780,6 +5792,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/move/detail/type_traits.hpp:
 
+/opt/ros/humble/include/octomap/ColorOcTree.h:
+
 /usr/include/boost/fusion/algorithm/query/find_fwd.hpp:
 
 /usr/include/boost/preprocessor/stringize.hpp:
@@ -5938,10 +5952,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/mpl/sequence_tag_fwd.hpp:
 
-/usr/include/c++/11/vector:
-
-/usr/include/boost/mpl/aux_/traits_lambda_spec.hpp:
-
 /usr/include/eigen3/Eigen/src/Eigenvalues/RealQZ.h:
 
 /usr/include/boost/date_time/time_resolution_traits.hpp:
@@ -5974,10 +5984,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/mpl/aux_/has_size.hpp:
 
-/usr/include/c++/11/bits/move.h:
-
-/usr/include/boost/mpl/aux_/fold_impl.hpp:
-
 /usr/include/boost/mpl/apply_fwd.hpp:
 
 /opt/ros/humble/include/rmw/rmw/incompatible_qos_events_statuses.h:
@@ -6005,6 +6011,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/preprocessor/array/size.hpp:
 
 /usr/include/boost/preprocessor/inc.hpp:
+
+/opt/ros/humble/include/octomap/math/Vector3.h:
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/bind_fwd.hpp:
 
@@ -6108,8 +6116,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/preprocessor/seq/for_each.hpp:
 
-/usr/include/boost/preprocessor/repetition/detail/for.hpp:
-
 /opt/ros/humble/include/pcl_ros/pcl_ros/transforms.hpp:
 
 /usr/include/boost/preprocessor/seq/elem.hpp:
@@ -6170,12 +6176,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/range/begin.hpp:
 
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__struct.hpp:
-
-/usr/include/c++/11/bits/std_abs.h:
-
-/usr/include/boost/range/reverse_iterator.hpp:
-
 /usr/include/boost/iterator/iterator_adaptor.hpp:
 
 /usr/include/boost/detail/workaround.hpp:
@@ -6209,6 +6209,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/numeric/conversion/detail/sign_mixture.hpp:
 
 /usr/include/boost/type_traits/is_pointer.hpp:
+
+/usr/include/boost/type_traits/is_class.hpp:
 
 /usr/include/boost/type_traits/detail/is_member_function_pointer_cxx_11.hpp:
 
@@ -6257,8 +6259,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/mpl/aux_/preprocessed/gcc/times.hpp:
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/less.hpp:
-
-/usr/include/octomap/OcTreeIterator.hxx:
 
 /usr/include/boost/iterator/advance.hpp:
 
@@ -6340,13 +6340,13 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/boost/type_traits/function_traits.hpp:
 
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__type_support.hpp:
+
+/usr/include/boost/range/detail/safe_bool.hpp:
+
 /usr/include/boost/type_traits/detail/has_binary_operator.hpp:
 
 /usr/include/boost/type_traits/make_void.hpp:
-
-/usr/include/eigen3/Eigen/src/Core/SolverBase.h:
-
-/usr/include/boost/type_traits/has_minus.hpp:
 
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/duration.hpp:
 
@@ -6388,8 +6388,6 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 
 /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
 
-/usr/include/octomap/OccupancyOcTreeBase.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
 
 /usr/include/linux/types.h:
@@ -6423,6 +6421,8 @@ CMakeFiles/color_octomap_server.dir/src/octomap_server.cpp.o: /home/rhobtor/reac
 /usr/include/boost/interprocess/streams/bufferstream.hpp:
 
 /usr/include/boost/shared_ptr.hpp:
+
+/usr/include/boost/smart_ptr/shared_ptr.hpp:
 
 /usr/include/boost/core/checked_delete.hpp:
 

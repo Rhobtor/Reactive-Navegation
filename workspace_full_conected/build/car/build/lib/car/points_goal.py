@@ -8,7 +8,7 @@ from std_msgs.msg import Bool
 from visualization_msgs.msg import Marker
 
 # Umbral de distancia para evitar que el goal esté cerca de un obstáculo
-OBSTACLE_CLEARANCE_THRESHOLD = 3.0  # Puedes ajustar este valor según tus necesidades
+OBSTACLE_CLEARANCE_THRESHOLD = 6.0  # Puedes ajustar este valor según tus necesidades
 
 def distance_between_poses(pose1: Pose, pose2: Pose) -> float:
     dx = pose1.position.x - pose2.position.x

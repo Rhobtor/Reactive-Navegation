@@ -341,7 +341,7 @@ Qt5Widgets_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
 Qt5_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
 
 //Name of the computer/site where compile is being run
-SITE:STRING=rhobtor-System-Product-Name
+SITE:STRING=rhobtor
 
 //Path to a file.
 TINYXML2_INCLUDE_DIR:PATH=/usr/include

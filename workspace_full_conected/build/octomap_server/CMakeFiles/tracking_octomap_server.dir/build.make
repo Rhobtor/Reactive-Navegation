@@ -177,8 +177,8 @@ libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/libpython3.10.so
 libtracking_octomap_server.so: /usr/lib/libOpenNI.so
 libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/libOpenNI2.so
 libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/libusb-1.0.so
-libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/liboctomap.so
-libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/liboctomath.so
+libtracking_octomap_server.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so
+libtracking_octomap_server.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so
 libtracking_octomap_server.so: /usr/lib/libOpenNI.so
 libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/libusb-1.0.so
 libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/libOpenNI2.so
@@ -507,8 +507,8 @@ libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/libtbb.so.12.5
 libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/libvtksys-9.1.so.9.1.0
 libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/libflann_cpp.so
 libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/libqhull_r.so.8.0.2
-libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/liboctomap.so
-libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/liboctomath.so
+libtracking_octomap_server.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so
+libtracking_octomap_server.so: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so
 libtracking_octomap_server.so: /usr/lib/libOpenNI.so
 libtracking_octomap_server.so: /usr/lib/x86_64-linux-gnu/libOpenNI2.so
 libtracking_octomap_server.so: CMakeFiles/tracking_octomap_server.dir/link.txt

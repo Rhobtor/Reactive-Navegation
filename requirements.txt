@@ -1,0 +1,17 @@
+deap==1.4.2
+matplotlib==3.10.1
+networkx==3.4.2
+numpy==2.2.4
+pandas==2.2.3
+Pillow==9.0.1
+Pillow==11.1.0
+pytest==8.3.5
+PyYAML==5.4.1
+PyYAML==6.0.2
+scikit_learn==1.6.1
+setuptools==59.6.0
+squaternion==2025.3.2
+tensorflow==2.19.0
+tensorflow_probability==0.25.0
+torch==2.6.0
+xacro==1.13.3

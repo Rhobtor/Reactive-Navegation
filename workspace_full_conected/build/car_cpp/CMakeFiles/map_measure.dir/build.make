@@ -160,6 +160,8 @@ map_measure: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.74.0
 map_measure: /usr/lib/x86_64-linux-gnu/libOgreTerrain.so
 map_measure: /usr/lib/x86_64-linux-gnu/libOgrePaging.so
 map_measure: /usr/lib/x86_64-linux-gnu/libignition-common3-graphics.so.3.14.0
+map_measure: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so
+map_measure: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so
 map_measure: /opt/ros/humble/lib/liboctomap_msgs__rosidl_generator_c.so
 map_measure: /opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_fastrtps_c.so
 map_measure: /opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_introspection_c.so
@@ -355,8 +357,8 @@ map_measure: /usr/lib/x86_64-linux-gnu/libccd.so.2.0
 map_measure: /usr/lib/x86_64-linux-gnu/libm.so
 map_measure: /usr/lib/x86_64-linux-gnu/libfcl.so
 map_measure: /usr/lib/x86_64-linux-gnu/libassimp.so
-map_measure: /usr/lib/x86_64-linux-gnu/liboctomap.so.1.9.7
-map_measure: /usr/lib/x86_64-linux-gnu/liboctomath.so.1.9.7
+map_measure: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so.1.9.8
+map_measure: /opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so.1.9.8
 map_measure: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.74.0
 map_measure: /usr/lib/x86_64-linux-gnu/libignition-transport8.so.8.2.1
 map_measure: /usr/lib/x86_64-linux-gnu/libignition-fuel_tools4.so.4.4.0
