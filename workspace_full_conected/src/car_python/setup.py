@@ -62,6 +62,8 @@ setup(
             'reset_octomap= car.reset_octomap:main',
             'path_finder_ia= car.path_finder_ia:main',
             'costmap= car.costmap:main',
+            'path_sac= car.path_sac:main',
+            'path_dqn= car.path_dqn:main',
         ],
     },
 )

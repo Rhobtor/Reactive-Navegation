@@ -23,6 +23,8 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/filter_points_cloud.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/graph.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/frontier.py
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/path_sac.py
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/path_dqn.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/keyboard_control.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/reset_octomap.py
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/joystick_control.py
@@ -59,6 +61,8 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/filter_points_cloud.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/graph.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/frontier.cpython-310.pyc
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/path_sac.cpython-310.pyc
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/path_dqn.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/keyboard_control.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/reset_octomap.cpython-310.pyc
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__pycache__/joystick_control.cpython-310.pyc
@@ -175,7 +179,9 @@
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/memory_map
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/octomap_2d_display
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/odometry_node
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/path_dqn
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/path_finder_ia
+/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/path_sac
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/planificador_script
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/points_goal
 /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car/ppo

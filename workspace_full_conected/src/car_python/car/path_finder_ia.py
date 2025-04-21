@@ -2452,6 +2452,7 @@ import time
 from nav_msgs.msg import Odometry, OccupancyGrid, Path
 from geometry_msgs.msg import Pose, PoseStamped, Twist, Point, PoseArray
 from visualization_msgs.msg import Marker
+from std_msgs.msg import Float64, Float64MultiArray, Bool
 
 ### FUNCIONES AUXILIARES COMUNES ###
 
@@ -2462,6 +2463,92 @@ def index_to_world(i, j, info):
     x = info.origin.position.x + (i + 0.5) * info.resolution
     y = info.origin.position.y + (j + 0.5) * info.resolution
     return (x, y)
+
+def planificador_modificable(costmap, info, start, goal, max_iters=1000):
+    """
+    Genera un path desde 'start' hasta 'goal' sin usar A*, Dijkstra, RRT, etc., 
+    basándose en una búsqueda voraz (greedy) incremental. Permite modificar la
+    heurística para mayor flexibilidad.
+    
+    Parámetros:
+      - costmap: array 2D con los costos (por ejemplo, 100 para obstáculo, 0 para libre).
+      - info: metadatos del OccupancyGrid (tamaño, resolución, origen).
+      - start: posición inicial (x, y) en coordenadas del mundo.
+      - goal: posición objetivo (x, y) en coordenadas del mundo.
+      - max_iters: cantidad máxima de iteraciones para evitar loops infinitos.
+    
+    Retorna una lista de waypoints [(x1,y1), (x2,y2), ...] que forman el path.
+    """
+    # Convertir posiciones inicial y final a índices en la grilla.
+    start_idx = (int((start[0]-info.origin.position.x) / info.resolution),
+                 int((start[1]-info.origin.position.y) / info.resolution))
+    goal_idx = (int((goal[0]-info.origin.position.x) / info.resolution),
+                int((goal[1]-info.origin.position.y) / info.resolution))
+    
+    # Inicialización del path con el start (en coordenadas del mundo).
+    path = [start]
+    
+    # Parámetros de la función heurística:
+    alpha = 1.0   # peso para la distancia al goal
+    beta = 10.0   # peso para penalizar el costo de la celda (por ejemplo, obstáculo = 100)
+    
+    # Condición de parada: cuando el robot esté suficientemente cerca del goal.
+    threshold = 1.0  # distancia en metros
+
+    current_idx = start_idx
+    iters = 0
+    
+    # Lista de vecinos en 8-direcciones
+    vecinos = [(-1, 0), (1, 0), (0, -1), (0, 1),
+               (-1, -1), (-1, 1), (1, -1), (1, 1)]
+    
+    while distance(index_to_world(current_idx[0], current_idx[1], info), goal) > threshold and iters < max_iters:
+        iters += 1
+        candidatos = []
+        current_world = index_to_world(current_idx[0], current_idx[1], info)
+        
+        # Evaluar vecinos
+        for dx, dy in vecinos:
+            ni = current_idx[0] + dx
+            nj = current_idx[1] + dy
+            
+            # Verificar límites de la grilla
+            if ni < 0 or ni >= info.width or nj < 0 or nj >= info.height:
+                continue
+            
+            # Evitar celdas con obstáculo (valor 100) – se puede permitir celdas con valores bajos
+            if costmap[nj, ni] >= 100:
+                continue
+                
+            vecino_world = index_to_world(ni, nj, info)
+            # Distancia al goal en coordenadas del mundo
+            d_goal = distance(vecino_world, goal)
+            # Costo de la celda (modificar si se desea, por ejemplo, multiplicar o agregar restricciones)
+            costo_celda = costmap[nj, ni]
+            
+            # Función heurística: se puede modificar para que la celda resulte menos atractiva
+            # Si se quiere más modificable, se puede incluir un término que dependa de otros factores.
+            h = alpha * d_goal + beta * costo_celda
+            
+            candidatos.append(((ni, nj), h, vecino_world))
+        
+        if not candidatos:
+            # Si no hay candidatos, se rompe o se podría replanificar con otra estrategia
+            print("No hay vecinos viables, rompiendo la búsqueda")
+            break
+        
+        # Seleccionar el vecino con el mínimo valor heurístico
+        candidatos.sort(key=lambda x: x[1])
+        next_idx, _, next_world = candidatos[0]
+        
+        # Evitar bucles (opcional: se puede agregar verificación para no regresar a celdas ya visitadas)
+        if next_idx == current_idx:
+            break
+        
+        path.append(next_world)
+        current_idx = next_idx
+
+    return path
 
 def a_star_planning(costmap, info, start_idx, goal_idx):
     height, width = costmap.shape
@@ -2554,6 +2641,8 @@ class NavigationNode(Node):
         self.create_subscription(OccupancyGrid, '/occupancy_grid', self.current_grid_callback, 10)
         self.create_subscription(OccupancyGrid, '/persistent_dynamic_occupancy_grid', self.memory_grid_callback, 10)
         self.create_subscription(PoseArray, 'safe_frontier_points_centroid', self.safe_frontier_callback, 10)
+                
+        self.create_subscription(Bool,'/goal_reached',self.goal_reached_callback,10)
         # Publicadores: se utiliza el publicador de Path y un Marker para mostrar el segmento actual
         self.path_pub = self.create_publisher(Path, '/global_path_predicted', 10)
         self.cmd_vel_pub = self.create_publisher(Twist, '/cmd_vel', 10)
@@ -2563,7 +2652,7 @@ class NavigationNode(Node):
         self.lookahead_distance = 10.0  # Se reduce para visualizar un segmento más cercano
         self.linear_speed = 2.5
         self.k_pursuit = 3.0
-        self.goal_threshold = 0.8
+        self.goal_threshold = 2.0
         self.inflation_radius = 0.5
         self.cost_weight = 0.1
 
@@ -2574,6 +2663,7 @@ class NavigationNode(Node):
         self.last_replan_position = None  # Para evaluar si se ha avanzado lo suficiente
         self.odom = None
         self.goal = None
+        self.goal_reached = None
         self.current_grid = None
         self.memory_grid = None
         self.safe_frontier_points = []  # Lista persistente de safe frontier points
@@ -2592,16 +2682,48 @@ class NavigationNode(Node):
     def odom_callback(self, msg):
         self.odom = msg.pose.pose
 
-    def goal_callback(self, msg: PoseArray):
-        if msg.poses:
-            self.goal = msg.poses[0]
-            self.get_logger().info("Goal recibido.")
+    # def goal_callback(self, msg: PoseArray):
+    #     if msg.poses:
+    #         self.goal = msg.poses[0]
+    #         self.get_logger().info("Goal recibido.")
 
     def current_grid_callback(self, msg: OccupancyGrid):
         self.current_grid = msg
 
     def memory_grid_callback(self, msg: OccupancyGrid):
         self.memory_grid = msg
+
+    def goal_callback(self, msg: PoseArray):
+        if msg.poses:
+            self.goal = msg.poses[0]
+            self.goal_reached = False  # Resetear la bandera al recibir un nuevo goal
+            self.get_logger().info("Goal recibido.")
+
+    # def goal_reached_callback(self, msg: Bool):
+    #     if msg.data:
+    #         # Solo consideramos que se ha alcanzado el goal si la posición actual está cerca del goal final.
+    #         if self.odom is not None and self.goal is not None:
+    #             current_pos = (self.odom.position.x, self.odom.position.y)
+    #             goal_pos = (self.goal.position.x, self.goal.position.y)
+    #             if distance(current_pos, goal_pos) < self.goal_threshold:
+    #                 self.get_logger().info("Goal global alcanzado. Reiniciando path y safe frontier points.")
+    #                 self.current_global_path = []
+    #                 self.current_path_index = 0
+    #                 self.safe_frontier_points.clear()
+    #                 self.persistent_safe_frontiers.clear()
+    #                 self.goal_reached = True
+    #             else:
+    #                 self.get_logger().info("Mensaje goal_reached recibido, pero el robot aún no está cerca del goal global.")
+    #         else:
+    #             self.get_logger().warn("No se tiene odometría o goal para comparar en goal_reached_callback.")
+
+    def goal_reached_callback(self, msg: Bool):
+        if msg.data:
+            self.get_logger().info("Goal alcanzado. Reiniciando path y reiniciando safe frontier points.")
+            self.current_global_path = []  # Vaciar el path actual
+            self.current_path_index = 0
+            self.goal_reached = True
+
 
     def safe_frontier_callback(self, msg: PoseArray):
         nuevos = [(p.position.x, p.position.y) for p in msg.poses]
@@ -2617,8 +2739,7 @@ class NavigationNode(Node):
         j = int((point[1] - info.origin.position.y) / info.resolution)
         return (i, j)
 
-    def publish_path(self, path):
-        """Publica el path completo como Path para visualización."""
+    def publish_path(self, path, publisher, label):
         path_msg = Path()
         path_msg.header.stamp = self.get_clock().now().to_msg()
         path_msg.header.frame_id = "map"
@@ -2627,9 +2748,12 @@ class NavigationNode(Node):
             pose_st.header = path_msg.header
             pose_st.pose.position.x = pt[0]
             pose_st.pose.position.y = pt[1]
+            pose_st.pose.position.z = 0.0
             pose_st.pose.orientation.w = 1.0
             path_msg.poses.append(pose_st)
-        self.path_pub.publish(path_msg)
+        publisher.publish(path_msg)
+        self.get_logger().info(f"[{label}] Path publicado con {len(path)} puntos.")
+
 
     def publish_segment_marker(self, segment):
         """Publica un Marker con la línea (segmento) que sale del robot a medida que avanza."""
@@ -2754,6 +2878,19 @@ class NavigationNode(Node):
         path = [index_to_world(i, j, info) for (i, j) in grid_path]
         return path
 
+    def update_path_with_current_position(self, current_pos):
+        # Encontrar el punto del path que sea el más cercano a la posición actual
+        min_dist = float('inf')
+        index_closest = 0
+        for i, pt in enumerate(self.current_global_path):
+            d = distance(current_pos, pt)
+            if d < min_dist:
+                min_dist = d
+                index_closest = i
+        # Actualizar el indice para que el "nuevo" path comience desde el punto más cercano
+        self.current_path_index = index_closest
+
+
     def publicar_frontiers(self, centroids, info):
         marker = Marker()
         marker.header.frame_id = "map"
@@ -2776,11 +2913,100 @@ class NavigationNode(Node):
         self.frontier_marker_pub.publish(marker)
 
     # ---------- CICLO DE CONTROL -----------
+
+    # def control_loop(self):
+    #     if self.odom is None or self.goal is None:
+    #         return
+
+    #     grid_msg = self.current_grid if self.current_grid is not None else self.memory_grid
+    #     if grid_msg is None:
+    #         self.get_logger().warn("No se recibió OccupancyGrid aún.")
+    #         return
+
+    #     info = grid_msg.info
+    #     fused_grid = np.array(grid_msg.data, dtype=np.int8).reshape((info.height, info.width))
+    #     current_pos = (self.odom.position.x, self.odom.position.y)
+    #     goal_pos = (self.goal.position.x, self.goal.position.y)
+    #     costmap = self.create_costmap_from_fused_grid(fused_grid, info)
+
+    #     # Actualizar lista de safe frontier points y eliminar alcanzados.
+    #     self.remove_reached_frontiers(current_pos)
+
+    #     # Revisamos la bandera goal_reached solo si se alcanzó el goal global.
+    #     if self.goal_reached:
+    #         self.get_logger().info("Goal ya alcanzado. Deteniendo navegación.")
+    #         return
+
+    #     # Determinar el objetivo a planificar: si el goal global no es conocido, usar subgoal.
+    #     if not self.is_goal_known(goal_pos, costmap, info):
+    #         self.get_logger().warn("Goal fuera del área mapeada. Buscando subgoal.")
+    #         subgoal = self.select_intermediate_goal(current_pos, goal_pos)
+    #         if subgoal is None:
+    #             self.get_logger().error("No se ha podido seleccionar un subgoal intermedio.")
+    #             return
+    #         self.current_subgoal = subgoal
+    #     else:
+    #         self.current_subgoal = goal_pos
+
+    #     # ... (resto de la replanificación y seguimiento)
+    #     # Por ejemplo, forzar replanificación si el path está vacío:
+    #     if not self.current_global_path:
+    #         new_path = planificador_modificable(costmap, info, current_pos, self.current_subgoal)
+    #         if not new_path or len(new_path) < 2:
+    #             self.get_logger().error("El planificador modificable no generó un path válido.")
+    #             return
+    #         new_path = self.smooth_path(new_path)
+    #         self.current_global_path = new_path
+    #         self.current_path_index = 0
+    #         self.publish_path(self.current_global_path, self.path_pub, "Global")
+    #         self.last_replan_position = current_pos
+
+    #     # Actualizar el path para que se “ancle” a la posición actual
+    #     self.update_path_with_current_position(current_pos)
+
+    #     # Si se alcanzó el subgoal actual (pero no el goal global), actualizar y planificar otro subgoal.
+    #     if distance(current_pos, self.current_subgoal) < self.frontier_reached_threshold:
+    #         self.get_logger().info(f"Subgoal alcanzado: {self.current_subgoal}")
+    #         try:
+    #             self.safe_frontier_points.remove(self.current_subgoal)
+    #         except ValueError:
+    #             pass
+    #         nuevo_subgoal = self.select_intermediate_goal(current_pos, goal_pos)
+    #         if nuevo_subgoal is not None:
+    #             self.current_subgoal = nuevo_subgoal
+    #             self.get_logger().info(f"Nuevo subgoal seleccionado: {nuevo_subgoal}")
+    #             new_path = planificador_modificable(costmap, info, current_pos, self.current_subgoal)
+    #             if new_path and len(new_path) >= 2:
+    #                 new_path = self.smooth_path(new_path)
+    #                 self.current_global_path = new_path
+    #                 self.current_path_index = 0
+    #                 self.publish_path(self.current_global_path, self.path_pub, "Global")
+    #                 self.last_replan_position = current_pos
+
+    #     # Publicar el segmento actual para visualización
+    #     segment = self.current_global_path[self.current_path_index:] if self.current_global_path else []
+    #     self.publish_segment_marker(segment)
+
+    #     # Control de seguimiento (pure pursuit)
+    #     if not segment or len(segment) == 0:
+    #         self.get_logger().warn("No se encontró un segmento válido de path.")
+    #         return
+
+    #     q = self.odom.orientation
+    #     siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+    #     cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+    #     current_yaw = math.atan2(siny_cosp, cosy_cosp)
+    #     linear_speed, angular_speed = self.pure_pursuit_control(segment, current_pos, current_yaw)
+    #     twist = Twist()
+    #     twist.linear.x = linear_speed
+    #     twist.angular.z = angular_speed
+    #     self.last_twist = twist
+    #     self.get_logger().info(f"Twist: {linear_speed:.2f} m/s, {angular_speed:.2f} rad/s")
+
     def control_loop(self):
         if self.odom is None or self.goal is None:
             return
 
-        # Seleccionar el OccupancyGrid actual
         grid_msg = self.current_grid if self.current_grid is not None else self.memory_grid
         if grid_msg is None:
             self.get_logger().warn("No se recibió OccupancyGrid aún.")
@@ -2791,13 +3017,19 @@ class NavigationNode(Node):
         current_pos = (self.odom.position.x, self.odom.position.y)
         goal_pos = (self.goal.position.x, self.goal.position.y)
         costmap = self.create_costmap_from_fused_grid(fused_grid, info)
-        frontier_centroids = extract_frontiers(costmap, info)
-        self.publicar_frontiers(frontier_centroids, info)
 
-        # Actualiza la lista persistente y elimina aquellos alcanzados
+        # Actualizar lista de safe frontier points y eliminar alcanzados.
         self.remove_reached_frontiers(current_pos)
 
-        # Se decide el destino a planificar. Si el goal no es visible, se usa un subgoal (safe frontier)
+        # Si se ha alcanzado el goal, y se limpió el path, se evita seguir intentando alcanzar el antiguo goal.
+        if self.goal_reached:
+            self.get_logger().info("Goal ya alcanzado. Deteniendo navegación.")
+            # Puedes decidir reiniciar o esperar a recibir otro goal.
+            return
+
+
+
+        # Determinar el objetivo (goal o subgoal) de acuerdo a la visibilidad o disponibilidad.
         if not self.is_goal_known(goal_pos, costmap, info):
             self.get_logger().warn("Goal fuera del área mapeada. Buscando subgoal.")
             subgoal = self.select_intermediate_goal(current_pos, goal_pos)
@@ -2808,36 +3040,51 @@ class NavigationNode(Node):
         else:
             self.current_subgoal = goal_pos
 
-        # Replanificación incremental: se replanifica solo si no existe path o se avanzó más que un umbral
-        replan_required = False
-        if not self.current_global_path:
-            replan_required = True
-        elif self.last_replan_position is not None:
-            if distance(current_pos, self.last_replan_position) > self.lookahead_distance * 0.5:
-                replan_required = True
-
-        if replan_required:
-            new_path = self.global_plan_a_star(costmap, info, current_pos, self.current_subgoal)
-            if new_path is None or len(new_path) < 2:
-                self.get_logger().error("El planificador global no generó un path válido.")
+        # Forzar replanificación si se ha desviado mucho o si es la primera vez.
+        if not self.current_global_path or (self.last_replan_position and distance(current_pos, self.last_replan_position) > self.lookahead_distance * 0.5):
+            #new_path = self.global_plan_a_star(costmap, info, current_pos, self.current_subgoal)
+            new_path = planificador_modificable(costmap, info, current_pos, self.current_subgoal)
+            if not new_path or len(new_path) < 2:
+                self.get_logger().error("El planificador modificable no generó un path válido.")
                 return
             new_path = self.smooth_path(new_path)
             self.current_global_path = new_path
             self.current_path_index = 0
-            self.publish_path(self.current_global_path)
+            self.publish_path(self.current_global_path, self.path_pub, "Global")
             self.last_replan_position = current_pos
 
-        # Actualización del índice del path según la posición actual
-        self.update_path_index(current_pos)
+        # Actualizar el path para que "siga" la posición actual del robot.
+        self.update_path_with_current_position(current_pos)
 
-        # Extraer el segmento actual que sale del robot (desde current_path_index al final)
-        segment = self.current_global_path[self.current_path_index:]
+        # Si se llegó al subgoal actual, se elimina de la lista y se selecciona otro.
+        if distance(current_pos, self.current_subgoal) < self.frontier_reached_threshold:
+            self.get_logger().info(f"Subgoal alcanzado: {self.current_subgoal}")
+            try:
+                self.safe_frontier_points.remove(self.current_subgoal)
+            except ValueError:
+                pass
+            nuevo_subgoal = self.select_intermediate_goal(current_pos, goal_pos)
+            if nuevo_subgoal is not None:
+                self.current_subgoal = nuevo_subgoal
+                self.get_logger().info(f"Nuevo subgoal seleccionado: {nuevo_subgoal}")
+                # Forzamos la replanificación en este caso también.
+                new_path = planificador_modificable(costmap, info, current_pos, self.current_subgoal)
+                if new_path and len(new_path) >= 2:
+                    new_path = self.smooth_path(new_path)
+                    self.current_global_path = new_path
+                    self.current_path_index = 0
+                    self.publish_path(self.current_global_path, self.path_pub, "Global")
+                    self.last_replan_position = current_pos
+
+        # Publicar el segmento actual del path (opcional, para visualización)
+        segment = self.current_global_path[self.current_path_index:] if self.current_global_path else []
         self.publish_segment_marker(segment)
 
-        # Control de seguimiento (pure pursuit)
+        # Control de seguimiento (por ejemplo, pure pursuit) sobre el segmento actualizado.
         if not segment or len(segment) == 0:
             self.get_logger().warn("No se encontró un segmento válido de path.")
             return
+
         q = self.odom.orientation
         siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
         cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
@@ -2850,6 +3097,13 @@ class NavigationNode(Node):
         self.get_logger().info(f"Twist: {linear_speed:.2f} m/s, {angular_speed:.2f} rad/s")
 
     def pure_pursuit_control(self, path, current_pos, current_yaw):
+        # Si el robot ya está cerca del último punto del path, se detiene.
+        final_point = path[-1]
+        # if distance(current_pos, final_point) < self.goal_threshold:
+        #     self.get_logger().info("Robot cerca del último waypoint; se envía comando de detención.")
+        #     return 0.0, 0.0
+
+        # Seleccionar el siguiente punto de referencia según la distancia lookahead
         target_point = None
         for pt in path:
             if distance(current_pos, pt) >= self.lookahead_distance:
@@ -2858,10 +3112,12 @@ class NavigationNode(Node):
         if target_point is None:
             target_point = path[-1]
         desired_heading = math.atan2(target_point[1] - current_pos[1],
-                                     target_point[0] - current_pos[0])
+                                    target_point[0] - current_pos[0])
         error_angle = desired_heading - current_yaw
+        # Normalizar el ángulo
         error_angle = math.atan2(math.sin(error_angle), math.cos(error_angle))
         return self.linear_speed, self.k_pursuit * error_angle
+
 
 # Método para suavizar el camino (ejemplo sencillo)
     def smooth_path(self, path):

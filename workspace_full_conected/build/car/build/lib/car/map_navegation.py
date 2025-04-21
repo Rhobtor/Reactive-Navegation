@@ -173,3 +173,148 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+
+
+
+# #!/usr/bin/env python3
+# import math
+# import time
+
+# import cv2
+# import numpy as np
+# import rclpy
+# from nav_msgs.msg import OccupancyGrid, MapMetaData
+# from geometry_msgs.msg import PoseArray, PoseStamped
+# from nav_msgs.msg import Odometry
+# from rclpy.node import Node
+
+# def distance(p1, p2):
+#     return math.hypot(p2[0] - p1[0], p2[1] - p1[1])
+
+# class DynamicOccupancyGridFuser(Node):
+#     def __init__(self):
+#         super().__init__('dynamic_occupancy_grid_fuser')
+
+#         # Parámetros del grid local estático
+#         self.declare_parameter('resolution', 0.5)   # metros por celda
+#         self.declare_parameter('width', 200)        # celdas en x
+#         self.declare_parameter('height', 200)       # celdas en y
+#         self.declare_parameter('sensor_range', 10.0) # rango de sensores en m
+#         self.declare_parameter('morph_kernel', 2)    # tamaño de kernel de cierre morfológico
+#         self.declare_parameter('morph_iterations', 2)
+
+#         self.resolution = self.get_parameter('resolution').value
+#         self.width      = self.get_parameter('width').value
+#         self.height     = self.get_parameter('height').value
+#         self.sensor_range      = self.get_parameter('sensor_range').value
+#         self.morph_kernel      = self.get_parameter('morph_kernel').value
+#         self.morph_iterations  = self.get_parameter('morph_iterations').value
+
+#         # Estado
+#         self.free_points     = None  # PoseArray
+#         self.obstacle_points = None  # PoseArray
+#         self.robot_pose      = None  # Odometry
+
+#         # Suscripciones
+#         self.create_subscription(PoseArray, '/filtered_navigation_nodes', self.free_cb, 10)
+#         self.create_subscription(PoseArray, '/obstacle_navigation_nodes', self.obs_cb, 10)
+#         self.create_subscription(Odometry, '/odom', self.odom_cb, 10)
+
+#         # Publicador de OccupancyGrid
+#         self.occ_pub = self.create_publisher(OccupancyGrid, '/occupancy_grid', 10)
+
+#         # Timer de publicación
+#         self.create_timer(1.0, self.publish_occupancy_grid)
+#         self.get_logger().info('DynamicOccupancyGridFuser mejorado iniciado.')
+
+#     def free_cb(self, msg: PoseArray):
+#         self.free_points = msg
+
+#     def obs_cb(self, msg: PoseArray):
+#         self.obstacle_points = msg
+
+#     def odom_cb(self, msg: Odometry):
+#         self.robot_pose = msg
+
+#     def world_to_map(self, x, y):
+#         # Convierte mundo->índices de la grid actual
+#         i = int((x - self.origin_x) / self.resolution)
+#         j = int((y - self.origin_y) / self.resolution)
+#         return i, j
+
+#     def publish_occupancy_grid(self):
+#         # Necesitamos posición del robot
+#         if self.robot_pose is None:
+#             return
+#         rx = self.robot_pose.pose.pose.position.x
+#         ry = self.robot_pose.pose.pose.position.y
+
+#         # Centrar ventana local en robot
+#         self.origin_x = rx - (self.width * self.resolution) / 2.0
+#         self.origin_y = ry - (self.height * self.resolution) / 2.0
+
+#         # Iniciar grid con desconocido
+#         grid = -1 * np.ones((self.height, self.width), dtype=np.int8)
+#         free_mask = np.zeros((self.height, self.width), dtype=np.uint8)
+#         obs_mask  = np.zeros((self.height, self.width), dtype=np.uint8)
+
+#         # Marcar puntos libres
+#         if self.free_points:
+#             for pose in self.free_points.poses:
+#                 x, y = pose.position.x, pose.position.y
+#                 i, j = self.world_to_map(x, y)
+#                 if 0 <= i < self.width and 0 <= j < self.height:
+#                     free_mask[j, i] = 255
+
+#         # Cierre morfológico para rellenar huecos libres suavemente
+#         kernel = np.ones((self.morph_kernel, self.morph_kernel), np.uint8)
+#         free_closed = cv2.morphologyEx(free_mask, cv2.MORPH_CLOSE, kernel,
+#                                        iterations=self.morph_iterations)
+
+#         # Marcar puntos de obstáculos dentro de rango
+#         if self.obstacle_points:
+#             for pose in self.obstacle_points.poses:
+#                 x, y = pose.position.x, pose.position.y
+#                 # Filtrar por distancia al robot
+#                 if distance((x, y), (rx, ry)) > self.sensor_range:
+#                     continue
+#                 i, j = self.world_to_map(x, y)
+#                 if 0 <= i < self.width and 0 <= j < self.height:
+#                     obs_mask[j, i] = 255
+#         # Dilatación sencilla para robustez
+#         obs_mask = cv2.dilate(obs_mask, kernel, iterations=1)
+
+#         # Combinar máscaras en grid
+#         grid[free_closed == 255] = 0    # libre
+#         grid[obs_mask   == 255] = 100  # obstáculo
+
+#         # Publicar
+#         msg = OccupancyGrid()
+#         msg.header.stamp = self.get_clock().now().to_msg()
+#         msg.header.frame_id = 'map'
+#         msg.info = MapMetaData()
+#         msg.info.resolution = self.resolution
+#         msg.info.width      = self.width
+#         msg.info.height     = self.height
+#         msg.info.origin.position.x = self.origin_x
+#         msg.info.origin.position.y = self.origin_y
+#         msg.info.origin.position.z = 0.0
+#         msg.info.origin.orientation.w = 1.0
+#         msg.data = grid.flatten().tolist()
+
+#         self.occ_pub.publish(msg)
+#         self.get_logger().info(f'OccupancyGrid publicado a {time.strftime("%H:%M:%S")}')
+
+
+# def main(args=None):
+#     rclpy.init(args=args)
+#     node = DynamicOccupancyGridFuser()
+#     try:
+#         rclpy.spin(node)
+#     except KeyboardInterrupt:
+#         pass
+#     node.destroy_node()
+#     rclpy.shutdown()
+
+# if __name__ == '__main__':
+#     main()

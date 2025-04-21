@@ -1,0 +1,5 @@
+  File "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/path_dqn.py", line 1507
+    conflict = self.find_conflict(self.current_path、 grid2d、 info_local)
+                                                   ^
+SyntaxError: invalid character '、' (U+3001)
+
