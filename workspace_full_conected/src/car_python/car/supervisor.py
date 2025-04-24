@@ -7,7 +7,7 @@ from std_msgs.msg import Bool
 import subprocess
 import os
 import signal
-from rclpy.qos import QoSProfile, DurabilityPolicy
+from rclpy.qos import QoSProfile, DurabilityPolicy, ReliabilityPolicy
 
 class SupervisorNode(Node):
     def __init__(self):
@@ -35,6 +35,7 @@ class SupervisorNode(Node):
 
         qos_profile = QoSProfile(
             depth=1,
+            reliability=ReliabilityPolicy.RELIABLE,
             durability=DurabilityPolicy.TRANSIENT_LOCAL
             )
 
