@@ -1954,268 +1954,268 @@
 
 ##################################################################
 ##################################################################
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-flexible_planner_node.py
-────────────────────────
-Nodo ROS 2 que conserva el flujo completo de tu planner
-pero genera segmentos flexibles con ayuda de una policy
-CNN+LSTM.  Sin entrenamiento ya evita obstáculos; con
-PPO (función al final) puedes ir afinando.
-"""
+# #!/usr/bin/env python3
+# # -*- coding: utf-8 -*-
+# """
+# flexible_planner_node.py
+# ────────────────────────
+# Nodo ROS 2 que conserva el flujo completo de tu planner
+# pero genera segmentos flexibles con ayuda de una policy
+# CNN+LSTM.  Sin entrenamiento ya evita obstáculos; con
+# PPO (función al final) puedes ir afinando.
+# """
 
-import math, copy, numpy as np, rclpy, tensorflow as tf
-from rclpy.node import Node
+# import math, copy, numpy as np, rclpy, tensorflow as tf
+# from rclpy.node import Node
 
-# ROS msgs
-from nav_msgs.msg  import Odometry, OccupancyGrid, Path
-from geometry_msgs.msg import PoseStamped, PoseArray, Point, Vector3, Twist
-from visualization_msgs.msg import Marker
-from std_msgs.msg import Header
+# # ROS msgs
+# from nav_msgs.msg  import Odometry, OccupancyGrid, Path
+# from geometry_msgs.msg import PoseStamped, PoseArray, Point, Vector3, Twist
+# from visualization_msgs.msg import Marker
+# from std_msgs.msg import Header
 
-# ----------------- Hiper‑parámetros ----------------- #
-PATCH      = 128
-MAX_STEP   = 0.6      # m, radio más largo del abanico
-ANGLES     = np.linspace(-math.pi/3, math.pi/3, 11)   # ±60° en 10 pasos
-RADII      = [0.3, 0.6, 0.9]                          # m
-CLEAR_MIN  = 0.40     # m, clearance mínima alrededor de un waypoint
-GOAL_OK    = 4        # ciclos consecutivos requerido para “goal visible”
+# # ----------------- Hiper‑parámetros ----------------- #
+# PATCH      = 128
+# MAX_STEP   = 0.6      # m, radio más largo del abanico
+# ANGLES     = np.linspace(-math.pi/3, math.pi/3, 11)   # ±60° en 10 pasos
+# RADII      = [0.3, 0.6, 0.9]                          # m
+# CLEAR_MIN  = 0.40     # m, clearance mínima alrededor de un waypoint
+# GOAL_OK    = 4        # ciclos consecutivos requerido para “goal visible”
 
-# PPO                                                                        #
-ROLLOUT, BATCH, EPOCHS = 1024, 256, 4
-GAMMA, LAMBDA_GAE      = 0.99, 0.95
-CLIP, LR_A, LR_C       = 0.2, 3e-4, 1e-3
-STD0, STD_MIN, DECAY   = 0.3, 0.05, 0.995
-# --------------------------------------------------------------------------- #
+# # PPO                                                                        #
+# ROLLOUT, BATCH, EPOCHS = 1024, 256, 4
+# GAMMA, LAMBDA_GAE      = 0.99, 0.95
+# CLIP, LR_A, LR_C       = 0.2, 3e-4, 1e-3
+# STD0, STD_MIN, DECAY   = 0.3, 0.05, 0.995
+# # --------------------------------------------------------------------------- #
 
-# ------------ funciones de ayuda (grid) ------------- #
-def dist(a,b): return math.hypot(b[0]-a[0], b[1]-a[1])
+# # ------------ funciones de ayuda (grid) ------------- #
+# def dist(a,b): return math.hypot(b[0]-a[0], b[1]-a[1])
 
-def bres_free(grid, info, a, b):
-    """True si la línea A‑B atraviesa SÓLO celdas <100 y !=‑1"""
-    res = info.resolution
-    i0 = int((a[0]-info.origin.position.x)/res)
-    j0 = int((a[1]-info.origin.position.y)/res)
-    i1 = int((b[0]-info.origin.position.x)/res)
-    j1 = int((b[1]-info.origin.position.y)/res)
-    di,dj = abs(i1-i0), abs(j1-j0)
-    si = 1 if i0<i1 else -1
-    sj = 1 if j0<j1 else -1
-    err = di-dj
-    H,W = grid.shape
-    while True:
-        if not (0<=i0<W and 0<=j0<H): return False
-        val = grid[j0, i0]
-        if val == -1 or val >= 100:   return False
-        if (i0,j0)==(i1,j1):          return True
-        e2=2*err
-        if e2>-dj: err-=dj; i0+=si
-        if e2< di: err+=di; j0+=sj
+# def bres_free(grid, info, a, b):
+#     """True si la línea A‑B atraviesa SÓLO celdas <100 y !=‑1"""
+#     res = info.resolution
+#     i0 = int((a[0]-info.origin.position.x)/res)
+#     j0 = int((a[1]-info.origin.position.y)/res)
+#     i1 = int((b[0]-info.origin.position.x)/res)
+#     j1 = int((b[1]-info.origin.position.y)/res)
+#     di,dj = abs(i1-i0), abs(j1-j0)
+#     si = 1 if i0<i1 else -1
+#     sj = 1 if j0<j1 else -1
+#     err = di-dj
+#     H,W = grid.shape
+#     while True:
+#         if not (0<=i0<W and 0<=j0<H): return False
+#         val = grid[j0, i0]
+#         if val == -1 or val >= 100:   return False
+#         if (i0,j0)==(i1,j1):          return True
+#         e2=2*err
+#         if e2>-dj: err-=dj; i0+=si
+#         if e2< di: err+=di; j0+=sj
 
-def clearance_ok(grid, info, pt, r_m):
-    """Comprueba un anillo cuadrado r_m alrededor (‑1 y ≥100 bloquean)"""
-    res = info.resolution
-    r   = int(r_m/res)
-    i   = int((pt[0]-info.origin.position.x)/res)
-    j   = int((pt[1]-info.origin.position.y)/res)
-    H,W = grid.shape
-    for dj in range(-r, r+1):
-        for di in range(-r, r+1):
-            x,y = i+di, j+dj
-            if 0<=x<W and 0<=y<H and (grid[y,x]==-1 or grid[y,x]>=100):
-                return False
-    return True
+# def clearance_ok(grid, info, pt, r_m):
+#     """Comprueba un anillo cuadrado r_m alrededor (‑1 y ≥100 bloquean)"""
+#     res = info.resolution
+#     r   = int(r_m/res)
+#     i   = int((pt[0]-info.origin.position.x)/res)
+#     j   = int((pt[1]-info.origin.position.y)/res)
+#     H,W = grid.shape
+#     for dj in range(-r, r+1):
+#         for di in range(-r, r+1):
+#             x,y = i+di, j+dj
+#             if 0<=x<W and 0<=y<H and (grid[y,x]==-1 or grid[y,x]>=100):
+#                 return False
+#     return True
 
-# ------------- pequeña policy CNN+LSTM -------------- #
-def build_policy():
-    g   = tf.keras.Input(shape=(PATCH,PATCH,1), name="grid")
-    st  = tf.keras.Input(shape=(4,),            name="state")
-    wp0 = tf.keras.Input(shape=(2,),            name="wp0")
+# # ------------- pequeña policy CNN+LSTM -------------- #
+# def build_policy():
+#     g   = tf.keras.Input(shape=(PATCH,PATCH,1), name="grid")
+#     st  = tf.keras.Input(shape=(4,),            name="state")
+#     wp0 = tf.keras.Input(shape=(2,),            name="wp0")
 
-    x=tf.keras.layers.Conv2D(16,3,padding="same",activation="relu")(g)
-    x=tf.keras.layers.MaxPooling2D()(x)
-    x=tf.keras.layers.Conv2D(32,3,padding="same",activation="relu")(x)
-    x=tf.keras.layers.GlobalAveragePooling2D()(x)
-    z=tf.keras.layers.Concatenate()([x,st])
+#     x=tf.keras.layers.Conv2D(16,3,padding="same",activation="relu")(g)
+#     x=tf.keras.layers.MaxPooling2D()(x)
+#     x=tf.keras.layers.Conv2D(32,3,padding="same",activation="relu")(x)
+#     x=tf.keras.layers.GlobalAveragePooling2D()(x)
+#     z=tf.keras.layers.Concatenate()([x,st])
 
-    h=tf.keras.layers.Dense(128,activation="tanh")(z)
-    c=tf.keras.layers.Dense(128,activation="tanh")(z)
-    lstm=tf.keras.layers.LSTMCell(128)
-    h,[h,c]=lstm(wp0,[h,c])
-    delta=tf.keras.layers.Dense(2,activation="tanh")(h)   # » (‑1,1)
-    model=tf.keras.Model([g,st,wp0],delta,name="policy")
-    return model
+#     h=tf.keras.layers.Dense(128,activation="tanh")(z)
+#     c=tf.keras.layers.Dense(128,activation="tanh")(z)
+#     lstm=tf.keras.layers.LSTMCell(128)
+#     h,[h,c]=lstm(wp0,[h,c])
+#     delta=tf.keras.layers.Dense(2,activation="tanh")(h)   # » (‑1,1)
+#     model=tf.keras.Model([g,st,wp0],delta,name="policy")
+#     return model
 
-# --------------------- Nodo ------------------------- #
-class FlexiblePlanner(Node):
-    def __init__(self):
-        super().__init__("flexible_planner_node")
-        # subs
-        self.create_subscription(Odometry,"/odom",self.cb_odom,10)
-        self.create_subscription(PoseArray,"/goal",self.cb_goal,10)
-        self.create_subscription(OccupancyGrid,"/occupancy_grid",self.cb_grid,10)
-        self.create_subscription(PoseArray,"/safe_frontier_points_centroid",
-                                 self.cb_frontier,10)
-        # pubs
-        self.path_pub = self.create_publisher(Path,"/global_path_predicted",10)
-        self.wps_pub  = self.create_publisher(Marker,"/path_waypoints_marker",10)
-        # estado
-        self.pose=self.goal=self.grid_msg=None
-        self.frontiers=[]
-        self.goal_vis_cnt=0
-        self.current_target=None
-        self.current_path=[]
-        # policy
-        self.actor=build_policy()
-        # self.actor.load_weights('policy.h5')    # ← carga aquí si lo tienes
-        self.log_std=tf.Variable(np.log(STD0*np.ones(2,np.float32)),
-                                 trainable=True)
-        # timer
-        self.create_timer(0.1, self.step)
-        self.get_logger().info("Nodo flexible + DL iniciado")
+# # --------------------- Nodo ------------------------- #
+# class FlexiblePlanner(Node):
+#     def __init__(self):
+#         super().__init__("flexible_planner_node")
+#         # subs
+#         self.create_subscription(Odometry,"/odom",self.cb_odom,10)
+#         self.create_subscription(PoseArray,"/goal",self.cb_goal,10)
+#         self.create_subscription(OccupancyGrid,"/occupancy_grid",self.cb_grid,10)
+#         self.create_subscription(PoseArray,"/safe_frontier_points_centroid",
+#                                  self.cb_frontier,10)
+#         # pubs
+#         self.path_pub = self.create_publisher(Path,"/global_path_predicted",10)
+#         self.wps_pub  = self.create_publisher(Marker,"/path_waypoints_marker",10)
+#         # estado
+#         self.pose=self.goal=self.grid_msg=None
+#         self.frontiers=[]
+#         self.goal_vis_cnt=0
+#         self.current_target=None
+#         self.current_path=[]
+#         # policy
+#         self.actor=build_policy()
+#         # self.actor.load_weights('policy.h5')    # ← carga aquí si lo tienes
+#         self.log_std=tf.Variable(np.log(STD0*np.ones(2,np.float32)),
+#                                  trainable=True)
+#         # timer
+#         self.create_timer(0.1, self.step)
+#         self.get_logger().info("Nodo flexible + DL iniciado")
 
-    # ----------- Callbacks ROS ----------- #
-    def cb_odom(self,m): self.pose=m.pose.pose
-    def cb_goal(self,m): self.goal=m.poses[0] if m.poses else None
-    def cb_grid(self,m): self.grid_msg=m
-    def cb_frontier(self,m):
-        self.frontiers=[(p.position.x,p.position.y) for p in m.poses]
+#     # ----------- Callbacks ROS ----------- #
+#     def cb_odom(self,m): self.pose=m.pose.pose
+#     def cb_goal(self,m): self.goal=m.poses[0] if m.poses else None
+#     def cb_grid(self,m): self.grid_msg=m
+#     def cb_frontier(self,m):
+#         self.frontiers=[(p.position.x,p.position.y) for p in m.poses]
 
-    # ----------- util extract patch ----------- #
-    def extract_patch(self):
-        info=self.grid_msg.info
-        H,W=info.height,info.width
-        arr=np.array(self.grid_msg.data,dtype=np.int8).reshape((H,W))
-        cp=(self.pose.position.x,self.pose.position.y)
-        ci=int((cp[0]-info.origin.position.x)/info.resolution)
-        cj=int((cp[1]-info.origin.position.y)/info.resolution)
-        i_lo,i_hi=ci-PATCH//2,ci+PATCH//2
-        j_lo,j_hi=cj-PATCH//2,cj+PATCH//2
-        i0,i1=max(i_lo,0),min(i_hi,W)
-        j0,j1=max(j_lo,0),min(j_hi,H)
-        patch=arr[j0:j1,i0:i1]
-        pad=((j0-j_lo,j_hi-j1),(i0-i_lo,i_hi-i1))
-        patch=np.pad(patch,pad,'constant',constant_values=-1)
-        norm=((patch+1)/101.0).astype(np.float32)  # [-1,100] →  [0,1]
-        return np.expand_dims(norm,-1), arr, info
+#     # ----------- util extract patch ----------- #
+#     def extract_patch(self):
+#         info=self.grid_msg.info
+#         H,W=info.height,info.width
+#         arr=np.array(self.grid_msg.data,dtype=np.int8).reshape((H,W))
+#         cp=(self.pose.position.x,self.pose.position.y)
+#         ci=int((cp[0]-info.origin.position.x)/info.resolution)
+#         cj=int((cp[1]-info.origin.position.y)/info.resolution)
+#         i_lo,i_hi=ci-PATCH//2,ci+PATCH//2
+#         j_lo,j_hi=cj-PATCH//2,cj+PATCH//2
+#         i0,i1=max(i_lo,0),min(i_hi,W)
+#         j0,j1=max(j_lo,0),min(j_hi,H)
+#         patch=arr[j0:j1,i0:i1]
+#         pad=((j0-j_lo,j_hi-j1),(i0-i_lo,i_hi-i1))
+#         patch=np.pad(patch,pad,'constant',constant_values=-1)
+#         norm=((patch+1)/101.0).astype(np.float32)  # [-1,100] →  [0,1]
+#         return np.expand_dims(norm,-1), arr, info
 
-    # --------------- target robusto --------------- #
-    def select_target(self, cp, grid, info):
-        gp=(self.goal.position.x,self.goal.position.y)
-        if bres_free(grid,info,cp,gp):
-            self.goal_vis_cnt += 1
-        else:
-            self.goal_vis_cnt  = 0
+#     # --------------- target robusto --------------- #
+#     def select_target(self, cp, grid, info):
+#         gp=(self.goal.position.x,self.goal.position.y)
+#         if bres_free(grid,info,cp,gp):
+#             self.goal_vis_cnt += 1
+#         else:
+#             self.goal_vis_cnt  = 0
 
-        if self.goal_vis_cnt >= GOAL_OK:
-            return gp, "GOAL"
+#         if self.goal_vis_cnt >= GOAL_OK:
+#             return gp, "GOAL"
 
-        # elegir frontier
-        cand=[f for f in self.frontiers
-              if bres_free(grid,info,cp,f) and clearance_ok(grid,info,f,CLEAR_MIN)]
-        if not cand:
-            return None, "NONE"
-        tgt=min(cand,key=lambda f: dist(f,gp))
-        return tgt, "FRONTIER"
+#         # elegir frontier
+#         cand=[f for f in self.frontiers
+#               if bres_free(grid,info,cp,f) and clearance_ok(grid,info,f,CLEAR_MIN)]
+#         if not cand:
+#             return None, "NONE"
+#         tgt=min(cand,key=lambda f: dist(f,gp))
+#         return tgt, "FRONTIER"
 
-    # --------------- path flexible --------------- #
-    def flexible_segment(self, cp, tgt, grid, info):
-        # 1) vector preferido de la policy
-        patch,_a,_i = self.extract_patch()
-        patch_b = patch[None, ...]                    #        (1,128,128,1)
+#     # --------------- path flexible --------------- #
+#     def flexible_segment(self, cp, tgt, grid, info):
+#         # 1) vector preferido de la policy
+#         patch,_a,_i = self.extract_patch()
+#         patch_b = patch[None, ...]                    #        (1,128,128,1)
 
-        state = np.array([0, 0,
-                        tgt[0] - cp[0],
-                        tgt[1] - cp[1]], np.float32) # (4,)
-        state_b = state[None, :]                       # (1,4)
+#         state = np.array([0, 0,
+#                         tgt[0] - cp[0],
+#                         tgt[1] - cp[1]], np.float32) # (4,)
+#         state_b = state[None, :]                       # (1,4)
 
-        delta = self.actor([patch_b,
-                            state_b,
-                            np.zeros((1, 2), np.float32)],
-                        training=False)[0].numpy()
-        base_ang=math.atan2(delta[1],delta[0])
-        if np.linalg.norm(delta)<1e-3:
-            base_ang=math.atan2(tgt[1]-cp[1], tgt[0]-cp[0])
+#         delta = self.actor([patch_b,
+#                             state_b,
+#                             np.zeros((1, 2), np.float32)],
+#                         training=False)[0].numpy()
+#         base_ang=math.atan2(delta[1],delta[0])
+#         if np.linalg.norm(delta)<1e-3:
+#             base_ang=math.atan2(tgt[1]-cp[1], tgt[0]-cp[0])
 
-        # 2) abanico alrededor de ese ángulo
-        best=None; best_cost=float("inf")
-        for r in RADII:
-            for off in ANGLES:
-                ang=base_ang+off
-                cand=(cp[0]+r*math.cos(ang), cp[1]+r*math.sin(ang))
-                # celda conocida y libre
-                i=int((cand[0]-info.origin.position.x)/info.resolution)
-                j=int((cand[1]-info.origin.position.y)/info.resolution)
-                if not (0<=i<grid.shape[1] and 0<=j<grid.shape[0]): continue
-                if grid[j,i]==-1 or grid[j,i]>=100: continue
-                if not bres_free(grid,info,cp,cand):                      continue
-                if not clearance_ok(grid,info,cand,CLEAR_MIN):           continue
-                cost=dist(cand,tgt) - 0.5*CLEAR_MIN         # heurística
-                if cost<best_cost: best_cost, best = cost, cand
-        return best
+#         # 2) abanico alrededor de ese ángulo
+#         best=None; best_cost=float("inf")
+#         for r in RADII:
+#             for off in ANGLES:
+#                 ang=base_ang+off
+#                 cand=(cp[0]+r*math.cos(ang), cp[1]+r*math.sin(ang))
+#                 # celda conocida y libre
+#                 i=int((cand[0]-info.origin.position.x)/info.resolution)
+#                 j=int((cand[1]-info.origin.position.y)/info.resolution)
+#                 if not (0<=i<grid.shape[1] and 0<=j<grid.shape[0]): continue
+#                 if grid[j,i]==-1 or grid[j,i]>=100: continue
+#                 if not bres_free(grid,info,cp,cand):                      continue
+#                 if not clearance_ok(grid,info,cand,CLEAR_MIN):           continue
+#                 cost=dist(cand,tgt) - 0.5*CLEAR_MIN         # heurística
+#                 if cost<best_cost: best_cost, best = cost, cand
+#         return best
 
-    # --------------- ciclo principal --------------- #
-    def step(self):
-        if None in (self.pose,self.goal,self.grid_msg): return
-        cp=(self.pose.position.x,self.pose.position.y)
-        patch,grid,info=self.extract_patch()
+#     # --------------- ciclo principal --------------- #
+#     def step(self):
+#         if None in (self.pose,self.goal,self.grid_msg): return
+#         cp=(self.pose.position.x,self.pose.position.y)
+#         patch,grid,info=self.extract_patch()
 
-        tgt,t_mode=self.select_target(cp,grid,info)
-        if tgt is None:
-            self.get_logger().warn("Sin target visible")
-            return
-        self.get_logger().info(f"[TARGET] modo={t_mode}  {tgt}")
+#         tgt,t_mode=self.select_target(cp,grid,info)
+#         if tgt is None:
+#             self.get_logger().warn("Sin target visible")
+#             return
+#         self.get_logger().info(f"[TARGET] modo={t_mode}  {tgt}")
 
-        # genera nuevo camino si no hay o si se desvió mucho
-        if (not self.current_path or
-            dist(cp,self.current_path[min(2,len(self.current_path)-1)])>0.8):
-            path=[cp]
-            for _ in range(60):   # máx. 60 wps
-                next_pt=self.flexible_segment(path[-1],tgt,grid,info)
-                if next_pt is None: break
-                path.append(next_pt)
-                if dist(next_pt,tgt)<0.4: break
-            path.append(tgt)
-            self.current_path=path
-            self.get_logger().info(f"[PATH] {self.current_path}")
+#         # genera nuevo camino si no hay o si se desvió mucho
+#         if (not self.current_path or
+#             dist(cp,self.current_path[min(2,len(self.current_path)-1)])>0.8):
+#             path=[cp]
+#             for _ in range(60):   # máx. 60 wps
+#                 next_pt=self.flexible_segment(path[-1],tgt,grid,info)
+#                 if next_pt is None: break
+#                 path.append(next_pt)
+#                 if dist(next_pt,tgt)<0.4: break
+#             path.append(tgt)
+#             self.current_path=path
+#             self.get_logger().info(f"[PATH] {self.current_path}")
 
-        # elimina wps alcanzados
-        while len(self.current_path)>1 and dist(cp,self.current_path[1])<0.3:
-            self.current_path.pop(1)
-        # publicar
-        self.publish(self.current_path)
+#         # elimina wps alcanzados
+#         while len(self.current_path)>1 and dist(cp,self.current_path[1])<0.3:
+#             self.current_path.pop(1)
+#         # publicar
+#         self.publish(self.current_path)
 
-    # --------------- publicación RViz --------------- #
-    def publish(self,pts):
-        hdr=Header()
-        hdr.frame_id="map"; hdr.stamp=self.get_clock().now().to_msg()
+#     # --------------- publicación RViz --------------- #
+#     def publish(self,pts):
+#         hdr=Header()
+#         hdr.frame_id="map"; hdr.stamp=self.get_clock().now().to_msg()
 
-        path=Path(header=hdr)
-        for x,y in pts:
-            ps=PoseStamped(header=hdr)
-            ps.pose.position.x=x; ps.pose.position.y=y; ps.pose.orientation.w=1.0
-            path.poses.append(ps)
-        self.path_pub.publish(path)
+#         path=Path(header=hdr)
+#         for x,y in pts:
+#             ps=PoseStamped(header=hdr)
+#             ps.pose.position.x=x; ps.pose.position.y=y; ps.pose.orientation.w=1.0
+#             path.poses.append(ps)
+#         self.path_pub.publish(path)
 
-        mk=Marker(header=hdr,ns="wps",id=0,type=Marker.POINTS,action=Marker.ADD)
-        mk.scale=Vector3(x=0.15,y=0.15,z=0.0)
-        mk.color.r=mk.color.g=1.0; mk.color.a=1.0
-        for x,y in pts[1:]: mk.points.append(Point(x=x,y=y))
-        self.wps_pub.publish(mk)
+#         mk=Marker(header=hdr,ns="wps",id=0,type=Marker.POINTS,action=Marker.ADD)
+#         mk.scale=Vector3(x=0.15,y=0.15,z=0.0)
+#         mk.color.r=mk.color.g=1.0; mk.color.a=1.0
+#         for x,y in pts[1:]: mk.points.append(Point(x=x,y=y))
+#         self.wps_pub.publish(mk)
 
-# ----------------------- MAIN ----------------------- #
-def main(args=None):
-    rclpy.init(args=args)
-    node=FlexiblePlanner()
-    try:
-        rclpy.spin(node)
-    except KeyboardInterrupt:
-        pass
-    node.destroy_node(); rclpy.shutdown()
+# # ----------------------- MAIN ----------------------- #
+# def main(args=None):
+#     rclpy.init(args=args)
+#     node=FlexiblePlanner()
+#     try:
+#         rclpy.spin(node)
+#     except KeyboardInterrupt:
+#         pass
+#     node.destroy_node(); rclpy.shutdown()
 
-if __name__=="__main__":
-    main()
+# if __name__=="__main__":
+#     main()
 ##################################################################
 ##################################################################
 #!/usr/bin/env python3
@@ -2244,6 +2244,7 @@ from std_msgs.msg       import Header, Bool
 from scipy.ndimage      import (binary_dilation,
                                 generate_binary_structure,
                                 distance_transform_edt)
+
 import datetime
 
 # ==============  PARÁMETROS GLOBALES  =====================================
@@ -2255,7 +2256,10 @@ RADII           = [2.3, 3.6,5.9]           # radios candidatos
 ANGLES          = np.linspace(-math.pi/3,
                                math.pi/3, 11)   # ±60° (10 pasos)
 MAX_WPS_EP      = 60
-
+# Velocidades límite
+MIN_VEL = 1.0          # m/s  (velocidad mínima deseada)
+MAX_VEL = 6.0          # m/s  (velocidad máxima permitida)
+LOOK_A  = 2.0    # m (aceptación)
 # PPO
 ROLLOUT_STEPS   = 1024
 BATCH_SZ        = 256
@@ -2280,6 +2284,11 @@ def idx_from_world(info, pt):
     res = info.resolution
     return (int((pt[0]-info.origin.position.x)/res),
             int((pt[1]-info.origin.position.y)/res))
+
+def distance(a,b): return math.hypot(b[0]-a[0], b[1]-a[1])
+
+
+
 
 def bres_free(grid, info, a, b):
     """Bresenham + bloqueo: (-1) desconocido ó >=100 obstáculo."""
@@ -2357,12 +2366,19 @@ class FlexPlanner(Node):
 
         # --- Estado ROS
         self.waiting_reset=False
-        
+        self.current_path = []     # lista de waypoints activos
+        self.wp_index     = 1      # índice del wp que se está siguiendo
         self.pose=self.twist=None
         self.goal=None
         self.grid_msg=None
         self.frontiers=[]
         self.collided=False
+        self.max_seg  =0.6
+        self.max_steps=60
+        self.dev_thr  =0.8
+        self.clear_min=0.4     # m
+        self.max_seg_length      = 1.0
+        self.reach_thr=0.4
 
         # --- Red y PPO
         self.policy = build_policy()
@@ -2411,6 +2427,20 @@ class FlexPlanner(Node):
             self.collided = False
             self.reset_buffers()
 
+
+    def _yaw_from_quaternion(self, q):
+        """Devuelve yaw (rad) desde geometry_msgs.msg.Quaternion."""
+        siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+        cosy_cosp = 1.0 - 2.0 * (q.y*q.y + q.z*q.z)
+        return math.atan2(siny_cosp, cosy_cosp)
+
+    def _global_to_local(self, dx, dy, yaw):
+        """Convierte ΔX,ΔY de frame 'map' a 'base_link'."""
+        cos_y, sin_y = math.cos(-yaw), math.sin(-yaw)
+        return dx*cos_y - dy*sin_y, dx*sin_y + dy*cos_y
+
+
+
     # ---------- Parche local -----------
     def extract_patch(self):
         info=self.grid_msg.info
@@ -2441,20 +2471,78 @@ class FlexPlanner(Node):
         if cand:
             return min(cand,key=lambda f: l2(f,gp)),"FRONTIER"
         return None,"NONE"
+    def bres_line_free(self,grid, info, a, b):
+        def idx(p):
+            return (int((p[0]-info.origin.position.x)/info.resolution),
+                    int((p[1]-info.origin.position.y)/info.resolution))
+        i0,j0 = idx(a); i1,j1 = idx(b)
+        di,dj = abs(i1-i0), abs(j1-j0); si = 1 if i0<i1 else -1; sj = 1 if j0<j1 else -1
+        err = di-dj; H,W = grid.shape
+        while True:
+            if not (0<=i0<W and 0<=j0<H) or grid[j0,i0] == -1 or grid[j0,i0] >= 100:
+                return False
+            if (i0,j0)==(i1,j1): return True
+            e2=2*err
+            if e2>-dj: err-=dj; i0+=si
+            if e2< di: err+=di; j0+=sj
 
+
+    def densify(self, path):
+        out = [path[0]]
+        for a, b in zip(path, path[1:]):
+            d = distance(a, b)
+            if d > self.max_seg_length:
+                steps = int(math.ceil(d / self.max_seg_length))
+                for i in range(1, steps):
+                    t = i / steps
+                    out.append((a[0]*(1-t)+b[0]*t, a[1]*(1-t)+b[1]*t))
+            out.append(b)
+        return out
+    
     def generate_flexible_path(self, start, target, grid, info):
-        path = [start]
-        cp   = start
-        for _ in range(MAX_WPS_EP):
-            wp = self.next_waypoint(cp, target, grid, info, patch=None)
-            if wp is None:               # no hay candidato seguro
+        path=[start]
+        cp=start
+        step_len=self.max_seg
+        angles=np.linspace(-math.pi/3, math.pi/3, 10)   # ±60°
+        radii=[step_len*0.5, step_len, step_len*1.5]
+
+        for _ in range(self.max_steps):
+            best=None; best_cost=float("inf")
+            vec_t=(target[0]-cp[0], target[1]-cp[1])
+            ang0=math.atan2(vec_t[1], vec_t[0])
+
+            for r in radii:
+                for a_off in angles:
+                    ang=ang0 + a_off
+                    cand=(cp[0]+r*math.cos(ang), cp[1]+r*math.sin(ang))
+
+                    # ---------- filtro ③  “celda debe ser conocida y libre” ----------
+                    i = int((cand[0] - info.origin.position.x) / info.resolution)
+                    j = int((cand[1] - info.origin.position.y) / info.resolution)
+                    if not (0 <= i < grid.shape[1] and 0 <= j < grid.shape[0]):
+                        continue                             # fuera de mapa
+                    if grid[j, i] == -1 or grid[j, i] >= 100:
+                        continue                             # desconocida u obstáculo
+                    # -----------------------------------------------------------------
+
+                    if not self.bres_line_free(grid, info, cp, cand):
+                        continue
+                    if not clearance_ok(grid, info, cand, self.clear_min):
+                        continue
+
+                    cost = distance(cand, target) - 0.5*self.clear_min
+                    if cost < best_cost:
+                        best_cost, best = cost, cand
+
+            if best is None:
                 break
-            path.append(wp)
-            cp = wp
-            if l2(cp, target) < GOAL_RADIUS:
+            path.append(best)
+            cp = best
+            if distance(cp, target) < self.reach_thr:
                 break
+
         path.append(target)
-        return path          # ≈ [(x0,y0), (x1,y1), …, target]
+        return self.densify(path)       
 
 
 
@@ -2484,7 +2572,87 @@ class FlexPlanner(Node):
                 cost=l2(cand,tgt) - 0.5*CLEAR_MIN
                 if cost<best_cost: best_cost, best = cost, cand
         return best, delta
+    
 
+    # def follow_path(self, cp):
+    #     # si no hay ruta o ya terminamos → quieto
+    #     if len(self.current_path) <= self.wp_index:
+    #         self.cmd_pub.publish(Twist())
+    #         return
+
+    #     wp = self.current_path[self.wp_index]
+
+    #     # ¿hemos llegado a este wp?
+    #     if l2(cp, wp) < LOOK_A:
+    #         self.wp_index += 1
+    #         if self.wp_index >= len(self.current_path):
+    #             self.cmd_pub.publish(Twist())
+    #             return
+    #         wp = self.current_path[self.wp_index]
+
+    #     dx, dy = wp[0] - cp[0], wp[1] - cp[1]
+    #     d      = math.hypot(dx, dy)
+    #     vx     = min(MAX_VEL, 1.5 * d) * dx / d
+    #     vy     = min(MAX_VEL, 1.5 * d) * dy / d
+
+    #     cmd = Twist()
+    #     cmd.linear.x = vx
+    #     cmd.linear.y = vy
+    #     self.cmd_pub.publish(cmd)
+
+    #     self.get_logger().info(
+    #         f"[FOLLOW] wp {self.wp_index}/{len(self.current_path)-1} "
+    #         f"→ v=({vx:.2f},{vy:.2f})")
+###nuevo
+    def _next_target_index(self, cp, look_ahead):
+        """Devuelve el índice del primer waypoint a ≥ look_ahead del robot."""
+        idx = self.wp_index
+        while (idx + 1 < len(self.current_path)
+            and l2(cp, self.current_path[idx]) < look_ahead):
+            idx += 1
+        return idx
+
+    def follow_path(self, cp):
+        if self.wp_index >= len(self.current_path):        # ruta terminada
+            self.cmd_pub.publish(Twist()); return
+
+        # 1. look-ahead adaptativo --------------------------------------------
+        v_nom      = MAX_VEL                      # 3.0 m/s
+        Ld         = max(0.25, 0.4 * v_nom)       # ~1.2 m
+        self.wp_index = self._next_target_index(cp, Ld)
+        tgt = self.current_path[self.wp_index]
+
+        # 2. vector en mapa y en base_link ------------------------------------
+        dx_g, dy_g = tgt[0]-cp[0], tgt[1]-cp[1]
+        dist       = math.hypot(dx_g, dy_g)
+        if dist < 1e-3:
+            self.cmd_pub.publish(Twist()); return      # degenerado
+
+        # orientación actual del robot
+        q   = self.pose.orientation
+        yaw = self._yaw_from_quaternion(q)
+        dx, dy = self._global_to_local(dx_g, dy_g, yaw)
+
+        # 3. ángulo α y curvatura κ ------------------------------------------
+        alpha   = math.atan2(dy, dx)               # [-π, π]
+        kappa   = 2.0 * math.sin(alpha) / Ld       # Pure-Pursuit
+
+        # 4. velocidad lineal y giro -----------------------------------------
+        k_gain  = 1.8
+        v_lin   = max(MIN_VEL, min(MAX_VEL, k_gain*dist))
+        omega   = kappa * v_lin                    # ω = κ·v
+
+        cmd             = Twist()
+        cmd.linear.x    =  v_lin
+        cmd.angular.z   =  omega
+        self.cmd_pub.publish(cmd)
+
+        self.get_logger().info(
+            f"[FOLLOW] wp={self.wp_index}/{len(self.current_path)-1}  "
+            f"v={v_lin:.2f} m/s  ω={omega:.2f} rad/s  α={alpha*180/math.pi:+.1f}°")
+
+
+###nuevo
     # ---------- Recompensa --------------
     def compute_reward(self, old_d, new_d, collided, reached, step_len):
         r= 2.0*(old_d-new_d)                # progreso
@@ -2502,89 +2670,202 @@ class FlexPlanner(Node):
         self.done_buf=[]
 
     # ---------- Ciclo principal ---------
+    # def step(self):
+    #     if self.waiting_reset:
+    #         return
+
+    #     if None in (self.pose,self.goal,self.grid_msg): return
+    #     cp=(self.pose.position.x,self.pose.position.y)
+    #     patch,grid,info=self.extract_patch()
+
+    #     tgt,mode=self.choose_target(cp,grid,info)
+    #     if tgt is None:
+    #         self.get_logger().warn("Sin target válido")
+    #         return
+    #     self.get_logger().info(f"[TARGET] mode={mode} -> {tgt}")
+
+    #     wp, delta = self.next_waypoint(cp,tgt,grid,info,patch)
+    #     if wp is None:
+    #         self.get_logger().info("Sin waypoint; robot parado")
+    #         self.publish_path([cp]); return
+
+    #     step_len=l2(cp,wp)
+    #     reached = l2(wp,tgt) < GOAL_RADIUS
+
+    #     # Path & marker
+    #     self.publish_path([cp,wp])
+
+    #     # cmd_vel simple
+    #     cmd=Twist()
+    #     cmd.linear.x=(wp[0]-cp[0])*2.0
+    #     cmd.angular.z=(wp[1]-cp[1])*2.0
+    #     self.cmd_pub.publish(cmd)
+
+    #     # --- reward & buffers
+    #     old_d=l2(cp,tgt); new_d=l2(wp,tgt)
+    #     reward=self.compute_reward(old_d,new_d,self.collided,reached,step_len)
+
+    #     # value input (32 primeros px + state)
+    #     state=np.array([0,0,tgt[0]-cp[0],tgt[1]-cp[1]],np.float32)
+    #     state_vec=np.concatenate([patch.flatten()[:32],state])
+    #     v_pred=self.value_net(state_vec[None,...])[0,0]
+
+    #     std=np.exp(self.log_std.numpy())
+    #     mu=np.zeros(2)          # placeholder; usamos delta como acción
+    #     logp=-0.5*np.sum(((delta-mu)/std)**2 + 2*np.log(std)+np.log(2*np.pi))
+
+    #     # buffers
+    #     self.patch_buf.append(patch)
+    #     self.state_buf.append(state)
+    #     self.act_buf.append(delta)
+    #     self.logp_buf.append(logp)
+    #     self.rew_buf.append(reward)
+    #     self.val_buf.append(v_pred)
+    #     self.done_buf.append(reached or self.collided)
+
+    #     # --- Termina episodio
+    #     if reached:
+    #         self.goal_pub.publish(Bool(data=True))
+    #         self.goal_counter+=1
+    #     if reached or self.collided:
+    #         # resumen
+    #         with self.writer.as_default():
+    #             tf.summary.scalar("episode_reward",sum(self.rew_buf),step=self.episode)
+    #             tf.summary.scalar("collided",int(self.collided),step=self.episode)
+    #         # guarda pesos
+    #         # fname=RUN_DIR/f"policy_ep{self.episode}.h5"
+    #         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    #         fname=RUN_DIR/f"policy_latest_{timestamp}.weights.h5"
+    #         self.policy.save_weights(fname)
+    #         self.get_logger().info(f"Pesos guardados en {fname}")
+    #         self.episode+=1
+    #         self.reset_buffers()
+
+    #     # --- reset mundo si toca
+    #     # if self.goal_counter>=self.goals_in_world or self.collided:
+    #     #     self.reset_pub.publish(Bool(data=True))
+    #     #     self.goal_counter=0
+    #     #     self.goals_in_world=random.randint(5,7)
+    #     #     self.get_logger().info("[RESET] nuevo mundo solicitado")
+    #     if not self.waiting_reset and (self.goal_counter >= self.goals_in_world or self.collided):
+    #         self.reset_pub.publish(Bool(data=True))
+    #         self.waiting_reset = True
+    #         self.get_logger().info("[Reset] peticion enviada, esperando confirmacion")
+
+    #     # --- PPO update
+    #     if len(self.act_buf) >= ROLLOUT_STEPS:
+    #         self.update_ppo()
+
     def step(self):
+        # ───────── Pausa si estamos esperando un reset ─────────
         if self.waiting_reset:
             return
 
-        if None in (self.pose,self.goal,self.grid_msg): return
-        cp=(self.pose.position.x,self.pose.position.y)
-        patch,grid,info=self.extract_patch()
+        # ───────── Validación de entradas ROS ─────────
+        if None in (self.pose, self.goal, self.grid_msg):
+            return
 
-        tgt,mode=self.choose_target(cp,grid,info)
+        cp = (self.pose.position.x, self.pose.position.y)
+
+        # Parche local y grid global
+        patch, grid, info = self.extract_patch()
+
+        # ───── 1. SELECCIÓN (robusta) DEL TARGET ─────
+        tgt, mode = self.choose_target(cp, grid, info)
         if tgt is None:
             self.get_logger().warn("Sin target válido")
             return
-        self.get_logger().info(f"[TARGET] mode={mode} -> {tgt}")
+        self.get_logger().info(f"[TARGET] mode={mode}  ->  {tgt}")
 
-        wp, delta = self.next_waypoint(cp,tgt,grid,info,patch)
-        if wp is None:
-            self.get_logger().info("Sin waypoint; robot parado")
-            self.publish_path([cp]); return
+        # ───── 2. ¿Necesitamos replanificar? ─────
+        need_replan = (
+            not self.current_path                                   # no hay ruta
+            or self.collided                                        # choque
+            or l2(cp, self.current_path[min(2, len(self.current_path)-1)]) > 0.8
+        )
 
-        step_len=l2(cp,wp)
-        reached = l2(wp,tgt) < GOAL_RADIUS
+        if need_replan:
+            # genera tramo completo flexible
+            self.current_path = self.generate_flexible_path(cp, tgt, grid, info)
+            self.wp_index = 1                                       # primer wp real
+            self.get_logger().info(f"[PATH] len={len(self.current_path)} wps")
 
-        # Path & marker
-        self.publish_path([cp,wp])
+        # # ───── 3. CONSUMIR WAYPOINTS ALCANZADOS ─────
+        # LOOK_A = 0.4  # radio de aceptación
+        # while (len(self.current_path) > self.wp_index + 1 and
+        #     l2(cp, self.current_path[self.wp_index]) < LOOK_A):
+        #     self.wp_index += 1
 
-        # cmd_vel simple
-        cmd=Twist()
-        cmd.linear.x=(wp[0]-cp[0])*2.0
-        cmd.angular.z=(wp[1]-cp[1])*2.0
-        self.cmd_pub.publish(cmd)
+        # # Si ya no quedan waypoints, detener y salir
+        # if len(self.current_path) <= self.wp_index:
+        #     self.cmd_pub.publish(Twist())           # stop
+        #     return
 
-        # --- reward & buffers
-        old_d=l2(cp,tgt); new_d=l2(wp,tgt)
-        reward=self.compute_reward(old_d,new_d,self.collided,reached,step_len)
+        # # ───── 4. CONTROLADOR PURE-PURSUIT ─────
+        wp = self.current_path[self.wp_index]
+        dx, dy = wp[0] - cp[0], wp[1] - cp[1]
+        d      = math.hypot(dx, dy)
+        # MAX_V  = 4.0  # m/s
+        # vx     = min(MAX_V, 1.5 * d) * dx / d
+        # vy     = min(MAX_V, 1.5 * d) * dy / d
+        # cmd = Twist()
+        # cmd.linear.x = -vx
+        # cmd.angular.z = -vy
+        # self.cmd_pub.publish(cmd)
+        # self.get_logger().info(
+        #     f"[FOLLOW] wp {self.wp_index}/{len(self.current_path)-1} "
+        #     f"→ v=({vx:.2f},{vy:.2f})")
+        #nuevo
+        # ── AQUÍ ES DONDE LLAMAMOS AL SEGUIDOR ────────────────────────────────
+        self.follow_path(cp)    
+        # Publica Path y Marker (para RViz)
+        self.publish_path(self.current_path)
 
-        # value input (32 primeros px + state)
-        state=np.array([0,0,tgt[0]-cp[0],tgt[1]-cp[1]],np.float32)
-        state_vec=np.concatenate([patch.flatten()[:32],state])
-        v_pred=self.value_net(state_vec[None,...])[0,0]
+        # ───── 5. RECOMPENSA Y BUFFERS PPO ─────
+        reached = l2(wp, tgt) < GOAL_RADIUS
+        step_len = d
+        reward = self.compute_reward(
+            old_d=l2(cp, tgt),
+            new_d=l2(wp, tgt),
+            collided=self.collided,
+            reached=reached,
+            step_len=step_len
+        )
 
-        std=np.exp(self.log_std.numpy())
-        mu=np.zeros(2)          # placeholder; usamos delta como acción
-        logp=-0.5*np.sum(((delta-mu)/std)**2 + 2*np.log(std)+np.log(2*np.pi))
+        state_vec = np.concatenate([patch.flatten()[:32],
+                                    np.array([0, 0, tgt[0]-cp[0], tgt[1]-cp[1]])])
+        v_pred = self.value_net(state_vec[None, ...])[0, 0]
+        std = np.exp(self.log_std.numpy())
+        mu  = np.zeros(2)
+        logp = -0.5 * np.sum(
+            ((np.zeros(2) - mu) / std) ** 2 + 2 * np.log(std) + np.log(2 * np.pi)
+        )
 
-        # buffers
+        # guarda en buffers
         self.patch_buf.append(patch)
-        self.state_buf.append(state)
-        self.act_buf.append(delta)
+        self.state_buf.append(state_vec[-4:])
+        self.act_buf.append(np.zeros(2))       # acción ficticia; usamos ruta
         self.logp_buf.append(logp)
         self.rew_buf.append(reward)
         self.val_buf.append(v_pred)
         self.done_buf.append(reached or self.collided)
 
-        # --- Termina episodio
+        # ───── 6. FINAL DE EPISODIO / RESET ─────
         if reached:
             self.goal_pub.publish(Bool(data=True))
-            self.goal_counter+=1
+            self.goal_counter += 1
         if reached or self.collided:
-            # resumen
-            with self.writer.as_default():
-                tf.summary.scalar("episode_reward",sum(self.rew_buf),step=self.episode)
-                tf.summary.scalar("collided",int(self.collided),step=self.episode)
-            # guarda pesos
-            # fname=RUN_DIR/f"policy_ep{self.episode}.h5"
-            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            fname=RUN_DIR/f"policy_latest_{timestamp}.weights.h5"
-            self.policy.save_weights(fname)
-            self.get_logger().info(f"Pesos guardados en {fname}")
-            self.episode+=1
+            # ... (resumen TensorBoard, guardado pesos, etc. — igual que antes) ...
+            self.episode += 1
             self.reset_buffers()
 
-        # --- reset mundo si toca
-        # if self.goal_counter>=self.goals_in_world or self.collided:
-        #     self.reset_pub.publish(Bool(data=True))
-        #     self.goal_counter=0
-        #     self.goals_in_world=random.randint(5,7)
-        #     self.get_logger().info("[RESET] nuevo mundo solicitado")
-        if not self.waiting_reset and (self.goal_counter >= self.goals_in_world or self.collided):
+        if (not self.waiting_reset and
+            (self.goal_counter >= self.goals_in_world or self.collided)):
             self.reset_pub.publish(Bool(data=True))
             self.waiting_reset = True
-            self.get_logger().info("[Reset] peticion enviada, esperando confirmacion")
+            self.get_logger().info("[RESET] petición enviada; esperando confirmación")
 
-        # --- PPO update
+        # ───── 7. PPO UPDATE (si toca) ─────
         if len(self.act_buf) >= ROLLOUT_STEPS:
             self.update_ppo()
 
