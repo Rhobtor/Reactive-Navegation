@@ -292,8 +292,8 @@ public:
   OctomapNavigationNodes() : Node("octomap_navigation_nodes")
   {
     // Declarar parámetros configurables.
-    this->declare_parameter("obstacle_height_threshold", 1.5);
-    this->declare_parameter("cell_size", 0.5);
+    this->declare_parameter("obstacle_height_threshold", 0.5);
+    this->declare_parameter("cell_size", 0.2);
     obstacle_height_threshold_ = this->get_parameter("obstacle_height_threshold").as_double();
     cell_size_ = this->get_parameter("cell_size").as_double();
 

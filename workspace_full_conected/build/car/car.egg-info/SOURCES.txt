@@ -9,6 +9,7 @@ setup.py
 ../../build/car/car.egg-info/top_level.txt
 ../../build/car/car.egg-info/zip-safe
 car/__init__.py
+car/backup_model_ppo_cnn_lstm.py
 car/camara_time.py
 car/colision_zone.py
 car/costmap.py
@@ -31,10 +32,11 @@ car/log_joystick.py
 car/map.py
 car/map_navegation.py
 car/memory_map.py
+car/movement_predictive.py
 car/octomap_2d_display.py
 car/odometry.py
-car/path_dqn.py
 car/path_finder_ia.py
+car/path_ppo_cnn_lstm.py
 car/path_sac.py
 car/planificador_script.py
 car/points_goal.py

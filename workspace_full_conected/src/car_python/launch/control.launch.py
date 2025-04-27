@@ -12,21 +12,21 @@ def generate_launch_description():
     share_dir = get_package_share_directory(package_name)
     
     # Ruta al archivo XACRO
-    xacro_file = os.path.join(share_dir, 'urdf', 'car.urdf.xacro')
-    move_object_file = os.path.join(share_dir, 'urdf', 'moving_obstacle.sdf')
+    #xacro_file = os.path.join(share_dir, 'urdf', 'car.urdf.xacro')
+    move_object_file = os.path.join(share_dir, 'urdf', 'object_movement.sdf')
     
-    # Procesa el archivo xacro y obtiene el URDF
-    doc = xacro.process_file(xacro_file)
-    robot_description = doc.toxml()
+    # # Procesa el archivo xacro y obtiene el URDF
+    # #doc = xacro.process_file(xacro_file)
+    # #robot_description = doc.toxml()
 
-    # Nodo robot_state_publisher
-    rsp_node = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        name='robot_state_publisher',
-        output='screen',
-        parameters=[{'robot_description': robot_description, 'use_sim_time': True}]
-    )
+    # # Nodo robot_state_publisher
+    # rsp_node = Node(
+    #     package='robot_state_publisher',
+    #     executable='robot_state_publisher',
+    #     name='robot_state_publisher',
+    #     output='screen',
+    #     parameters=[{'robot_description': robot_description, 'use_sim_time': True}]
+    # )
 
     # Nodo para spawn del robot en Gazebo (usando el robot_description)
     spawn_entity = Node(
@@ -57,7 +57,7 @@ def generate_launch_description():
 
 
     return LaunchDescription([
-        rsp_node,
+        #rsp_node,
         gazebo_launch,
         spawn_entity,
         spawn_moving_obstacle

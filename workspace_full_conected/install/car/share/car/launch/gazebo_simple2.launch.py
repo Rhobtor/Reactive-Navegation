@@ -180,10 +180,22 @@ def generate_launch_description():
         name='colision_zone',  # Nombre del nodo
     )
 
-    map = Node(
+    memory_map = Node(
         package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
-        executable='map',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
-        name='map',  # Nombre del nodo
+        executable='memory_map',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='memory_map',  # Nombre del nodo
+    )
+
+    navegation_map = Node(
+        package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
+        executable='map_navegation',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='map_navegation',  # Nombre del nodo
+    )
+
+    frontier_centroid = Node(
+        package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
+        executable='frontier_centroid',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='frontier_centroid',  # Nombre del nodo
     )
 
     return LaunchDescription([
@@ -204,8 +216,10 @@ def generate_launch_description():
         obstacles_in_2d,
         occupied_nodes_near_obstacles,
         #move_navigation_nodes,
-        #check_goal,
+        check_goal,
         poinst_goal,
         colision_zone,
-        map
+        memory_map,
+        navegation_map,
+        frontier_centroid
     ])

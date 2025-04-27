@@ -20,7 +20,7 @@ def generate_launch_description():
     world_arg = PathJoinSubstitution([
         FindPackageShare('car'),
         'worlds',
-        'map1_test.world'
+        'obstacles_and_traps.world'
     ])
     octomap_arg = PathJoinSubstitution([
         FindPackageShare('car'),
@@ -29,7 +29,6 @@ def generate_launch_description():
     ])
     # Get the car URDF by processing the xacro file
     xacro_file = os.path.join(share_dir, 'urdf', 'car.xacro')
-    config_file = os.path.join(share_dir, 'config', 'ekf_params.yaml')
     move_object_file = os.path.join(share_dir, 'urdf', 'object_movement.sdf')
     robot_description_config = xacro.process_file(xacro_file)
     robot_urdf = robot_description_config.toxml()
@@ -93,7 +92,7 @@ def generate_launch_description():
             '-topic', 'robot_description',
             '-x', '0.0',   # Initial X position
             '-y', '0.0',   # Initial Y position
-            '-z', '0.820271'  # Initial Z position (adjust if needed)
+            '-z', '0.369183'  # Initial Z position (adjust if needed)
         ],
         output='screen'
     )
@@ -107,8 +106,8 @@ def generate_launch_description():
 
     frontier_values = Node(
         package='car_cpp',
-        executable='frontiers_values',
-        name='frontiers_values'
+        executable='frontier_reduction',
+        name='frontier_reduction'
     )
 
     octomap = Node(
@@ -121,7 +120,7 @@ def generate_launch_description():
             'frame_id': 'map',
             'sensor_model.max_range': 40.0
         }],
-        remappings=[('cloud_in', 'scan_cloud')]
+        remappings=[('cloud_in', 'scan_cloud_filtered')]
     )
 
     map_odom_tf = Node(
@@ -185,13 +184,23 @@ def generate_launch_description():
         name='colision_zone',  # Nombre del nodo
     )
 
-
-    map = Node(
+    memory_map = Node(
         package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
-        executable='map',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
-        name='map',  # Nombre del nodo
+        executable='memory_map',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='memory_map',  # Nombre del nodo
     )
 
+    navegation_map = Node(
+        package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
+        executable='map_navegation',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='map_navegation',  # Nombre del nodo
+    )
+
+    frontier_centroid = Node(
+        package='car',  # Asegúrate de que el paquete se llame 'car' o el que corresponda
+        executable='frontier_centroid',  # Nombre del ejecutable (por ejemplo, si instalaste el script con entry_point)
+        name='frontier_centroid',  # Nombre del nodo
+    )
 
 
 
@@ -216,7 +225,7 @@ def generate_launch_description():
         # joint_state_publisher_node,
         gazebo_server,
         gazebo_client,
-        #urdf_spawn_node,
+        urdf_spawn_node,
         filter_points_cloud,
         frontier_values,
         octomap,
@@ -226,12 +235,13 @@ def generate_launch_description():
         navigation_nodes,
         obstacles_in_2d,
         occupied_nodes_near_obstacles,
-        #check_goal,
+        #move_navigation_nodes,
+        check_goal,
         poinst_goal,
-        move_navigation_nodes,
         colision_zone,
-        map,
+        navegation_map,
+        memory_map,
+        frontier_centroid,
         spawn_moving_obstacle
-
 
     ])
