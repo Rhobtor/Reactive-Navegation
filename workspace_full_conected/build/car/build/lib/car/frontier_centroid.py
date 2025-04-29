@@ -244,7 +244,7 @@ from std_msgs.msg import Bool, Float64, Float64MultiArray
 from visualization_msgs.msg import Marker
 
 # -------------------- Parámetros ajustables --------------------
-CLUSTER_DISTANCE_THRESHOLD = 5.0   # [m] eps para DBSCAN
+CLUSTER_DISTANCE_THRESHOLD = 3.0   # [m] eps para DBSCAN
 SAFE_DISTANCE_THRESHOLD = 3.0      # [m] distancia mínima a un obstáculo
 PERSISTENCE_TOLERANCE = 0.5        # [m] para evitar duplicados
 MAX_FRONTIER_DISTANCE = 40.0       # [m] rango máximo del sensor / robot
@@ -341,7 +341,7 @@ class FrontierClusterNode(Node):
         if positions.size == 0:
             return
 
-        labels = DBSCAN(eps=CLUSTER_DISTANCE_THRESHOLD, min_samples=2).fit_predict(positions)
+        labels = DBSCAN(eps=CLUSTER_DISTANCE_THRESHOLD, min_samples=1).fit_predict(positions)
 
         centroids: List[np.ndarray] = [np.mean(positions[labels == lbl], axis=0)
                                        for lbl in set(labels) if lbl != -1]
@@ -362,6 +362,18 @@ class FrontierClusterNode(Node):
         for c in safe_centroids:
             if all(np.linalg.norm(c - p) > PERSISTENCE_TOLERANCE for p in self.persistent_safe_frontiers):
                 self.persistent_safe_frontiers.append(c)
+
+
+        if not self.persistent_safe_frontiers:
+            # busca celda libre aleatoria a < MAX_FRONTIER_DISTANCE
+            free = positions[
+                np.linalg.norm(positions - self.robot_position, axis=1)
+                < MAX_FRONTIER_DISTANCE]
+            if free.size:
+                rnd = free[np.random.randint(len(free))]
+                self.persistent_safe_frontiers.append(rnd)
+                self.get_logger().info("Publicando punto libre provisional.")
+
 
         self.publish_persistent_frontiers()
 

@@ -1,5 +1,0 @@
-  File "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/path_dqn.py", line 1304
-    self.get_logger().info(f"[FRONTIER_CB] Fronteras válidas tras filtrado: {len(self.frontiers)}")=[]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-SyntaxError: cannot assign to function call here. Maybe you meant '==' instead of '='?
-

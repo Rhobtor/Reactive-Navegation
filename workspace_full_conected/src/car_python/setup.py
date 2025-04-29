@@ -65,6 +65,7 @@ setup(
             'path_sac= car.path_sac:main',
             'path_ppo_cnn_lstm= car.path_ppo_cnn_lstm:main',
             'movement_predictive= car.movement_predictive:main',
+            'lidar_detection= car.lidar_obstacle_detection:main',
         ],
     },
 )

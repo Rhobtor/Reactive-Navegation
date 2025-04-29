@@ -1,5 +1,0 @@
-  File "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/path_dqn.py", line 1505
-    grid3d、 info_local = self.extract_local_grid()
-          ^
-SyntaxError: invalid character '、' (U+3001)
-

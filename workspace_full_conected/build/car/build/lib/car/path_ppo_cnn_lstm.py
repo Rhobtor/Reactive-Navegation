@@ -34,7 +34,7 @@ import datetime
 PATCH           = 128                       # lado del parche (celdas)
 CLEAR_MIN       = 3.4                       # m (holgura waypoint)
 GOAL_VIS_OK     = 4                         # ciclos “goal visible” → OK
-GOAL_RADIUS     = 1.0                       # m para “goal reached”
+GOAL_RADIUS     = 3.0                       # m para “goal reached”
 RADII           = [2.3, 3.6,5.9]           # radios candidatos
 ANGLES          = np.linspace(-math.pi/3,
                                math.pi/3, 11)   # ±60° (10 pasos)
@@ -46,7 +46,8 @@ LOOK_A  = 2.0    # m (aceptación)
 # PPO
 ROLLOUT_STEPS   = 1024
 BATCH_SZ        = 256
-EPOCHS          = 4
+EPOCHS          = 300
+MAX_UPDATES     = 10
 GAMMA           = 0.99
 GAE_LAMBDA      = 0.95
 CLIP_EPS        = 0.2
@@ -55,6 +56,8 @@ LR_CRITIC       = 1e-3
 STD_START       = 0.3
 STD_MIN         = 0.05
 STD_DECAY       = 0.995
+MAX_EPISODES = 100 
+MAX_TILT = 0.5
 
 DTYPE = np.float32
 
@@ -73,6 +76,37 @@ def idx_from_world(info, pt):
 
 def distance(a,b): return math.hypot(b[0]-a[0], b[1]-a[1])
 
+def fuse_dynamic_layer(grid_static, obstacles, info, decay_steps=5):
+    grid = grid_static.copy()
+    res  = info.resolution
+    H, W = grid.shape
+    for obs in obstacles:                       # PoseArray con vel.z = radius
+        x, y, r = obs.position.x, obs.position.y, obs.orientation.w
+        i0 = int((x - info.origin.position.x) / res)
+        j0 = int((y - info.origin.position.y) / res)
+        rad = int(r / res)
+        for dj in range(-rad, rad+1):
+            for di in range(-rad, rad+1):
+                if di*di+dj*dj <= rad*rad:
+                    j, i = j0+dj, i0+di
+                    if 0 <= j < H and 0 <= i < W:
+                        grid[j, i] = min(100, grid[j, i]+100)  # marca ocupado
+    return grid
+
+def safe_shadow(cand, obstacles, τ=1.0):
+    cx, cy = cand
+    for obs in obstacles:
+        ox, oy = obs.position.x, obs.position.y
+        vx, vy = obs.orientation.x, obs.orientation.y
+        r      = obs.orientation.w
+        relx, rely = ox - cx, oy - cy
+        tc = -(relx*vx + rely*vy) / (vx*vx + vy*vy + 1e-3)
+        tc = max(0.0, tc)
+        dx = relx + vx*tc
+        dy = rely + vy*tc
+        if tc < τ and math.hypot(dx, dy) < r + 0.3:
+            return False
+    return True
 
 
 
@@ -138,12 +172,14 @@ class FlexPlanner(Node):
                                  self.cb_frontier, qos)
         self.create_subscription(Bool,"/virtual_collision", self.cb_collision, qos)
         self.create_subscription(Bool,"/reset_confirmation",self.cb_reset_conf,qos)
+        self.create_subscription(Bool,"/goal_reached",self.cb_goal_reached,qos)
+        #self.create_subscription(PoseArray, "/obstacle_navigation_nodes_lidar",self.cb_obstacles, 10)
 
         # --- Publicadores
         self.path_pub  = self.create_publisher(Path,  "/global_path_predicted", qos)
         self.wps_pub   = self.create_publisher(Marker,"/path_waypoints_marker", qos)
         self.coll_pub  = self.create_publisher(Bool,  "/virtual_collision", qos)
-        self.goal_pub  = self.create_publisher(Bool,  "/goal_reached", qos)
+        #self.goal_pub  = self.create_publisher(Bool,  "/goal_reached", qos)
         latched=QoSProfile(depth=1,
                            reliability=ReliabilityPolicy.RELIABLE,
                            durability=DurabilityPolicy.TRANSIENT_LOCAL)
@@ -158,13 +194,19 @@ class FlexPlanner(Node):
         self.goal=None
         self.grid_msg=None
         self.frontiers=[]
+        self.obstacles = []  
         self.collided=False
+        self.ready = True 
+        self.reset_t0=None
+        self.episode_done=False
+        self.update_done=0
         self.max_seg  =0.6
         self.max_steps=60
         self.dev_thr  =0.8
         self.clear_min=0.4     # m
         self.max_seg_length      = 1.0
         self.reach_thr=0.4
+        self.goal_reached_flag=False
 
         # --- Red y PPO
         self.policy = build_policy()
@@ -194,24 +236,63 @@ class FlexPlanner(Node):
         self.get_logger().info("Flexible planner + PPO listo")
 
     # ---------- Callbacks ROS ----------
+    def cb_goal_reached(self, msg: Bool):
+        if not msg.data:
+            return
+        # descarta si acabamos de reiniciar (<2 s) o hay colisión activa
+        if (self.reset_t0 and
+            (self.get_clock().now() - self.reset_t0).nanoseconds < 2e9):
+            return
+        if self.collided:
+            return
+        self.goal_reached_flag = True
     def cb_odom(self,m):
         self.pose=m.pose.pose; self.twist=m.twist.twist
+    # def cb_obstacles(self, msg: PoseArray):
+    #     self.obstacles = msg.poses
+
     def cb_goal(self,m):
         self.goal=m.poses[0] if m.poses else None
-    def cb_grid(self,m):
-        self.grid_msg=m
+    # def cb_grid(self,m):
+    #     self.grid_msg=m
+
+    def cb_grid(self, m: OccupancyGrid):
+        # mezclamos capa estática + móviles
+        static_arr = np.array(m.data, dtype=np.int8).reshape((m.info.height,
+                                                            m.info.width))
+        if self.obstacles:
+            dyn_arr = fuse_dynamic_layer(static_arr, self.obstacles, m.info)
+            self.grid_dyn = dyn_arr                    # guarda dinámico
+        else:
+            self.grid_dyn = static_arr
+        self.grid_msg = m                              # conserva original
+
     def cb_frontier(self,m):
         self.frontiers=[(p.position.x,p.position.y) for p in m.poses]
     def cb_collision(self,m):
         self.collided = bool(m.data)
-    def cb_reset_conf(self, msg:Bool):
+    # def cb_reset_conf(self, msg:Bool):
+    #     if msg.data:
+    #         self.waiting_reset = False
+    #         self.get_logger().info("[Reset] confirmado por el supervisor")
+    #         self.goal_counter = 0
+    #         self.goals_in_world = random.randint(5,7)
+    #         self.collided = False
+    #         self.reset_buffers()
+
+    def cb_reset_conf(self, msg: Bool):
         if msg.data:
             self.waiting_reset = False
-            self.get_logger().info("[Reset] confirmado por el supervisor")
-            self.goal_counter = 0
-            self.goals_in_world = random.randint(5,7)
-            self.collided = False
+            self.ready         = False          # ← PAUSA hasta que el mundo cargue
+            self.reset_t0      = self.get_clock().now()
+            self.goal_counter  = 0
+            self.goals_in_world = random.randint(5, 7)
+            self.collided      = False
             self.reset_buffers()
+            self.get_logger().info("[Reset] confirmado por el supervisor")
+
+
+
 
 
     def _yaw_from_quaternion(self, q):
@@ -219,6 +300,18 @@ class FlexPlanner(Node):
         siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
         cosy_cosp = 1.0 - 2.0 * (q.y*q.y + q.z*q.z)
         return math.atan2(siny_cosp, cosy_cosp)
+
+    def _roll_pitch_from_quaternion(self, q):
+        """Devuelve (roll, pitch) en radianes."""
+        sinr_cosp = 2*(q.w*q.x + q.y*q.z)
+        cosr_cosp = 1 - 2*(q.x*q.x + q.y*q.y)
+        roll  = math.atan2(sinr_cosp, cosr_cosp)
+
+        sinp = 2*(q.w*q.y - q.z*q.x)
+        pitch = math.asin(max(-1.0, min(1.0, sinp)))   # clamp numérico
+        return roll, pitch
+
+
 
     def _global_to_local(self, dx, dy, yaw):
         """Convierte ΔX,ΔY de frame 'map' a 'base_link'."""
@@ -231,7 +324,8 @@ class FlexPlanner(Node):
     def extract_patch(self):
         info=self.grid_msg.info
         H,W=info.height,info.width
-        arr=np.array(self.grid_msg.data,dtype=np.int8).reshape((H,W))
+        # arr=np.array(self.grid_msg.data,dtype=np.int8).reshape((H,W))
+        arr = self.grid_dyn.copy() # capa dinámica #nueva
         cp=(self.pose.position.x,self.pose.position.y)
         ci=int((cp[0]-info.origin.position.x)/info.resolution)
         cj=int((cp[1]-info.origin.position.y)/info.resolution)
@@ -315,7 +409,8 @@ class FlexPlanner(Node):
                         continue
                     if not clearance_ok(grid, info, cand, self.clear_min):
                         continue
-
+                    if not safe_shadow(cand, self.obstacles):   ##nueva              
+                        continue
                     cost = distance(cand, target) - 0.5*self.clear_min
                     if cost < best_cost:
                         best_cost, best = cost, cand
@@ -355,6 +450,7 @@ class FlexPlanner(Node):
                 if grid[j,i]==-1 or grid[j,i]>=100: continue
                 if not bres_free(grid,info,cp,cand):          continue
                 if not clearance_ok(grid,info,cand,CLEAR_MIN):continue
+                if not safe_shadow(cand, self.frontiers):     continue
                 cost=l2(cand,tgt) - 0.5*CLEAR_MIN
                 if cost<best_cost: best_cost, best = cost, cand
         return best, delta
@@ -440,12 +536,15 @@ class FlexPlanner(Node):
 
 ###nuevo
     # ---------- Recompensa --------------
-    def compute_reward(self, old_d, new_d, collided, reached, step_len):
+    def compute_reward(self, old_d, new_d, collided, reached, step_len,overturned):
         r= 2.0*(old_d-new_d)                # progreso
         r-= 0.05                            # castigo paso
         r-= 0.1*step_len                    # castigo ruta larga
         if reached:  r+= 200
         if collided: r-= 200
+        if overturned: r-= 200
+        # if nearest_dyn is not None:
+        #     r -= 1.0/(nearest_dyn + 1e-1)  # castigo por proximidad a obstáculo
         return r
 
     # ---------- Buffers PPO -------------
@@ -543,131 +642,114 @@ class FlexPlanner(Node):
     #         self.update_ppo()
 
     def step(self):
-        # ───────── Pausa si estamos esperando un reset ─────────
-        if self.waiting_reset:
-            return
+        # ── 0 · Espera a que el mundo nuevo esté cargado ──────────────────────
+        if not self.ready:
+            cond_time  = self.reset_t0 and \
+                        (self.get_clock().now() - self.reset_t0).nanoseconds > 2e9
+            cond_grid  = self.grid_msg and np.any(np.array(self.grid_msg.data) != -1)
+            if cond_time and self.pose and cond_grid:
+                self.ready = True
+                self.get_logger().info("[Reset] mundo cargado; reanudando")
+            else:
+                return                                          # sigue en pausa
 
-        # ───────── Validación de entradas ROS ─────────
+        # ── 1 · Validaciones mínimas ──────────────────────────────────────────
         if None in (self.pose, self.goal, self.grid_msg):
             return
-
         cp = (self.pose.position.x, self.pose.position.y)
+        # ── 1.b · Detector de vuelco ─────────────────────────────────────────────
+        roll, pitch = self._roll_pitch_from_quaternion(self.pose.orientation)
+        overturned  = abs(roll) > MAX_TILT or abs(pitch) > MAX_TILT
+        if overturned:
+            self.collided = True  
 
-        # Parche local y grid global
+        # ── 2 · Parche local y target robusto ─────────────────────────────────
         patch, grid, info = self.extract_patch()
-
-        # ───── 1. SELECCIÓN (robusta) DEL TARGET ─────
         tgt, mode = self.choose_target(cp, grid, info)
         if tgt is None:
-            self.get_logger().warn("Sin target válido")
-            return
-        self.get_logger().info(f"[TARGET] mode={mode}  ->  {tgt}")
+            self.get_logger().warn("Sin target válido");  return
 
-        # ───── 2. ¿Necesitamos replanificar? ─────
+        # ── 3 · ¿Replanificamos? ──────────────────────────────────────────────
         need_replan = (
-            not self.current_path                                   # no hay ruta
-            or self.collided                                        # choque
-            or l2(cp, self.current_path[min(2, len(self.current_path)-1)]) > 0.8
+            not self.current_path or
+            self.collided or
+            l2(cp, self.current_path[min(2, len(self.current_path)-1)]) > 0.8
         )
-
         if need_replan:
-            # genera tramo completo flexible
             self.current_path = self.generate_flexible_path(cp, tgt, grid, info)
-            self.wp_index = 1                                       # primer wp real
+            self.wp_index = 1
             self.get_logger().info(f"[PATH] len={len(self.current_path)} wps")
 
-        # # ───── 3. CONSUMIR WAYPOINTS ALCANZADOS ─────
-        # LOOK_A = 0.4  # radio de aceptación
-        # while (len(self.current_path) > self.wp_index + 1 and
-        #     l2(cp, self.current_path[self.wp_index]) < LOOK_A):
-        #     self.wp_index += 1
-
-        # # Si ya no quedan waypoints, detener y salir
-        # if len(self.current_path) <= self.wp_index:
-        #     self.cmd_pub.publish(Twist())           # stop
-        #     return
-
-        # # ───── 4. CONTROLADOR PURE-PURSUIT ─────
+        # ── 4 · Acceso seguro al waypoint ─────────────────────────────────────
+        if len(self.current_path) <= self.wp_index:
+            self.cmd_pub.publish(Twist())                # stop defensivo
+            return
         wp = self.current_path[self.wp_index]
-        dx, dy = wp[0] - cp[0], wp[1] - cp[1]
-        d      = math.hypot(dx, dy)
-        # MAX_V  = 4.0  # m/s
-        # vx     = min(MAX_V, 1.5 * d) * dx / d
-        # vy     = min(MAX_V, 1.5 * d) * dy / d
-        # cmd = Twist()
-        # cmd.linear.x = -vx
-        # cmd.angular.z = -vy
-        # self.cmd_pub.publish(cmd)
-        # self.get_logger().info(
-        #     f"[FOLLOW] wp {self.wp_index}/{len(self.current_path)-1} "
-        #     f"→ v=({vx:.2f},{vy:.2f})")
-        #nuevo
-        # ── AQUÍ ES DONDE LLAMAMOS AL SEGUIDOR ────────────────────────────────
-        self.follow_path(cp)    
-        # Publica Path y Marker (para RViz)
+
+        # ── 5 · Seguidor + publicación de ruta ────────────────────────────────
+        self.follow_path(cp)
         self.publish_path(self.current_path)
 
-        # ───── 5. RECOMPENSA Y BUFFERS PPO ─────
-        reached = l2(wp, tgt) < GOAL_RADIUS
-        step_len = d
-        reward = self.compute_reward(
-            old_d=l2(cp, tgt),
-            new_d=l2(wp, tgt),
-            collided=self.collided,
-            reached=reached,
-            step_len=step_len
-        )
+        # ── 6 · Recompensa y buffers PPO ──────────────────────────────────────
+        reached  = self.goal_reached_flag   
+        collided = self.collided
+        step_len = l2(cp, wp)
+        reward   = self.compute_reward(l2(cp, tgt), l2(wp, tgt),
+                                    collided, reached, step_len,overturned)
 
         state_vec = np.concatenate([patch.flatten()[:32],
-                                    np.array([0, 0, tgt[0]-cp[0], tgt[1]-cp[1]])])
-        v_pred = self.value_net(state_vec[None, ...])[0, 0]
-        std = np.exp(self.log_std.numpy().astype(DTYPE))
-        mu  = np.zeros(2,DTYPE)
-        logp = -0.5 * np.sum(
-            ((np.zeros(2) - mu) / std) ** 2 + 2 * np.log(std) + np.log(2 * np.pi)
-        )
-
-        # guarda en buffers
-        self.patch_buf.append(patch)
+                                    np.array([0, 0, tgt[0]-cp[0], tgt[1]-cp[1]],
+                                            DTYPE)])
+        #  — Buffers —
+        self.patch_buf.append(patch.astype(DTYPE))
         self.state_buf.append(state_vec[-4:])
-        # self.act_buf.append(np.zeros(2))       # acción ficticia; usamos ruta
-        self.act_buf.append(np.zeros(2,DTYPE))
-        self.logp_buf.append(np.float32(logp))
+        self.act_buf.append(np.zeros(2, DTYPE))          # placeholder acción
+        self.logp_buf.append(np.float32(0.0))
         self.rew_buf.append(reward)
-        self.val_buf.append(v_pred)
-        self.done_buf.append(reached or self.collided)
+        self.val_buf.append(self.value_net(state_vec[None, ...])[0, 0])
+        self.done_buf.append(reached or collided)
+
+        # ── 7 · Fin de episodio: parada, log, entrenamiento ───────────────────
+        if reached or collided:
+            self.cmd_pub.publish(Twist())                # v=0, ω=0
+
+            if reached:  self.get_logger().info("⛳  Goal alcanzado")
+            if collided: self.get_logger().info("💥  Colisión detectada")
+            if overturned:  self.get_logger().warning("🚨  Robot volcado — solicitando reset")
 
 
-        # ───── 6. FINAL DE EPISODIO ─────
-        if reached or self.collided:
-            with self.writer.as_default():
-                tf.summary.scalar("episode_reward", sum(self.rew_buf), step=self.episode)
-                tf.summary.scalar("collided",       int(self.collided), step=self.episode)
+            # entrenamiento inmediato
+            self.update_ppo()
+            self.goal_reached_flag = False               # consume el evento
             self.episode += 1
+            self.goal_counter += int(reached and mode == "GOAL")
 
-            
-            # Solo reinicia contadores de meta:
-            if reached:
-                self.goal_counter += 1
+            with self.writer.as_default():
+                tf.summary.scalar("episode_reward", sum(self.rew_buf),
+                                step=self.episode)
+                tf.summary.scalar("collided", int(collided), step=self.episode)
 
-        # ───── 7. ¿PEDIMOS RESET DE MAPA? ─────
-        if (self.goal_counter >= self.goals_in_world) or self.collided:
-            # 7.1 ENTRENAR con TODO lo acumulado en este mapa
-            # if len(self.act_buf) >= 32:        # opcional seguridad
-            self.update_ppo()              # ← actualiza CNN+LSTM+σ
-            # else:
-            #     self.reset_buffers()           # lote demasiado pequeño
-
-            # 7.2 Guardar pesos actualizados
+        # ── 8 · ¿Pedimos reset de mapa? ───────────────────────────────────────
+        if (self.goal_counter >= self.goals_in_world) or collided:
             ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
             self.policy.save_weights(RUN_DIR / f"policy_latest_{ts}.weights.h5")
 
-            # 7.3 Solicitar nuevo mundo
-            self.reset_pub.publish(Bool(data=True))
+            self.reset_pub.publish(Bool(data=True))      # solicitud reset
+            self.ready         = False                   # pasa a modo WAIT
             self.waiting_reset = True
+            self.reset_t0      = self.get_clock().now()
             self.goal_counter  = 0
             self.goals_in_world = random.randint(5, 7)
             self.get_logger().info("[RESET] petición enviada; esperando confirmación")
+
+        # ── 9 · Límite global de episodios ────────────────────────────────────
+        if self.episode >= MAX_EPISODES:
+            self.get_logger().info(f"{MAX_EPISODES} episodios completados. "
+                                "Finalizando nodo.")
+            self.cmd_pub.publish(Twist())
+            rclpy.shutdown()
+            return
+
 
 
     # ---------- Publicación RViz ----------

@@ -28,6 +28,7 @@ car/inference_ppo.py
 car/joystick_control.py
 car/keyboard_control.py
 car/laser_scan.py
+car/lidar_obstacle_detection.py
 car/log_joystick.py
 car/map.py
 car/map_navegation.py
