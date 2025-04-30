@@ -102,8 +102,8 @@ def generate_launch_description():
 
     frontier_values = Node(
         package='car_cpp',
-        executable='frontier_reduction',
-        name='frontier_reduction',
+        executable='frontier_values',
+        name='frontier_values',
     )
 
     octomap = Node(

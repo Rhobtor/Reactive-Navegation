@@ -224,58 +224,6 @@ navigation_nodes_ground/fast:
 .PHONY : navigation_nodes_ground/fast
 
 #=============================================================================
-# Target rules for targets named frontier_nodes
-
-# Build rule for target.
-frontier_nodes: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 frontier_nodes
-.PHONY : frontier_nodes
-
-# fast build rule for target.
-frontier_nodes/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_nodes.dir/build.make CMakeFiles/frontier_nodes.dir/build
-.PHONY : frontier_nodes/fast
-
-#=============================================================================
-# Target rules for targets named frontier_reduction
-
-# Build rule for target.
-frontier_reduction: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 frontier_reduction
-.PHONY : frontier_reduction
-
-# fast build rule for target.
-frontier_reduction/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_reduction.dir/build.make CMakeFiles/frontier_reduction.dir/build
-.PHONY : frontier_reduction/fast
-
-#=============================================================================
-# Target rules for targets named ground_remove
-
-# Build rule for target.
-ground_remove: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ground_remove
-.PHONY : ground_remove
-
-# fast build rule for target.
-ground_remove/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ground_remove.dir/build.make CMakeFiles/ground_remove.dir/build
-.PHONY : ground_remove/fast
-
-#=============================================================================
-# Target rules for targets named camera_filter
-
-# Build rule for target.
-camera_filter: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 camera_filter
-.PHONY : camera_filter
-
-# fast build rule for target.
-camera_filter/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_filter.dir/build.make CMakeFiles/camera_filter.dir/build
-.PHONY : camera_filter/fast
-
-#=============================================================================
 # Target rules for targets named move_navigation_nodes_frontier
 
 # Build rule for target.
@@ -289,30 +237,17 @@ move_navigation_nodes_frontier/fast:
 .PHONY : move_navigation_nodes_frontier/fast
 
 #=============================================================================
-# Target rules for targets named frontiers_values
+# Target rules for targets named frontier_values
 
 # Build rule for target.
-frontiers_values: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 frontiers_values
-.PHONY : frontiers_values
+frontier_values: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 frontier_values
+.PHONY : frontier_values
 
 # fast build rule for target.
-frontiers_values/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontiers_values.dir/build.make CMakeFiles/frontiers_values.dir/build
-.PHONY : frontiers_values/fast
-
-#=============================================================================
-# Target rules for targets named map_measure
-
-# Build rule for target.
-map_measure: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 map_measure
-.PHONY : map_measure
-
-# fast build rule for target.
-map_measure/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_measure.dir/build.make CMakeFiles/map_measure.dir/build
-.PHONY : map_measure/fast
+frontier_values/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_values.dir/build.make CMakeFiles/frontier_values.dir/build
+.PHONY : frontier_values/fast
 
 #=============================================================================
 # Target rules for targets named occupied_nodes_near_obstacles
@@ -326,32 +261,6 @@ occupied_nodes_near_obstacles: cmake_check_build_system
 occupied_nodes_near_obstacles/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/occupied_nodes_near_obstacles.dir/build.make CMakeFiles/occupied_nodes_near_obstacles.dir/build
 .PHONY : occupied_nodes_near_obstacles/fast
-
-#=============================================================================
-# Target rules for targets named create_wall
-
-# Build rule for target.
-create_wall: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 create_wall
-.PHONY : create_wall
-
-# fast build rule for target.
-create_wall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/create_wall.dir/build.make CMakeFiles/create_wall.dir/build
-.PHONY : create_wall/fast
-
-#=============================================================================
-# Target rules for targets named 2D_graph
-
-# Build rule for target.
-2D_graph: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 2D_graph
-.PHONY : 2D_graph
-
-# fast build rule for target.
-2D_graph/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/2D_graph.dir/build.make CMakeFiles/2D_graph.dir/build
-.PHONY : 2D_graph/fast
 
 #=============================================================================
 # Target rules for targets named obstacles_in_2d
@@ -393,45 +302,6 @@ filtered_navigation_nodes/fast:
 .PHONY : filtered_navigation_nodes/fast
 
 #=============================================================================
-# Target rules for targets named check_map
-
-# Build rule for target.
-check_map: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 check_map
-.PHONY : check_map
-
-# fast build rule for target.
-check_map/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_map.dir/build.make CMakeFiles/check_map.dir/build
-.PHONY : check_map/fast
-
-#=============================================================================
-# Target rules for targets named path_planner_node
-
-# Build rule for target.
-path_planner_node: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 path_planner_node
-.PHONY : path_planner_node
-
-# fast build rule for target.
-path_planner_node/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/build
-.PHONY : path_planner_node/fast
-
-#=============================================================================
-# Target rules for targets named control_plugin
-
-# Build rule for target.
-control_plugin: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 control_plugin
-.PHONY : control_plugin
-
-# fast build rule for target.
-control_plugin/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/control_plugin.dir/build.make CMakeFiles/control_plugin.dir/build
-.PHONY : control_plugin/fast
-
-#=============================================================================
 # Target rules for targets named joints_plugin
 
 # Build rule for target.
@@ -470,67 +340,6 @@ move_plugin/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/move_plugin.dir/build.make CMakeFiles/move_plugin.dir/build
 .PHONY : move_plugin/fast
 
-#=============================================================================
-# Target rules for targets named driver_plugin
-
-# Build rule for target.
-driver_plugin: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 driver_plugin
-.PHONY : driver_plugin
-
-# fast build rule for target.
-driver_plugin/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/driver_plugin.dir/build.make CMakeFiles/driver_plugin.dir/build
-.PHONY : driver_plugin/fast
-
-src/2D_graph.o: src/2D_graph.cpp.o
-.PHONY : src/2D_graph.o
-
-# target to build an object file
-src/2D_graph.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/2D_graph.dir/build.make CMakeFiles/2D_graph.dir/src/2D_graph.cpp.o
-.PHONY : src/2D_graph.cpp.o
-
-src/2D_graph.i: src/2D_graph.cpp.i
-.PHONY : src/2D_graph.i
-
-# target to preprocess a source file
-src/2D_graph.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/2D_graph.dir/build.make CMakeFiles/2D_graph.dir/src/2D_graph.cpp.i
-.PHONY : src/2D_graph.cpp.i
-
-src/2D_graph.s: src/2D_graph.cpp.s
-.PHONY : src/2D_graph.s
-
-# target to generate assembly for a file
-src/2D_graph.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/2D_graph.dir/build.make CMakeFiles/2D_graph.dir/src/2D_graph.cpp.s
-.PHONY : src/2D_graph.cpp.s
-
-src/camera_filter.o: src/camera_filter.cpp.o
-.PHONY : src/camera_filter.o
-
-# target to build an object file
-src/camera_filter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_filter.dir/build.make CMakeFiles/camera_filter.dir/src/camera_filter.cpp.o
-.PHONY : src/camera_filter.cpp.o
-
-src/camera_filter.i: src/camera_filter.cpp.i
-.PHONY : src/camera_filter.i
-
-# target to preprocess a source file
-src/camera_filter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_filter.dir/build.make CMakeFiles/camera_filter.dir/src/camera_filter.cpp.i
-.PHONY : src/camera_filter.cpp.i
-
-src/camera_filter.s: src/camera_filter.cpp.s
-.PHONY : src/camera_filter.s
-
-# target to generate assembly for a file
-src/camera_filter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_filter.dir/build.make CMakeFiles/camera_filter.dir/src/camera_filter.cpp.s
-.PHONY : src/camera_filter.cpp.s
-
 src/check_goal.o: src/check_goal.cpp.o
 .PHONY : src/check_goal.o
 
@@ -554,81 +363,6 @@ src/check_goal.s: src/check_goal.cpp.s
 src/check_goal.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_goal.dir/build.make CMakeFiles/check_goal.dir/src/check_goal.cpp.s
 .PHONY : src/check_goal.cpp.s
-
-src/check_map.o: src/check_map.cpp.o
-.PHONY : src/check_map.o
-
-# target to build an object file
-src/check_map.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_map.dir/build.make CMakeFiles/check_map.dir/src/check_map.cpp.o
-.PHONY : src/check_map.cpp.o
-
-src/check_map.i: src/check_map.cpp.i
-.PHONY : src/check_map.i
-
-# target to preprocess a source file
-src/check_map.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_map.dir/build.make CMakeFiles/check_map.dir/src/check_map.cpp.i
-.PHONY : src/check_map.cpp.i
-
-src/check_map.s: src/check_map.cpp.s
-.PHONY : src/check_map.s
-
-# target to generate assembly for a file
-src/check_map.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_map.dir/build.make CMakeFiles/check_map.dir/src/check_map.cpp.s
-.PHONY : src/check_map.cpp.s
-
-src/control_plugin.o: src/control_plugin.cpp.o
-.PHONY : src/control_plugin.o
-
-# target to build an object file
-src/control_plugin.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/control_plugin.dir/build.make CMakeFiles/control_plugin.dir/src/control_plugin.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/driver_plugin.dir/build.make CMakeFiles/driver_plugin.dir/src/control_plugin.cpp.o
-.PHONY : src/control_plugin.cpp.o
-
-src/control_plugin.i: src/control_plugin.cpp.i
-.PHONY : src/control_plugin.i
-
-# target to preprocess a source file
-src/control_plugin.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/control_plugin.dir/build.make CMakeFiles/control_plugin.dir/src/control_plugin.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/driver_plugin.dir/build.make CMakeFiles/driver_plugin.dir/src/control_plugin.cpp.i
-.PHONY : src/control_plugin.cpp.i
-
-src/control_plugin.s: src/control_plugin.cpp.s
-.PHONY : src/control_plugin.s
-
-# target to generate assembly for a file
-src/control_plugin.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/control_plugin.dir/build.make CMakeFiles/control_plugin.dir/src/control_plugin.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/driver_plugin.dir/build.make CMakeFiles/driver_plugin.dir/src/control_plugin.cpp.s
-.PHONY : src/control_plugin.cpp.s
-
-src/create_wall.o: src/create_wall.cpp.o
-.PHONY : src/create_wall.o
-
-# target to build an object file
-src/create_wall.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/create_wall.dir/build.make CMakeFiles/create_wall.dir/src/create_wall.cpp.o
-.PHONY : src/create_wall.cpp.o
-
-src/create_wall.i: src/create_wall.cpp.i
-.PHONY : src/create_wall.i
-
-# target to preprocess a source file
-src/create_wall.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/create_wall.dir/build.make CMakeFiles/create_wall.dir/src/create_wall.cpp.i
-.PHONY : src/create_wall.cpp.i
-
-src/create_wall.s: src/create_wall.cpp.s
-.PHONY : src/create_wall.s
-
-# target to generate assembly for a file
-src/create_wall.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/create_wall.dir/build.make CMakeFiles/create_wall.dir/src/create_wall.cpp.s
-.PHONY : src/create_wall.cpp.s
 
 src/diffdrive_plugin_multi_wheel.o: src/diffdrive_plugin_multi_wheel.cpp.o
 .PHONY : src/diffdrive_plugin_multi_wheel.o
@@ -678,101 +412,29 @@ src/filtered_navigation_nodes.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/filtered_navigation_nodes.dir/build.make CMakeFiles/filtered_navigation_nodes.dir/src/filtered_navigation_nodes.cpp.s
 .PHONY : src/filtered_navigation_nodes.cpp.s
 
-src/frontier_nodes.o: src/frontier_nodes.cpp.o
-.PHONY : src/frontier_nodes.o
+src/frontier_values.o: src/frontier_values.cpp.o
+.PHONY : src/frontier_values.o
 
 # target to build an object file
-src/frontier_nodes.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_nodes.dir/build.make CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.o
-.PHONY : src/frontier_nodes.cpp.o
+src/frontier_values.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_values.dir/build.make CMakeFiles/frontier_values.dir/src/frontier_values.cpp.o
+.PHONY : src/frontier_values.cpp.o
 
-src/frontier_nodes.i: src/frontier_nodes.cpp.i
-.PHONY : src/frontier_nodes.i
-
-# target to preprocess a source file
-src/frontier_nodes.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_nodes.dir/build.make CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.i
-.PHONY : src/frontier_nodes.cpp.i
-
-src/frontier_nodes.s: src/frontier_nodes.cpp.s
-.PHONY : src/frontier_nodes.s
-
-# target to generate assembly for a file
-src/frontier_nodes.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_nodes.dir/build.make CMakeFiles/frontier_nodes.dir/src/frontier_nodes.cpp.s
-.PHONY : src/frontier_nodes.cpp.s
-
-src/frontier_reduction.o: src/frontier_reduction.cpp.o
-.PHONY : src/frontier_reduction.o
-
-# target to build an object file
-src/frontier_reduction.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_reduction.dir/build.make CMakeFiles/frontier_reduction.dir/src/frontier_reduction.cpp.o
-.PHONY : src/frontier_reduction.cpp.o
-
-src/frontier_reduction.i: src/frontier_reduction.cpp.i
-.PHONY : src/frontier_reduction.i
+src/frontier_values.i: src/frontier_values.cpp.i
+.PHONY : src/frontier_values.i
 
 # target to preprocess a source file
-src/frontier_reduction.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_reduction.dir/build.make CMakeFiles/frontier_reduction.dir/src/frontier_reduction.cpp.i
-.PHONY : src/frontier_reduction.cpp.i
+src/frontier_values.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_values.dir/build.make CMakeFiles/frontier_values.dir/src/frontier_values.cpp.i
+.PHONY : src/frontier_values.cpp.i
 
-src/frontier_reduction.s: src/frontier_reduction.cpp.s
-.PHONY : src/frontier_reduction.s
-
-# target to generate assembly for a file
-src/frontier_reduction.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_reduction.dir/build.make CMakeFiles/frontier_reduction.dir/src/frontier_reduction.cpp.s
-.PHONY : src/frontier_reduction.cpp.s
-
-src/frontiers_values.o: src/frontiers_values.cpp.o
-.PHONY : src/frontiers_values.o
-
-# target to build an object file
-src/frontiers_values.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontiers_values.dir/build.make CMakeFiles/frontiers_values.dir/src/frontiers_values.cpp.o
-.PHONY : src/frontiers_values.cpp.o
-
-src/frontiers_values.i: src/frontiers_values.cpp.i
-.PHONY : src/frontiers_values.i
-
-# target to preprocess a source file
-src/frontiers_values.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontiers_values.dir/build.make CMakeFiles/frontiers_values.dir/src/frontiers_values.cpp.i
-.PHONY : src/frontiers_values.cpp.i
-
-src/frontiers_values.s: src/frontiers_values.cpp.s
-.PHONY : src/frontiers_values.s
+src/frontier_values.s: src/frontier_values.cpp.s
+.PHONY : src/frontier_values.s
 
 # target to generate assembly for a file
-src/frontiers_values.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontiers_values.dir/build.make CMakeFiles/frontiers_values.dir/src/frontiers_values.cpp.s
-.PHONY : src/frontiers_values.cpp.s
-
-src/ground_remove.o: src/ground_remove.cpp.o
-.PHONY : src/ground_remove.o
-
-# target to build an object file
-src/ground_remove.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ground_remove.dir/build.make CMakeFiles/ground_remove.dir/src/ground_remove.cpp.o
-.PHONY : src/ground_remove.cpp.o
-
-src/ground_remove.i: src/ground_remove.cpp.i
-.PHONY : src/ground_remove.i
-
-# target to preprocess a source file
-src/ground_remove.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ground_remove.dir/build.make CMakeFiles/ground_remove.dir/src/ground_remove.cpp.i
-.PHONY : src/ground_remove.cpp.i
-
-src/ground_remove.s: src/ground_remove.cpp.s
-.PHONY : src/ground_remove.s
-
-# target to generate assembly for a file
-src/ground_remove.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ground_remove.dir/build.make CMakeFiles/ground_remove.dir/src/ground_remove.cpp.s
-.PHONY : src/ground_remove.cpp.s
+src/frontier_values.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/frontier_values.dir/build.make CMakeFiles/frontier_values.dir/src/frontier_values.cpp.s
+.PHONY : src/frontier_values.cpp.s
 
 src/joints.o: src/joints.cpp.o
 .PHONY : src/joints.o
@@ -797,30 +459,6 @@ src/joints.s: src/joints.cpp.s
 src/joints.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/joints_plugin.dir/build.make CMakeFiles/joints_plugin.dir/src/joints.cpp.s
 .PHONY : src/joints.cpp.s
-
-src/map_measure.o: src/map_measure.cpp.o
-.PHONY : src/map_measure.o
-
-# target to build an object file
-src/map_measure.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_measure.dir/build.make CMakeFiles/map_measure.dir/src/map_measure.cpp.o
-.PHONY : src/map_measure.cpp.o
-
-src/map_measure.i: src/map_measure.cpp.i
-.PHONY : src/map_measure.i
-
-# target to preprocess a source file
-src/map_measure.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_measure.dir/build.make CMakeFiles/map_measure.dir/src/map_measure.cpp.i
-.PHONY : src/map_measure.cpp.i
-
-src/map_measure.s: src/map_measure.cpp.s
-.PHONY : src/map_measure.s
-
-# target to generate assembly for a file
-src/map_measure.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/map_measure.dir/build.make CMakeFiles/map_measure.dir/src/map_measure.cpp.s
-.PHONY : src/map_measure.cpp.s
 
 src/move_navigation_nodes_frontier.o: src/move_navigation_nodes_frontier.cpp.o
 .PHONY : src/move_navigation_nodes_frontier.o
@@ -966,30 +604,6 @@ src/occupied_nodes_near_obstacles.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/occupied_nodes_near_obstacles.dir/build.make CMakeFiles/occupied_nodes_near_obstacles.dir/src/occupied_nodes_near_obstacles.cpp.s
 .PHONY : src/occupied_nodes_near_obstacles.cpp.s
 
-src/path_planner.o: src/path_planner.cpp.o
-.PHONY : src/path_planner.o
-
-# target to build an object file
-src/path_planner.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/src/path_planner.cpp.o
-.PHONY : src/path_planner.cpp.o
-
-src/path_planner.i: src/path_planner.cpp.i
-.PHONY : src/path_planner.i
-
-# target to preprocess a source file
-src/path_planner.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/src/path_planner.cpp.i
-.PHONY : src/path_planner.cpp.i
-
-src/path_planner.s: src/path_planner.cpp.s
-.PHONY : src/path_planner.s
-
-# target to generate assembly for a file
-src/path_planner.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/src/path_planner.cpp.s
-.PHONY : src/path_planner.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1005,70 +619,32 @@ help:
 	@echo "... test"
 	@echo "... car_cpp_uninstall"
 	@echo "... uninstall"
-	@echo "... 2D_graph"
-	@echo "... camera_filter"
 	@echo "... check_goal"
-	@echo "... check_map"
-	@echo "... control_plugin"
-	@echo "... create_wall"
 	@echo "... drive_plugin"
-	@echo "... driver_plugin"
 	@echo "... filtered_navigation_nodes"
-	@echo "... frontier_nodes"
-	@echo "... frontier_reduction"
-	@echo "... frontiers_values"
-	@echo "... ground_remove"
+	@echo "... frontier_values"
 	@echo "... joints_plugin"
-	@echo "... map_measure"
 	@echo "... move_navigation_nodes_frontier"
 	@echo "... move_plugin"
 	@echo "... navigation_nodes"
 	@echo "... navigation_nodes_ground"
 	@echo "... obstacles_in_2d"
 	@echo "... occupied_nodes_near_obstacles"
-	@echo "... path_planner_node"
-	@echo "... src/2D_graph.o"
-	@echo "... src/2D_graph.i"
-	@echo "... src/2D_graph.s"
-	@echo "... src/camera_filter.o"
-	@echo "... src/camera_filter.i"
-	@echo "... src/camera_filter.s"
 	@echo "... src/check_goal.o"
 	@echo "... src/check_goal.i"
 	@echo "... src/check_goal.s"
-	@echo "... src/check_map.o"
-	@echo "... src/check_map.i"
-	@echo "... src/check_map.s"
-	@echo "... src/control_plugin.o"
-	@echo "... src/control_plugin.i"
-	@echo "... src/control_plugin.s"
-	@echo "... src/create_wall.o"
-	@echo "... src/create_wall.i"
-	@echo "... src/create_wall.s"
 	@echo "... src/diffdrive_plugin_multi_wheel.o"
 	@echo "... src/diffdrive_plugin_multi_wheel.i"
 	@echo "... src/diffdrive_plugin_multi_wheel.s"
 	@echo "... src/filtered_navigation_nodes.o"
 	@echo "... src/filtered_navigation_nodes.i"
 	@echo "... src/filtered_navigation_nodes.s"
-	@echo "... src/frontier_nodes.o"
-	@echo "... src/frontier_nodes.i"
-	@echo "... src/frontier_nodes.s"
-	@echo "... src/frontier_reduction.o"
-	@echo "... src/frontier_reduction.i"
-	@echo "... src/frontier_reduction.s"
-	@echo "... src/frontiers_values.o"
-	@echo "... src/frontiers_values.i"
-	@echo "... src/frontiers_values.s"
-	@echo "... src/ground_remove.o"
-	@echo "... src/ground_remove.i"
-	@echo "... src/ground_remove.s"
+	@echo "... src/frontier_values.o"
+	@echo "... src/frontier_values.i"
+	@echo "... src/frontier_values.s"
 	@echo "... src/joints.o"
 	@echo "... src/joints.i"
 	@echo "... src/joints.s"
-	@echo "... src/map_measure.o"
-	@echo "... src/map_measure.i"
-	@echo "... src/map_measure.s"
 	@echo "... src/move_navigation_nodes_frontier.o"
 	@echo "... src/move_navigation_nodes_frontier.i"
 	@echo "... src/move_navigation_nodes_frontier.s"
@@ -1087,9 +663,6 @@ help:
 	@echo "... src/occupied_nodes_near_obstacles.o"
 	@echo "... src/occupied_nodes_near_obstacles.i"
 	@echo "... src/occupied_nodes_near_obstacles.s"
-	@echo "... src/path_planner.o"
-	@echo "... src/path_planner.i"
-	@echo "... src/path_planner.s"
 .PHONY : help
 
 

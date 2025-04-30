@@ -1,0 +1,169 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-7a5e6ceee51ace2f2626.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.2"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "car_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "car_cpp_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-car_cpp_uninstall-025c49d488bc2d7ffa01.json",
+					"name" : "car_cpp_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "check_goal::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-check_goal-2e2090bf88a795b3c960.json",
+					"name" : "check_goal",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "drive_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-drive_plugin-6efb3825cd8342df0f86.json",
+					"name" : "drive_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "filtered_navigation_nodes::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-filtered_navigation_nodes-2335323422da80b37d83.json",
+					"name" : "filtered_navigation_nodes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "frontier_values::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-frontier_values-e9d4b9c0b78308129d34.json",
+					"name" : "frontier_values",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "joints_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joints_plugin-a9c8636ca76996633ee3.json",
+					"name" : "joints_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "move_navigation_nodes_frontier::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-move_navigation_nodes_frontier-4f6b02c966eace91b78b.json",
+					"name" : "move_navigation_nodes_frontier",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "move_plugin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-move_plugin-3490ba841673c2b19624.json",
+					"name" : "move_plugin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "navigation_nodes::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-navigation_nodes-e0a6d4aedfde1b48c773.json",
+					"name" : "navigation_nodes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "navigation_nodes_ground::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-navigation_nodes_ground-8d0672fc0f0b0226d709.json",
+					"name" : "navigation_nodes_ground",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "obstacles_in_2d::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-obstacles_in_2d-ff4a22ef1b63467ec390.json",
+					"name" : "obstacles_in_2d",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "occupied_nodes_near_obstacles::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-occupied_nodes_near_obstacles-114dad750c24fea38969.json",
+					"name" : "occupied_nodes_near_obstacles",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-9bdae4ada331aa4563a6.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp",
+		"source" : "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

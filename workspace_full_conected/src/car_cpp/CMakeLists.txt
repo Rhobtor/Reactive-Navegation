@@ -61,30 +61,6 @@ set(LIBS
     tf2_msgs
 )
 
-# ## Generate messages
-# rosidl_generate_interfaces(${PROJECT_NAME}
-#   srv/SetBias.srv
-#   srv/SetReferenceGeoPose.srv
-#   DEPENDENCIES geographic_msgs geometry_msgs builtin_interfaces
-# )
-
-# add_library(hector_gazebo_ros_imu SHARED src/gazebo_ros_imu.cpp)
-
-# ament_target_dependencies(hector_gazebo_ros_imu
-#   ${LIBS}
-#   rosidl_runtime_cpp
-# )
-
-
-
-
-# add_executable(car_cpp ${SOURCES})
-# ament_target_dependencies(car_cpp rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs)
-
-# install(TARGETS
-#   car_cpp
-#   DESTINATION lib/${PROJECT_NAME}
-# )
 
 
 add_executable(navigation_nodes src/navigation_nodes.cpp)
@@ -105,40 +81,6 @@ install(TARGETS
 )
 
 
-add_executable(frontier_nodes src/frontier_nodes.cpp)
-ament_target_dependencies(frontier_nodes rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
-
-install(TARGETS
-  frontier_nodes
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-
-add_executable(frontier_reduction src/frontier_reduction.cpp)
-ament_target_dependencies(frontier_reduction rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
-
-install(TARGETS
-  frontier_reduction
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-add_executable(ground_remove src/ground_remove.cpp)
-ament_target_dependencies(ground_remove rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
-
-install(TARGETS
-  ground_remove
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-add_executable(camera_filter src/camera_filter.cpp)
-ament_target_dependencies(camera_filter rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
-
-install(TARGETS
-  camera_filter
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-
 add_executable(move_navigation_nodes_frontier src/move_navigation_nodes_frontier.cpp)
 ament_target_dependencies(move_navigation_nodes_frontier rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
 
@@ -148,23 +90,15 @@ install(TARGETS
 )
 
 
-add_executable(frontiers_values src/frontiers_values.cpp)
-ament_target_dependencies(frontiers_values rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
+add_executable(frontier_values src/frontier_values.cpp)
+ament_target_dependencies(frontier_values rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
 
 install(TARGETS
-  frontiers_values
+  frontier_values
   DESTINATION lib/${PROJECT_NAME}
 )
 
 
-
-add_executable(map_measure src/map_measure.cpp)
-ament_target_dependencies(map_measure rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
-
-install(TARGETS
-  map_measure
-  DESTINATION lib/${PROJECT_NAME}
-)
 
 
 add_executable(occupied_nodes_near_obstacles src/occupied_nodes_near_obstacles.cpp)
@@ -175,21 +109,8 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-add_executable(create_wall src/create_wall.cpp)
-ament_target_dependencies(create_wall rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)  
 
-install(TARGETS
-  create_wall
-  DESTINATION lib/${PROJECT_NAME}
-)
 
-add_executable(2D_graph src/2D_graph.cpp)
-ament_target_dependencies(2D_graph rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)
-
-install(TARGETS
-  2D_graph
-  DESTINATION lib/${PROJECT_NAME}
-)
 
 add_executable(obstacles_in_2d src/obstacles_in_2d.cpp)
 ament_target_dependencies(obstacles_in_2d rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs std_srvs geographic_msgs tf2 tf2_ros tf2_msgs  rmw_implementation_cmake tf2_msgs std_srvs geographic_msgs tf2_ros tf2_msgs tf2_geometry_msgs)
@@ -217,35 +138,21 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-#check_map
-add_executable(check_map src/check_map.cpp)
-ament_target_dependencies(check_map rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs)
-
-install(TARGETS
-  check_map
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-#path planner
-add_executable(path_planner_node src/path_planner.cpp)
-ament_target_dependencies(path_planner_node rclcpp gazebo_ros std_msgs geometry_msgs sensor_msgs octomap octomap_msgs octomap_ros pcl_conversions pcl_msgs visualization_msgs nav_msgs)
-
-install(TARGETS
-path_planner_node
-  DESTINATION lib/${PROJECT_NAME}
-)
 
 
-#Library for control plugin
-add_library(control_plugin SHARED src/control_plugin.cpp)
-target_include_directories(control_plugin PUBLIC include)
-ament_target_dependencies(control_plugin rclcpp ignition-common3 gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
 
+# #Library for control plugin
+# add_library(control_plugin SHARED src/control_plugin.cpp)
+# target_include_directories(control_plugin PUBLIC include)
+# ament_target_dependencies(control_plugin rclcpp ignition-common3 gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
 
+############################################################# prueba
 #Library for control plugin
 add_library(joints_plugin SHARED src/joints.cpp)
 target_include_directories(joints_plugin PUBLIC include)
 ament_target_dependencies(joints_plugin rclcpp ignition-common3 sensor_msgs gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
+###################################################################
+
 
 #Library for control plugin
 add_library(drive_plugin SHARED src/diffdrive_plugin_multi_wheel.cpp)
@@ -259,18 +166,15 @@ ament_target_dependencies(move_plugin rclcpp ignition-common3 sensor_msgs gazebo
 
 
 
-#Library for control plugin
-add_library(driver_plugin SHARED src/control_plugin.cpp)
-target_include_directories(driver_plugin PUBLIC include)
-ament_target_dependencies(driver_plugin rclcpp ignition-common3 gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
+# #Library for control plugin
+# add_library(driver_plugin SHARED src/control_plugin.cpp)
+# target_include_directories(driver_plugin PUBLIC include)
+# ament_target_dependencies(driver_plugin rclcpp ignition-common3 gazebo_ros std_msgs geometry_msgs nav_msgs tf2 tf2_ros tf2_msgs)
 
 
 
 
-install(
-  TARGETS control_plugin 
-  LIBRARY DESTINATION lib
-)
+
 
 
 install(
@@ -289,18 +193,7 @@ install(
   LIBRARY DESTINATION lib
 )
 
-install(
-  TARGETS driver_plugin 
-  LIBRARY DESTINATION lib
-)
 
-
-# # Instalar plugins
-# install(TARGETS
-#   hector_gazebo_ros_imu
-#   hector_gazebo_ros_gps
-#   LIBRARY DESTINATION lib
-# )
 
 # Instalar encabezados
 install(DIRECTORY include/

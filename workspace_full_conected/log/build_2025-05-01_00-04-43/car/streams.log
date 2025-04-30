@@ -1,0 +1,47 @@
+[0.401s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build install --record /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log --single-version-externally-managed install_data
+[0.535s] running egg_info
+[0.535s] writing ../../build/car/car.egg-info/PKG-INFO
+[0.535s] writing dependency_links to ../../build/car/car.egg-info/dependency_links.txt
+[0.535s] writing entry points to ../../build/car/car.egg-info/entry_points.txt
+[0.536s] writing requirements to ../../build/car/car.egg-info/requires.txt
+[0.536s] writing top-level names to ../../build/car/car.egg-info/top_level.txt
+[0.537s] reading manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[0.538s] writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[0.538s] running build
+[0.538s] running build_py
+[0.538s] copying car/backup_model_ppo_cnn_lstm.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[0.538s] copying car/path_ppo_cnn_lstm_training_init_mode.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[0.538s] copying car/path_ppo_cnn_lstm_training_init_mode_simple.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[0.539s] running install
+[0.539s] running install_lib
+[0.539s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/backup_model_ppo_cnn_lstm.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[0.539s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/path_ppo_cnn_lstm_training_init_mode.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[0.539s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/path_ppo_cnn_lstm_training_init_mode_simple.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[0.540s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/backup_model_ppo_cnn_lstm.py to backup_model_ppo_cnn_lstm.cpython-310.pyc
+[0.544s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/path_ppo_cnn_lstm_training_init_mode.py to path_ppo_cnn_lstm_training_init_mode.cpython-310.pyc
+[0.547s]   File "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/path_ppo_cnn_lstm_training_init_mode.py", line 660
+[0.547s]     if (self.goal_counter >= self.goals_in_world)
+[0.547s]                                                  ^
+[0.547s] SyntaxError: expected ':'
+[0.547s] 
+[0.547s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/path_ppo_cnn_lstm_training_init_mode_simple.py to path_ppo_cnn_lstm_training_init_mode_simple.cpython-310.pyc
+[0.550s] running install_data
+[0.551s] running install_egg_info
+[0.552s] removing '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info' (and everything under it)
+[0.552s] Copying ../../build/car/car.egg-info to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info
+[0.553s] running install_scripts
+[0.565s] Installing colision_zone script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.565s] Installing filter_points_cloud script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.565s] Installing frontier_centroid script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.565s] Installing joystick_control script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.565s] Installing keyboard_control script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.565s] Installing lidar_detection script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.565s] Installing map_navegation script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.565s] Installing memory_map script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.565s] Installing movement_predictive script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.565s] Installing path_ppo_cnn_lstm_training_init_mode script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.565s] Installing path_ppo_cnn_lstm_training_init_mode_simple script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.565s] Installing points_goal script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.566s] Installing supervisor_node script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[0.566s] writing list of installed files to '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log'
+[0.582s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build install --record /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log --single-version-externally-managed install_data
