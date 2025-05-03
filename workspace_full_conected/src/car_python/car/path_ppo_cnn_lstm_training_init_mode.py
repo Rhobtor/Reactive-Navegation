@@ -46,7 +46,7 @@ LOOK_A  = 2.0    # m (aceptación)
 # PPO
 ROLLOUT_STEPS   = 1024
 BATCH_SZ        = 256
-EPOCHS          = 300
+EPOCHS          = 500
 MAX_UPDATES     = 10
 GAMMA           = 0.99
 GAE_LAMBDA      = 0.95
@@ -56,7 +56,7 @@ LR_CRITIC       = 1e-3
 STD_START       = 0.3
 STD_MIN         = 0.05
 STD_DECAY       = 0.995
-MAX_EPISODES = 100 
+MAX_EPISODES = 300 
 MAX_TILT = 0.5
 
 DTYPE = np.float32
@@ -185,6 +185,7 @@ class FlexPlanner(Node):
         self.ready = True 
         self.reset_t0=None
         self.episode_done=False
+        self.ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         self.update_done=0
         self.max_seg  =0.6
         self.max_steps=60
@@ -757,9 +758,9 @@ class FlexPlanner(Node):
             tf.summary.scalar("policy_std",  float(new_std[0]), step=self.episode)
 
         # 6) Limpieza y guardado --------------------------------------------------
-            ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            self.policy.save_weights(RUN_DIR / f"policy_latest_{ts}.weights.h5")
-            demo_fname = RUN_DIR / f"demo_ep{ts}.npz"
+        
+            self.policy.save_weights(RUN_DIR / f"policy_latest_{self.ts}.weights.h5")
+            demo_fname = RUN_DIR / f"demo_ep{self.ts}.npz"
             np.savez_compressed(
                 demo_fname,
                 patches = np.stack(self.patch_buf, 0),

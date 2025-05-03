@@ -1,0 +1,633 @@
+[5.511s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[5.512s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=20, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x76103ff889a0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x76104009ded0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x76104009ded0>>, mixin_verb=('build',))
+[10.847s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[10.848s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[10.848s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[10.848s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[10.848s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[10.848s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[10.848s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected'
+[10.849s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[10.849s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[10.849s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[10.849s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[10.849s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[10.850s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[10.850s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[10.850s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[10.850s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[10.945s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[11.008s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[11.008s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[11.009s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[11.009s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[11.009s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[11.009s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[11.009s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[11.009s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[11.009s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[11.009s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[11.009s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[11.010s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[11.010s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[11.010s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[11.101s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_cpp) by extensions ['ignore', 'ignore_ament_install']
+[11.101s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_cpp) by extension 'ignore'
+[11.102s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_cpp) by extension 'ignore_ament_install'
+[11.102s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_cpp) by extensions ['colcon_pkg']
+[11.102s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_cpp) by extension 'colcon_pkg'
+[11.102s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_cpp) by extensions ['colcon_meta']
+[11.102s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_cpp) by extension 'colcon_meta'
+[11.102s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_cpp) by extensions ['ros']
+[11.102s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_cpp) by extension 'ros'
+[11.125s] DEBUG:colcon.colcon_core.package_identification:Package 'src/car_cpp' with type 'ros.ament_cmake' and name 'car_cpp'
+[11.145s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[11.146s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_interfaces) by extension 'ignore'
+[11.146s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_interfaces) by extension 'ignore_ament_install'
+[11.146s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_interfaces) by extensions ['colcon_pkg']
+[11.146s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_interfaces) by extension 'colcon_pkg'
+[11.146s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_interfaces) by extensions ['colcon_meta']
+[11.146s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_interfaces) by extension 'colcon_meta'
+[11.147s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_interfaces) by extensions ['ros']
+[11.147s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_interfaces) by extension 'ros'
+[11.163s] DEBUG:colcon.colcon_core.package_identification:Package 'src/car_interfaces' with type 'ros.ament_cmake' and name 'car_interfaces'
+[11.164s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_python) by extensions ['ignore', 'ignore_ament_install']
+[11.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_python) by extension 'ignore'
+[11.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_python) by extension 'ignore_ament_install'
+[11.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_python) by extensions ['colcon_pkg']
+[11.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_python) by extension 'colcon_pkg'
+[11.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_python) by extensions ['colcon_meta']
+[11.165s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_python) by extension 'colcon_meta'
+[11.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_python) by extensions ['ros']
+[11.166s] Level 1:colcon.colcon_core.package_identification:_identify(src/car_python) by extension 'ros'
+[11.175s] DEBUG:colcon.colcon_core.package_identification:Package 'src/car_python' with type 'ros.ament_python' and name 'car'
+[11.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/hector_gazebo) by extensions ['ignore', 'ignore_ament_install']
+[11.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/hector_gazebo) by extension 'ignore'
+[11.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/hector_gazebo) by extension 'ignore_ament_install'
+[11.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/hector_gazebo) by extensions ['colcon_pkg']
+[11.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/hector_gazebo) by extension 'colcon_pkg'
+[11.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/hector_gazebo) by extensions ['colcon_meta']
+[11.191s] Level 1:colcon.colcon_core.package_identification:_identify(src/hector_gazebo) by extension 'colcon_meta'
+[11.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/hector_gazebo) by extensions ['ros']
+[11.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/hector_gazebo) by extension 'ros'
+[11.235s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hector_gazebo' with type 'ros.ament_cmake' and name 'hector_gazebo_plugins'
+[11.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extensions ['ignore', 'ignore_ament_install']
+[11.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extension 'ignore'
+[11.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extension 'ignore_ament_install'
+[11.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extensions ['colcon_pkg']
+[11.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extension 'colcon_pkg'
+[11.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extensions ['colcon_meta']
+[11.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extension 'colcon_meta'
+[11.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extensions ['ros']
+[11.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extension 'ros'
+[11.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extensions ['cmake', 'python']
+[11.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extension 'cmake'
+[11.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extension 'python'
+[11.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extensions ['python_setup_py']
+[11.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap) by extension 'python_setup_py'
+[11.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_mapping) by extensions ['ignore', 'ignore_ament_install']
+[11.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_mapping) by extension 'ignore'
+[11.251s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_mapping) by extension 'ignore_ament_install'
+[11.251s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_mapping) by extensions ['colcon_pkg']
+[11.251s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_mapping) by extension 'colcon_pkg'
+[11.251s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_mapping) by extensions ['colcon_meta']
+[11.251s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_mapping) by extension 'colcon_meta'
+[11.251s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_mapping) by extensions ['ros']
+[11.251s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_mapping) by extension 'ros'
+[11.254s] DEBUG:colcon.colcon_core.package_identification:Package 'src/octomap/octomap_mapping' with type 'ros.ament_cmake' and name 'octomap_mapping'
+[11.254s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_server) by extensions ['ignore', 'ignore_ament_install']
+[11.255s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_server) by extension 'ignore'
+[11.255s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_server) by extension 'ignore_ament_install'
+[11.255s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_server) by extensions ['colcon_pkg']
+[11.255s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_server) by extension 'colcon_pkg'
+[11.255s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_server) by extensions ['colcon_meta']
+[11.255s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_server) by extension 'colcon_meta'
+[11.256s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_server) by extensions ['ros']
+[11.256s] Level 1:colcon.colcon_core.package_identification:_identify(src/octomap/octomap_server) by extension 'ros'
+[11.262s] DEBUG:colcon.colcon_core.package_identification:Package 'src/octomap/octomap_server' with type 'ros.ament_cmake' and name 'octomap_server'
+[11.262s] Level 1:colcon.colcon_core.package_identification:_identify(src/plugin_rviz) by extensions ['ignore', 'ignore_ament_install']
+[11.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/plugin_rviz) by extension 'ignore'
+[11.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/plugin_rviz) by extension 'ignore_ament_install'
+[11.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/plugin_rviz) by extensions ['colcon_pkg']
+[11.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/plugin_rviz) by extension 'colcon_pkg'
+[11.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/plugin_rviz) by extensions ['colcon_meta']
+[11.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/plugin_rviz) by extension 'colcon_meta'
+[11.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/plugin_rviz) by extensions ['ros']
+[11.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/plugin_rviz) by extension 'ros'
+[11.265s] DEBUG:colcon.colcon_core.package_identification:Package 'src/plugin_rviz' with type 'ros.ament_cmake' and name 'octomap_rviz_plugins'
+[11.313s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extensions ['ignore', 'ignore_ament_install']
+[11.314s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extension 'ignore'
+[11.314s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extension 'ignore_ament_install'
+[11.314s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extensions ['colcon_pkg']
+[11.314s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extension 'colcon_pkg'
+[11.314s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extensions ['colcon_meta']
+[11.314s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extension 'colcon_meta'
+[11.315s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extensions ['ros']
+[11.315s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extension 'ros'
+[11.315s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extensions ['cmake', 'python']
+[11.315s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extension 'cmake'
+[11.315s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extension 'python'
+[11.315s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extensions ['python_setup_py']
+[11.315s] Level 1:colcon.colcon_core.package_identification:_identify(weights) by extension 'python_setup_py'
+[11.398s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extensions ['ignore', 'ignore_ament_install']
+[11.398s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extension 'ignore'
+[11.398s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extension 'ignore_ament_install'
+[11.398s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extensions ['colcon_pkg']
+[11.399s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extension 'colcon_pkg'
+[11.399s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extensions ['colcon_meta']
+[11.399s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extension 'colcon_meta'
+[11.399s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extensions ['ros']
+[11.399s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extension 'ros'
+[11.399s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extensions ['cmake', 'python']
+[11.399s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extension 'cmake'
+[11.399s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extension 'python'
+[11.399s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extensions ['python_setup_py']
+[11.399s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_152309) by extension 'python_setup_py'
+[11.400s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extensions ['ignore', 'ignore_ament_install']
+[11.401s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extension 'ignore'
+[11.401s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extension 'ignore_ament_install'
+[11.401s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extensions ['colcon_pkg']
+[11.401s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extension 'colcon_pkg'
+[11.401s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extensions ['colcon_meta']
+[11.401s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extension 'colcon_meta'
+[11.401s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extensions ['ros']
+[11.401s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extension 'ros'
+[11.402s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extensions ['cmake', 'python']
+[11.402s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extension 'cmake'
+[11.402s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extension 'python'
+[11.402s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extensions ['python_setup_py']
+[11.402s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_154044) by extension 'python_setup_py'
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extensions ['ignore', 'ignore_ament_install']
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extension 'ignore'
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extension 'ignore_ament_install'
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extensions ['colcon_pkg']
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extension 'colcon_pkg'
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extensions ['colcon_meta']
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extension 'colcon_meta'
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extensions ['ros']
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extension 'ros'
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extensions ['cmake', 'python']
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extension 'cmake'
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extension 'python'
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extensions ['python_setup_py']
+[11.403s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_222348) by extension 'python_setup_py'
+[11.411s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extensions ['ignore', 'ignore_ament_install']
+[11.411s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extension 'ignore'
+[11.411s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extension 'ignore_ament_install'
+[11.412s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extensions ['colcon_pkg']
+[11.412s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extension 'colcon_pkg'
+[11.412s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extensions ['colcon_meta']
+[11.412s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extension 'colcon_meta'
+[11.412s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extensions ['ros']
+[11.412s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extension 'ros'
+[11.412s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extensions ['cmake', 'python']
+[11.412s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extension 'cmake'
+[11.412s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extension 'python'
+[11.413s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extensions ['python_setup_py']
+[11.413s] Level 1:colcon.colcon_core.package_identification:_identify(weights/run_20250503_224103) by extension 'python_setup_py'
+[11.413s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[11.413s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[11.413s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[11.413s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[11.413s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[11.706s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[11.706s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[11.712s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 7 installed packages in /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install
+[11.713s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 300 installed packages in /opt/ros/humble
+[11.715s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'car_interfaces' build argument 'cmake_args' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'car_interfaces' build argument 'cmake_target' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'car_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'car_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'car_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'car_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'car_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'car_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'car_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[11.955s] DEBUG:colcon.colcon_core.verb:Building package 'car_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces', 'merge_install': False, 'path': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_interfaces', 'symlink_install': False, 'test_result_base': None}
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'hector_gazebo_plugins' build argument 'cmake_args' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'hector_gazebo_plugins' build argument 'cmake_target' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'hector_gazebo_plugins' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'hector_gazebo_plugins' build argument 'cmake_clean_cache' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'hector_gazebo_plugins' build argument 'cmake_clean_first' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'hector_gazebo_plugins' build argument 'cmake_force_configure' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'hector_gazebo_plugins' build argument 'ament_cmake_args' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'hector_gazebo_plugins' build argument 'catkin_cmake_args' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'hector_gazebo_plugins' build argument 'catkin_skip_building_tests' from command line to 'False'
+[11.955s] DEBUG:colcon.colcon_core.verb:Building package 'hector_gazebo_plugins' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins', 'merge_install': False, 'path': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/hector_gazebo', 'symlink_install': False, 'test_result_base': None}
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'octomap_rviz_plugins' build argument 'cmake_args' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'octomap_rviz_plugins' build argument 'cmake_target' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'octomap_rviz_plugins' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'octomap_rviz_plugins' build argument 'cmake_clean_cache' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'octomap_rviz_plugins' build argument 'cmake_clean_first' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'octomap_rviz_plugins' build argument 'cmake_force_configure' from command line to 'False'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'octomap_rviz_plugins' build argument 'ament_cmake_args' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'octomap_rviz_plugins' build argument 'catkin_cmake_args' from command line to 'None'
+[11.955s] Level 5:colcon.colcon_core.verb:set package 'octomap_rviz_plugins' build argument 'catkin_skip_building_tests' from command line to 'False'
+[11.955s] DEBUG:colcon.colcon_core.verb:Building package 'octomap_rviz_plugins' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_rviz_plugins', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins', 'merge_install': False, 'path': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/plugin_rviz', 'symlink_install': False, 'test_result_base': None}
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car' build argument 'cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car' build argument 'cmake_target' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car' build argument 'cmake_clean_cache' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car' build argument 'cmake_clean_first' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car' build argument 'cmake_force_configure' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car' build argument 'ament_cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car' build argument 'catkin_cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car' build argument 'catkin_skip_building_tests' from command line to 'False'
+[11.956s] DEBUG:colcon.colcon_core.verb:Building package 'car' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car', 'merge_install': False, 'path': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python', 'symlink_install': False, 'test_result_base': None}
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car_cpp' build argument 'cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car_cpp' build argument 'cmake_target' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car_cpp' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car_cpp' build argument 'cmake_clean_cache' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car_cpp' build argument 'cmake_clean_first' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car_cpp' build argument 'cmake_force_configure' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car_cpp' build argument 'ament_cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car_cpp' build argument 'catkin_cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'car_cpp' build argument 'catkin_skip_building_tests' from command line to 'False'
+[11.956s] DEBUG:colcon.colcon_core.verb:Building package 'car_cpp' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp', 'merge_install': False, 'path': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp', 'symlink_install': False, 'test_result_base': None}
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_server' build argument 'cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_server' build argument 'cmake_target' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_server' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_server' build argument 'cmake_clean_cache' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_server' build argument 'cmake_clean_first' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_server' build argument 'cmake_force_configure' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_server' build argument 'ament_cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_server' build argument 'catkin_cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_server' build argument 'catkin_skip_building_tests' from command line to 'False'
+[11.956s] DEBUG:colcon.colcon_core.verb:Building package 'octomap_server' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server', 'merge_install': False, 'path': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_server', 'symlink_install': False, 'test_result_base': None}
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_mapping' build argument 'cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_mapping' build argument 'cmake_target' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_mapping' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_mapping' build argument 'cmake_clean_cache' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_mapping' build argument 'cmake_clean_first' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_mapping' build argument 'cmake_force_configure' from command line to 'False'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_mapping' build argument 'ament_cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_mapping' build argument 'catkin_cmake_args' from command line to 'None'
+[11.956s] Level 5:colcon.colcon_core.verb:set package 'octomap_mapping' build argument 'catkin_skip_building_tests' from command line to 'False'
+[11.956s] DEBUG:colcon.colcon_core.verb:Building package 'octomap_mapping' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_mapping', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping', 'merge_install': False, 'path': '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_mapping', 'symlink_install': False, 'test_result_base': None}
+[11.956s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[11.957s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[11.957s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_interfaces' with build type 'ament_cmake'
+[11.957s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_interfaces'
+[11.982s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[11.982s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[11.982s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[12.007s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/hector_gazebo' with build type 'ament_cmake'
+[12.007s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/hector_gazebo'
+[12.008s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[12.008s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[12.016s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/plugin_rviz' with build type 'ament_cmake'
+[12.016s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/plugin_rviz'
+[12.017s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[12.017s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[12.059s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces -- -j20 -l20
+[12.122s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins -- -j20 -l20
+[12.190s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_rviz_plugins': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_rviz_plugins -- -j20 -l20
+[15.629s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_rviz_plugins' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_rviz_plugins -- -j20 -l20
+[15.665s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_rviz_plugins': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_rviz_plugins
+[15.692s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces -- -j20 -l20
+[15.734s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces
+[15.802s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(octomap_rviz_plugins)
+[15.803s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_rviz_plugins' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_rviz_plugins
+[16.133s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins' for CMake module files
+[16.135s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins' for CMake config files
+[16.135s] Level 1:colcon.colcon_core.shell:create_environment_hook('octomap_rviz_plugins', 'cmake_prefix_path')
+[16.136s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/cmake_prefix_path.ps1'
+[16.169s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/cmake_prefix_path.dsv'
+[16.232s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/cmake_prefix_path.sh'
+[16.254s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib'
+[16.256s] Level 1:colcon.colcon_core.shell:create_environment_hook('octomap_rviz_plugins', 'ld_library_path_lib')
+[16.259s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/ld_library_path_lib.ps1'
+[16.262s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/ld_library_path_lib.dsv'
+[16.263s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/ld_library_path_lib.sh'
+[16.264s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/bin'
+[16.264s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib/pkgconfig/octomap_rviz_plugins.pc'
+[16.265s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib/python3.10/site-packages'
+[16.266s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/bin'
+[16.267s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/package.ps1'
+[16.298s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/package.dsv'
+[16.417s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/package.sh'
+[16.428s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/package.bash'
+[16.452s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/package.zsh'
+[16.462s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/colcon-core/packages/octomap_rviz_plugins)
+[16.463s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(octomap_rviz_plugins)
+[16.463s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins' for CMake module files
+[16.464s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins' for CMake config files
+[16.464s] Level 1:colcon.colcon_core.shell:create_environment_hook('octomap_rviz_plugins', 'cmake_prefix_path')
+[16.464s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/cmake_prefix_path.ps1'
+[16.465s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/cmake_prefix_path.dsv'
+[16.465s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/cmake_prefix_path.sh'
+[16.466s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib'
+[16.466s] Level 1:colcon.colcon_core.shell:create_environment_hook('octomap_rviz_plugins', 'ld_library_path_lib')
+[16.467s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/ld_library_path_lib.ps1'
+[16.467s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/ld_library_path_lib.dsv'
+[16.468s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/hook/ld_library_path_lib.sh'
+[16.468s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/bin'
+[16.468s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib/pkgconfig/octomap_rviz_plugins.pc'
+[16.468s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib/python3.10/site-packages'
+[16.469s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/bin'
+[16.469s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/package.ps1'
+[16.470s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/package.dsv'
+[16.470s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/package.sh'
+[16.470s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/package.bash'
+[16.471s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/octomap_rviz_plugins/package.zsh'
+[16.471s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/share/colcon-core/packages/octomap_rviz_plugins)
+[16.472s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(car_interfaces)
+[16.472s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces' for CMake module files
+[16.473s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_interfaces
+[16.473s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces' for CMake config files
+[16.473s] Level 1:colcon.colcon_core.shell:create_environment_hook('car_interfaces', 'cmake_prefix_path')
+[16.473s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/cmake_prefix_path.ps1'
+[16.474s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/cmake_prefix_path.dsv'
+[16.474s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/cmake_prefix_path.sh'
+[16.474s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib'
+[16.474s] Level 1:colcon.colcon_core.shell:create_environment_hook('car_interfaces', 'ld_library_path_lib')
+[16.474s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/ld_library_path_lib.ps1'
+[16.474s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/ld_library_path_lib.dsv'
+[16.475s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/ld_library_path_lib.sh'
+[16.475s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/bin'
+[16.475s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/pkgconfig/car_interfaces.pc'
+[16.475s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/python3.10/site-packages'
+[16.475s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/bin'
+[16.475s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.ps1'
+[16.475s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.dsv'
+[16.476s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.sh'
+[16.476s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.bash'
+[16.476s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.zsh'
+[16.476s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/colcon-core/packages/car_interfaces)
+[16.476s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(car_interfaces)
+[16.476s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces' for CMake module files
+[16.477s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces' for CMake config files
+[16.477s] Level 1:colcon.colcon_core.shell:create_environment_hook('car_interfaces', 'cmake_prefix_path')
+[16.477s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/cmake_prefix_path.ps1'
+[16.477s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/cmake_prefix_path.dsv'
+[16.477s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/cmake_prefix_path.sh'
+[16.478s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib'
+[16.478s] Level 1:colcon.colcon_core.shell:create_environment_hook('car_interfaces', 'ld_library_path_lib')
+[16.478s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/ld_library_path_lib.ps1'
+[16.478s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/ld_library_path_lib.dsv'
+[16.478s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/hook/ld_library_path_lib.sh'
+[16.478s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/bin'
+[16.478s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/pkgconfig/car_interfaces.pc'
+[16.478s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib/python3.10/site-packages'
+[16.479s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/bin'
+[16.479s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.ps1'
+[16.479s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.dsv'
+[16.479s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.sh'
+[16.479s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.bash'
+[16.480s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/package.zsh'
+[16.480s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/colcon-core/packages/car_interfaces)
+[16.480s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_server' with build type 'ament_cmake'
+[16.480s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_server'
+[16.480s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[16.480s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[16.482s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python' with build type 'ament_python'
+[16.482s] Level 1:colcon.colcon_core.shell:create_environment_hook('car', 'ament_prefix_path')
+[16.483s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/hook/ament_prefix_path.ps1'
+[16.483s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/hook/ament_prefix_path.dsv'
+[16.483s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/hook/ament_prefix_path.sh'
+[16.483s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[16.483s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[16.485s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp' with build type 'ament_cmake'
+[16.485s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp'
+[16.485s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[16.485s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[16.487s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins -- -j20 -l20
+[16.488s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins
+[16.533s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server -- -j20 -l20
+[16.887s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python'
+[16.887s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[16.887s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[16.996s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j20 -l20
+[17.146s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hector_gazebo_plugins)
+[17.147s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins' for CMake module files
+[17.148s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/hector_gazebo_plugins
+[17.149s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins' for CMake config files
+[17.150s] Level 1:colcon.colcon_core.shell:create_environment_hook('hector_gazebo_plugins', 'cmake_prefix_path')
+[17.151s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/cmake_prefix_path.ps1'
+[17.152s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/cmake_prefix_path.dsv'
+[17.153s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/cmake_prefix_path.sh'
+[17.154s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib'
+[17.155s] Level 1:colcon.colcon_core.shell:create_environment_hook('hector_gazebo_plugins', 'ld_library_path_lib')
+[17.155s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/ld_library_path_lib.ps1'
+[17.156s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/ld_library_path_lib.dsv'
+[17.156s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/ld_library_path_lib.sh'
+[17.157s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/bin'
+[17.157s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/pkgconfig/hector_gazebo_plugins.pc'
+[17.158s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/python3.10/site-packages'
+[17.158s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/bin'
+[17.158s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.ps1'
+[17.159s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.dsv'
+[17.160s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.sh'
+[17.160s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.bash'
+[17.166s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.zsh'
+[17.166s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/colcon-core/packages/hector_gazebo_plugins)
+[17.166s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hector_gazebo_plugins)
+[17.166s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins' for CMake module files
+[17.167s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins' for CMake config files
+[17.167s] Level 1:colcon.colcon_core.shell:create_environment_hook('hector_gazebo_plugins', 'cmake_prefix_path')
+[17.167s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/cmake_prefix_path.ps1'
+[17.167s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/cmake_prefix_path.dsv'
+[17.167s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/cmake_prefix_path.sh'
+[17.168s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib'
+[17.168s] Level 1:colcon.colcon_core.shell:create_environment_hook('hector_gazebo_plugins', 'ld_library_path_lib')
+[17.168s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/ld_library_path_lib.ps1'
+[17.168s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/ld_library_path_lib.dsv'
+[17.168s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/hook/ld_library_path_lib.sh'
+[17.168s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/bin'
+[17.168s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/pkgconfig/hector_gazebo_plugins.pc'
+[17.169s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib/python3.10/site-packages'
+[17.169s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/bin'
+[17.169s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.ps1'
+[17.180s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.dsv'
+[17.180s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.sh'
+[17.181s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.bash'
+[17.181s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/hector_gazebo_plugins/package.zsh'
+[17.181s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/share/colcon-core/packages/hector_gazebo_plugins)
+[18.212s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j20 -l20
+[18.276s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp
+[19.000s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server -- -j20 -l20
+[19.073s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server
+[19.115s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(car_cpp)
+[19.116s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp' for CMake module files
+[19.118s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp
+[19.119s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp' for CMake config files
+[19.119s] Level 1:colcon.colcon_core.shell:create_environment_hook('car_cpp', 'cmake_prefix_path')
+[19.120s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/cmake_prefix_path.ps1'
+[19.121s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/cmake_prefix_path.dsv'
+[19.122s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/cmake_prefix_path.sh'
+[19.124s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib'
+[19.124s] Level 1:colcon.colcon_core.shell:create_environment_hook('car_cpp', 'ld_library_path_lib')
+[19.124s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/ld_library_path_lib.ps1'
+[19.125s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/ld_library_path_lib.dsv'
+[19.134s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/ld_library_path_lib.sh'
+[19.135s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/bin'
+[19.135s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/pkgconfig/car_cpp.pc'
+[19.136s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/python3.10/site-packages'
+[19.136s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/bin'
+[19.137s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.ps1'
+[19.139s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.dsv'
+[19.140s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.sh'
+[19.140s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.bash'
+[19.141s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.zsh'
+[19.165s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/colcon-core/packages/car_cpp)
+[19.167s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(car_cpp)
+[19.168s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp' for CMake module files
+[19.169s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp' for CMake config files
+[19.170s] Level 1:colcon.colcon_core.shell:create_environment_hook('car_cpp', 'cmake_prefix_path')
+[19.171s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/cmake_prefix_path.ps1'
+[19.172s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/cmake_prefix_path.dsv'
+[19.173s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/cmake_prefix_path.sh'
+[19.174s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib'
+[19.174s] Level 1:colcon.colcon_core.shell:create_environment_hook('car_cpp', 'ld_library_path_lib')
+[19.175s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/ld_library_path_lib.ps1'
+[19.176s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/ld_library_path_lib.dsv'
+[19.182s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/hook/ld_library_path_lib.sh'
+[19.183s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/bin'
+[19.184s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/pkgconfig/car_cpp.pc'
+[19.184s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/python3.10/site-packages'
+[19.185s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/bin'
+[19.186s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.ps1'
+[19.189s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.dsv'
+[19.190s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.sh'
+[19.191s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.bash'
+[19.192s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.zsh'
+[19.192s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/colcon-core/packages/car_cpp)
+[19.585s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(octomap_server)
+[19.586s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server' for CMake module files
+[19.588s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_server
+[19.589s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server' for CMake config files
+[19.590s] Level 1:colcon.colcon_core.shell:create_environment_hook('octomap_server', 'cmake_prefix_path')
+[19.591s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/cmake_prefix_path.ps1'
+[19.592s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/cmake_prefix_path.dsv'
+[19.593s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/cmake_prefix_path.sh'
+[19.594s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib'
+[19.595s] Level 1:colcon.colcon_core.shell:create_environment_hook('octomap_server', 'ld_library_path_lib')
+[19.595s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/ld_library_path_lib.ps1'
+[19.596s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/ld_library_path_lib.dsv'
+[19.597s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/ld_library_path_lib.sh'
+[19.598s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/bin'
+[19.598s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib/pkgconfig/octomap_server.pc'
+[19.599s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib/python3.10/site-packages'
+[19.599s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/bin'
+[19.600s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/package.ps1'
+[19.601s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/package.dsv'
+[19.602s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/package.sh'
+[19.603s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/package.bash'
+[19.604s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/package.zsh'
+[19.604s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/colcon-core/packages/octomap_server)
+[19.605s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(octomap_server)
+[19.606s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server' for CMake module files
+[19.606s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server' for CMake config files
+[19.607s] Level 1:colcon.colcon_core.shell:create_environment_hook('octomap_server', 'cmake_prefix_path')
+[19.607s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/cmake_prefix_path.ps1'
+[19.607s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/cmake_prefix_path.dsv'
+[19.608s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/cmake_prefix_path.sh'
+[19.608s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib'
+[19.608s] Level 1:colcon.colcon_core.shell:create_environment_hook('octomap_server', 'ld_library_path_lib')
+[19.608s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/ld_library_path_lib.ps1'
+[19.609s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/ld_library_path_lib.dsv'
+[19.609s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/hook/ld_library_path_lib.sh'
+[19.609s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/bin'
+[19.609s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib/pkgconfig/octomap_server.pc'
+[19.610s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib/python3.10/site-packages'
+[19.610s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/bin'
+[19.610s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/package.ps1'
+[19.610s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/package.dsv'
+[19.611s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/package.sh'
+[19.611s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/package.bash'
+[19.611s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/octomap_server/package.zsh'
+[19.611s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/share/colcon-core/packages/octomap_server)
+[19.612s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_mapping' with build type 'ament_cmake'
+[19.612s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/octomap/octomap_mapping'
+[19.612s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.612s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.716s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_mapping': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_mapping -- -j20 -l20
+[19.716s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build install --record /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log --single-version-externally-managed install_data
+[19.745s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_mapping' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_mapping -- -j20 -l20
+[19.746s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_mapping': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_mapping
+[19.752s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(octomap_mapping)
+[19.753s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping' for CMake module files
+[19.753s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_mapping' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/octomap_mapping
+[19.753s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping' for CMake config files
+[19.753s] Level 1:colcon.colcon_core.shell:create_environment_hook('octomap_mapping', 'cmake_prefix_path')
+[19.753s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/hook/cmake_prefix_path.ps1'
+[19.754s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/hook/cmake_prefix_path.dsv'
+[19.754s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/hook/cmake_prefix_path.sh'
+[19.754s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/bin'
+[19.754s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/lib/pkgconfig/octomap_mapping.pc'
+[19.754s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/lib/python3.10/site-packages'
+[19.754s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/bin'
+[19.754s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/package.ps1'
+[19.755s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/package.dsv'
+[19.755s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/package.sh'
+[19.772s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/package.bash'
+[19.772s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/package.zsh'
+[19.772s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/colcon-core/packages/octomap_mapping)
+[19.773s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(octomap_mapping)
+[19.773s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping' for CMake module files
+[19.773s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping' for CMake config files
+[19.773s] Level 1:colcon.colcon_core.shell:create_environment_hook('octomap_mapping', 'cmake_prefix_path')
+[19.773s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/hook/cmake_prefix_path.ps1'
+[19.773s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/hook/cmake_prefix_path.dsv'
+[19.773s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/hook/cmake_prefix_path.sh'
+[19.774s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/bin'
+[19.774s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/lib/pkgconfig/octomap_mapping.pc'
+[19.774s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/lib/python3.10/site-packages'
+[19.774s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/bin'
+[19.774s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/package.ps1'
+[19.774s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/package.dsv'
+[19.775s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/package.sh'
+[19.775s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/package.bash'
+[19.775s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/octomap_mapping/package.zsh'
+[19.775s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping/share/colcon-core/packages/octomap_mapping)
+[20.091s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car' for CMake module files
+[20.091s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build install --record /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log --single-version-externally-managed install_data
+[20.091s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car' for CMake config files
+[20.092s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib'
+[20.092s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/bin'
+[20.092s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/pkgconfig/car.pc'
+[20.092s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages'
+[20.092s] Level 1:colcon.colcon_core.shell:create_environment_hook('car', 'pythonpath')
+[20.092s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/hook/pythonpath.ps1'
+[20.092s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/hook/pythonpath.dsv'
+[20.093s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/hook/pythonpath.sh'
+[20.093s] Level 1:colcon.colcon_core.environment:checking '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/bin'
+[20.093s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(car)
+[20.093s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/package.ps1'
+[20.093s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/package.dsv'
+[20.094s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/package.sh'
+[20.094s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/package.bash'
+[20.094s] INFO:colcon.colcon_core.shell:Creating package script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/package.zsh'
+[20.094s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/colcon-core/packages/car)
+[20.094s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[20.094s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[20.094s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[20.094s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[20.133s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[20.133s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[20.133s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[20.155s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[20.156s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/local_setup.ps1'
+[20.179s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/_local_setup_util_ps1.py'
+[20.200s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/setup.ps1'
+[20.218s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/local_setup.sh'
+[20.230s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/_local_setup_util_sh.py'
+[20.231s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/setup.sh'
+[20.235s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/local_setup.bash'
+[20.265s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/setup.bash'
+[20.268s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/local_setup.zsh'
+[20.307s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/setup.zsh'

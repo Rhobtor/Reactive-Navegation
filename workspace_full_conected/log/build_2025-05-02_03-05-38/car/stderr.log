@@ -1,0 +1,5 @@
+  File "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/inference_training_mode_simple.py", line 142
+    self.policy.load_weights(str(RUN_DIR/"policy_latest.weights.h5")
+                            ^
+SyntaxError: '(' was never closed
+

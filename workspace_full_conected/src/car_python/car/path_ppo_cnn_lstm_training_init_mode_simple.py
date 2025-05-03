@@ -1,6 +1,6 @@
 
-##################################################################
-##################################################################
+# ##################################################################
+# ##################################################################
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -46,7 +46,7 @@ LOOK_A  = 2.0    # m (aceptación)
 # PPO
 ROLLOUT_STEPS   = 1024
 BATCH_SZ        = 256
-EPOCHS          = 300
+EPOCHS          = 600
 MAX_UPDATES     = 10
 GAMMA           = 0.99
 GAE_LAMBDA      = 0.95
@@ -56,7 +56,7 @@ LR_CRITIC       = 1e-3
 STD_START       = 0.3
 STD_MIN         = 0.05
 STD_DECAY       = 0.995
-MAX_EPISODES = 100 
+MAX_EPISODES = 1000 
 MAX_TILT = 0.5
 
 DTYPE = np.float32
@@ -172,6 +172,10 @@ class FlexPlanner(Node):
         self.reset_pub = self.create_publisher(Bool,  "/reset_request", latched)
         self.cmd_pub   = self.create_publisher(Twist, "/cmd_vel", qos)
 
+
+
+        # --- Parámetros de la red
+        self.training_start_time = time.time()
         # --- Estado ROS
         self.waiting_reset=False
         self.current_path = []     # lista de waypoints activos
@@ -185,6 +189,7 @@ class FlexPlanner(Node):
         self.ready = True 
         self.reset_t0=None
         self.episode_done=False
+        self.ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         self.update_done=0
         self.max_seg  =0.6
         self.max_steps=60
@@ -217,6 +222,16 @@ class FlexPlanner(Node):
         self.goal_counter=0
         self.goals_in_world=random.randint(5,7)
         self.goal_vis=0
+
+        # ——— Evitar OOM en GPU: growth mode ———
+        gpus = tf.config.experimental.list_physical_devices('GPU')
+        if gpus:
+            try:
+                tf.config.experimental.set_memory_growth(gpus[0], True)
+            except Exception as e:
+                self.get_logger().warning(f"No pude activar memory_growth: {e}")
+
+
 
         self.create_timer(0.1, self.step)
         self.get_logger().info("Flexible planner + PPO listo")
@@ -442,7 +457,15 @@ class FlexPlanner(Node):
     ##########################################
 
 
-
+    def expert_delta(self, cp, tgt, grid, info):
+        """Devuelve el Δx,Δy normalizado ([-1,1]) que indica el primer segmento
+        del minipath 'clásico'."""
+        path = self.generate_flexible_path(cp, tgt, grid, info)
+        if len(path) < 2:
+            return np.zeros(2, np.float32)
+        dx, dy = path[1][0]-cp[0], path[1][1]-cp[1]
+        norm   = np.linalg.norm([dx,dy]) + 1e-6
+        return np.array([dx, dy], np.float32) / norm
 
 
 
@@ -519,9 +542,9 @@ class FlexPlanner(Node):
         cmd.angular.z   =  omega
         self.cmd_pub.publish(cmd)
 
-        self.get_logger().info(
-            f"[FOLLOW] wp={self.wp_index}/{len(self.current_path)-1}  "
-            f"v={v_lin:.2f} m/s  ω={omega:.2f} rad/s  α={alpha*180/math.pi:+.1f}°")
+        #self.get_logger().info(
+        #    f"[FOLLOW] wp={self.wp_index}/{len(self.current_path)-1}  "
+        #    f"v={v_lin:.2f} m/s  ω={omega:.2f} rad/s  α={alpha*180/math.pi:+.1f}°")
 ############################################
  
 ###nuevo
@@ -543,6 +566,32 @@ class FlexPlanner(Node):
         self.act_buf=[];   self.logp_buf=[]
         self.rew_buf=[];   self.val_buf=[]
         self.done_buf=[]
+        # buffers DEMO
+        self.demo_patch=[]; self.demo_state=[]; self.demo_act=[]
+
+    def behaviour_cloning_update(self):
+        if not self.demo_patch:          # nada que entrenar
+            return
+        Xg = np.stack(self.demo_patch)          # (N,128,128,1)
+        Xs = np.stack(self.demo_state)          # (N,4)
+        Ya = np.stack(self.demo_act)            # (N,2)
+        w0 = np.zeros((Ya.shape[0],2),np.float32)
+
+        # congela todo salvo última Dense
+        for l in self.policy.layers: l.trainable = False
+        self.policy.layers[-1].trainable = True
+
+        self.policy.compile("adam","mse")
+        small_bs = min(256, Ya.shape[0])
+        self.policy.fit([Xg,Xs,w0], Ya,
+                        epochs=300, batch_size=small_bs, verbose=0)
+
+        # desbloquea para PPO
+        for l in self.policy.layers: l.trainable = True
+
+        # limpia demos
+        self.demo_patch.clear(); self.demo_state.clear(); self.demo_act.clear()
+
 
 
     def step(self):
@@ -585,7 +634,17 @@ class FlexPlanner(Node):
         if need_replan:
             self.current_path = self.generate_flexible_path(cp, tgt, grid, info)
             self.wp_index = 1
-            self.get_logger().info(f"[PATH] len={len(self.current_path)} wps")
+            #self.get_logger().info(f"[PATH] len={len(self.current_path)} wps")
+
+
+        delta_exp = self.expert_delta(cp, tgt, grid, info)
+
+        # guarda demo                                                   ### NEW ###
+        self.demo_patch.append(patch.astype(np.float32))
+        self.demo_state.append(np.array([0,0,tgt[0]-cp[0], tgt[1]-cp[1]],np.float32))
+        self.demo_act  .append(delta_exp)
+
+
 
         # 4 · Seguimiento del path ------------------------------------
         self.follow_path(cp)
@@ -624,6 +683,7 @@ class FlexPlanner(Node):
             if collided:   self.get_logger().info("💥  Colisión detectada")
             if overturned: self.get_logger().warning("🚨  Robot volcado")
 
+            self.behaviour_cloning_update()  
             self.update_ppo()                              # entrenamiento
             self.goal_reached_flag = False
             self.episode  += 1
@@ -634,10 +694,23 @@ class FlexPlanner(Node):
                                 step=self.episode)
                 tf.summary.scalar("collided", int(collided), step=self.episode)
 
+            # ——— Cálculo y log de ETA ———
+            elapsed = time.time() - self.training_start_time
+            avg_per_ep = elapsed / float(self.episode)
+            remaining_eps = max(0, MAX_EPISODES - self.episode)
+            eta_sec = avg_per_ep * remaining_eps
+            # formatear en h:m:s
+            h, rem = divmod(int(eta_sec), 3600)
+            m, s   = divmod(rem, 60)
+            self.get_logger().info(
+                f"[PROGRESS] Episodio {self.episode}/{MAX_EPISODES}  "
+                f"Transcurrido: {elapsed:.1f}s  ETA: {h}h{m}m{s}s"
+            )
+
         # 7 · Reset de mapa si procede -------------------------------
         if (self.goal_counter >= self.goals_in_world) or collided:
-            ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            self.policy.save_weights(RUN_DIR / f"policy_latest_{ts}.weights.h5")
+            
+            
 
             self.reset_pub.publish(Bool(data=True))
             self.ready         = False
@@ -741,7 +814,7 @@ class FlexPlanner(Node):
             tf.summary.scalar("loss_actor",  pg_loss,      step=self.episode)
             tf.summary.scalar("loss_critic", v_loss,       step=self.episode)
             tf.summary.scalar("policy_std",  float(new_std[0]), step=self.episode)
-
+        self.policy.save_weights(RUN_DIR / f"policy_latest_{self.ts}.weights.h5")
         # 6) Limpieza --------------------------------------------------
         self.reset_buffers()
         self.get_logger().info(f"[PPO] update  π={pg_loss.numpy():.3f}  "
@@ -759,3 +832,7 @@ def main(args=None):
 
 if __name__=="__main__":
     main()
+
+
+##################################################################
+##################################################################

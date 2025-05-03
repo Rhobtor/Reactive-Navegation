@@ -42,6 +42,9 @@ setup(
             'movement_predictive= car.movement_predictive:main',
             'lidar_detection= car.lidar_obstacle_detection:main',
             'path_ppo_cnn_lstm_training_init_mode_simple= car.path_ppo_cnn_lstm_training_init_mode_simple:main',
+            'path_ppo_cnn_lstm_full_model= car.path_ppo_cnn_lstm_full_model:main',
+            'inference_training_mode_simple= car.inference_training_mode_simple:main',
+            'inference_full_model= car.inference_full_model:main',
         ],
     },
 )

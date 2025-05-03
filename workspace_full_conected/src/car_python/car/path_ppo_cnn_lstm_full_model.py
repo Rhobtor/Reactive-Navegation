@@ -46,7 +46,7 @@ LOOK_A  = 2.0    # m (aceptación)
 # PPO
 ROLLOUT_STEPS   = 1024
 BATCH_SZ        = 256
-EPOCHS          = 300
+EPOCHS          = 500
 MAX_UPDATES     = 10
 GAMMA           = 0.99
 GAE_LAMBDA      = 0.95
@@ -56,10 +56,24 @@ LR_CRITIC       = 1e-3
 STD_START       = 0.3
 STD_MIN         = 0.05
 STD_DECAY       = 0.995
-MAX_EPISODES = 100 
+MAX_EPISODES = 300 
 MAX_TILT = 0.5
+SMOOTH = 0.35                   #   0→sin filtro  1→muy lento
+ACC_LIM = 5.0                   # m/s² máx. (Δv por paso / Δt≈0.1 s)
+
+
+# ---------- Behaviour-Cloning / Teacher --------------------------
+LAMBDA_BC_START = 1.0     # peso inicial (clava al teacher)
+LAMBDA_BC_END   = 0.0     # peso final   (solo PPO)
+BC_DECAY_STEPS  = 2_000   # nº updates para pasar de START a END
+
+
 
 DTYPE = np.float32
+
+MIN_FIRST_SEG   = 0.60                     # [m] tramo mínimo inicial
+REV_ANGLE_MAX   = math.radians(100)        # ≤100° se considera “frontal”
+ALPHA_IIR_VEL   = 0.6                      # filtro primera orden velocidad
 
 
 RUN_DIR = pathlib.Path.home() / "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/weights"
@@ -139,6 +153,10 @@ def clearance_ok(grid, info, pt, r_m):
                 return False
     return True
 
+
+
+
+
 # ==============  RED CNN + LSTM  ==========================================
 def build_policy():
     g   = tf.keras.Input(shape=(PATCH,PATCH,1), name="grid")
@@ -199,6 +217,7 @@ class FlexPlanner(Node):
         self.ready = True 
         self.reset_t0=None
         self.episode_done=False
+        self.last_teacher = np.zeros(3, np.float32)  
         self.update_done=0
         self.max_seg  =0.6
         self.max_steps=60
@@ -207,11 +226,20 @@ class FlexPlanner(Node):
         self.max_seg_length      = 1.0
         self.reach_thr=0.4
         self.goal_reached_flag=False
+        self.v_prev = 0.0               # ← último comando lineal publicado
+        self.bc_weight = tf.Variable(LAMBDA_BC_START,
+                                    trainable=False, dtype=tf.float32)
+
+        self.stuck_steps = 0       # ← contador “sin progreso”
+
+
+        self.ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
         # --- Red y PPO
         self.policy = build_policy()
         self.log_std = tf.Variable(np.log(STD_START*np.ones(3,np.float32)),
                                    trainable=True)
+        
         self.opt_actor  = tf.keras.optimizers.Adam(LR_ACTOR)
         self.opt_critic = tf.keras.optimizers.Adam(LR_CRITIC)
         self.value_net  = tf.keras.Sequential([
@@ -225,6 +253,48 @@ class FlexPlanner(Node):
                                                       time.strftime("run_%Y%m%d_%H%M%S")))
         # Buffers PPO
         self.reset_buffers()
+        init_ckpt = RUN_DIR / "policy_lvl1_init.weights.h5"
+
+        if init_ckpt.exists():
+            # ── Carga directa ────────────────────────────
+            self.policy.load_weights(init_ckpt)
+            self.get_logger().info(f"Cargado checkpoint inicial: {init_ckpt.name}")
+
+
+        else:
+                try:
+                    self.policy.load_weights(str(RUN_DIR/"policy_latest.weights.h5"),
+                                            by_name=True, skip_mismatch=True)
+                    self.get_logger().info("Pesos nivel-0 cargados (se ignora la capa de salida)")
+                except Exception as e:
+                    self.get_logger().warn(f"No se pudieron cargar pesos previos: {e}")
+
+                demo_files = sorted(RUN_DIR.glob("demo_ep*.npz"))
+                if demo_files:
+                    patches=[]; states=[]; acts=[]
+                    for f in demo_files:
+                        d = np.load(f)
+                        patches.append(d["patches"])
+                        states.append(d["states"])
+                        acts.append( np.hstack([d["actions"],
+                                                d["v_norm"][...,None]]) )   # (Δx,Δy,v)
+
+                    Xg = np.concatenate(patches,0).astype(np.float32)
+                    Xs = np.concatenate(states ,0).astype(np.float32)
+                    Ya = np.concatenate(acts   ,0).astype(np.float32)
+                    w0 = np.zeros((Ya.shape[0],2), np.float32)
+
+                    # congela todo salvo la densa final
+                    for layer in self.policy.layers: layer.trainable = False
+                    self.policy.layers[-1].trainable = True
+
+                    self.policy.compile(optimizer="adam", loss="mse")
+                    self.policy.fit([Xg,Xs,w0], Ya, epochs=1000, batch_size=256, verbose=1)
+
+                    # vuelve a descongelar para PPO
+                    for layer in self.policy.layers: layer.trainable = True
+                self.policy.save_weights(RUN_DIR/"policy_lvl1_init.weights.h5")
+
 
         # Episodios
         self.episode=0
@@ -291,8 +361,71 @@ class FlexPlanner(Node):
             self.reset_buffers()
             self.get_logger().info("[Reset] confirmado por el supervisor")
 
+    def _behind_robot(self, cand, cp, yaw, max_back=0.1):
+        """Devuelve True si cand queda detrás del robot más de max_back metros."""
+        dx, dy = self._global_to_local(cand[0]-cp[0], cand[1]-cp[1], yaw)
+        return dx < -max_back          # delante -> dx > 0
+    
+    def _candidate_ok(self, cand, cp, grid, info,
+                    first_wp=False) -> bool:
+        """Comprueba ocupación + línea + clearance (+restricciones iniciales)."""
+        i, j = idx_from_world(info, cand)
+        if not (0 <= i < grid.shape[1] and 0 <= j < grid.shape[0]):         return False
+        if grid[j, i] == -1 or grid[j, i] >= 100:                           return False
+        if not bres_free(grid, info, cp, cand):                             return False
+        if not clearance_ok(grid, info, cand, CLEAR_MIN):                   return False
+        if not safe_shadow(cand, self.obstacles):                           return False   # móviles
 
+        # ── Sólo para el primer waypoint de la ruta ─────────────────
+        if first_wp:
+            # evita el “bache” si el tramo es demasiado corto
+            if l2(cp, cand) < MIN_FIRST_SEG:
+                return False
 
+            # ángulo entre robot->cand y yaw actual
+            dx, dy   = cand[0]-cp[0], cand[1]-cp[1]
+            yaw      = self._yaw_from_quaternion(self.pose.orientation)
+    
+            alpha    = abs(math.atan2(dy, dx) - yaw)
+            if alpha > math.pi: alpha = 2*math.pi - alpha
+
+            # delante: α≤100°  → no aceptamos retroceso
+            # detrás : α>100°  → se permite (la marcha atrás ya la gestionará la vel.)
+            if alpha <= REV_ANGLE_MAX:
+                return True
+            # detrás: sólo lo aceptamos si realmente está en la zona trasera
+            return True                    # sí, pero queda marcado como “reverse”
+
+        # resto de waypoints → ya pasó los tests básicos
+        return True
+
+    # ════════════════════════════════════════════════════════════════
+    #  ↓↓↓  PLANIFICADOR NIVEL-0  (teacher y fallback)  ↓↓↓
+    # ════════════════════════════════════════════════════════════════
+    def next_waypoint_lvl0(self, cp, tgt, grid, info):
+        """
+        Replica el abanico original: devuelve (cand, acción_teacher)
+            action_teacher = [Δx_norm, Δy_norm, v_ref]   con v_ref ∈ [0,1]
+        """
+        ang0 = math.atan2(tgt[1]-cp[1], tgt[0]-cp[0])
+
+        for r in RADII:
+            for off in ANGLES:
+                ang = ang0 + off
+                cand = (cp[0] + r*math.cos(ang),
+                        cp[1] + r*math.sin(ang))
+                if not self._candidate_ok(cand, cp, grid, info, first_wp=False):
+                    continue
+
+                vec = np.array(cand) - np.array(cp)
+                dist = np.linalg.norm(vec)
+                vec  = vec / (dist + 1e-6)          # dirección normalizada
+                v_ref = np.clip(dist / MAX_VEL, 0.0, 1.0)   # heurística simple
+                return cand, np.hstack([vec, v_ref])
+
+        # no hay waypoint viable
+        return None, np.zeros(3, np.float32)
+    # ════════════════════════════════════════════════════════════════
 
 
     def _yaw_from_quaternion(self, q):
@@ -380,50 +513,35 @@ class FlexPlanner(Node):
         return out
     
     def generate_flexible_path(self, start, target, grid, info):
-        path=[start]
-        cp=start
-        step_len=self.max_seg
-        angles=np.linspace(-math.pi/3, math.pi/3, 10)   # ±60°
-        radii=[step_len*0.5, step_len, step_len*1.5]
+        raw = [start];  cp = start
+        step_len = self.max_seg
+        angles   = np.linspace(-math.pi/3, math.pi/3, 10)
+        radii    = [step_len*0.5, step_len, step_len*1.5]
 
         for _ in range(self.max_steps):
-            best=None; best_cost=float("inf")
-            vec_t=(target[0]-cp[0], target[1]-cp[1])
-            ang0=math.atan2(vec_t[1], vec_t[0])
+            best = None; best_cost = float("inf")
+            ang0 = math.atan2(target[1]-cp[1], target[0]-cp[0])
 
             for r in radii:
-                for a_off in angles:
-                    ang=ang0 + a_off
-                    cand=(cp[0]+r*math.cos(ang), cp[1]+r*math.sin(ang))
-
-                    # ---------- filtro ③  “celda debe ser conocida y libre” ----------
-                    i = int((cand[0] - info.origin.position.x) / info.resolution)
-                    j = int((cand[1] - info.origin.position.y) / info.resolution)
-                    if not (0 <= i < grid.shape[1] and 0 <= j < grid.shape[0]):
-                        continue                             # fuera de mapa
-                    if grid[j, i] == -1 or grid[j, i] >= 100:
-                        continue                             # desconocida u obstáculo
-                    # -----------------------------------------------------------------
-
-                    if not self.bres_line_free(grid, info, cp, cand):
-                        continue
-                    if not clearance_ok(grid, info, cand, self.clear_min):
-                        continue
-                    if not safe_shadow(cand, self.obstacles):   ##nueva              
+                for a in angles:
+                    cand = (cp[0]+r*math.cos(ang0+a),
+                            cp[1]+r*math.sin(ang0+a))
+                    if not self._candidate_ok(cand, cp, grid, info, first_wp=(len(raw)==1)):
                         continue
                     cost = distance(cand, target) - 0.5*self.clear_min
-                    if cost < best_cost:
-                        best_cost, best = cost, cand
+                    if cost < best_cost:  best_cost, best = cost, cand
 
-            if best is None:
-                break
-            path.append(best)
-            cp = best
-            if distance(cp, target) < self.reach_thr:
-                break
+            if best is None:    break
+            raw.append(best);   cp = best
+            if distance(cp, target) < self.reach_thr: break
 
-        path.append(target)
-        return self.densify(path)       
+        raw.append(target)
+        path = self.densify(raw)
+
+        # ── Saca el 2º punto si el 1er tramo < MIN_FIRST_SEG ────────
+        if len(path) >= 3 and l2(path[0], path[1]) < MIN_FIRST_SEG:
+            path.pop(1)
+        return path
 
 
 
@@ -455,37 +573,106 @@ class FlexPlanner(Node):
     #             if cost<best_cost: best_cost, best = cost, cand
     #     return best, delta
     ##########################################
+    # def next_waypoint(self, cp, tgt, grid, info, patch):
+    #     # ── 1 · Paso por la política ─────────────────────────────
+    #     state  = np.array([0, 0, tgt[0]-cp[0], tgt[1]-cp[1]], np.float32)
+    #     out    = self.policy([patch[None, ...],
+    #                         state[None, :],
+    #                         np.zeros((1, 2), np.float32)], training=False)[0].numpy()
+    #     delta     = out[:2]                        # dirección preferida
+    #     vel_norm  = out[2]                         # −1 .. 1 → velocidad
+
+    #     ang0 = math.atan2(delta[1], delta[0]) if np.linalg.norm(delta) > 1e-3 \
+    #         else math.atan2(tgt[1]-cp[1], tgt[0]-cp[0])
+
+    #     # ── 2 · Abanico de candidatos ────────────────────────────
+    #     for r in RADII:
+    #         for off in ANGLES:
+    #             ang  = ang0 + off
+    #             cand = (cp[0] + r*math.cos(ang), cp[1] + r*math.sin(ang))
+
+    #             # Filtros: dentro de mapa, libre, línea, clearance, shadow
+    #             i, j = idx_from_world(info, cand)
+    #             if not (0 <= i < grid.shape[1] and 0 <= j < grid.shape[0]): continue
+    #             if grid[j, i] == -1 or grid[j, i] >= 100: continue
+    #             if not bres_free(grid, info, cp, cand):    continue
+    #             if not clearance_ok(grid, info, cand, CLEAR_MIN): continue
+    #             if not safe_shadow(cand, self.obstacles):  continue
+
+    #             return cand, out     # ← primer candidato viable
+
+    #     return None, out             # no se encontró waypoint
+
+    def _is_front(self, pt, cp, yaw):
+        """True si *pt* cae delante del robot en su frame local (+X)."""
+        dx =  pt[0] - cp[0]
+        dy =  pt[1] - cp[1]
+        x_local, _ = self._global_to_local(dx, dy, yaw)
+        return x_local >= 0.0
+
     def next_waypoint(self, cp, tgt, grid, info, patch):
-        # ── 1 · Paso por la política ─────────────────────────────
-        state  = np.array([0, 0, tgt[0]-cp[0], tgt[1]-cp[1]], np.float32)
-        out    = self.policy([patch[None, ...],
-                            state[None, :],
-                            np.zeros((1, 2), np.float32)], training=False)[0].numpy()
-        delta     = out[:2]                        # dirección preferida
-        vel_norm  = out[2]                         # −1 .. 1 → velocidad
+        """
+        Devuelve:
+        · wp  – way-point elegido (o None)
+        · out – salida completa de la red  (Δx,Δy,v_norm)
+        """
+        first_wp = (self.wp_index <= 2) 
+        # ---------- inferencia de la política ------------------------------
+        state = np.array([0, 0, tgt[0]-cp[0], tgt[1]-cp[1]], np.float32)
+        out   = self.policy([patch[None,...],
+                            state[None,:],
+                            np.zeros((1,2), np.float32)], training=False)[0]
+        dx, dy, v_norm = out.numpy()
 
-        ang0 = math.atan2(delta[1], delta[0]) if np.linalg.norm(delta) > 1e-3 \
-            else math.atan2(tgt[1]-cp[1], tgt[0]-cp[0])
+        # -------------------------------------------------------------------
+        yaw   = self._yaw_from_quaternion(self.pose.orientation)
+        first = (self.wp_index <= 1)               # primer wp después del robot
+        vec_t = np.array([tgt[0]-cp[0], tgt[1]-cp[1]], np.float32)
+        vec_n = np.array([dx,          dy        ], np.float32)
 
-        # ── 2 · Abanico de candidatos ────────────────────────────
+        # --- 2.a · Corrige si la red apunta >90° lejos del objetivo --------
+        if np.dot(vec_n, vec_t) < 0:               # ángulo > 90°
+            vec_n = vec_t / (np.linalg.norm(vec_t)+1e-6)
+            dx, dy = vec_n                         # forzamos dirección
+
+        # ===================================================================
+        # ①  CANDIDATO DIRECTO
+        # ===================================================================
+        if np.hypot(dx, dy) > 1e-3:
+            cand = (cp[0] + RADII[1]*dx,
+                    cp[1] + RADII[1]*dy)
+
+            # ---- coherencia frente / retro -------------------------------
+            front   = self._is_front(cand, cp, yaw)
+            advance = v_norm >= 0.0
+            if (front and advance) or (not front and not advance):
+
+                if self._candidate_ok(cand, cp, grid, info, first):
+                    return cand, out               # ✅ éxito
+
+        # ===================================================================
+        # ②  ABANICO CLÁSICO (seguridad nivel-0)
+        # ===================================================================
+
+        ang0 = math.atan2(dy, dx) if np.hypot(dx, dy) > 1e-3 else \
+            math.atan2(tgt[1]-cp[1], tgt[0]-cp[0])
+
         for r in RADII:
             for off in ANGLES:
-                ang  = ang0 + off
-                cand = (cp[0] + r*math.cos(ang), cp[1] + r*math.sin(ang))
+                cand = (cp[0] + r*math.cos(ang0+off),
+                        cp[1] + r*math.sin(ang0+off))
+                if self._candidate_ok(cand, cp, grid, info, first_wp):
+                    return cand, out            # ← usamos la acción de la red
 
-                # Filtros: dentro de mapa, libre, línea, clearance, shadow
-                i, j = idx_from_world(info, cand)
-                if not (0 <= i < grid.shape[1] and 0 <= j < grid.shape[0]): continue
-                if grid[j, i] == -1 or grid[j, i] >= 100: continue
-                if not bres_free(grid, info, cp, cand):    continue
-                if not clearance_ok(grid, info, cand, CLEAR_MIN): continue
-                if not safe_shadow(cand, self.obstacles):  continue
+        # ── ③  Fallback definitivo: teacher nivel-0 ───────────────────
+        cand, teacher_act = self.next_waypoint_lvl0(cp, tgt, grid, info)
+        if cand is not None:
+            # guardamos también la acción teacher para la pérdida BC
+            self.last_teacher = teacher_act
+            return cand, out                    # waypoint seguro, acción de la red
 
-                return cand, out     # ← primer candidato viable
-
-        return None, out             # no se encontró waypoint
-
-
+        self.last_teacher = np.zeros(3, np.float32)
+        return None, out                        # sin solución
 
 
 
@@ -566,62 +753,113 @@ class FlexPlanner(Node):
     #         f"[FOLLOW] wp={self.wp_index}/{len(self.current_path)-1}  "
     #         f"v={v_lin:.2f} m/s  ω={omega:.2f} rad/s  α={alpha*180/math.pi:+.1f}°")
 ############################################
-    def follow_path(self, cp, v_cmd):
+    # def follow_path(self, cp, v_cmd):
+    #     if self.wp_index >= len(self.current_path):
+    #         self.cmd_pub.publish(Twist());  return
+
+    #     # look-ahead proporcional a |v_cmd|
+    #     look_h = max(0.25, 0.4 * abs(v_cmd))
+    #     self.wp_index = self._next_target_index(cp, look_h)
+    #     tgt = self.current_path[self.wp_index]
+
+    #     dx_g, dy_g = tgt[0]-cp[0], tgt[1]-cp[1]
+    #     dist = math.hypot(dx_g, dy_g)
+    #     if dist < 1e-3:                         # degenerado
+    #         self.cmd_pub.publish(Twist());  return
+
+    #     yaw = self._yaw_from_quaternion(self.pose.orientation)
+    #     dx, dy = self._global_to_local(dx_g, dy_g, yaw)
+
+    #     alpha = math.atan2(dy, dx)
+    #     Ld    = look_h
+    #     kappa = 2.0 * math.sin(alpha) / Ld
+
+    #     # velocidad lineal establecida por la red
+    #     v_lin = float(np.clip(v_cmd * MAX_VEL, -MAX_VEL, MAX_VEL))
+    #     if abs(v_lin) < 0.05:                  # “espera”
+    #         self.cmd_pub.publish(Twist());  return
+
+    #     omega = float(kappa * v_lin)
+
+    #     cmd = Twist()
+    #     cmd.linear.x  = v_lin
+    #     cmd.angular.z = omega
+    #     self.cmd_pub.publish(cmd)
+
+    #     self.get_logger().info(
+    #         f"[FOLLOW] wp={self.wp_index}/{len(self.current_path)-1}  "
+    #         f"v={v_lin:.2f} m/s  ω={omega:.2f} rad/s  α={alpha*180/math.pi:+.1f}°")
+
+
+    # ───────────────────────────────────────────────────────────────
+    # 4 · Seguidor Pure–Pursuit con filtro de velocidad
+    # ───────────────────────────────────────────────────────────────
+    def follow_path(self, cp, v_norm):
         if self.wp_index >= len(self.current_path):
             self.cmd_pub.publish(Twist());  return
 
-        # look-ahead proporcional a |v_cmd|
-        look_h = max(0.25, 0.4 * abs(v_cmd))
+        # look-ahead proporcional a la velocidad deseada
+        look_h = max(0.25, 0.4 * MAX_VEL * abs(v_norm))
         self.wp_index = self._next_target_index(cp, look_h)
         tgt = self.current_path[self.wp_index]
 
         dx_g, dy_g = tgt[0]-cp[0], tgt[1]-cp[1]
-        dist = math.hypot(dx_g, dy_g)
-        if dist < 1e-3:                         # degenerado
-            self.cmd_pub.publish(Twist());  return
+        dist       = math.hypot(dx_g, dy_g)
+        if dist < 1e-3:  self.cmd_pub.publish(Twist()); return
 
         yaw = self._yaw_from_quaternion(self.pose.orientation)
         dx, dy = self._global_to_local(dx_g, dy_g, yaw)
 
         alpha = math.atan2(dy, dx)
-        Ld    = look_h
-        kappa = 2.0 * math.sin(alpha) / Ld
+        kappa = 2.0 * math.sin(alpha) / look_h
 
-        # velocidad lineal establecida por la red
-        v_lin = float(np.clip(v_cmd * MAX_VEL, -MAX_VEL, MAX_VEL))
-        if abs(v_lin) < 0.05:                  # “espera”
-            self.cmd_pub.publish(Twist());  return
+        # ── regla “retro solo cuando estamos de espaldas” ───────────
+        if abs(alpha) < REV_ANGLE_MAX:
+            v_norm = max(0.0, v_norm)       # sólo avance
+        else:
+            v_norm = min(0.0, v_norm)       # sólo retroceso
 
-        omega = float(kappa * v_lin)
+        v_cmd      = np.clip(v_norm, -1, 1) * MAX_VEL
+        v_filt     = ALPHA_IIR_VEL*v_cmd + (1-ALPHA_IIR_VEL)*self.v_prev
+        self.v_prev = v_filt
 
-        cmd = Twist()
-        cmd.linear.x  = v_lin
-        cmd.angular.z = omega
+        #  clip de seguridad nivel-0
+        if 0 < abs(v_filt) < MIN_VEL:             # evita “tirones” muy lentos
+            v_filt = math.copysign(MIN_VEL, v_filt)
+
+        cmd            = Twist()
+        cmd.linear.x   = float(v_filt)
+        cmd.angular.z  = float(kappa * v_filt)
+        omega = cmd.angular.z
         self.cmd_pub.publish(cmd)
-
         self.get_logger().info(
-            f"[FOLLOW] wp={self.wp_index}/{len(self.current_path)-1}  "
-            f"v={v_lin:.2f} m/s  ω={omega:.2f} rad/s  α={alpha*180/math.pi:+.1f}°")
+                f"[FOLLOW] wp={self.wp_index}/{len(self.current_path)-1}  "
+                f"v={v_filt:.2f} m/s  ω={omega:.2f} rad/s  α={alpha*180/math.pi:+.1f}°")
+
+
 
 ###nuevo
-    # ---------- Recompensa --------------
-    def compute_reward(self, old_d, new_d, collided, reached, step_len,overturned):
-        r= 2.0*(old_d-new_d)                # progreso
-        r-= 0.05                            # castigo paso
-        r-= 0.1*step_len                    # castigo ruta larga
-        if reached:  r+= 200
-        if collided: r-= 200
-        if overturned: r-= 200
-        # if nearest_dyn is not None:
-        #     r -= 1.0/(nearest_dyn + 1e-1)  # castigo por proximidad a obstáculo
+
+    def compute_reward(self, old_d, new_d, collided,
+                    reached, step_len, overturned, alpha):
+        r  = 2.0*(old_d - new_d)          # progreso
+        r -= 0.05                         # castigo paso
+        r -= 0.10*step_len                # longitud de tramo
+        r -= 0.05*abs(alpha)              # ⬅️ nuevo: premiar ir recto
+        if reached:     r += 200
+        if collided:    r -= 200
+        if overturned:  r -= 200
         return r
+
 
     # ---------- Buffers PPO -------------
     def reset_buffers(self):
         self.patch_buf=[]; self.state_buf=[]
         self.act_buf=[];   self.logp_buf=[]
         self.rew_buf=[];   self.val_buf=[]
-        self.done_buf=[]
+        self.done_buf=[]; self.vel_buf=[]
+        self.teacher_buf = []
+
 
     # ---------- Ciclo principal ---------
     # def step(self):
@@ -710,35 +948,43 @@ class FlexPlanner(Node):
     #     if len(self.act_buf) >= ROLLOUT_STEPS:
     #         self.update_ppo()
 
+    # ────────────────────────────────────────────────────────────────
+    #  STEP   (ciclo principal 10 Hz)
+    # ────────────────────────────────────────────────────────────────
     def step(self):
-        # ── 0 · Espera a que el mundo nuevo esté cargado ──────────────────────
+
+        # 0 · Espera a que el mundo nuevo cargue ---------------------
         if not self.ready:
-            cond_time  = self.reset_t0 and \
+            cond_time = self.reset_t0 and \
                         (self.get_clock().now() - self.reset_t0).nanoseconds > 2e9
-            cond_grid  = self.grid_msg and np.any(np.array(self.grid_msg.data) != -1)
+            cond_grid = self.grid_msg and \
+                        np.any(np.array(self.grid_msg.data) != -1)
             if cond_time and self.pose and cond_grid:
                 self.ready = True
                 self.get_logger().info("[Reset] mundo cargado; reanudando")
             else:
-                return                                          # sigue en pausa
+                return
 
-        # ── 1 · Validaciones mínimas ──────────────────────────────────────────
+        # 1 · Datos mínimos -----------------------------------------
         if None in (self.pose, self.goal, self.grid_msg):
             return
+
         cp = (self.pose.position.x, self.pose.position.y)
-        # ── 1.b · Detector de vuelco ─────────────────────────────────────────────
+
+        # 1.b · vuelco ----------------------------------------------
         roll, pitch = self._roll_pitch_from_quaternion(self.pose.orientation)
         overturned  = abs(roll) > MAX_TILT or abs(pitch) > MAX_TILT
         if overturned:
-            self.collided = True  
+            self.collided = True
 
-        # ── 2 · Parche local y target robusto ─────────────────────────────────
+        # 2 · Patch + target robusto --------------------------------
         patch, grid, info = self.extract_patch()
         tgt, mode = self.choose_target(cp, grid, info)
         if tgt is None:
-            self.get_logger().warn("Sin target válido");  return
+            self.get_logger().warn("Sin target válido")
+            return
 
-        # ── 3 · ¿Replanificamos? ──────────────────────────────────────────────
+        # 3 · ¿Replanificamos? --------------------------------------
         need_replan = (
             not self.current_path or
             self.collided or
@@ -746,175 +992,242 @@ class FlexPlanner(Node):
         )
         if need_replan:
             self.current_path = self.generate_flexible_path(cp, tgt, grid, info)
-            self.wp_index = 1
+            self.wp_index     = 0
             self.get_logger().info(f"[PATH] len={len(self.current_path)} wps")
-        
-        wp, act = self.next_waypoint(cp, tgt, grid, info, patch)
-        if wp is None:
-            self.cmd_pub.publish(Twist());  return
-        delta_x, delta_y, vel_norm = act  
-        self.current_path[self.wp_index] = wp   # asegura coherencia
 
-        # ── 4 · Acceso seguro al waypoint ─────────────────────────────────────
-        if len(self.current_path) <= self.wp_index:
-            self.cmd_pub.publish(Twist())                # stop defensivo
+        # descarta tramo inicial demasiado corto
+        MIN_FIRST_WP = 1.00
+        while len(self.current_path) > 1 and \
+            l2(cp, self.current_path[1]) < MIN_FIRST_WP:
+            self.current_path.pop(1)
+
+        # 4 · Selección del siguiente waypoint ----------------------
+        wp, out = self.next_waypoint(cp, tgt, grid, info, patch)
+        if wp is None:
+            self.cmd_pub.publish(Twist())
             return
+
+        dx, dy, vel_norm = out.numpy()
+        self.current_path[self.wp_index] = wp       # coherencia
+
+        if len(self.current_path) <= self.wp_index:
+            self.cmd_pub.publish(Twist())
+            return
+
         wp = self.current_path[self.wp_index]
 
-        # ── 5 · Seguidor + publicación de ruta ────────────────────────────────
-        self.follow_path(cp,vel_norm)
+        # 5 · ----- DETECTOR DE ESTANCAMIENTO -----------------------
+        old_d = l2(cp, tgt)
+        new_d = l2(wp, tgt)
+
+        if new_d < old_d - 0.05:        # avanzó ≥ 5 cm
+            self.stuck_steps = 0
+        else:
+            self.stuck_steps += 1
+
+        if self.stuck_steps >= 25:      # ~ 2.5 s sin progreso
+            self.current_path.clear()   # fuerza replanning
+            self.stuck_steps = 0
+            self.get_logger().warn("⛔  Sin progreso, replanteando")
+            return                      # esperamos al próximo ciclo
+
+        # 6 · Seguimiento + publicación -----------------------------
+        self.follow_path(cp, vel_norm)
         self.publish_path(self.current_path)
 
-        # ── 6 · Recompensa y buffers PPO ──────────────────────────────────────
-        reached  = self.goal_reached_flag   
+        # 7 · Recompensa + buffers ----------------------------------
+        reached  = self.goal_reached_flag
         collided = self.collided
         step_len = l2(cp, wp)
-        reward   = self.compute_reward(l2(cp, tgt), l2(wp, tgt),
-                                    collided, reached, step_len,overturned)
 
-        state_vec = np.concatenate([patch.flatten()[:32],
-                                    np.array([0, 0, tgt[0]-cp[0], tgt[1]-cp[1]],
-                                            DTYPE)])
-        #  — Buffers —
-        self.patch_buf.append(patch.astype(DTYPE))
-        self.state_buf.append(state_vec[-4:])
-        # self.act_buf.append(np.zeros(2, DTYPE))          # placeholder acción
-        self.act_buf.append(act.astype(DTYPE))
+        yaw       = self._yaw_from_quaternion(self.pose.orientation)
+        dxg, dyg  = wp[0]-cp[0], wp[1]-cp[1]
+        dxl, dyl  = self._global_to_local(dxg, dyg, yaw)
+        alpha     = math.atan2(dyl, dxl)
 
-        self.logp_buf.append(np.float32(0.0))
+        reward = self.compute_reward(old_d, new_d,
+                                    collided, reached,
+                                    step_len, overturned, alpha)
+
+        # ---- buffers -------------------------------------------------
+        self.patch_buf.append(patch.astype(np.float32))
+        self.state_buf.append(np.array([0,0,tgt[0]-cp[0],tgt[1]-cp[1]],
+                                    np.float32))
+        self.act_buf.append(out.numpy().astype(np.float32))
+        self.teacher_buf.append(self.last_teacher.astype(np.float32))
+
+        std  = np.exp(self.log_std.numpy())
+        mu0  = np.zeros(3, np.float32)
+        logp = -0.5*np.sum(((out.numpy()-mu0)/std)**2 + 2*np.log(std)
+                        + np.log(2*np.pi))
+        self.logp_buf.append(np.float32(logp))
         self.rew_buf.append(reward)
-        self.val_buf.append(self.value_net(state_vec[None, ...])[0, 0])
+        self.val_buf.append(self.value_net(
+            np.concatenate([patch.flatten()[:32],
+                            self.state_buf[-1]])[None, ...])[0,0])
         self.done_buf.append(reached or collided)
 
-        # ── 7 · Fin de episodio: parada, log, entrenamiento ───────────────────
+        # 8 · Fin de episodio ---------------------------------------
         if reached or collided:
-            self.cmd_pub.publish(Twist())                # v=0, ω=0
+            self.cmd_pub.publish(Twist())
+            if reached:
+                self.get_logger().info("⛳  Goal alcanzado")
+            if collided:
+                self.get_logger().info("💥  Colisión detectada")
+            if overturned:
+                self.get_logger().warning("🚨  Robot volcado — reset")
 
-            if reached:  self.get_logger().info("⛳  Goal alcanzado")
-            if collided: self.get_logger().info("💥  Colisión detectada")
-            if overturned:  self.get_logger().warning("🚨  Robot volcado — solicitando reset")
-
-
-            # entrenamiento inmediato
             self.update_ppo()
-            self.goal_reached_flag = False               # consume el evento
+            self.goal_reached_flag = False
             self.episode += 1
             self.goal_counter += int(reached and mode == "GOAL")
 
-            with self.writer.as_default():
-                tf.summary.scalar("episode_reward", sum(self.rew_buf),
-                                step=self.episode)
-                tf.summary.scalar("collided", int(collided), step=self.episode)
-
-        # ── 8 · ¿Pedimos reset de mapa? ───────────────────────────────────────
+        # 9 · Reset de mundo ----------------------------------------
         if (self.goal_counter >= self.goals_in_world) or collided:
-            ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            self.policy.save_weights(RUN_DIR / f"policy_latest_{ts}.weights.h5")
-
-            self.reset_pub.publish(Bool(data=True))      # solicitud reset
-            self.ready         = False                   # pasa a modo WAIT
+            self.reset_pub.publish(Bool(data=True))
+            self.ready = False
             self.waiting_reset = True
-            self.reset_t0      = self.get_clock().now()
-            self.goal_counter  = 0
-            self.goals_in_world = random.randint(5, 7)
-            self.get_logger().info("[RESET] petición enviada; esperando confirmación")
+            self.reset_t0 = self.get_clock().now()
+            self.goal_counter = 0
+            self.goals_in_world = random.randint(5,7)
+            self.get_logger().info("[RESET] solicitado")
 
-        # ── 9 · Límite global de episodios ────────────────────────────────────
         if self.episode >= MAX_EPISODES:
-            self.get_logger().info(f"{MAX_EPISODES} episodios completados. "
-                                "Finalizando nodo.")
+            self.get_logger().info("Fin de entrenamiento")
             self.cmd_pub.publish(Twist())
             rclpy.shutdown()
-            return
+    # ────────────────────────────────────────────────────────────────
 
 
 
     # ---------- Publicación RViz ----------
-    def publish_path(self,pts):
-        hdr=Header(frame_id="map",
-                   stamp=self.get_clock().now().to_msg())
-        path=Path(header=hdr)
-        for x,y in pts:
-            ps=PoseStamped(header=hdr)
-            ps.pose.position.x=x; ps.pose.position.y=y
-            ps.pose.orientation.w=1.0
+    def publish_path(self, pts):
+        hdr = Header(frame_id="map",
+                    stamp=self.get_clock().now().to_msg())
+
+        # --- Path (linea) -------------------------------------------------
+        path = Path(header=hdr)
+        for x, y in pts:
+            ps = PoseStamped(header=hdr)
+            ps.pose.position.x = float(x)
+            ps.pose.position.y = float(y)
+            ps.pose.orientation.w = 1.0
             path.poses.append(ps)
         self.path_pub.publish(path)
 
-        mk=Marker(header=hdr,ns="wps",id=0,
-                  type=Marker.POINTS,action=Marker.ADD)
-        mk.scale=Vector3(x=0.15,y=0.15,z=0.0)
-        mk.color.r=mk.color.g=1.0; mk.color.a=1.0
-        mk.points=[Point(x=x,y=y) for x,y in pts[1:]]
+        # --- Waypoint markers  -------------------------------------------
+        mk          = Marker(header=hdr, ns="wps", id=0,
+                            type=Marker.POINTS, action=Marker.ADD)
+        mk.scale    = Vector3(x=0.15, y=0.15, z=0.0)
+        mk.color.r  = mk.color.g = 1.0
+        mk.color.a  = 1.0
+        mk.points   = []
+        for x, y in pts[1:]:
+            p = Point()
+            p.x = float(x)
+            p.y = float(y)
+            p.z = 0.0
+            mk.points.append(p)
+
         self.wps_pub.publish(mk)
 
-    # ---------- PPO UPDATE completo ----------
+    # ────────────────────────────────────────────────────────────────
+    #  UPDATE_PPO   (con Behaviour-Cloning)
+    # ────────────────────────────────────────────────────────────────
     def update_ppo(self):
-        # 1) Returns y ventajas
+
+        # 1 · returns & ventajas -------------------------------------
         returns, advs = [], []
-        gae=0.0; next_val=0.0
-        for r,v,d in zip(reversed(self.rew_buf),
-                         reversed(self.val_buf),
-                         reversed(self.done_buf)):
+        gae = 0.0; next_val = 0.0
+        for r, v, d in zip(reversed(self.rew_buf),
+                        reversed(self.val_buf),
+                        reversed(self.done_buf)):
             delta = r + GAMMA*next_val*(1-d) - v
             gae   = delta + GAMMA*GAE_LAMBDA*(1-d)*gae
-            advs.insert(0,gae)
+            advs.insert(0, gae)
             next_val = v
-        returns = np.array(advs) + np.array(self.val_buf)
-        advs = (np.array(advs)-np.mean(advs))/(np.std(advs)+1e-8)
 
-        # 2) DataSet
-        ds=tf.data.Dataset.from_tensor_slices(
-            (np.stack(self.patch_buf).astype(np.float32),
-             np.stack(self.state_buf).astype(np.float32),
-             np.stack(self.act_buf).astype(np.float32),
-             np.array(self.logp_buf,np.float32),
-             advs.astype(np.float32),
-             returns.astype(np.float32))
+        returns = np.array(advs) + np.array(self.val_buf)
+        advs    = (np.array(advs) - np.mean(advs)) / (np.std(advs)+1e-8)
+
+        # 2 · Dataset -------------------------------------------------
+        ds = tf.data.Dataset.from_tensor_slices(
+            (np.stack(self.patch_buf),
+            np.stack(self.state_buf),
+            np.stack(self.act_buf),
+            np.stack(self.teacher_buf),           # ← NUEVO
+            np.array(self.logp_buf, np.float32),
+            advs.astype(np.float32),
+            returns.astype(np.float32))
         ).shuffle(4096).batch(BATCH_SZ)
 
-        # 3) Optimización
+        # 3 · Optimización -------------------------------------------
         for _ in range(EPOCHS):
-            for g,st,act,lp_old,adv,ret in ds:
+            for g, st, act, act_tch, lp_old, adv, ret in ds:
                 with tf.GradientTape() as tpi, tf.GradientTape() as tpv:
-                    batch_sz = tf.shape(act)[0]
-                    w0_dummy = tf.zeros((batch_sz, 2), dtype=tf.float32)
-                    mu=self.policy([g,st,w0_dummy],training=True)
-                    std=tf.exp(self.log_std)
-                    lp=-0.5*tf.reduce_sum(((act-mu)/std)**2
-                                          + 2*tf.math.log(std)
-                                          + tf.math.log(2*np.pi),axis=-1)
-                    ratio=tf.exp(lp-lp_old)
-                    pg_loss=-tf.reduce_mean(
+                    bs   = tf.shape(act)[0]
+                    w0   = tf.zeros((bs,2), tf.float32)
+
+                    mu   = self.policy([g, st, w0], training=True)
+                    std  = tf.exp(self.log_std)
+
+                    lp = -0.5*tf.reduce_sum(((act-mu)/std)**2
+                                            + 2*tf.math.log(std)
+                                            + tf.math.log(2*np.pi), axis=-1)
+                    ratio = tf.exp(lp - lp_old)
+
+                    ppo_loss = -tf.reduce_mean(
                         tf.minimum(ratio*adv,
-                                   tf.clip_by_value(ratio,
+                                tf.clip_by_value(ratio,
                                                     1-CLIP_EPS,1+CLIP_EPS)*adv))
 
-                    state_vec=tf.concat([tf.reshape(g,(-1,PATCH*PATCH))[:,:32],st],axis=-1)
-                    v=tf.squeeze(self.value_net(state_vec,training=True),axis=-1)
-                    v_loss=tf.reduce_mean((ret-v)**2)
+                    bc_loss = tf.reduce_mean(tf.square(mu - act_tch))
+                    actor_loss = ppo_loss + self.bc_weight * bc_loss
 
+                    # crítico
+                    x_flat = tf.reshape(g, (-1, PATCH*PATCH))[:, :32]
+                    v_pred = self.value_net(tf.concat([x_flat, st], -1),
+                                            training=True)[:,0]
+                    critic_loss = tf.reduce_mean((ret - v_pred)**2)
+
+                # aplica gradientes
                 self.opt_actor.apply_gradients(
-                    zip(tpi.gradient(pg_loss,
-                        self.policy.trainable_variables+[self.log_std]),
-                        self.policy.trainable_variables+[self.log_std]))
+                    zip(tpi.gradient(actor_loss,
+                        self.policy.trainable_variables + [self.log_std]),
+                        self.policy.trainable_variables + [self.log_std]))
                 self.opt_critic.apply_gradients(
-                    zip(tpv.gradient(v_loss,self.value_net.trainable_variables),
+                    zip(tpv.gradient(critic_loss,
+                        self.value_net.trainable_variables),
                         self.value_net.trainable_variables))
 
-        # 4) Annealing σ
-        new_std=tf.maximum(tf.exp(self.log_std)*STD_DECAY, STD_MIN)
+        # 4 · annealing σ --------------------------------------------
+        new_std = tf.maximum(tf.exp(self.log_std)*STD_DECAY, STD_MIN)
         self.log_std.assign(tf.math.log(new_std))
 
-        # 5) Logs TensorBoard
-        with self.writer.as_default():
-            tf.summary.scalar("loss_actor",pg_loss,step=self.episode)
-            tf.summary.scalar("loss_critic",v_loss,step=self.episode)
-            tf.summary.scalar("policy_std",float(new_std[0]),step=self.episode)
+        # 5 · decay Behaviour-Cloning --------------------------------
+        new_bc = max(LAMBDA_BC_END,
+                    float(self.bc_weight) -
+                    (LAMBDA_BC_START-LAMBDA_BC_END)/BC_DECAY_STEPS)
+        self.bc_weight.assign(new_bc)
 
+        # 6 · logs ----------------------------------------------------
+        with self.writer.as_default():
+            tf.summary.scalar("loss_actor",   actor_loss, step=self.episode)
+            tf.summary.scalar("loss_critic",  critic_loss, step=self.episode)
+            tf.summary.scalar("policy_std",   float(new_std[0]),
+                            step=self.episode)
+            tf.summary.scalar("lambda_bc",    float(self.bc_weight),
+                            step=self.episode)
+
+        # 7 · guarda checkpoint --------------------------------------
+        self.policy.save_weights(RUN_DIR / f"policy_latest_new{self.ts}.weights.h5")
+
+        # 8 · limpia buffers -----------------------------------------
         self.reset_buffers()
         self.get_logger().info(
-            f"[PPO] update  π={pg_loss.numpy():.3f}  V={v_loss.numpy():.3f}  σ={float(new_std[0]):.2f}")
+            f"[PPO] π={actor_loss.numpy():.3f}  V={critic_loss.numpy():.3f}  "
+            f"σ={float(new_std[0]):.2f}  λBC={float(self.bc_weight):.2f}")
+    # ────────────────────────────────────────────────────────────────
 
 # ==============  MAIN  ====================================================
 def main(args=None):
