@@ -1,0 +1,250 @@
+[0.266s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp
+[0.314s] -- The C compiler identification is GNU 11.4.0
+[0.360s] -- The CXX compiler identification is GNU 11.4.0
+[0.367s] -- Detecting C compiler ABI info
+[0.471s] -- Detecting C compiler ABI info - done
+[0.476s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.476s] -- Detecting C compile features
+[0.476s] -- Detecting C compile features - done
+[0.478s] -- Detecting CXX compiler ABI info
+[0.560s] -- Detecting CXX compiler ABI info - done
+[0.570s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.570s] -- Detecting CXX compile features
+[0.570s] -- Detecting CXX compile features - done
+[0.575s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.742s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.857s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.902s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.907s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.916s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.930s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.945s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.990s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.993s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.083s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.111s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.151s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.156s] -- Looking for pthread.h
+[1.230s] -- Looking for pthread.h - found
+[1.230s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.300s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.301s] -- Found Threads: TRUE  
+[1.350s] -- Found gazebo_ros: 3.9.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[1.359s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+[1.360s] -- Checking for module 'bullet>=2.82'
+[1.374s] --   Found bullet, version 3.05
+[1.471s] -- Found fcl: /usr/include (found suitable version "0.7.0", minimum required is "0.5.0") 
+[1.518s] -- Found assimp: /usr/include (found version "5.2.0") 
+[1.545s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[1.580s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[1.590s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[1.593s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.597s] -- Searching for dependencies of ignition-math6
+[1.598s] -- Looking for OGRE...
+[1.598s] -- OGRE_PREFIX_WATCH changed.
+[1.602s] -- Checking for module 'OGRE'
+[1.611s] --   Found OGRE, version 1.9.0
+[1.632s] -- Found Ogre Ghadamon (1.9.0)
+[1.638s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[1.645s] -- Looking for OGRE_Paging...
+[1.649s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[1.649s] -- Looking for OGRE_Terrain...
+[1.653s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[1.654s] -- Looking for OGRE_Property...
+[1.657s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[1.657s] -- Looking for OGRE_RTShaderSystem...
+[1.661s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[1.661s] -- Looking for OGRE_Volume...
+[1.664s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[1.664s] -- Looking for OGRE_Overlay...
+[1.668s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[1.744s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.745s] -- Looking for ignition-transport8 -- found version 8.2.1
+[1.746s] -- Searching for dependencies of ignition-transport8
+[1.758s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[1.764s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[1.770s] -- Checking for module 'libzmq >= 4'
+[1.781s] --   Found libzmq , version 4.3.4
+[1.808s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[1.813s] -- Checking for module 'uuid'
+[1.823s] --   Found uuid, version 2.37.2
+[1.850s] -- Found UUID: TRUE  
+[1.851s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[1.851s] -- Searching for dependencies of ignition-msgs5
+[1.870s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.877s] -- Checking for module 'tinyxml2'
+[1.892s] --   Found tinyxml2, version 9.0.0
+[1.935s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[1.939s] -- Looking for ignition-common3 -- found version 3.14.0
+[1.939s] -- Searching for dependencies of ignition-common3
+[1.939s] -- Looking for dlfcn.h - found
+[1.940s] -- Looking for libdl - found
+[1.942s] -- Found DL: TRUE  
+[1.956s] -- Found tinyobjloader: /usr/lib/x86_64-linux-gnu/cmake/tinyobjloader/tinyobjloader-config.cmake (found version "2.0.0") 
+[1.960s] -- Searching for <ignition-common3> component [graphics]
+[1.960s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[1.961s] -- Searching for dependencies of ignition-common3-graphics
+[1.962s] -- Looking for ignition-math6 -- found version 6.15.1
+[1.965s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[1.968s] -- Searching for dependencies of ignition-fuel_tools4
+[2.051s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.81.0")  
+[2.059s] -- Checking for module 'jsoncpp'
+[2.073s] --   Found jsoncpp, version 1.9.5
+[2.100s] -- Found JSONCPP: TRUE  
+[2.106s] -- Checking for module 'libzip'
+[2.120s] --   Found libzip, version 1.7.3
+[2.150s] -- Found ZIP: TRUE  
+[2.150s] -- Looking for ignition-common3 -- found version 3.14.0
+[2.150s] -- Looking for ignition-math6 -- found version 6.15.1
+[2.151s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[2.155s] -- Gazebo version: 11.10
+[2.155s] -- Checking for module 'tbb'
+[2.168s] --   Found tbb, version 2021.5.0
+[2.197s] -- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)
+[2.214s] -- Found geometry_msgs: 4.8.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[2.222s] -- Found sensor_msgs: 4.8.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[2.238s] -- Found octomap_msgs: 2.0.1 (/opt/ros/humble/share/octomap_msgs/cmake)
+[2.256s] -- Found octomap_ros: 0.4.4 (/opt/ros/humble/share/octomap_ros/cmake)
+[2.266s] -- Found pcl_conversions: 2.4.5 (/opt/ros/humble/share/pcl_conversions/cmake)
+[2.310s] -- Checking for module 'eigen3'
+[2.322s] --   Found eigen3, version 3.4.0
+[2.347s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[2.347s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[2.369s] -- Checking for module 'flann'
+[2.383s] --   Found flann, version 1.9.1
+[2.412s] -- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  
+[2.412s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[3.113s] -- Checking for module 'libusb-1.0'
+[3.125s] --   Found libusb-1.0, version 1.0.25
+[3.152s] -- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[3.153s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.208s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[3.340s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[3.348s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.359s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[3.532s] -- Found Qhull version 8.0.2
+[3.709s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.885s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[3.887s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[3.889s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[3.890s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[3.892s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[3.894s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[3.894s] -- Found PCL_2D: /usr/include/pcl-1.12  
+[3.895s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.12  
+[3.898s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[3.898s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[3.899s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[3.901s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[3.904s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[3.904s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[3.906s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[3.907s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[3.909s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[3.912s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[3.912s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[3.914s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[3.915s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  
+[3.916s] -- Found PCL_MODELER: /usr/include/pcl-1.12  
+[3.916s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  
+[3.918s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[3.922s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[3.924s] -- Found visualization_msgs: 4.8.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[3.945s] -- Found nav_msgs: 4.8.0 (/opt/ros/humble/share/nav_msgs/cmake)
+[3.962s] -- Found std_srvs: 4.8.0 (/opt/ros/humble/share/std_srvs/cmake)
+[3.972s] -- Found geographic_msgs: 1.0.6 (/opt/ros/humble/share/geographic_msgs/cmake)
+[4.006s] -- Found tf2_ros: 0.25.12 (/opt/ros/humble/share/tf2_ros/cmake)
+[4.074s] -- Found tf2_geometry_msgs: 0.25.12 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[4.082s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[4.084s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[4.084s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[4.086s] -- Looking for ignition-math6 -- found version 6.15.1
+[4.086s] -- Looking for ignition-common3 -- found version 3.14.0
+[4.086s] -- Found car_interfaces: 0.0.0 (/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/share/car_interfaces/cmake)
+[4.365s] -- Configuring done
+[4.707s] -- Generating done
+[4.811s] -- Build files have been written to: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp
+[4.856s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_cpp -DCMAKE_INSTALL_PREFIX=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp
+[4.859s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j20 -l20
+[4.945s] [  4%] [32mBuilding CXX object CMakeFiles/navigation_nodes.dir/src/navigation_nodes.cpp.o[0m
+[4.945s] [  9%] [32mBuilding CXX object CMakeFiles/move_navigation_nodes_frontier.dir/src/move_navigation_nodes_frontier.cpp.o[0m
+[4.952s] [ 13%] [32mBuilding CXX object CMakeFiles/navigation_nodes_ground.dir/src/navigation_nodes_ground.cpp.o[0m
+[4.963s] [ 18%] [32mBuilding CXX object CMakeFiles/occupied_nodes_near_obstacles.dir/src/occupied_nodes_near_obstacles.cpp.o[0m
+[4.972s] [ 27%] [32mBuilding CXX object CMakeFiles/check_goal.dir/src/check_goal.cpp.o[0m
+[4.972s] [ 27%] [32mBuilding CXX object CMakeFiles/obstacles_in_2d.dir/src/obstacles_in_2d.cpp.o[0m
+[4.978s] [ 31%] [32mBuilding CXX object CMakeFiles/frontier_values.dir/src/frontier_values.cpp.o[0m
+[4.979s] [ 36%] [32mBuilding CXX object CMakeFiles/filtered_navigation_nodes.dir/src/filtered_navigation_nodes.cpp.o[0m
+[4.982s] [ 40%] [32mBuilding CXX object CMakeFiles/joints_plugin.dir/src/joints.cpp.o[0m
+[4.994s] [ 50%] [32mBuilding CXX object CMakeFiles/move_plugin.dir/src/move_object.cpp.o[0m
+[4.994s] [ 50%] [32mBuilding CXX object CMakeFiles/drive_plugin.dir/src/diffdrive_plugin_multi_wheel.cpp.o[0m
+[16.381s] [ 54%] [32m[1mLinking CXX executable occupied_nodes_near_obstacles[0m
+[17.323s] [ 59%] [32m[1mLinking CXX executable navigation_nodes_ground[0m
+[17.587s] [ 59%] Built target occupied_nodes_near_obstacles
+[18.502s] [ 59%] Built target navigation_nodes_ground
+[19.193s] [ 63%] [32m[1mLinking CXX executable filtered_navigation_nodes[0m
+[19.635s] [ 68%] [32m[1mLinking CXX executable check_goal[0m
+[20.241s] [ 68%] Built target filtered_navigation_nodes
+[20.249s] [ 72%] [32m[1mLinking CXX executable frontier_values[0m
+[20.602s] [ 77%] [32m[1mLinking CXX shared library libmove_plugin.so[0m
+[20.696s] [ 77%] Built target check_goal
+[20.810s] [ 81%] [32m[1mLinking CXX shared library libjoints_plugin.so[0m
+[20.872s] [ 81%] Built target move_plugin
+[20.878s] [ 86%] [32m[1mLinking CXX executable obstacles_in_2d[0m
+[20.988s] [ 90%] [32m[1mLinking CXX executable navigation_nodes[0m
+[21.148s] [ 90%] Built target joints_plugin
+[21.221s] [ 90%] Built target frontier_values
+[21.723s] [ 90%] Built target obstacles_in_2d
+[21.822s] [ 90%] Built target navigation_nodes
+[22.162s] [ 95%] [32m[1mLinking CXX executable move_navigation_nodes_frontier[0m
+[23.017s] [ 95%] Built target move_navigation_nodes_frontier
+[23.750s] [100%] [32m[1mLinking CXX shared library libdrive_plugin.so[0m
+[24.216s] [100%] Built target drive_plugin
+[24.225s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp -- -j20 -l20
+[24.226s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp
+[24.232s] -- Install configuration: ""
+[24.232s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/navigation_nodes
+[24.234s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/navigation_nodes" to ""
+[24.234s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/navigation_nodes_ground
+[24.236s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/navigation_nodes_ground" to ""
+[24.236s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/move_navigation_nodes_frontier
+[24.239s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/move_navigation_nodes_frontier" to ""
+[24.240s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/frontier_values
+[24.242s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/frontier_values" to ""
+[24.242s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/occupied_nodes_near_obstacles
+[24.244s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/occupied_nodes_near_obstacles" to ""
+[24.244s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/obstacles_in_2d
+[24.246s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/obstacles_in_2d" to ""
+[24.246s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/check_goal
+[24.249s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/check_goal" to ""
+[24.249s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/filtered_navigation_nodes
+[24.251s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/car_cpp/filtered_navigation_nodes" to ""
+[24.251s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libmove_plugin.so
+[24.252s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libmove_plugin.so" to ""
+[24.252s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libdrive_plugin.so
+[24.256s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libdrive_plugin.so" to ""
+[24.256s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libjoints_plugin.so
+[24.257s] -- Set runtime path of "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib/libjoints_plugin.so" to ""
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include/
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//control_plugin.hpp
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//motion.hpp
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//move_ros.hpp
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//odometria.hpp
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//visualization.hpp
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//obstacle_detection.hpp
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/include//utilities.hpp
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/ament_index/resource_index/package_run_dependencies/car_cpp
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/ament_index/resource_index/parent_prefix_path/car_cpp
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/ament_prefix_path.sh
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/ament_prefix_path.dsv
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/path.sh
+[24.257s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/environment/path.dsv
+[24.258s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.bash
+[24.258s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.sh
+[24.258s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.zsh
+[24.258s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/local_setup.dsv
+[24.258s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.dsv
+[24.258s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/ament_index/resource_index/packages/car_cpp
+[24.258s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/cmake/car_cppConfig.cmake
+[24.258s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/cmake/car_cppConfig-version.cmake
+[24.258s] -- Installing: /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/share/car_cpp/package.xml
+[24.259s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car:/opt/ros/humble LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car_cpp

@@ -1,0 +1,193 @@
+[0.667s] Invoking command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build install --record /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log --single-version-externally-managed install_data
+[1.001s] running egg_info
+[1.001s] creating ../../build/car/car.egg-info
+[1.001s] writing ../../build/car/car.egg-info/PKG-INFO
+[1.001s] writing dependency_links to ../../build/car/car.egg-info/dependency_links.txt
+[1.001s] writing entry points to ../../build/car/car.egg-info/entry_points.txt
+[1.001s] writing requirements to ../../build/car/car.egg-info/requires.txt
+[1.001s] writing top-level names to ../../build/car/car.egg-info/top_level.txt
+[1.001s] writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[1.004s] reading manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[1.005s] writing manifest file '../../build/car/car.egg-info/SOURCES.txt'
+[1.006s] running build
+[1.006s] running build_py
+[1.006s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build
+[1.006s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib
+[1.007s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.007s] copying car/__init__.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.007s] copying car/backup_model_ppo_cnn_lstm.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.008s] copying car/colision_zone.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.009s] copying car/memory_map.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.009s] copying car/supervisor.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.010s] copying car/map_navegation.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.010s] copying car/frontier_centroid.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.011s] copying car/planificador_script.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.011s] copying car/lidar_obstacle_detection.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.012s] copying car/points_goal.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.012s] copying car/costmap.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.012s] copying car/filter_points_cloud.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.014s] copying car/path_ppo_cnn_lstm.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.014s] copying car/keyboard_control.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.014s] copying car/joystick_control.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.014s] copying car/movement_predictive.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car
+[1.015s] running install
+[1.016s] running install_lib
+[1.018s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.018s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/__init__.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.018s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/backup_model_ppo_cnn_lstm.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.018s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/colision_zone.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/memory_map.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/supervisor.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/map_navegation.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/frontier_centroid.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/planificador_script.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/lidar_obstacle_detection.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/points_goal.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/costmap.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/filter_points_cloud.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/path_ppo_cnn_lstm.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/keyboard_control.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/joystick_control.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.022s] copying /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build/lib/car/movement_predictive.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car
+[1.023s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/__init__.py to __init__.cpython-310.pyc
+[1.023s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/backup_model_ppo_cnn_lstm.py to backup_model_ppo_cnn_lstm.cpython-310.pyc
+[1.027s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/colision_zone.py to colision_zone.cpython-310.pyc
+[1.027s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/memory_map.py to memory_map.cpython-310.pyc
+[1.027s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/supervisor.py to supervisor.cpython-310.pyc
+[1.027s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/map_navegation.py to map_navegation.cpython-310.pyc
+[1.029s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/frontier_centroid.py to frontier_centroid.cpython-310.pyc
+[1.031s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/planificador_script.py to planificador_script.cpython-310.pyc
+[1.037s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/lidar_obstacle_detection.py to lidar_obstacle_detection.cpython-310.pyc
+[1.038s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/points_goal.py to points_goal.cpython-310.pyc
+[1.040s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/costmap.py to costmap.cpython-310.pyc
+[1.041s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/filter_points_cloud.py to filter_points_cloud.cpython-310.pyc
+[1.041s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/path_ppo_cnn_lstm.py to path_ppo_cnn_lstm.cpython-310.pyc
+[1.048s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/keyboard_control.py to keyboard_control.cpython-310.pyc
+[1.050s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/joystick_control.py to joystick_control.cpython-310.pyc
+[1.050s] byte-compiling /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/movement_predictive.py to movement_predictive.cpython-310.pyc
+[1.052s] running install_data
+[1.054s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/ament_index
+[1.054s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/ament_index/resource_index
+[1.054s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/ament_index/resource_index/packages
+[1.054s] copying resource/car -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/ament_index/resource_index/packages
+[1.058s] copying package.xml -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car
+[1.058s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.058s] copying launch/gazebo_mountain.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.058s] copying launch/gazebo_no_gui.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.058s] copying launch/gazebo_simple2.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.058s] copying launch/gazebo_simple3.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.058s] copying launch/gazebo_simple_world.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.058s] copying launch/control.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.058s] copying launch/rtamap_test.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.058s] copying launch/gazebo_simple8.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.058s] copying launch/control_with_gazebo.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.059s] copying launch/gazebo_simple9.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.059s] copying launch/gazebo_simple5.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.059s] copying launch/display.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.059s] copying launch/gazebo_simple7.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.059s] copying launch/gazebo_simple6.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.059s] copying launch/gazebo_empty_world.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.059s] copying launch/gazebo_simple4.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.059s] copying launch/joystick.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.059s] copying launch/ekf.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.059s] copying launch/gazebo.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.059s] copying launch/object_move_gazebo.launch.py -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/launch
+[1.060s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf
+[1.060s] copying urdf/camara.plugin.xacro -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf
+[1.060s] copying urdf/object_movement.sdf -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf
+[1.060s] copying urdf/materials.xacro -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf
+[1.060s] copying urdf/lidar.plugin.xacro -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf
+[1.060s] copying urdf/control.plugin.xacro -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf
+[1.060s] copying urdf/car.gazebo -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf
+[1.060s] copying urdf/car.xacro -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf
+[1.060s] copying urdf/car.trans -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/urdf
+[1.060s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.060s] copying worlds/world_simple6.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.060s] copying worlds/world_simple_object.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.060s] copying worlds/mountain.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.060s] copying worlds/world_simple9.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.060s] copying worlds/heightmap_world.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.060s] copying worlds/world_simple7.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] copying worlds/world_simple2.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] copying worlds/empty.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] copying worlds/world_simple3.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] copying worlds/world_simple8.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] copying worlds/world_simple4.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] copying worlds/obstacles_and_traps.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] copying worlds/grass.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] copying worlds/world_simple5.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] copying worlds/obstacles.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] copying worlds/test.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] copying worlds/map1_test.world -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/worlds
+[1.061s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.061s] copying meshes/Camara.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.061s] copying meshes/Lidar.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.062s] copying meshes/base_link.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.062s] copying meshes/tire_back_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.062s] copying meshes/direction_front_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.062s] copying meshes/direction_back_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.062s] copying meshes/rim_back_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.062s] copying meshes/direction_back_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.062s] copying meshes/tire.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.063s] copying meshes/suspension_back_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.063s] copying meshes/suspension_front_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.063s] copying meshes/tire_front_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.064s] copying meshes/suspension_back_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.064s] copying meshes/chasis_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.064s] copying meshes/direction_front_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.064s] copying meshes/tire_back_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.065s] copying meshes/rim.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.066s] copying meshes/tire_front_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.068s] copying meshes/rim_front_left_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.069s] copying meshes/suspension_front_left__1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.069s] copying meshes/rim_back_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.072s] copying meshes/rim_front_right_1.stl -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/meshes
+[1.072s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config
+[1.072s] copying config/mapper_params_online_async.yaml -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config
+[1.072s] copying config/nav2.yaml -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config
+[1.072s] copying config/ekf_params.yaml -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config
+[1.072s] copying config/octomap.yaml -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config
+[1.072s] copying config/display.rviz -> /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/share/car/config
+[1.072s] creating /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.072s] running install_egg_info
+[1.075s] Copying ../../build/car/car.egg-info to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car-0.0.0-py3.10.egg-info
+[1.076s] running install_scripts
+[1.104s] Installing camara_time_node script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing colision_zone script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing costmap script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing debug_node script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing dqn_ppo script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing ekf_node script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing filter_points_cloud script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing frontier_centroid script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing frontier_view script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing graph script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing imagine_ppo script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing imagine_ppo_avoid script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing imagine_ppo_map script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.107s] Installing inference_dqn_ppo script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing inference_ppo script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing joystick_control script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing keyboard_control script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing lidar_detection script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing log_joystick script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing map script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing map_navegation script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing memory_map script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing movement_predictive script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing octomap_2d_display script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing odometry_node script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing path_finder_ia script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing path_ppo_cnn_lstm script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing path_sac script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing planificador_script script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing points_goal script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing ppo script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing reset_octomap script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing scan_to_cloud script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing supervisor_node script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.108s] Installing test2 script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.109s] Installing train_ppo script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.109s] Installing view_point_and_click script to /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/car
+[1.109s] writing list of installed files to '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log'
+[1.168s] Invoked command in '/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/src/car_python' returned '0': CMAKE_PREFIX_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_mapping:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp LD_LIBRARY_PATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_interfaces/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_server/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/octomap_rviz_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/hector_gazebo_plugins/lib:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car_cpp/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/car build --build-base /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/build install --record /home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/build/car/install.log --single-version-externally-managed install_data

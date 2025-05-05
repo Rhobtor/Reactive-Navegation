@@ -1,0 +1,5 @@
+  File "/home/rhobtor/reactive/Reactive-Navegation/workspace_full_conected/install/car/lib/python3.10/site-packages/car/path_ppo_cnn_lstm_training_init_mode.py", line 660
+    if (self.goal_counter >= self.goals_in_world)
+                                                 ^
+SyntaxError: expected ':'
+

@@ -106,8 +106,8 @@ def generate_launch_description():
 
     frontier_values = Node(
         package='car_cpp',
-        executable='frontier_reduction',
-        name='frontier_reduction'
+        executable='frontier_values',
+        name='frontier_values'
     )
 
     octomap = Node(
@@ -209,7 +209,7 @@ def generate_launch_description():
         robot_state_publisher_node,
         # joint_state_publisher_node,
         gazebo_server,
-        gazebo_client,
+        #gazebo_client,
         urdf_spawn_node,
         filter_points_cloud,
         frontier_values,
